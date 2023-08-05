@@ -1,24 +1,23 @@
 {
-  "name": "generic--stilettos-hammers",
+  "name": "theme--stilettos-and-hammers",
   "version": "1.0.0",
-  "description": "Custom WordPress template, built for the Stilettos &
-Hammers corporation",
-  "main": "index.js",
+  "description": "Custom WordPress template, built for the Stilettos & Hammers corporation",
+  "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile-scss": "webpack --watch --config webpack.config.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ericnjanga/stilettos-hammers.git"
+    "url": "git+https://github.com/ericnjanga/generic--stilettos-and-hammers.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ericnjanga/stilettos-hammers/issues"
+    "url": "https://github.com/ericnjanga/generic--stilettos-and-hammers/issues"
   },
-  "homepage": "https://github.com/ericnjanga/stilettos-hammers#readme",
+  "homepage": "https://github.com/ericnjanga/generic--stilettos-and-hammers#readme",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "mini-css-extract-plugin": "^2.7.6",
