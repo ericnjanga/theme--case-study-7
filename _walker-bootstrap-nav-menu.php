@@ -33,26 +33,28 @@
             $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
             $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
-            if ($args->walker->has_children) {
-                $attributes .= ' class="nav-link dropdown-toggle"';
-                $attributes .= ' id="navbarDropdown" data-bs-toggle="dropdown"';
-            } else {
-                $attributes .= ' class="nav-link"';
+            // Only print the navigation if we have some arguments
+            if (is_object($args) && property_exists($args, 'walker')) {
+                if ($args->walker->has_children) {
+                    $attributes .= ' class="nav-link dropdown-toggle"';
+                    $attributes .= ' id="navbarDropdown" data-bs-toggle="dropdown"';
+                } else {
+                    $attributes .= ' class="nav-link"';
+                }
+
+                // ...
+                $item_output = $args->before;
+                $item_output .= '<a ' . $attributes . '>';
+                $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
+                $item_output .= '</a>';
+                $item_output .= $args->after;
+                
+                // ...
+                if ($depth > 0) {
+                    $item_output = str_replace('a ', 'a class="dropdown-item" ', $item_output);
+                }
+                $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
             }
-
-            $item_output = $args->before;
-            $item_output .= '<a ' . $attributes . '>';
-            $item_output .= $args->link_before . apply_filters('the_title', $item->title, $item->ID) . $args->link_after;
-            $item_output .= '</a>';
-            $item_output .= $args->after;
-
-
-    
-            if ($depth > 0) {
-                $item_output = str_replace('a ', 'a class="dropdown-item" ', $item_output);
-            }
-
-            $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
         }
     }
 ?>
