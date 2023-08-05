@@ -1,6 +1,11 @@
 
-<h4 class="content-title">Email Subscription</h4>
-<?php displayMailChimpSubscriptionForm(); ?>
+<!--
+    MailChimp subscription modal
+    ------ (Hidden) ------
+    <h4 class="content-title">Email Subscription</h4>
+    <?php // displayMailChimpSubscriptionForm(); ?>
+-->
+
 
 <hr>
 
