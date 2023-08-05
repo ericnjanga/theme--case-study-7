@@ -34,7 +34,7 @@
             $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
             // Only print the navigation if we have some arguments
-            if (is_object($args) && property_exists($args, 'walker')) {
+            // if (is_object($args) && property_exists($args, 'walker')) {
                 if ($args->walker->has_children) {
                     $attributes .= ' class="nav-link dropdown-toggle"';
                     $attributes .= ' id="navbarDropdown" data-bs-toggle="dropdown"';
@@ -54,7 +54,7 @@
                     $item_output = str_replace('a ', 'a class="dropdown-item" ', $item_output);
                 }
                 $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
-            }
+            // }
         }
     }
 ?>

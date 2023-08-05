@@ -9,3 +9,7 @@ Hammers corporation
 
 ## Run the task runner
 - npm run compile-scss
+
+## Connect menus
+- Create a menu
+- Under "Menu Settings", connect it to "Bootstrap Menu"
