@@ -1,3 +1,92 @@
+
+<?php
+    function displayEvents($count = -1) {
+        // Get the current date in 'Y-m-d' format
+        $current_date = date('Y-m-d');
+
+        // Calculate the date from 12 months ago from the current date
+        $one_year_ago = date('Y-m-d', strtotime('-12 months'));
+        
+        // Calculate the date from 12 months ago from the current date
+        $one_year_in_the_future = date('Y-m-d', strtotime('+12 months'));
+
+        // Create a custom query to fetch events using WP_Query
+        $args = array(
+            'post_type'      => 'tribe_events', // The custom post type for events
+            'post_status'    => 'publish', // Show only published events
+            'posts_per_page' => $count, // Number of events to display (you can adjust this)
+            'orderby'        => 'meta_value', // Order events by the event start date
+            'meta_key'       => '_EventStartDate', // The meta key for event start date
+            'meta_query'     => array(
+                array(
+                    'key'     => '_EventStartDate',
+                    'value'   => array($one_year_ago, $one_year_in_the_future), // Date range from 12 months ago to the current date
+                    'compare' => 'BETWEEN',
+                    'type'    => 'DATE',
+                ),
+            ),
+        );
+    
+        $query = new WP_Query($args);
+    
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+
+                // Get the event start date and time
+                $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
+                $event_start_time = get_post_meta(get_the_ID(), '_EventStartDateUTC', true);
+
+
+                // Check if the event is in the past
+                $event_is_past = strtotime($event_start_date) < strtotime($current_date);
+
+                ?>
+                    <div class="event-item">
+                        <figure>
+                            <?php 
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
+                                }
+                            ?>
+                            <figcaption>
+                                <div class="event-text text-center">
+
+                                    <?php if ($event_is_past) : ?>
+                                        <div>Event closed</div>
+                                    <?php endif; ?>
+
+                                    <b><?php the_title() ?></b>
+
+                                    <p><strong>Event Date:</strong> <?php echo $event_start_date; ?></p>
+                                    <p><strong>Event Time:</strong> <?php echo $event_start_time; ?></p>
+
+                                    <?php
+                                        $content = apply_filters('the_content', get_the_content());
+                                        $content = str_replace('<p>', '<p class="fs-7">', $content);
+                                        echo $content;
+                                    ?>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
+                <?php
+            }
+        } else {
+            echo '<p>No event found.</p>';
+        }
+    
+        wp_reset_postdata();
+    }
+?>
+
+
+
+
+
+
+
+
 <?php
     function displayMailChimpSubscriptionForm() {
         ?>
@@ -214,6 +303,13 @@
     }
 ?>
 
+
+
+
+
+
+
+
 <?php
     function displayClientLogos($count = -1) {
         $args = array(
@@ -230,12 +326,13 @@
                         while ($query->have_posts()) {
                             $query->the_post();
                             $post_ID = get_the_ID();
-                            $logo_light = get_field('logo_light', $post_ID);
-                            $logo_dark = get_field('logo_dark', $post_ID);
                             ?>
-                                <li class="bdr-solid">
-                                    <img src="<?php echo $logo_light; ?>" class="img-fluid img-theme-light border-decoration" alt="...">
-                                    <img src="<?php echo $logo_dark; ?>" class="img-fluid img-theme-dark border-decoration" alt="...">
+                                <li class="">
+                                    <?php 
+                                        if ( has_post_thumbnail() ) {
+                                            the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 mb-10' ) );
+                                        }
+                                    ?>
                                 </li>
                             <?php
                         }

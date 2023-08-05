@@ -20,27 +20,28 @@
     displayBanner('section-spacer');
 ?>
 
+
+
+<section id="section-partners" class="section-spacer">
+    <?php
+        displayClientLogos();
+    ?>
+</section>
+
+
+
+
+
+<section id="section-events" class="section-spacer">
+    <?php
+        displayEvents(3);
+    ?>
+</section>
+
+
+
+
 <main class="main-content-wrapper" role="main">
-    <section class="section-awards section-spacer">
-        <article>
-            <p class="pre-title heading-ff">Awards</p>
-            <blockquote class="blockquote">
-                Our professionalism and work ethic is recognized and trusted by Canada’s top financial institutions.
-            </blockquote>
-
-            <footer class="section-awards__footer">
-                <?php
-                    $link_whoAreWe = getPagePermalink('who are we');
-                ?>
-                <a href="<?php echo $link_whoAreWe .'#section-awards'; ?>" class="btn btn-secondary">Learn more</a>
-                <a href="#section-partners" class="btn btn-tertiary">Our partners</a>
-            </footer>
-        </article>
-
-        <div class="complementary">
-            <?php displayAward(null, 5, false, 'transparent-complementary'); ?>
-        </div>
-    </section>
 
     <section id="section-services" class="section-spacer">
         <h2 class="h-underlined">Services we provide</h2>
@@ -49,13 +50,6 @@
                 displayServicesExcerpts('grid grid-11233');
             ?>
         </div>
-    </section>
-
-    <section id="section-partners" class="section-spacer">
-        <h2 class="h-underlined">Partners</h2>
-        <?php
-            displayClientLogos();
-        ?>
     </section>
 
     <section class="section-spacer">
