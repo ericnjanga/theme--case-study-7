@@ -1,0 +1,189 @@
+:root {
+
+    --site-body-padding-top: 70px;
+    --site-header-fixed-container-top: 10px;
+
+    --site-header-wrapper-padding-left: 10px;
+    --site-header-wrapper-padding-right: 10px;
+
+    --site-navbar--h1-bot-mar: 0;
+    --site-navbar--logo-max-width: 81px;
+    --site-navbar--toggler-bdr-radius: 0px;
+    --site-navbar-font-size: 1.1rem;
+    --site-navbar-letter-spacing: 0.2ch;
+
+    --site-navbar-nav-display: block;
+    --site-navbar-nav-gap: 20px;
+
+    --site-navbar-padding: 4px 20px;
+
+    --site-dropdown-item-padding-x: 30px;
+    --site-dropdown-item-padding-y: 15px;
+}
+
+
+@layer header {
+    body {
+        padding-top: var(--site-body-padding-top);
+    }
+}
+
+@layer header {
+    // Push the fixed wrapper down
+    .container.fixed-top {
+        top: var(--site-header-fixed-container-top);
+    }
+
+    .main-header-wrapper {
+        background-color: var(--site-clr-body-background);
+        box-shadow: var(--site-header-wrapper-box-shadow);
+        padding-left: var(--site-header-wrapper-padding-left);
+        padding-right: var(--site-header-wrapper-padding-right);
+    }
+    .main-header {
+        .logo {
+            max-width: var(--site-navbar--logo-max-width);
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+            display: var(--site-navbar-nav-display);
+            gap: var(--site-navbar-nav-gap);
+            padding: var(--site-navbar-padding);
+            background-color: var(--site-clr-primary-100);
+        }
+
+        .navbar {
+            text-transform: uppercase;
+            letter-spacing: var(--site-navbar-letter-spacing);
+            font-size: var(--site-navbar-font-size); 
+
+            .dropdown-menu {
+                border-width: 0;
+                border-radius: 0;
+                background-color: var(--site-clr-primary-200);
+            }
+
+            // Overriding bootstrap dropdown toggle arrow
+            .dropdown-toggle::after {
+                display: inline-block;
+                margin-left: 0.255em;
+                content: "";
+                vertical-align: 0;                    // cancelling bootstrap
+                border-top: 0 solid;                    // cancelling bootstrap
+                border-right: 0 solid rgba(0,0,0,0);    // cancelling bootstrap
+                border-bottom: 0;                           // cancelling bootstrap
+                border-left: 0 solid rgba(0,0,0,0);     // cancelling bootstrap
+                background: var(--site-dropdown-toggle-arrow);
+                width: 22px;
+                height: 22px;
+                margin-top: 0; // cancelling bootstrap
+                position: relative;
+                top: 4px;
+            }
+
+            a.nav-link,
+            a.dropdown-item {
+                color: var(--site-clr-txt-neutral-200);
+            }
+            .dropdown-menu {
+                padding: 0;
+            }
+            a.dropdown-item {
+                position: relative;
+                padding: var(--site-dropdown-item-padding-y) var(--site-dropdown-item-padding-x);
+
+                &::after {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    content: '';
+                    width: 100%;
+                    height: 1px;
+                    background-color: var(--site-dropdown-sep-color);
+                }
+
+                &:active { // When link is pressed
+                    color: var(--site-clr-body-background);
+                    background-color: var(--site-dropdown-sep-color);
+                }
+            }
+            .current-menu-item.page_item {
+                a {
+                    color: var(--site-clr-link-800);
+                    text-decoration: underline;
+                }
+            }
+
+            .navbar-toggler {
+                border-radius: var(--site-navbar--toggler-bdr-radius);
+                // border-color: var(--site-clr-txt-neutral-800);
+            }
+            .navbar-toggler-icon{
+                background-image: var(--site-navbar-toggler-icon-bg);
+            }
+        }
+    }
+}
+
+
+
+// Responsiveness ...
+@layer header {
+    body {
+        @media (min-width: 1200px) {
+            --site-body-padding-top: 120px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-body-padding-top: 100px;
+        }
+    }
+}
+
+@layer header {
+    // The more the viewport spreads, Push the fixed wrapper down
+    .container.fixed-top {
+        @media (min-width: 1200px) {
+            --site-header-fixed-container-top: 30px;
+            --site-header-wrapper-padding-left: 30px;
+            --site-header-wrapper-padding-right: 30px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-header-fixed-container-top: 20px;
+            --site-header-wrapper-padding-left: 20px;
+            --site-header-wrapper-padding-right: 20px;
+        }
+    }
+}
+
+
+@layer header {
+    .main-header {
+        @media (min-width: 1400px) {
+            --site-navbar--logo-max-width: 160px;
+            --site-navbar-nav-display: flex;
+            --site-navbar-nav-gap: 60px;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-navbar--logo-max-width: 155px;
+            --site-navbar-nav-display: flex;
+            --site-navbar-nav-gap: 40px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-navbar-nav-display: flex;
+            --site-navbar--logo-max-width: 140px;
+        }
+
+        @media (min-width: 992px) {
+            .navbar-nav {
+                --site-navbar-padding: 0;
+                --site-navbar--logo-max-width: 120px;
+                background-color: var(--site-clr-body-background);
+            }
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-navbar--logo-max-width: 100px;
+        }
+        // @media (min-width: 576px) and (max-width: (768px - 1)) {}
+    }
+}

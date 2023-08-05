@@ -1,0 +1,84 @@
+:root {
+    // (Mobile first) ...
+    --site-hero-padding: 30px;
+    --site-hero-img-spacer: 30px;
+    --site-hero-txt-wrapper-max-width: 80%;
+    --site-hero-footer-mgr: 20px; // footer margin
+}
+
+// Mobile first settings ...
+@layer hero {
+    .hero {
+        text-align: center;
+        padding-top: var(--site-hero-padding);
+        padding-bottom: var(--site-hero-padding);
+    }
+    .hero .text-wrapper {
+        margin: 0 auto;
+        max-width: var(--site-hero-txt-wrapper-max-width);
+    }
+    .hero-title {
+        position: relative;
+        margin: 0;
+
+        &::after {
+            display: block;
+            content: '';
+            height: 1px;
+            margin: 20px auto 0 auto;
+            width: var(--site-headings-underlined-line-width);
+            background-color: var(--site-clr-primary-neutral-600);
+        }
+    }
+    .hero-intro {
+        margin-top: 20px;
+    }
+    .hero-footer {
+        margin-top: var(--site-hero-footer-mgr);
+    }
+}
+
+// Responsive settings ...
+@layer hero {
+    .hero {
+        @container (min-width: 1141px) {
+            --site-hero-padding: 90px;
+            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-footer-mgr: 40px; // footer top margin
+        }
+    
+        @container (min-width: 961px) and (max-width: 1140px) {
+            --site-hero-padding: 60px;
+            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-footer-mgr: 30px; // footer top margin
+        }
+    
+        @container (min-width: 721px) and (max-width: 960px) {
+            --site-hero-padding: 50px;
+            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-footer-mgr: 30px; // footer top margin
+        }
+    
+        @container (min-width: 541px) and (max-width: 720px) {
+            --site-hero-padding: 40px;
+            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-footer-mgr: 20px; // footer top margin
+        }
+
+        // @container (max-width: 540px) {} 
+    }
+}
+
+
+
+
+
+
+@layer hero {
+    .hero a {
+        color: var(--site-clr-link-700);
+        &:hover {
+            text-decoration: none;
+        }
+    }
+}

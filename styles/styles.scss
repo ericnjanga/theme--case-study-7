@@ -1,0 +1,69 @@
+
+@layer framework {
+    @import '../node_modules/bootstrap/scss/bootstrap';
+}
+
+@layer base {
+    @import 'base/variables';
+}
+
+@layer layouts {
+
+    @import 'layouts/base/countainer-queries';
+    @import 'layouts/base/section-spacer';
+    @import 'base/theme-switch';
+    @import 'layouts/post';
+
+    @layer grids {
+        @import 'layouts/grids/galleries';
+        @import 'layouts/grids/hero-main-sidebar';
+    }
+    @layer pages {
+        @import 'layouts/pages/home';
+        @import 'layouts/pages/home.awards';
+        @import 'layouts/pages/home.testimonials';
+        @import 'layouts/pages/home.latest-posts';
+        @import 'layouts/pages/about';
+        @import 'layouts/pages/about.awards';
+        @import 'layouts/pages/testimonials';
+        @import 'layouts/pages/contact';
+    }
+}
+
+@layer aesthetics {
+    @import 'aesthetics/base/body';
+    @import 'aesthetics/base/typography';
+    @import 'aesthetics/base/headings';
+    @import 'base/decorators';
+    @import 'base/forms';
+
+    @layer framework-overrides {
+        @import 'aesthetics/framework-overrides/alerts';
+        @import 'aesthetics/framework-overrides/bs-components-card';
+        @import 'aesthetics/framework-overrides/bs-utilities';
+    }
+    @layer components {
+        @import 'aesthetics/components/header';
+        @import 'aesthetics/components/link-icon';
+        @import 'aesthetics/components/hero';
+        @import 'aesthetics/components/banner';
+        @import 'aesthetics/components/buttons';
+        @import 'aesthetics/components/award';
+        @import 'aesthetics/components/boxes';
+        @import 'aesthetics/components/sidebar';
+        @import 'aesthetics/components/footer';
+        @import 'aesthetics/components/h-underlined';
+        @import 'aesthetics/components/blockquote';
+        @import 'aesthetics/components/post-navigation';
+        @import 'aesthetics/components/pagination';
+        @import 'aesthetics/components/cta-btn-container';
+        @import 'aesthetics/components/blog-items';
+        @import 'aesthetics/components/links';
+        @import 'aesthetics/components/modal';
+    }
+
+    @layer pages {
+        @import 'aesthetics/pages/about';
+    }
+}
+

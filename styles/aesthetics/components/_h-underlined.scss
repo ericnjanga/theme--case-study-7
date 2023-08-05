@@ -1,0 +1,37 @@
+:root {
+    --site-h-underlined--uh: 1px;  // Underline height
+    --site-h-underlined--umgr-top: 10px;  // Underline top margins
+    --site-h-underlined--umgr-bot: 15px;  // Underline bottom margins
+}
+
+@layer h-underlined {
+    .h-underlined {
+        position: relative;
+        margin-bottom: 0;
+    }
+    .h-underlined::after {
+        display: block;
+        content: '';
+        height: var(--site-h-underlined--uh);
+        margin-top: var(--site-h-underlined--umgr-top);
+        margin-bottom: var(--site-h-underlined--umgr-bot);
+        width: var(--site-headings-underlined-line-width);
+        background-color: var(--site-clr-primary-neutral-600);
+
+        @container (min-width: 1141px) {
+            --site-h-underlined--umgr-top: 15px;
+            --site-h-underlined--umgr-bot: 30px;
+        }
+    
+        @container (min-width: 961px) and (max-width: 1140px) {
+            --site-h-underlined--umgr-bot: 20px;
+        }
+    
+        @container (min-width: 721px) and (max-width: 960px) {
+            --site-h-underlined--umgr-bot: 20px;
+        }
+    
+        // @container (min-width: 541px) and (max-width: 720px) {}
+        // @container (max-width: 540px) {} 
+    }
+}

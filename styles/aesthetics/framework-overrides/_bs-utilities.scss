@@ -1,0 +1,32 @@
+
+
+/**
+ * https://getbootstrap.com/docs/5.3/utilities/text/#font-size
+*/
+@layer text {
+    .fs-7 {
+        font-size: 0.9rem!important;
+    }
+    .fs-8 {
+        font-size: 0.8rem!important;
+    }
+}
+
+
+/**
+ * https://getbootstrap.com/docs/5.3/utilities/spacing/
+*/
+@layer spacing {
+    .mb-0 {
+        margin-bottom: 0!important;
+    }
+    .mb-10 {
+        margin-bottom: 10px!important;
+    }
+    .mr-15 {
+        margin-left: 15px;
+    }
+    .pl-0 {
+        padding-left: 0!important;
+    }
+}

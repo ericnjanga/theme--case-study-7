@@ -1,0 +1,137 @@
+/**
+ * Grid layout formed by the header, the main content and the sidebar
+ * Note: Some classes like "sidebar-is-open" are used in "site-responsive-sidebar.js" to toggle the sidebar visibility
+ * -----------------
+*/
+:root {
+    // (Mobile fist)
+    // - sidebar widths:
+    --site-sidebar-width-collapsed: 45px;
+    --site-sidebar-width-expanded-small: 250px;
+    --site-sidebar-width-expanded-medium: 300px;
+    --site-sidebar-width-expanded-large: 415px;
+
+    --site-global-wrapper-display: grid;
+    --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-collapsed);    // By default: Shrinks sidebar down (the main content expands) ...              
+
+    --site-hero-grid-column: 1 / span 2;                       // The hero occupies all columns (1st row only)
+    --site-global-wrapper-row-gap: 20px;                       // Rows gap
+
+    --site-global-wrapper-btn-sidebar-trigger-display: block;      // Make trigger button visible
+    --site-global-wrapper-sidebar-content-wrapper-display: none;   // Hide the sidebar content
+}
+
+
+
+// Apply only the grid on the following pages:
+.blog, 
+.single, 
+.archive, // Including sub pages like category, author, ...
+.page-template-template-service,
+.page-template-template-contact {
+
+    /**
+     * Parameters setup (mobile first)
+     * ------------
+    */
+    .site-global-container { 
+        // Setup grid
+        display: var(--site-global-wrapper-display);
+        grid-template-columns: var(--site-global-wrapper-gtc);
+        grid-column-gap: var(--site-global-wrapper-row-gap);
+
+        // Set up the sidebar expansion parameters
+        &.sidebar-is-open {
+            // Expands sidebar left (the main content shrinks) ...
+            @media (max-width: (992px - 1)) {
+                --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-small);
+                --site-global-wrapper-sidebar-content-wrapper-display: block;
+            }
+        }
+
+        // Set up the hero's column occupancy
+        .hero {
+            grid-column: var(--site-hero-grid-column);
+        }
+
+        .sidebar {
+            .content-wrapper {
+                display: var(--site-global-wrapper-sidebar-content-wrapper-display);
+            }
+            // Expand sidebar left
+            .btn-sidebar-trigger {
+                display: var(--site-global-wrapper-btn-sidebar-trigger-display)!important; // This has to be inforced (the button implements "display" property for other purposes
+            }
+        }
+        
+    }
+
+
+    /**
+     * Responsiveness
+     * ------------
+    */
+    .site-global-container {
+        @media (min-width: 1400px) {
+            --site-global-wrapper-btn-sidebar-trigger-display: none;
+            // Expands sidebar left (the main content shrinks) ...
+            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-large);
+            --site-global-wrapper-row-gap: 170px;
+            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+        }
+
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-global-wrapper-btn-sidebar-trigger-display: none; // Sidebar cannot be collapsed 
+            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-medium); // Sidebar expanded and adjust main content's width
+            --site-global-wrapper-row-gap: 90px;   // Row columns gap
+            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+        }
+
+        // From this breakpoint up, sidebar cannot be collapsed 
+        // Keep sidebar expanded and adjust main content's width
+        // Increase gap between row columns 
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-global-wrapper-btn-sidebar-trigger-display: none; // Sidebar cannot be collapsed 
+            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-medium); // Sidebar expanded and adjust main content's width
+            --site-global-wrapper-row-gap: 50px;   // Row columns gap
+            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+        }
+
+        // Increase gap between row columns 
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-global-wrapper-row-gap: 50px;
+        }
+
+        // Increase gap between row columns 
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            --site-global-wrapper-row-gap: 40px;
+        }
+    }
+
+} // Select pages
+
+
+
+
+.main-content-wrapper {
+    /**
+     * Prevent children elements from overflowing when compressed by the expanding sidebar
+     * (usefull only on very small viewports, no larger than 576px);
+    **/
+    overflow: hidden; 
+
+    // Increase gap between row columns 
+    @media (min-width: 576px) {
+        overflow: visible; 
+    }
+}
+
+// (uncomment only for testing purposes) ...
+// .sidebar {
+// }
+// .content-wrapper {
+// }
+
+
+
+
