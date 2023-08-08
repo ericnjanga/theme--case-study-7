@@ -6,7 +6,12 @@
     .banner {
         overflow: hidden;
         background-size: cover;
-        height: var(--site-banner-height);
+        // height: var(--site-banner-height);
+
+        .img1, .img2, .img3 {
+            width: 300px;
+            height: 100px;
+        }
 
         // Increase banner ratio based on the container
         @container (min-width: 1141px) {

@@ -43,6 +43,11 @@
         // Footer
         --site-clr-footer-links: #B4B2AE;
         --site-clr-footer-headings: #977003;
+
+        // Sections
+        --site-clr-section-highlight: #262626;
+        --site-clr-section-highlight-title: #fff;
+        --site-clr-section-highlight-content: #C8C8C8;
     }
 
     :root { /* Hero images */
@@ -114,5 +119,8 @@
     /* Font faces */
     --site-font-family-headings: 'Oswald', sans-serif;
     --site-font-family-body: 'Merriweather', serif;
+
+    // layout
+    --site-border-radius: 10px;
 }
 

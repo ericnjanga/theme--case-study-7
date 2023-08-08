@@ -1,0 +1,17 @@
+
+
+@layer home {
+    .page-template-template-home {
+        .section-highlight {
+            background: var(--site-clr-section-highlight);
+
+            .section-title,
+            .section-subtitle {
+                color: var(--site-clr-section-highlight-title);
+            }
+            .section-content {
+                color: var(--site-clr-section-highlight-content);
+            }
+        }
+    }
+}

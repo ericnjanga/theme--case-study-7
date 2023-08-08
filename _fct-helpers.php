@@ -1,5 +1,74 @@
 
 <?php
+    function getFieldImage($id, $eltClass='', $imageSize='') {
+        $image = get_field($id);
+        $output = '';
+        if ($image) {
+            if ($imageSize=='') {
+                $output = '<img class="'. $eltClass. '" src="' . $image . '" alt="--">';
+            } else {
+                // Get the image sizes
+                $image_sizes = $image['sizes'];
+            
+                // Get the URL of the medium-sized image
+                $medium_image_url = $image_sizes[$imageSize];
+            
+                // Output the medium-sized image URL
+                $output = '<img src="' . esc_url($medium_image_url) . '" alt="' . esc_attr($image['alt']) . '">';
+            }
+        }
+
+        return $output;
+    }
+?>
+
+
+
+<?php
+    function getVimeoThumbnail($video_url, $cssClass) {
+        /**
+         * Video API created for "Stilettosandhammers" under Eric Njanga on https://developer.vimeo.com/
+         */
+        $vimeoAccessToken = '0a0c0109d1fcc9c5957ba1b7fd6204c0';
+
+        $video_id = substr(parse_url($video_url, PHP_URL_PATH), 1); // Extract video ID
+
+        $api_url = "https://api.vimeo.com/videos/$video_id";
+        $access_token = $vimeoAccessToken; // Replace with your actual access token
+
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $api_url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
+            'Authorization: Bearer ' . $access_token,
+            'Accept: application/vnd.vimeo.*+json;version=3.4',
+        ]);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        if ($response) {
+            $video_data = json_decode($response, true);
+
+            if (isset($video_data['pictures']['sizes'][1]['link'])) {
+                $thumbnail_url = $video_data['pictures']['sizes'][3]['link'];
+                echo '<img class="' . $cssClass . ' img-fluid" src="' . $thumbnail_url . '" alt="Video Thumbnail">';
+            } else {
+                echo 'Thumbnail not found';
+            }
+        } else {
+            echo 'Unable to fetch video data';
+        }
+    }
+?>
+
+
+
+
+
+
+<?php
     function displayEvents($count = -1) {
         // Get the current date in 'Y-m-d' format
         $current_date = date('Y-m-d');
@@ -348,16 +417,21 @@
 ?>
 
 <?php
-    function displayBanner($cssClass) {
+    function displayHeroImages($cssClass) {
         global $post;
 
         // Get the light theme image URL
-        $theme_image = get_field('image_theme', $post->ID);
-        $text_theme_image = get_field('image_text_theme', $post->ID); 
+        $image1 = get_field('image_1', $post->ID);
+        $image2 = get_field('image_2', $post->ID);
+        $image3 = get_field('image_3', $post->ID);
+        // $text_image1 = get_field('image_text_theme', $post->ID); 
         // Display the hero images
-        if ($theme_image) {
+        if ($image1) {
             ?>
-            <section class="banner <?php echo $cssClass; ?>" style="background-image: url(<?php echo $theme_image["url"]; ?>);">
+            <section class="banner">
+                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image1["url"]; ?>);"></div>
+                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image2["url"]; ?>);"></div>
+                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image3["url"]; ?>);"></div>
             </section>
             <?php
         } else {
@@ -480,7 +554,7 @@
 
 
 <?php
-    function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false) {
+    function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
         $args = array(
             'post_type' => 'post',
             'posts_per_page' => $count,
@@ -507,6 +581,14 @@
                                 <li>
                                     <article>
                                         <?php $categories = get_the_category(); ?>
+
+                                        <a class="km-link-primary" href="<?php the_permalink(); ?>">
+                                            <?php
+                                                $video_url = getField('video_url');
+                                                getVimeoThumbnail($video_url, 'entry-img');
+                                            ?>
+                                        </a>
+
                                         <?php if ( ! empty( $categories ) ) : ?>
                                             <p class="pre-title heading-ff">
                                                 <a class="km-link-secondary" href="<?php echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>">
@@ -514,12 +596,13 @@
                                                 </a>
                                             </p>
                                         <?php endif; ?>
-                                        <h3>
-                                            <a class="km-link-primary" href="<?php the_permalink(); ?>">
-                                                <?php the_title(); ?>
-                                            </a>
-                                        </h3>
-                                        <p><?php echo wp_trim_words(get_the_content(), 40); ?> ...</p>
+
+                                        <a class="km-link-primary" href="<?php the_permalink(); ?>">
+                                            <h3>
+                                                    <?php the_title(); ?>
+                                            </h3>
+                                            <p><?php echo wp_trim_words(get_the_content(), $content_text_size); ?></p>
+                                        </a>
                                     </article>
                                 </li>
                             <?php 
@@ -581,13 +664,12 @@
                         $query->the_post();
                         ?>
                             <li>
-                                <article class="testimonial card card-primary card-padd30 has-quote bdr-no-radius bdr-none dpw1">
+                                <article class="testimonial card card-primary card-padd30 has-quote bdr-none dpw1">
                                     <div class="card-header d-flex bdr-no-bottom no-bg">
                                         
                                         <svg xmlns="http://www.w3.org/2000/svg" class="card-header-icon" height="48" viewBox="0 -960 960 960" width="48"><path d="M626-533q22.5 0 38.25-15.75T680-587q0-22.5-15.75-38.25T626-641q-22.5 0-38.25 15.75T572-587q0 22.5 15.75 38.25T626-533Zm-292 0q22.5 0 38.25-15.75T388-587q0-22.5-15.75-38.25T334-641q-22.5 0-38.25 15.75T280-587q0 22.5 15.75 38.25T334-533Zm146 272q66 0 121.5-35.5T682-393h-52q-23 40-63 61.5T480.5-310q-46.5 0-87-21T331-393h-53q26 61 81 96.5T480-261Zm0 181q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 340q142.375 0 241.188-98.812Q820-337.625 820-480t-98.812-241.188Q622.375-820 480-820t-241.188 98.812Q140-622.375 140-480t98.812 241.188Q337.625-140 480-140Z"/></svg>
 
                                         <div class="d-flex flex-column mr-15">
-                                            <b class="fs-5 heading-ff"><?php the_title() ?></b>
                                             <?php
                                                 $job_title = getFieldByID('job_title', get_the_ID());
                                                 if (!empty($job_title)) {
@@ -607,6 +689,10 @@
                                                 // echo $content_with_class;
                                                 the_content(); 
                                             ?>
+
+                                            <footer>
+                                                <b class="fs-5 heading-ff"><?php the_title() ?></b>
+                                            </footer>
                                         </div>
                                     </div>
                                 </article>

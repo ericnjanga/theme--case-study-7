@@ -63,6 +63,7 @@
     }
 
     @layer pages {
+        @import 'aesthetics/pages/home';
         @import 'aesthetics/pages/about';
     }
 }
