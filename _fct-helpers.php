@@ -120,21 +120,22 @@
                             ?>
                             <figcaption>
                                 <div class="event-text text-center">
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php if ($event_is_past) : ?>
+                                            <div>Event closed</div>
+                                        <?php endif; ?>
 
-                                    <?php if ($event_is_past) : ?>
-                                        <div>Event closed</div>
-                                    <?php endif; ?>
+                                        <b><?php the_title() ?></b> <!-- Wrap the title in an anchor tag -->
 
-                                    <b><?php the_title() ?></b>
+                                        <p><strong>Event Date:</strong> <?php echo $event_start_date; ?></p>
+                                        <p><strong>Event Time:</strong> <?php echo $event_start_time; ?></p>
 
-                                    <p><strong>Event Date:</strong> <?php echo $event_start_date; ?></p>
-                                    <p><strong>Event Time:</strong> <?php echo $event_start_time; ?></p>
-
-                                    <?php
-                                        $content = apply_filters('the_content', get_the_content());
-                                        $content = str_replace('<p>', '<p class="fs-7">', $content);
-                                        echo $content;
-                                    ?>
+                                        <?php
+                                            $content = apply_filters('the_content', get_the_content());
+                                            $content = str_replace('<p>', '<p class="fs-7">', $content);
+                                            echo $content;
+                                        ?>
+                                    </a>
                                 </div>
                             </figcaption>
                         </figure>
