@@ -20,8 +20,8 @@
             <div class="content-wrapper">
                 <?php 
                     // Services page template ...
-                    if ($template_slug === 'template-service.php') { ?>
-                        <?php include 'sidebar-template-services.php'; ?>
+                    if ($template_slug === 'template-events.php') { ?>
+                        <?php include 'sidebar-template-events.php'; ?>
                 <?php } 
                     // Contact page template ...
                     elseif ($template_slug === 'template-contact.php') { ?>

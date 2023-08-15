@@ -281,6 +281,24 @@ add_action('wp_enqueue_scripts', 'enqueue_custom_script');
 
 
 
+/**
+ * To create a search box that specifically queries only "tribe_events" (events created using The Events Calendar plugin) in WordPress.
+ * This hook allows you to modify the main query before it is executed
+ */
+
+function modify_event_search_query($query) {
+    if (is_search() && !is_admin() && $query->is_main_query()) {
+        if (is_page_template('template-events.php')) {
+            $query->set('post_type', 'tribe_events');
+        }
+    }
+}
+add_action('pre_get_posts', 'modify_event_search_query');
+
+
+
+
+
 
 
 function generic_custom_pings( $comment ) {
