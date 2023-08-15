@@ -52,7 +52,7 @@
             $video_data = json_decode($response, true);
 
             if (isset($video_data['pictures']['sizes'][1]['link'])) {
-                $thumbnail_url = $video_data['pictures']['sizes'][3]['link'];
+                $thumbnail_url = $video_data['pictures']['sizes'][4]['link'];
                 echo '<img class="' . $cssClass . ' img-fluid" src="' . $thumbnail_url . '" alt="Video Thumbnail">';
             } else {
                 echo 'Thumbnail not found';
@@ -74,7 +74,8 @@
         $current_date = date('Y-m-d');
 
         // Calculate the date from 12 months ago from the current date
-        $one_year_ago = date('Y-m-d', strtotime('-12 months'));
+        $years = 12 * 6;
+        $four_year_ago = date('Y-m-d', strtotime('-'.$years.' months'));
         
         // Calculate the date from 12 months ago from the current date
         $one_year_in_the_future = date('Y-m-d', strtotime('+12 months'));
@@ -89,7 +90,7 @@
             'meta_query'     => array(
                 array(
                     'key'     => '_EventStartDate',
-                    'value'   => array($one_year_ago, $one_year_in_the_future), // Date range from 12 months ago to the current date
+                    'value'   => array($four_year_ago, $one_year_in_the_future), // Date range from 12 months ago to the current date
                     'compare' => 'BETWEEN',
                     'type'    => 'DATE',
                 ),
@@ -109,13 +110,12 @@
 
                 // Check if the event is in the past
                 $event_is_past = strtotime($event_start_date) < strtotime($current_date);
-
                 ?>
-                    <div class="event-item">
+                    <div class="event-item grid-item">
                         <figure>
                             <?php 
                                 if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
+                                    the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-fluid img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
                                 }
                             ?>
                             <figcaption>
@@ -132,8 +132,14 @@
 
                                         <?php
                                             $content = apply_filters('the_content', get_the_content());
+
+
+
+                                            //echo wp_trim_words(get_the_content(), $content_text_size);  
+
+
                                             $content = str_replace('<p>', '<p class="fs-7">', $content);
-                                            echo $content;
+                                            // echo $content;
                                         ?>
                                     </a>
                                 </div>
@@ -554,6 +560,40 @@
 ?>
 
 
+
+<?php
+    function displayPost($content_text_size) {
+        ?>
+            <article class="grid-item">
+                <?php $categories = get_the_category(); ?>
+
+                <a class="km-link-primary" href="<?php the_permalink(); ?>">
+                    <?php
+                        $video_url = getField('video_url');
+                        getVimeoThumbnail($video_url, 'entry-img');
+                    ?>
+                </a>
+
+                <?php if ( ! empty( $categories ) ) : ?>
+                    <p class="pre-title heading-ff">
+                        <a class="km-link-secondary" href="<?php echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>">
+                            <?php echo esc_html( $categories[0]->name ); ?>
+                        </a>
+                    </p>
+                <?php endif; ?>
+
+                <a class="km-link-primary" href="<?php the_permalink(); ?>">
+                    <h3>
+                            <?php the_title(); ?>
+                    </h3>
+                    <p><?php echo wp_trim_words(get_the_content(), $content_text_size); ?></p>
+                </a>
+            </article>
+        <?php
+    }
+?>
+
+
 <?php
     function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
         $args = array(
@@ -580,31 +620,9 @@
                             $query->the_post(); 
                             ?>
                                 <li>
-                                    <article>
-                                        <?php $categories = get_the_category(); ?>
-
-                                        <a class="km-link-primary" href="<?php the_permalink(); ?>">
-                                            <?php
-                                                $video_url = getField('video_url');
-                                                getVimeoThumbnail($video_url, 'entry-img');
-                                            ?>
-                                        </a>
-
-                                        <?php if ( ! empty( $categories ) ) : ?>
-                                            <p class="pre-title heading-ff">
-                                                <a class="km-link-secondary" href="<?php echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>">
-                                                    <?php echo esc_html( $categories[0]->name ); ?>
-                                                </a>
-                                            </p>
-                                        <?php endif; ?>
-
-                                        <a class="km-link-primary" href="<?php the_permalink(); ?>">
-                                            <h3>
-                                                    <?php the_title(); ?>
-                                            </h3>
-                                            <p><?php echo wp_trim_words(get_the_content(), $content_text_size); ?></p>
-                                        </a>
-                                    </article>
+                                    <?php
+                                        displayPost($content_text_size);
+                                    ?>
                                 </li>
                             <?php 
                         }

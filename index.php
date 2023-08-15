@@ -14,16 +14,34 @@
 </header>
 
 <main class="main-content-wrapper section-spacer" role="main">
-    <?php
-        if ( have_posts() ) : while ( have_posts() ) : the_post();
-        get_template_part( 'entry' );
+    <div class="content-listing-grid-1 grid">
+        <?php
+            if ( have_posts() ) :
+                $first_post = true; // Flag to track the first post
+                while ( have_posts() ) : the_post();
+                    if ( $first_post ) {
+                        displayPost(20);
+                        // echo '<div class="first-post" style="border:5px solid blue;">';
 
-        // No need for comments
-        // comments_template();
-        endwhile; endif;
-    ?>
+                            // get_template_part( 'entry' );
+                        // echo '</div>'; // Close the div for the first post
+                    } else {
+                        displayPost(20);
+                        // get_template_part( 'entry' );
+                    }
 
-    <?php get_template_part( 'nav', 'below' ); ?>
+                    // No need for comments
+                    // comments_template();
+
+                    if ( $first_post ) {
+                        $first_post = false; // Set the flag to false after the first post
+                    }
+                endwhile;
+            endif;
+        ?>
+
+        <?php get_template_part( 'nav', 'below' ); ?>
+    </div>
 </main>
 
 <?php

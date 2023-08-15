@@ -24,27 +24,55 @@
                 <?php the_content(); ?>
             </div>
         </article>
-
-        <aside>
-            <?php displayEmployee(1); ?>
-        </aside>
     </section>
 
-    <section id="section-awards" class="section-awards transparent-complementary section-spacer">
-        <article>
-            <p class="pre-title heading-ff">Awards &amp; recognition</p>
-            <blockquote class="blockquote">
-                Our professionalism and work ethic is recognized and trusted by Canada’s top financial institutions.
-            </blockquote>
-        </article>
+    <section>
+        <h2>Meet the founder</h2>
+        <?php
+            if ( have_posts() ) :
+                while ( have_posts() ) : the_post();
+                    // Get the featured image HTML
+                    $featured_image = get_the_post_thumbnail( get_the_ID(), 'thumbnail' ); // Change 'thumbnail' to your desired image size
+                    // Output the featured image HTML
+                    echo $featured_image;
+                endwhile;
+            endif;
+        ?>
 
-        <?php displayAward('grid grid-22345', 5, true, null); ?>
+
+        <div>
+            <p><?php echo getField('text_1'); ?></p>
+            <p><?php echo getField('text_2'); ?></p>
+            <p><?php echo getField('text_3'); ?></p>
+            <p><?php echo getField('text_4'); ?></p>
+            <p><?php echo getField('text_5'); ?></p>
+        </div>
     </section>
 
-    <section class="section-spacer">
-        <h2>Testimonials</h2>
-        <?php displayTestimonial('grid grid-11233 testimonial-list', 4, true); ?>
+    <section>
+        <h2>Our team</h2>
+        <?php
+            displayEmployee();
+        ?>
     </section>
+
+
+    <section>
+        <h2>Gallery</h2>
+
+        <div>
+            <p><?php echo getFieldImage('image_1', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_2', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_3', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_4', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_5', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_6', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_7', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_8', '', 'medium'); ?></p>
+            <p><?php echo getFieldImage('image_9', '', 'medium'); ?></p>
+        </div>
+    </section>
+   
 </main>
 
 <?php get_footer(); ?>

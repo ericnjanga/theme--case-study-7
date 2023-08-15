@@ -18,6 +18,7 @@
         </div>
 
         <div>
+            <!-- <img id="test-css" class="img-fluid" src="http://stilettosandhammers.local/wp-content/uploads/2023/08/hero-img.png" alt=""> -->
             <?php
                 displayHeroImages('wadedfef');
             ?>
@@ -28,7 +29,6 @@
 
 
 <main class="main-content-wrapper" role="main">
-
     <div class="container">
         <section id="section-partners" class="section-spacer">
             <h2 class="section-title">Partners</h2>

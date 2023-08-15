@@ -28,6 +28,7 @@
 .single, 
 .archive, // Including sub pages like category, author, ...
 .page-template-template-service,
+.page-template-template-events,
 .page-template-template-contact {
 
     /**
@@ -76,7 +77,7 @@
             --site-global-wrapper-btn-sidebar-trigger-display: none;
             // Expands sidebar left (the main content shrinks) ...
             --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-large);
-            --site-global-wrapper-row-gap: 170px;
+            --site-global-wrapper-row-gap: 90px;
             --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
         }
 

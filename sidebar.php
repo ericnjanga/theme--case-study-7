@@ -6,8 +6,6 @@
     $activePostCat = getCurrentPageSlug();
 
     // Sidebar is not needed on:
-    
-    
     if (!is_front_page()                        // - Front page template
     && $template_slug !== 'template-about.php' // - About page templates
     && $template_slug !== 'template-grid-testimonials.php'  // - Testimonials page templates

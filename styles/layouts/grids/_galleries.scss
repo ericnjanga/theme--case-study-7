@@ -240,3 +240,43 @@
 
 
 
+
+
+@layer grids.content-listing-grid-1 {
+    .content-listing-grid-1 {
+        border: 5px solid turquoise;
+
+
+        // display: grid;
+        grid-column-gap: 30px;
+
+
+
+        // @media (min-width: 1400px) {
+        //     border: 10px solid green;
+        // }
+        // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+        //     /* // ... */
+        // }
+        // @media (min-width: 992px) and (max-width: (1200px - 1)) {
+        //     border: 10px solid lime;
+        // }
+        @media (min-width: 768px) {
+            border: 10px solid blue;
+            grid-template-columns: 1fr 1fr;
+
+
+            .grid-item:first-child {
+                grid-column: span 2; /* Make it span two columns */
+                background-color: lightblue; /* Example background color */
+            }
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 10px solid turquoise;
+        }
+    }
+}
+
+
+
+

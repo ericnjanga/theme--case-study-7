@@ -22,10 +22,10 @@
 </header>
 
 <main class="main-content-wrapper" role="main">
-    <div>
-            <?php
-                displayEvents();
-            ?>
+    <div class="content-listing-grid-1 grid">
+        <?php
+            displayEvents();
+        ?>
     </div>
 </main>
 

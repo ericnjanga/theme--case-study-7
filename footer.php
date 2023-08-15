@@ -1,6 +1,6 @@
 
                 <?php get_sidebar('sidebar-contact'); ?>
-            </div><!-- container -->
+            </div><!-- site-global-container -->
             
             <footer id="footer" role="contentinfo">
                 <div class="container bx-container">
@@ -58,7 +58,7 @@ Hammers Logo.png' ?>"
                     </div>
                 </div>
             </footer>
-        </div>
+        </div><!-- site-global-wrapper -->
 
         <?php
             // Place modals here for global access
