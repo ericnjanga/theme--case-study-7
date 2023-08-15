@@ -22,6 +22,9 @@
 </header>
 
 <main class="main-content-wrapper" role="main">
+    <section class="breadcrumb">
+        <?php displayBreadcrumbs(); ?>
+    </section>
     <div class="content-listing-grid-1 grid">
         <?php
             displayEvents();

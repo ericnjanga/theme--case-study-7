@@ -1,5 +1,18 @@
 
 <?php
+    /**
+     * Generate breadcrumbs on the page.
+     * Toast Plugin needs to be installed for this to work.
+     */
+    function displayBreadcrumbs() {
+        if ( function_exists('yoast_breadcrumb') ) {
+            yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
+        }
+    }
+?>
+
+
+<?php
     function getFieldImage($id, $eltClass='', $imageSize='') {
         $image = get_field($id);
         $output = '';
