@@ -8,9 +8,11 @@
              * Render vimeo video player if the video url has been provided
              * -----------------
              */
-            $video_url = getField('video_url'); // Video URL
-            if ($video_url) {
-                $video_embed = wp_oembed_get($video_url); // Get the oEmbed HTML for the video
+            $vimeo_video_url = getField('video_url'); // Video URL
+            $youtube_video_url = getField('youtube_video_url');
+
+            if (!empty($vimeo_video_url)) {
+                $video_embed = wp_oembed_get($vimeo_video_url); // Get the oEmbed HTML for the video
                 ?>
                     <figure class="wp-block-embed is-type-video is-provider-vimeo wp-block-embed-vimeo wp-embed-aspect-16-9 wp-has-aspect-ratio">
                         <div class="wp-block-embed__wrapper">
@@ -20,6 +22,16 @@
                         </div>
                     </figure>
                 <?php
+            }
+            else if (!empty($youtube_video_url)) {
+                 
+                // Extract video ID from the URL
+                $video_id = getYoutubeUrlID($youtube_video_url);
+            
+                // If video ID is found, render the YouTube player
+                if (!empty($video_id)) {
+                    echo '<iframe width="560" height="315" src="https://www.youtube.com/embed/' . esc_attr($video_id) . '" frameborder="0" allowfullscreen></iframe>';
+                } 
             }
         ?>
 

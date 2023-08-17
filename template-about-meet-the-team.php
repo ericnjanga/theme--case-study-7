@@ -1,18 +1,21 @@
 <?php
     /*
-    Template Name: About Template
+    Template Name: About > Meet The Team
     */ 
     get_header();
 ?>
 
 <header class="hero">
     <div class="text-wrapper">
-        <h1 class="hero-title"><?php echo getField('title'); ?></h1>
+        <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
         <?php edit_post_link(); ?>
     </div>
 </header>
 
 <main class="main-content-wrapper" role="main">
+    <section class="breadcrumb">
+        <?php displayBreadcrumbs(); ?>
+    </section>
 
     <section class="content-grid section-spacer">
         <article>
@@ -55,7 +58,6 @@
             displayEmployee();
         ?>
     </section>
-
 
     <section>
         <h2>Gallery</h2>

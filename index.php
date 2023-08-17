@@ -14,6 +14,10 @@
 </header>
 
 <main class="main-content-wrapper section-spacer" role="main">
+    <section class="breadcrumb">
+        <?php displayBreadcrumbs(); ?>
+    </section>
+    
     <div class="content-listing-grid-1 grid">
         <?php
             if ( have_posts() ) :

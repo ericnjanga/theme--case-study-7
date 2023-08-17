@@ -38,40 +38,110 @@
 
 
 <?php
-    function getVimeoThumbnail($video_url, $cssClass) {
-        /**
-         * Video API created for "Stilettosandhammers" under Eric Njanga on https://developer.vimeo.com/
-         */
-        $vimeoAccessToken = '0a0c0109d1fcc9c5957ba1b7fd6204c0';
 
-        $video_id = substr(parse_url($video_url, PHP_URL_PATH), 1); // Extract video ID
+    function isUrlFrom($url, $host) {
+        $url_parts = parse_url($url);
+        $val = false;
+        // Check if the host is "vimeo.com"
+        if (isset($url_parts['host']) && $url_parts['host'] === $host) {
+            $val = true;
+        }
+        
+        return $val;
+    }
 
-        $api_url = "https://api.vimeo.com/videos/$video_id";
-        $access_token = $vimeoAccessToken; // Replace with your actual access token
+
+    function getYoutubeUrlID($youtube_url) {
+        // Parse the URL
+        $url_parts = parse_url($youtube_url);
+
+        // Get the path component (video ID)
+        $path = ltrim($url_parts['path'], '/'); // Remove the leading slash
+
+        // Split the path by '/' and get the last part
+        $path_parts = explode('/', $path);
+        $video_id = end($path_parts);
+
+        return $video_id;
+    }
 
 
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $api_url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, [
-            'Authorization: Bearer ' . $access_token,
-            'Accept: application/vnd.vimeo.*+json;version=3.4',
-        ]);
+    // youtube_url ...
+    function getYoutubeThumbnail($youtubeVideo_url, $cssClass) {
 
-        $response = curl_exec($ch);
-        curl_close($ch);
-
-        if ($response) {
-            $video_data = json_decode($response, true);
-
-            if (isset($video_data['pictures']['sizes'][1]['link'])) {
-                $thumbnail_url = $video_data['pictures']['sizes'][4]['link'];
-                echo '<img class="' . $cssClass . ' img-fluid" src="' . $thumbnail_url . '" alt="Video Thumbnail">';
-            } else {
-                echo 'Thumbnail not found';
+        if (isUrlFrom($youtubeVideo_url, 'youtube.com') || isUrlFrom($youtubeVideo_url, 'youtu.be')) {
+            /**
+             * Video API created for "Eric Njanga 2023 Portfolio" under Eric Njanga on https://console.cloud.google.com/
+             */
+            $api_key = 'AIzaSyBOcsJM9ncaPB597YBotud6PFN1P2MIv1g';
+            
+            // // Extract video ID from the URL
+            $video_id = getYoutubeUrlID($youtubeVideo_url);
+            
+            // Make API request
+            $api_url = "https://www.googleapis.com/youtube/v3/videos?part=snippet&id=$video_id&key=$api_key";
+            $response = file_get_contents($api_url);
+            $data = json_decode($response, true);
+            
+            // Get thumbnail URLs
+            if (sizeof($data['items'])) {
+                $thumbnails = $data['items'][0]['snippet']['thumbnails'];
+                
+                // Choose the desired thumbnail size (e.g., 'medium', 'high', 'maxres')
+                $thumbnail_url = $thumbnails['high']['url'];
+                
+                // Output the thumbnail
+                echo '<img class="' . $cssClass . ' img-fluid" src="' . $thumbnail_url . '" alt="YouTube Video Thumbnail">';
             }
         } else {
-            echo 'Unable to fetch video data';
+            echo '<div>Failed to load the image</div>';
+        }
+        
+    }
+
+
+
+
+    // ...
+    function getVimeoThumbnail($vimeo_url, $cssClass) {
+
+        if (isUrlFrom($vimeo_url, 'vimeo.com')) {
+            /**
+             * Video API created for "Stilettosandhammers" under Eric Njanga on https://developer.vimeo.com/
+             */
+            $vimeoAccessToken = '0a0c0109d1fcc9c5957ba1b7fd6204c0';
+
+            $video_id = substr(parse_url($vimeo_url, PHP_URL_PATH), 1); // Extract video ID
+
+            $api_url = "https://api.vimeo.com/videos/$video_id";
+            $access_token = $vimeoAccessToken; // Replace with your actual access token
+
+
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $api_url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, [
+                'Authorization: Bearer ' . $access_token,
+                'Accept: application/vnd.vimeo.*+json;version=3.4',
+            ]);
+
+            $response = curl_exec($ch);
+            curl_close($ch);
+
+            if ($response) {
+                $video_data = json_decode($response, true);
+
+                if (isset($video_data['pictures']['sizes'][1]['link'])) {
+                    $thumbnail_url = $video_data['pictures']['sizes'][4]['link'];
+                    echo '<img class="' . $cssClass . ' img-fluid" src="' . $thumbnail_url . '" alt="Video Thumbnail">';
+                } else {
+                    echo 'Thumbnail not found';
+                }
+            } else {
+                echo 'Unable to fetch video data';
+            }
+        } else {
+            echo '<div>Failed to load the image</div>';
         }
     }
 ?>
@@ -337,10 +407,10 @@
         global $post;
 
         // Get the light theme image URL
-        $field = get_field($name, $post->ID);
-        $value = $field ? $field : 'No '.$name.' found.';
+        // $field = get_field($name, $post->ID);
+        // $value = $field ? $field : 'No '.$name.' found.';
 
-        return $value;
+        return get_field($name, $post->ID);
     }
 ?>
 
@@ -582,8 +652,16 @@
 
                 <a class="km-link-primary" href="<?php the_permalink(); ?>">
                     <?php
-                        $video_url = getField('video_url');
-                        getVimeoThumbnail($video_url, 'entry-img');
+                        $vimeo_video_url = getField('video_url');
+                        $youtube_video_url = getField('youtube_video_url');
+
+
+                        if (!empty($vimeo_video_url)) {
+                            getVimeoThumbnail($vimeo_video_url, 'entry-img');
+                        } 
+                        else if (!empty($youtube_video_url)) {
+                            getYoutubeThumbnail($youtube_video_url, 'entry-img');
+                        }
                     ?>
                 </a>
 
@@ -599,7 +677,7 @@
                     <h3>
                             <?php the_title(); ?>
                     </h3>
-                    <p><?php echo wp_trim_words(get_the_content(), $content_text_size); ?></p>
+                    <!-- <p><?php //echo wp_trim_words(get_the_content(), $content_text_size); ?></p> -->
                 </a>
             </article>
         <?php
