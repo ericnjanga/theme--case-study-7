@@ -35,48 +35,15 @@
         displayUpcomingEventSection();
     ?>
 
-
-    <section class="section-highlight">
-        <div class="container">
-            <h2 class="section-title">We strategize, invest and win together!</h2>
-            
-            <div>
-                <div>
-                    <?php echo getFieldImage('value_1_icon'); ?>
-                    <h3 class="section-subtitle"><?php echo getField('value_1_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_1_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_1_image', '', 'medium');
-                    ?>
-                </div>
-                <div>
-                    <?php echo getFieldImage('value_2_icon'); ?>
-                    <h3 class="section-subtitle"><?php echo getField('value_2_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_2_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_2_image', '', 'medium');
-                    ?>
-                </div>
-                <div>
-                    <?php echo getFieldImage('value_3_icon'); ?>
-                    <h3 class="section-subtitle"><?php echo getField('value_3_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_3_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_3_image', '', 'medium');
-                    ?>
-                </div>
-            </div>
-        </div>
-    </section>
-
+ 
     <br><br><br>
 
-    <section class="section-spacer container">
+    <!-- <section class="section-spacer container">
         <h2 class="h-underlined">latest posts</h2>
         <div>
-            <?php latestPosts('grid grid-11233 posts-list', '', 3, true, 12); ?>
+            <?php //latestPosts('grid grid-11233 posts-list', '', 3, true, 12); ?>
         </div>
-    </section>
+    </section> -->
 
 
     <section class="section-spacer container">
