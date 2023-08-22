@@ -13,6 +13,13 @@
 /* Light theme */
 // @media (prefers-color-scheme: light) {
     :root { /* Colours */
+
+        // Events
+        --site-clr-event-background: #fff;
+
+
+
+        // ...
         --site-clr-hero-background: #979696;
 
 
@@ -125,9 +132,23 @@
 
     // layout
     --site-border-radius: 10px;
+}
 
 
+
+
+/**
+ * Layouts
+ * ------------
+*/
+:root {
+    // Events ---
+    --site-event-height: 300px;
+    --site-event-padding: 5px;
+    --site-event-gap: 20px;
+    --site-event-image-width: 100px;
+
+    // Hero ---
     --site-hero-large-height: 700px;
     --site-hero-small-height: 235px;
 }
-

@@ -1,0 +1,46 @@
+
+
+@layer event {
+    .event {
+        a {
+            display: flex;
+            gap: var(--site-event-gap);
+            padding: var(--site-event-padding);
+            height: var(--site-event-height);
+            border: 3px solid turquoise;
+            background-color: var(--site-clr-event-background);
+        }
+    }
+    .event__status {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+    .event__image {
+        width: var(--site-event-image-width);
+        background-size: cover;
+    }
+    .event__content {
+        flex: 1;
+    }
+}
+
+
+
+/**
+ * Sizes
+*/
+
+@layer event {
+    .event {
+        a {
+            // Increase banner ratio based on the container
+            @container (max-width: 700px) {
+                --site-event-image-width: 217px;
+            }
+            // Increase banner ratio based on the container
+            @container (min-width: 1000px) {
+                --site-event-image-width: 400px;
+            }
+        }
+    }
+}

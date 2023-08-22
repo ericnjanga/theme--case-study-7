@@ -6,26 +6,22 @@
 ?>
 
 <header class="hero">
-    <div class="text-wrapper">
-        <?php
-            // Get the ID of the current post or page
-            $post_id = get_the_ID();
-
-            // Get the page title using the post ID
-            $page_title = get_the_title($post_id);
-
-            // Output the page title
-            echo '<h1 class="hero-title">' . esc_html($page_title) . '</h1>';
-        ?>
-        <!-- <h1 class="hero-title"><?php echo getField('title'); ?></h1> -->
+    <div class="container">
+        <div class="text-wrapper">
+            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+            <section class="breadcrumb">
+                <?php displayBreadcrumbs(); ?>
+            </section>
+            <?php edit_post_link(); ?>
+        </div>
     </div>
 </header>
 
-<main class="main-content-wrapper" role="main">
+<main class="main-content-wrapper container" role="main">
     <section class="breadcrumb">
         <?php displayBreadcrumbs(); ?>
     </section>
-    <div class="content-listing-grid-1 grid">
+    <div class="grid-11222 grid">
         <?php
             displayEvents();
         ?>

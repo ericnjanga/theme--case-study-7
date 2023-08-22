@@ -148,13 +148,119 @@
 
 
 
+<?php
+    function displayEvent() {
+            // Get the current date in 'Y-m-d' format
+            $current_date = date('Y-m-d');
+
+            // Get the event start date and time
+            $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
+            $event_start_time = get_post_meta(get_the_ID(), '_EventStartDateUTC', true);
+
+            // Get the event venue
+            $event_venue = get_post_meta(get_the_ID(), '_EventVenueID', true);
+            // ...
+            $event_start_time_formated1 = $start_datetime = new DateTime($event_start_time);
+            $event_start_time_formated2 = $event_start_time_formated1->format('g:i A');
+
+
+            // Check if the event is in the past
+            $event_is_past = strtotime($event_start_date) < strtotime($current_date);
+            $event_status = ($event_is_past) ? 'Past Event' : 'Upcoming Event';
+        ?>
+            <div class="event bx-container">
+                <?php 
+                    if ( has_post_thumbnail() ) {
+                        $thumbnail_id = get_post_thumbnail_id();
+                        $image_url = wp_get_attachment_image_src($thumbnail_id, 'full')[0]; // Get the URL of the full-size image
+                    }
+                ?>
+
+                <a href="<?php the_permalink(); ?>">
+                    <div class="event__image" style="background-image:url(<?php echo $image_url; ?>);">
+
+                    </div>
+                    <div class="event__content">    
+
+                        <?php
+                            if (!empty($event_venue)) {
+                                $venue_name = get_the_title($event_venue);
+                                echo 'Venue: ' . $venue_name;
+                            }
+                        ?>
+
+                        <!-- <div class="event__location">...<?php //echo $event_location; ?></div> -->
+
+
+
+                        <div class="event__status"><?php echo $event_status; ?></div>     
+                        
+                        <h3 class="event__title"><?php the_title() ?></h3>
+
+                        <p><strong>Event Date:</strong> <?php echo date_i18n('d M, Y', strtotime($event_start_date)); ?></p>
+                        <p><strong>Event Time:</strong> <?php echo $event_start_time_formated2; ?></p>
+
+                        <?php
+                            $content = apply_filters('the_content', get_the_content());
+
+
+
+                            //echo wp_trim_words(get_the_content(), $content_text_size);  
+
+
+                            $content = str_replace('<p>', '<p class="fs-7">', $content);
+                            // echo $content;
+                        ?>
+                    </div>
+                </a>
+
+            </div>
+        <?php
+    }
+?>
+
+
+
+
+<?php
+    // Display the entire section if there is an upcoming event, otherwise, don't show the section at all
+    function displayUpcomingEventSection() {
+        $args = array(
+            'post_type' => 'tribe_events',
+            'posts_per_page' => 1,
+            'orderby' => 'date',
+            'order' => 'DESC',
+        );
+        
+        $latest_event_query = new WP_Query($args);
+        
+        if ($latest_event_query->have_posts()) {
+            $latest_event_query->the_post();
+        
+            $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
+            $current_time = current_time('timestamp');
+        
+            // Event is in the future, display its content
+            if (!empty($event_start_date) && strtotime($event_start_date) > $current_time) {
+                ?>
+                    <section class="container">
+                        <?php displayEvent(); ?>
+                    </section>
+                <?php
+            }
+        
+            wp_reset_postdata();
+        }    
+    }
+?>
+
+
+
 
 
 
 <?php
     function displayEvents($count = -1) {
-        // Get the current date in 'Y-m-d' format
-        $current_date = date('Y-m-d');
 
         // Calculate the date from 12 months ago from the current date
         $years = 12 * 6;
@@ -186,50 +292,7 @@
             while ($query->have_posts()) {
                 $query->the_post();
 
-                // Get the event start date and time
-                $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
-                $event_start_time = get_post_meta(get_the_ID(), '_EventStartDateUTC', true);
-
-
-                // Check if the event is in the past
-                $event_is_past = strtotime($event_start_date) < strtotime($current_date);
-                ?>
-                    <div class="event-item grid-item">
-                        <figure>
-                            <?php 
-                                if ( has_post_thumbnail() ) {
-                                    the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-fluid img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
-                                }
-                            ?>
-                            <figcaption>
-                                <div class="event-text text-center">
-                                    <a href="<?php the_permalink(); ?>">
-                                        <?php if ($event_is_past) : ?>
-                                            <div>Event closed</div>
-                                        <?php endif; ?>
-
-                                        <b><?php the_title() ?></b> <!-- Wrap the title in an anchor tag -->
-
-                                        <p><strong>Event Date:</strong> <?php echo $event_start_date; ?></p>
-                                        <p><strong>Event Time:</strong> <?php echo $event_start_time; ?></p>
-
-                                        <?php
-                                            $content = apply_filters('the_content', get_the_content());
-
-
-
-                                            //echo wp_trim_words(get_the_content(), $content_text_size);  
-
-
-                                            $content = str_replace('<p>', '<p class="fs-7">', $content);
-                                            // echo $content;
-                                        ?>
-                                    </a>
-                                </div>
-                            </figcaption>
-                        </figure>
-                    </div>
-                <?php
+                displayEvent();
             }
         } else {
             echo '<p>No event found.</p>';
@@ -309,45 +372,6 @@
         }
 
         return $permalink;
-    }
-
-
-
-
-
-    function display_learn_more_box($class='', $text='', $ctaText='', $ctaLink='') {
-        // ...
-        $image_title = 'award - transparent 3';
-        // $image_title = 'award - 2013 – Rookie of the Year Award';
-        $image = get_page_by_title($image_title, OBJECT, 'attachment');
-        $imageSize = 'medium';
-
-        if ($image) {
-            $image_attributes = wp_get_attachment_image_src($image->ID, $imageSize);
-            $image_markup = wp_get_attachment_image($image->ID, $imageSize);
-
-            // Add the desired classes to the image markup
-            $image_markup = str_replace('class="', 'class="img-fluid award-img ', $image_markup);
-
-            ?>
-                <div class="<?php echo $class; ?> box-learn-more text-center bx-container">
-                    <figure class="award-figure box-learn-more__bg-wrapper">
-                        <div class="award-figure-wrapper transparent box-learn-more__bg">
-                            <div class="award-learn-more box-learn-more__content">
-                                <p><?php echo $text; ?></p>
-                                <hr>
-                                <a href="<?php echo $ctaLink; ?>" class="btn btn-secondary">
-                                    <?php echo $ctaText; ?>
-                                </a>
-                            </div>
-
-                            <?php echo $image_markup; ?>
-                        </div>
-                        <figcaption class="award-caption box-learn-more__caption fs-7">Placeholder txt meant to create space</figcaption>
-                    </figure>
-                </div>
-            <?php
-        }
     }
 ?>
 
@@ -717,16 +741,7 @@
                                 </li>
                             <?php 
                         }
-                        if ($addMore == true) {
-                            $link_blog = getPagePermalink('blog');
-                            ?>
-                                <li>
-                                    <?php
-                                        display_learn_more_box('', 'New resources added monthly.', 'More articles', $link_blog);
-                                    ?>
-                                </li>
-                            <?php
-                        }
+                       
                     ?>
                 </ul>
             <?php
@@ -814,73 +829,6 @@
             echo '<p>No awards found.</p>';
         }
     
-        wp_reset_postdata();
-    }
-?>
-
-
-<?php
-    function displayAward(
-        $gridClass  = '', 
-        $count      = -1, 
-        $addMore    = false, 
-        $colorClass = 'transparent'
-    ) {
-        // Inforce default value adoption on all parameters
-        // (this doesn't seem to work during the function's declaration)
-        if ($gridClass === null) {
-            $gridClass = '';
-        } 
-        if ($count === null) {
-            $count = -1;
-        } 
-        if ($addMore === null) {
-            $addMore = false;
-        } 
-        if ($colorClass === null) {
-            $colorClass = 'transparent';
-        }
-        // Default values enforcement
-
-        $args = array(
-            'post_type' => 'award',
-            'posts_per_page' => $count,
-        );
-        $imageSize = 'medium';
-    
-        $query = new WP_Query($args);
-        ?>
-            <div class="bx-container">
-                <div class="<?php echo $gridClass; ?> awards-container">
-                    <?php
-                        if ($query->have_posts()) {
-                            while ($query->have_posts()) {
-                                $query->the_post();
-                                ?>
-                                    <section class="award bx-container">
-                                        <figure class="award-figure">
-                                            <div class="award-figure-wrapper <?php echo $colorClass; ?>">
-                                                <?php if (has_post_thumbnail()) { 
-                                                    the_post_thumbnail($imageSize, ['class' => 'img-fluid award-img']);
-                                                } ?>
-                                            </div>
-                                            <figcaption class="award-caption fs-7"><?php the_title(); ?></figcaption>
-                                        </figure>
-                                    </section>
-                                <?php
-                            }
-
-                            if ($addMore == true) {
-                                $link_awards = getPagePermalink('awards');
-                                display_learn_more_box('award', 'We have received more awards.', 'More awards', $link_awards);
-                            }
-                        } else {
-                            echo '<p>No awards found.</p>';
-                        }
-                    ?>
-                </div>
-            </div>
-        <?php
         wp_reset_postdata();
     }
 ?>

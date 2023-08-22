@@ -30,7 +30,8 @@
 }
 
 @layer components {
-    @import 'components/testimonials';
+    @import 'components/testimonial';
+    @import 'components/event';
 }
 
 @layer aesthetics {

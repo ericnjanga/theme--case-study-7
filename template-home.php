@@ -31,15 +31,9 @@
 
 
 <main class="main-content-wrapper" role="main">
-    <div class="container">
-
-        <section id="section-events" class="section-spacer">
-            <h2 class="section-title">Events</h2>
-            <?php
-                displayEvents(3);
-            ?>
-        </section>
-    </div>
+    <?php
+        displayUpcomingEventSection();
+    ?>
 
 
     <section class="section-highlight">
