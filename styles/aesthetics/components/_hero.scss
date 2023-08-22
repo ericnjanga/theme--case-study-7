@@ -9,27 +9,31 @@
 // Mobile first settings ...
 @layer hero {
     .hero {
-        text-align: center;
-        padding-top: var(--site-hero-padding);
-        padding-bottom: var(--site-hero-padding);
-        background: #ccc;
-    }
-    .hero .text-wrapper {
-        margin: 0 auto;
-        max-width: var(--site-hero-txt-wrapper-max-width);
+        display: flex;
+        height: var(--site-hero-small-height);
+        background: var(--site-clr-hero-background);
+        
+        .container {
+            display: flex;
+        }
+
+        .text-wrapper {
+            background: var(--site-clr-body-background);
+            max-width: 733px;
+        }
     }
     .hero-title {
         position: relative;
         margin: 0;
 
-        &::after {
-            display: block;
-            content: '';
-            height: 1px;
-            margin: 20px auto 0 auto;
-            width: var(--site-headings-underlined-line-width);
-            background-color: var(--site-clr-primary-neutral-600);
-        }
+        // &::after {
+        //     display: block;
+        //     content: '';
+        //     height: 1px;
+        //     margin: 20px auto 0 auto;
+        //     width: var(--site-headings-underlined-line-width);
+        //     background-color: var(--site-clr-primary-neutral-600);
+        // }
     }
     .hero-intro {
         margin-top: 20px;
@@ -67,6 +71,11 @@
         }
 
         // @container (max-width: 540px) {} 
+    }
+
+
+    .hero.large {
+        height: var(--site-hero-large-height);
     }
 }
 
