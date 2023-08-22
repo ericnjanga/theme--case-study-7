@@ -1,7 +1,7 @@
 :root {
 
     --site-body-padding-top: 70px;
-    --site-header-fixed-container-top: 10px;
+    --site-header-fixed-container-top: 0px;
 
     --site-header-wrapper-padding-left: 10px;
     --site-header-wrapper-padding-right: 10px;
@@ -35,11 +35,21 @@
     }
 
     .main-header-wrapper {
-        background-color: turquoise;
+        background-color: var(--site-clr-body-background);
         // background-color: var(--site-clr-body-background);
         // box-shadow: var(--site-header-wrapper-box-shadow);
         padding-left: var(--site-header-wrapper-padding-left);
         padding-right: var(--site-header-wrapper-padding-right);
+
+
+        @media (min-width: 992px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: var(--site-body-padding-top);
+        }
+
+
     }
     .main-header {
         .logo {
@@ -50,7 +60,7 @@
             margin-left: auto;
             display: var(--site-navbar-nav-display);
             gap: var(--site-navbar-nav-gap);
-            padding: var(--site-navbar-padding);
+            // padding: var(--site-navbar-padding);
             background-color: var(--site-clr-primary-100);
         }
 
@@ -132,11 +142,8 @@
 // Responsiveness ...
 @layer header {
     body {
-        @media (min-width: 1200px) {
-            --site-body-padding-top: 120px;
-        }
-        @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-body-padding-top: 100px;
+        @media (min-width: 992px) {
+            --site-body-padding-top: 80px;
         }
     }
 }
@@ -145,12 +152,10 @@
     // The more the viewport spreads, Push the fixed wrapper down
     .container.fixed-top {
         @media (min-width: 1200px) {
-            --site-header-fixed-container-top: 30px;
             --site-header-wrapper-padding-left: 30px;
             --site-header-wrapper-padding-right: 30px;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-header-fixed-container-top: 20px;
             --site-header-wrapper-padding-left: 20px;
             --site-header-wrapper-padding-right: 20px;
         }
