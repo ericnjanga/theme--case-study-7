@@ -1,0 +1,25 @@
+
+:root {
+    --site-brand-highlight-flex-dir: column;
+    --site-brand-highlight-flex-gap: 20px;
+}
+
+
+
+@layer brand-highlight {
+    .section-brand-highlight {
+        display: flex;
+        gap: var(--site-brand-highlight-flex-gap);
+        flex-direction: var(--site-brand-highlight-flex-dir);
+
+        @media (min-width: 768px) {
+            --site-brand-highlight-flex-dir: row;
+            --site-brand-highlight-flex-gap: 30px;
+
+            .lists {
+                display: flex;
+                gap: 40px;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+
+
+@layer brand-feature {
+    .brand-feature {
+        a {
+            display: block;
+            background: #FFF;
+            padding: 10px;
+        }
+    }
+    .brand-feature__image {
+        height: 305px;
+    }
+}

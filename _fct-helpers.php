@@ -12,6 +12,8 @@
 ?>
 
 
+
+
 <?php
     function getFieldImage($id, $eltClass='', $imageSize='') {
         $image = get_field($id);
@@ -37,8 +39,8 @@
 
 
 
-<?php
 
+<?php
     function isUrlFrom($url, $host) {
         $url_parts = parse_url($url);
         $val = false;
@@ -49,6 +51,8 @@
         
         return $val;
     }
+
+
 
 
     function getYoutubeUrlID($youtube_url) {
@@ -64,6 +68,8 @@
 
         return $video_id;
     }
+
+
 
 
     // youtube_url ...
@@ -148,6 +154,7 @@
 
 
 
+
 <?php
     function displayEvent() {
             // Get the current date in 'Y-m-d' format
@@ -181,16 +188,12 @@
 
                     </div>
                     <div class="event__content">    
-
                         <?php
                             if (!empty($event_venue)) {
                                 $venue_name = get_the_title($event_venue);
                                 echo 'Venue: ' . $venue_name;
                             }
                         ?>
-
-                        <!-- <div class="event__location">...<?php //echo $event_location; ?></div> -->
-
 
 
                         <div class="event__status"><?php echo $event_status; ?></div>     
@@ -202,14 +205,7 @@
 
                         <?php
                             $content = apply_filters('the_content', get_the_content());
-
-
-
-                            //echo wp_trim_words(get_the_content(), $content_text_size);  
-
-
                             $content = str_replace('<p>', '<p class="fs-7">', $content);
-                            // echo $content;
                         ?>
                     </div>
                 </a>
@@ -257,8 +253,6 @@
 
 
 
-
-
 <?php
     function displayEvents($count = -1) {
 
@@ -301,10 +295,6 @@
         wp_reset_postdata();
     }
 ?>
-
-
-
-
 
 
 
@@ -359,7 +349,6 @@
 
 
 
-
 <?php
     function getPagePermalink($title = '') {
         $page_title = $title; // Replace with the actual page title you want to retrieve the permalink for
@@ -378,21 +367,13 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
 <?php
     function getSubCategoryLink($subCat, $category) {
         return esc_url(get_category_link(get_term_by('slug', $subCat, $category)->term_id));
     }
 ?>
+
+
 
 
 <?php
@@ -438,11 +419,15 @@
     }
 ?>
 
+
+
+
 <?php
     function getFieldByID($name, $id) {
         return get_post_meta($id, $name, true);
     }
 ?>
+
 
 
 
@@ -489,10 +474,6 @@
 
 
 
-
-
-
-
 <?php
     function displayClientLogos($count = -1) {
         $args = array(
@@ -530,6 +511,9 @@
     }
 ?>
 
+
+
+
 <?php
     function displayHeroImages($cssClass) {
         global $post;
@@ -557,83 +541,6 @@
 ?>
 
 
-<?php
-    function displayFieldIcon($id, $eltClass='') {
-        $icon = get_field('icon', $id);
-        if ($icon) {
-        ?>
-            <img class="<?php echo $eltClass; ?>" src="<?php echo $icon; ?>">
-        <?php
-        }
-    }
-?>
-
-
-
-<?php
-    function displayServicesExcerpts(
-        $gridClass  = '', 
-    ) {
-        // Inforce default value adoption on all parameters
-        // (this doesn't seem to work during the function's declaration)
-        if ($gridClass === null) {
-            $gridClass = '';
-        } 
-
-        global $post;
-        // Get the parent page ID
-        $parent_page = get_page_by_path('services');
-        $parent_page_id = $parent_page->ID;
-
-        // Retrieve the child pages of the parent page
-        $child_pages = get_pages(array(
-            'child_of' => $parent_page_id,
-            'sort_column' => 'menu_order',
-        ));
-
-        // Display the titles and excerpts of the child pages
-        if ($child_pages) {
-            ?>
-                <ul class="<?php echo $gridClass; ?> list-unstyled">
-                    <?php foreach ($child_pages as $child_page) { ?>
-                        <li>
-                            <article class="card card-primary card-padd30 bdr-no-radius bdr-none">
-                                <div class="card-header bdr-no-bottom no-bg">
-                                    <?php displayFieldIcon($child_page->ID, 'card-header-icon'); ?>
-                                </div>
-                                <div class="card-body">
-                                    <div>
-                                        <?php
-                                            // Check if the child page is not the same as the current page
-                                            $child_page_url = get_permalink($child_page->ID);
-                                        ?>
-                                    </div>
-                                    <h3 class="card-title">
-                                        <a class="km-link-primary" href="<?php echo $child_page_url; ?>">
-                                            <?php echo $child_page->post_title; ?>
-                                        </a>
-                                    </h3>
-                                    <?php 
-                                        // Retrieve and display the excerpt custom field
-                                        $excerpt = get_field('excerpt', $child_page->ID);
-                                        if ($excerpt) {
-                                            echo '<p class="card-text">' . $excerpt . '</p>';
-                                        }
-                                    ?>
-                                    <a href="<?php echo $child_page_url; ?>" class="btn btn-secondary btn-sm">Learn more</a>
-                                </div>
-                            </article>
-                        </li>
-                    <?php } ?>
-                </ul>
-            <?php 
-        } else { 
-            ?>
-                <p>No child pages found.</p>
-            <?php 
-        }
-    }
-?>
 
 
 <?php
@@ -665,6 +572,7 @@
         endif;
     }
 ?>
+
 
 
 
@@ -701,12 +609,76 @@
                     <h3>
                             <?php the_title(); ?>
                     </h3>
-                    <!-- <p><?php //echo wp_trim_words(get_the_content(), $content_text_size); ?></p> -->
                 </a>
             </article>
         <?php
     }
 ?>
+
+
+
+
+<?php
+    function fetchBrandFeatures($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
+        $args = array(
+            'post_type' => 'brand-feature',
+            'posts_per_page' => $count,
+            'category_name' => $category_slug,
+        );
+
+        // Inforce default value adoption on all parameters
+        // (this doesn't seem to work during the function's declaration)
+        if ($gridClass === null) {
+            $gridClass = '';
+        } 
+
+        $imageSize = 'medium';
+
+        $query = new WP_Query( $args );
+
+        if ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {
+                $query->the_post(); 
+                ?>
+                    <div class="brand-feature">
+                        <a href="#">
+                            <div>
+                                <?php echo getField('status'); ?>
+                            </div>
+                            <h3>
+                                <?php the_title(); ?>
+                            </h3>
+
+                            <p>
+                                <?php
+                                    echo wp_trim_words(get_the_content(), 13);
+                                ?>
+                            </p>
+
+                            <div>
+                                <?php echo getField('cta_text'); ?>
+                            </div>
+
+                            <?php 
+                                if ( has_post_thumbnail() ) {
+                                    $thumbnail_id = get_post_thumbnail_id();
+                                    $image_url = wp_get_attachment_image_src($thumbnail_id, 'full')[0]; // Get the URL of the full-size image
+                                }
+                            ?>
+                
+                            <div class="brand-feature__image" style="background-image:url(<?php echo $image_url; ?>);"></div>
+                        </a>
+                    </div>
+                <?php 
+            }
+            wp_reset_postdata();
+        } else {
+            echo 'No posts found.';
+        }
+    }
+?>
+
+
 
 
 <?php
@@ -751,6 +723,8 @@
         }
     }
 ?>
+
+
 
 
 <?php
@@ -806,10 +780,6 @@
                                    
                                     <div class="testimonial__body">
                                         <?php 
-                                            // // Add a custom class ...
-                                            // $content = get_the_content();
-                                            // $content_with_class = '<p class="quote">' . $content . '</p>';
-                                            // echo $content_with_class;
                                             the_content(); 
                                         ?>
                                     </div>
@@ -832,6 +802,7 @@
         wp_reset_postdata();
     }
 ?>
+
 
 
 
@@ -879,6 +850,8 @@
 ?>
 
 
+
+
 <?php
     function getCurrentPageSlug() {
         global $post;
@@ -893,6 +866,8 @@
 ?>
 
 
+
+
 <?php
     function getCurrentPageTitle() {
         global $post;
@@ -905,6 +880,7 @@
         return $page_title;
     }
 ?>
+
 
 
 
