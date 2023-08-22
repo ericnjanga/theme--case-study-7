@@ -80,7 +80,7 @@
 
 
     <section class="section-spacer container">
-        <h2 class="h-underlined">See what the others are saying about us</h2>
+        <h2 class="h-underlined">Don’t take our word for it...</h2>
         <div>
             <?php displayTestimonial('grid grid-11233 testimonial-list', 3, true); ?>
         </div>
