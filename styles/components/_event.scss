@@ -10,7 +10,12 @@
             border: 3px solid turquoise;
             background-color: var(--site-clr-event-background);
         }
+
+        &.hasPassed {
+            filter: grayscale(1);
+        }
     }
+
     .event__status {
         text-transform: uppercase;
         font-size: 0.8rem;

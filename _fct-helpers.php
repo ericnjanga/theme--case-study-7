@@ -164,11 +164,11 @@
             $event_start_time_formated2 = $event_start_time_formated1->format('g:i A');
 
 
-            // Check if the event is in the past
+            // Check if the event is in the past 
             $event_is_past = strtotime($event_start_date) < strtotime($current_date);
             $event_status = ($event_is_past) ? 'Past Event' : 'Upcoming Event';
         ?>
-            <div class="event bx-container">
+            <div class="event <?php echo ($event_is_past) ? 'hasPassed' : ''; ?> bx-container">
                 <?php 
                     if ( has_post_thumbnail() ) {
                         $thumbnail_id = get_post_thumbnail_id();
