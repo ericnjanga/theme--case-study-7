@@ -444,23 +444,42 @@
             while ($query->have_posts()) {
                 $query->the_post();
                 ?>
-                    <figure>
-                        <?php 
-                            if ( has_post_thumbnail() ) {
-                                the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
-                            }
-                        ?>
-                        <figcaption>
-                            <div class="employee-text text-center">
-                                <b><?php the_title() ?></b>
-                                <?php
-                                    $content = apply_filters('the_content', get_the_content());
-                                    $content = str_replace('<p>', '<p class="fs-7">', $content);
-                                    echo $content;
-                                ?>
-                            </div>
-                        </figcaption>
-                    </figure>
+                    <div class="employee">
+                        <figure>
+                            <?php 
+                                if ( has_post_thumbnail() ) {
+                                    the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 p-0 bg-accent border-0 mb-10' ) );
+                                }
+                            ?>
+                            <figcaption>
+                                <div class="">
+                                    <b><?php the_title() ?></b>
+                                    <p><?php echo getField('optional_title'); ?></p>
+
+                                    <?php
+                                        $content = apply_filters('the_content', get_the_content());
+                                        if (!empty($content)) {
+                                            // Content is not empty, do something
+                                            ?>
+
+                                                <!-- Let people know there is more content to be consumed -->
+                                                <button class="btn employee__cta-modal">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="m202-160-42-42 498-498H364v-60h396v396h-60v-294L202-160Z"/></svg>
+                                                </button>
+
+                                                <article class="employee__bio">
+                                                    <?php
+                                                        $content = str_replace('<p>', '<p class="fs-7">', $content);
+                                                        echo $content;
+                                                    ?>
+                                                </article>
+                                            <?php
+                                        }
+                                    ?>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </div>
                 <?php
             }
         } else {

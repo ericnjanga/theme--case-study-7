@@ -16,6 +16,9 @@
     --site-grid-22345-gtc: repeat(2, 1fr);
     --site-grid-22345-gap: 20px;
 
+    --site-grid-22444-gtc: repeat(2, 1fr);
+    --site-grid-22444-gap: 20px;
+
     --site-grid-22222-gtc: repeat(2, 1fr);
     --site-grid-22222-gap: 20px;
 
@@ -71,6 +74,36 @@
         }
     
         /* @container (max-width: 540px) {} */
+    }
+}
+
+
+
+
+
+/**
+ * 
+ * Mobile 1st   : 2 columns
+ * Breakpoint 1 : 2 columns
+ * Breakpoint 2 : 4 columns
+ * Breakpoint 3 : 4 columns
+ * Breakpoint 4 : 4 columns
+ * ----------------
+*/
+@layer grids.grid-22444 {
+    .grid-22444 {
+        grid-template-columns: var(--site-grid-22444-gtc);
+        gap: var(--site-grid-22444-gap);
+    }
+    .grid-22444 {
+        @container (min-width: 961px) {
+            --site-grid-22444-gtc: repeat(4, 1fr); 
+        }
+
+        @container (min-width: 721px) and (max-width: 960px) {
+            border: 5px solid blue;
+            --site-grid-22444-gtc: repeat(3, 1fr);
+        }
     }
 }
 
@@ -192,7 +225,6 @@
         }  */
     }
 }
-
 
 
 

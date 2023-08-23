@@ -6,16 +6,18 @@
 ?>
 
 <header class="hero">
-    <div class="text-wrapper">
-        <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
-        <?php edit_post_link(); ?>
+    <div class="container">
+        <div class="text-wrapper">
+            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+            <section class="breadcrumb">
+                <?php displayBreadcrumbs(); ?>
+            </section>
+            <?php edit_post_link(); ?>
+        </div>
     </div>
 </header>
 
-<main class="main-content-wrapper section-spacer" role="main">
-    <section class="breadcrumb">
-        <?php displayBreadcrumbs(); ?>
-    </section>
+<main class="main-content-wrapper section-spacer container" role="main">
 
 
     <h3>

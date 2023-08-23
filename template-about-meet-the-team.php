@@ -6,16 +6,18 @@
 ?>
 
 <header class="hero">
-    <div class="text-wrapper">
-        <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
-        <?php edit_post_link(); ?>
+    <div class="container">
+        <div class="text-wrapper">
+            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+            <section class="breadcrumb">
+                <?php displayBreadcrumbs(); ?>
+            </section>
+            <?php edit_post_link(); ?>
+        </div>
     </div>
 </header>
 
-<main class="main-content-wrapper" role="main">
-    <section class="breadcrumb">
-        <?php displayBreadcrumbs(); ?>
-    </section>
+<main class="main-content-wrapper container" role="main">
 
     <section class="content-grid section-spacer">
         <article>
@@ -54,9 +56,11 @@
 
     <section>
         <h2>Our team</h2>
-        <?php
-            displayEmployee();
-        ?>
+        <div class="grid grid-22444">
+            <?php
+                displayEmployee();
+            ?>
+        </div>
     </section>
 
     <section>
@@ -75,6 +79,20 @@
         </div>
     </section>
    
+
+    <dialog id="employeeModal">
+        <div class="dialog-header">
+            <button id="closeDialog">Close</button>
+        </div>
+        <div class="dialog-content">
+            <p>This is the dialog content.</p>
+        </div>
+    </dialog>
+
+
 </main>
+
+
+
 
 <?php get_footer(); ?>
