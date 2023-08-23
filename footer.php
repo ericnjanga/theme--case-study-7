@@ -62,7 +62,7 @@ Hammers Logo.png' ?>"
 
         <?php
             // Place modals here for global access
-            getAppointmentModal();
+            // getAppointmentModal();
         ?>
 
         <?php wp_footer(); ?>
