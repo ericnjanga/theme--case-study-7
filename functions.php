@@ -276,21 +276,27 @@ function generic_enqueue_comment_reply_script() {
 }
 
 
+// function enqueue_custom_script() {
+//     // Register jQuery as a dependency
+//     wp_enqueue_script('jquery');
+
+//     // Enqueue custom script
+//     wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
+
+//     // wp_enqueue_script('site-form-email-subscription.js', get_template_directory_uri() . '/js/site-form-email-subscription.js', array('jquery'), '1.0', true);
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_custom_script');
+
+
+
 function enqueue_custom_script() {
-    // Register jQuery as a dependency
     wp_enqueue_script('jquery');
 
-    // Enqueue custom script
-    // wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
 
-    // wp_enqueue_script('site-form-email-subscription.js', get_template_directory_uri() . '/js/site-form-email-subscription.js', array('jquery'), '1.0', true);
-}
-add_action('wp_enqueue_scripts', 'enqueue_custom_script');
+    // Employees
+    wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
 
-
-
-function enqueue_infinite_scroll() {
-    wp_enqueue_script('jquery');
+    // Infinite scroll
     wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
 
     // Localize the ajaxurl variable
@@ -298,7 +304,7 @@ function enqueue_infinite_scroll() {
         'ajax_url' => admin_url('admin-ajax.php'),
     ));
 }
-add_action('wp_enqueue_scripts', 'enqueue_infinite_scroll');
+add_action('wp_enqueue_scripts', 'enqueue_custom_script');
 
 
 /**
