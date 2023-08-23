@@ -576,13 +576,15 @@
 
 
 
+
+
 <?php
-    function displayPost($content_text_size) {
+    function displayPost() {
         ?>
-            <article class="grid-item">
+            <article class="vlog-item">
                 <?php $categories = get_the_category(); ?>
 
-                <a class="km-link-primary" href="<?php the_permalink(); ?>">
+                <a href="<?php the_permalink(); ?>">
                     <?php
                         $vimeo_video_url = getField('video_url');
                         $youtube_video_url = getField('youtube_video_url');
@@ -595,20 +597,21 @@
                             getYoutubeThumbnail($youtube_video_url, 'entry-img');
                         }
                     ?>
-                </a>
 
-                <?php if ( ! empty( $categories ) ) : ?>
-                    <p class="pre-title heading-ff">
-                        <a class="km-link-secondary" href="<?php echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>">
-                            <?php echo esc_html( $categories[0]->name ); ?>
-                        </a>
-                    </p>
-                <?php endif; ?>
-
-                <a class="km-link-primary" href="<?php the_permalink(); ?>">
                     <h3>
-                            <?php the_title(); ?>
+                        <?php the_title(); ?>
                     </h3>
+                    <footer>
+                        <?php if ( ! empty( $categories ) ) : ?>
+                            <p class="pre-title">
+                                <!-- <a class="km-link-secondary" href="<?php // echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>"> -->
+                                <!-- </a> -->
+                                <span><?php echo esc_html( $categories[0]->name ); ?></span>
+                                <span>|</span>
+                                <span class="post-date"><?php echo get_the_date(); ?></span>
+                            </p>
+                        <?php endif; ?>
+                    </footer>
                 </a>
             </article>
         <?php

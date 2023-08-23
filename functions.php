@@ -1,3 +1,12 @@
+
+<?php
+                // Inject helpers (needed all over the application)
+                include '_fct-helpers.php';
+            ?>
+
+
+
+
 <?php
 add_action( 'after_setup_theme', 'generic_setup' );
 function generic_setup() {
@@ -272,11 +281,54 @@ function enqueue_custom_script() {
     wp_enqueue_script('jquery');
 
     // Enqueue custom script
-    wp_enqueue_script('site-responsive-sidebar.js', get_template_directory_uri() . '/js/site-responsive-sidebar.js', array('jquery'), '1.0', true);
-    wp_enqueue_script('site-form-email-subscription.js', get_template_directory_uri() . '/js/site-form-email-subscription.js', array('jquery'), '1.0', true);
+    // wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
+
+    // wp_enqueue_script('site-form-email-subscription.js', get_template_directory_uri() . '/js/site-form-email-subscription.js', array('jquery'), '1.0', true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_script');
 
+
+
+function enqueue_infinite_scroll() {
+    wp_enqueue_script('jquery');
+    wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
+
+    // Localize the ajaxurl variable
+    wp_localize_script('site-infinite-scroll.js', 'my_ajax_obj', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ));
+}
+add_action('wp_enqueue_scripts', 'enqueue_infinite_scroll');
+
+
+/**
+ * function that will handle the AJAX request and load more posts
+ * --------------
+ */
+function load_more_posts() {
+    $page = $_POST['page'];
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 5,
+        'paged' => $page,
+    );
+
+    $query = new WP_Query($args);
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            // xxx();
+            displayPost();
+            // Display your post content here
+            // For example: the_title(); the_excerpt();
+        }
+    }
+    wp_reset_postdata();
+
+    die();
+}
+add_action('wp_ajax_load_more_posts', 'load_more_posts');
+add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
 
 
 
