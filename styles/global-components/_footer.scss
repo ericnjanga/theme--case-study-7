@@ -1,36 +1,51 @@
 :root {
     // Default settings (mobile first) ...
+    --site-clr-footer-background: #fff;
     --site-footer-padding: 40px 30px;
-    --site-footer-mgr-bottom: 20px;
-    --site-footer-gtc: repeat(1, 1fr);
-    --site-footer-gtr: repeat(10, auto);
-    --site-footer-gap: 20px;
-    --site-footer-row-gap: 30px;
-    --site-footer-appointment-gcol: 10px;
-    --site-footer-social-media-gcol: 10px;
-    --site-footer-sep2-gcol: 1 / span 1;
-    --site-footer-logo-max-w: 100px;
-    --site-footer-logo-row: 10;
-    --site-footer-logo-col: 1;
-    --site-footer-copyright-row: 100px;
-    --site-footer-copyright-col: 1;
-    --site-footer-row3-ul-display: block;
-    --site-footer-row3-ul-just-cont: center;
-    --site-footer-row3-ul-gap: 50px;
-    --site-footer-row3-social-media-gap: 50px;
-    --site-footer-row3-social-media-txt-display: inline-block;
-    --site-footer-row3-ul-txt-align: left;
+    // --site-footer-mgr-bottom: 20px;
+    // --site-footer-gtc: repeat(1, 1fr);
+    // --site-footer-gtr: repeat(10, auto);
+    // --site-footer-gap: 20px;
+    // --site-footer-row-gap: 30px;
+    // --site-footer-appointment-gcol: 10px;
+    // --site-footer-social-media-gcol: 10px;
+    // --site-footer-sep2-gcol: 1 / span 1;
+    // --site-footer-logo-max-w: 100px;
+    // --site-footer-logo-row: 10;
+    // --site-footer-logo-col: 1;
+    // --site-footer-copyright-row: 100px;
+    // --site-footer-copyright-col: 1;
+    // --site-footer-row3-ul-display: block;
+    // --site-footer-row3-ul-just-cont: center;
+    // --site-footer-row3-ul-gap: 50px;
+    // --site-footer-row3-social-media-gap: 50px;
+    // --site-footer-row3-social-media-txt-display: inline-block;
+    // --site-footer-row3-ul-txt-align: left;
 }
 
 
 
 @layer footer {
-//     // Default styling ...
-    @layer aesthetics {
-        .main-footer { // Basic styling ...
+    #footer .container {
+        position: relative;
+        background-color: var(--site-clr-footer-background);
+
+
+        .block1, .block2, .block3 {
+            border: 1px solid #333;
+            margin: 30px 0;
+        }
+    }
+}
+
+
+
+// @layer footer {
+// //     // Default styling ...
+//     @layer aesthetics {
+//         .main-footer { // Basic styling ...
 //             margin-bottom: var(--site-footer-mgr-bottom);
 //             padding: var(--site-footer-padding);
-            background-color: var(--site-clr-footer-background);
 //             color: var(--site-clr-footer-links);
     
 //             ul { // Unstyle nav list
@@ -92,9 +107,9 @@
 //             #copyright {
 //                 grid-column: var(--site-footer-copyright-col);
 //             }
-        }
-    }
-} 
+//         }
+//     }
+// } 
 
 
 // @layer footer {
