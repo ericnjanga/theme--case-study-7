@@ -31,14 +31,14 @@
 
 
 <main class="main-content-wrapper" role="main">
-    <?php
-        displayUpcomingEventSection();
-    ?>
+    <div class="section-spacer">
+        <?php
+            displayUpcomingEventSection();
+        ?>
+    </div>
 
- 
-    <br><br><br>
-
-    <section class="section-brand-highlight container">
+  
+    <section class="section-brand-highlight section-spacer container">
         <?php echo getFieldImage('highlight_image', '', 'medium'); ?>
 
         <article>
@@ -146,7 +146,7 @@
     </section>
 
 
-    <section class="container">
+    <section class="section-spacer container">
         <h2 class="h-underlined text-center">Lorem ipsum dolor sit amet consectetur.</h2>
         <div class="grid grid-11233">
             <?php
