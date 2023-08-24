@@ -18,9 +18,6 @@
 </header>
 
 <main class="main-content-wrapper container" role="main">
-    <section class="breadcrumb">
-        <?php displayBreadcrumbs(); ?>
-    </section>
     <div class="grid-11222 grid">
         <?php
             displayEvents();
