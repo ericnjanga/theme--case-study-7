@@ -29,14 +29,14 @@
 .single, 
 .archive, // Including sub pages like category, author, ...
 .page-template-template-service,
-.page-template-template-events,
-.page-template-template-contact {
+.page-template-template-contact,
+.page-template-template-simple-page {
 
     /**
      * Parameters setup (mobile first)
      * ------------
     */
-    .site-global-container { 
+    .main-content-wrapper { 
         // Setup grid
         display: var(--site-global-wrapper-display);
         grid-template-columns: var(--site-global-wrapper-gtc);
@@ -73,7 +73,7 @@
      * Responsiveness
      * ------------
     */
-    .site-global-container {
+    .main-content-wrapper {
         @media (min-width: 1400px) {
             --site-global-wrapper-btn-sidebar-trigger-display: none;
             // Expands sidebar left (the main content shrinks) ...

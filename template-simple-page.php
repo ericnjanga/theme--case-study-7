@@ -17,11 +17,13 @@
     </div>
 </header>
 
-<main class="main-content-wrapper" role="main"> 
+<main class="main-content-wrapper container" role="main"> 
     <div>
         <h2><?php echo getField('optional_subtitle'); ?></h2>
         <?php the_content(); ?>
     </div>
+
+    <?php get_sidebar('sidebar-contact'); ?>
 </main>
 
 
