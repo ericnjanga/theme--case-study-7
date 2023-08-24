@@ -26,6 +26,9 @@
 
 
 @layer footer {
+    #footer {
+        margin-bottom: 80px;
+    }
     #footer .container {
         position: relative;
         background-color: var(--site-clr-footer-background);
