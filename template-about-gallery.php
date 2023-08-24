@@ -19,7 +19,7 @@
 
 <main class="main-content-wrapper container" role="main">
 
-    <section class="content-grid section-spacer">
+    <section class="content-grid"> <!--  section-spacer"> -->
         <article>
             <div class="post">
                 <p><?php echo getField('introduction'); ?></p>

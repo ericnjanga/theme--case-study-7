@@ -4,6 +4,7 @@
     --site-hero-img-spacer: 30px;
     --site-hero-txt-wrapper-max-width: 80%;
     --site-hero-footer-mgr: 20px; // footer margin
+    --site-hero-bottom-spacer: 30px; // bottom margin
 }
 
 // Mobile first settings ...
@@ -12,6 +13,7 @@
         display: flex;
         height: var(--site-hero-small-height);
         background: var(--site-clr-hero-background);
+        margin-bottom: var(--site-hero-bottom-spacer);
         
         .container {
             display: flex;
@@ -46,33 +48,40 @@
 // Responsive settings ...
 @layer hero {
     .hero {
-        @container (min-width: 1141px) {
+        // @container (min-width: 1141px) {
+        @media (min-width: 1400px) {
             --site-hero-padding: 90px;
             --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
             --site-hero-footer-mgr: 40px; // footer top margin
+            --site-hero-bottom-spacer: 80px;
         }
     
-        @container (min-width: 961px) and (max-width: 1140px) {
+        // @container (min-width: 961px) and (max-width: 1140px) {
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
             --site-hero-padding: 60px;
             --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
             --site-hero-footer-mgr: 30px; // footer top margin
+            --site-hero-bottom-spacer: 60px;
         }
     
-        @container (min-width: 721px) and (max-width: 960px) {
+        // @container (min-width: 721px) and (max-width: 960px) {
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
             --site-hero-padding: 50px;
             --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
             --site-hero-footer-mgr: 30px; // footer top margin
+            --site-hero-bottom-spacer: 60px;
         }
     
-        @container (min-width: 541px) and (max-width: 720px) {
+        // @container (min-width: 541px) and (max-width: 720px) {
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
             --site-hero-padding: 40px;
             --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
             --site-hero-footer-mgr: 20px; // footer top margin
+            --site-hero-bottom-spacer: 40px;
+            
         }
-
         // @container (max-width: 540px) {} 
     }
-
 
     .hero.large {
         height: var(--site-hero-large-height);

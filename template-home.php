@@ -164,7 +164,7 @@
     </section>
 
 
-    <section id="section-partners" class="section-spacer container">
+    <section id="section-partners" class="container">
             <h2 class="section-title text-center">Partners</h2>
             <?php
                 displayClientLogos();

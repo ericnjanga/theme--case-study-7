@@ -2,6 +2,7 @@
     // Default settings (mobile first) ...
     --site-clr-footer-background: #fff;
     --site-footer-padding: 40px 30px;
+    --site-footer-bottom-spacer: 30px; // bottom margin
     // --site-footer-mgr-bottom: 20px;
     // --site-footer-gtc: repeat(1, 1fr);
     // --site-footer-gtr: repeat(10, auto);
@@ -27,7 +28,8 @@
 
 @layer footer {
     #footer {
-        margin-bottom: 80px;
+        margin-top: var(--site-footer-bottom-spacer);
+        margin-bottom: var(--site-footer-bottom-spacer);
     }
     #footer .container {
         position: relative;
@@ -37,6 +39,28 @@
         .block1, .block2, .block3 {
             border: 1px solid #333;
             margin: 30px 0;
+        }
+    }
+}
+
+
+
+// Responsive settings ...
+@layer footer {
+    #footer {
+        @media (min-width: 1400px) {
+            --site-footer-bottom-spacer: 80px;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-footer-bottom-spacer: 60px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-footer-bottom-spacer: 60px;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-footer-bottom-spacer: 40px;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
         }
     }
 }
