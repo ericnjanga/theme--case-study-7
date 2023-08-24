@@ -47,11 +47,11 @@
 
 
                     <div class="block3 text-center" role="contentinfo">
-                        <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a> | <span>&copy; <?php echo esc_html( date_i18n( __( 'Y', 'generic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
+                        <a href="/terms-and-conditions/">Terms and Conditions</a> | <a href="/privacy-policy/">Privacy Policy</a> | <span>&copy; <?php echo esc_html( date_i18n( __( 'Y', 'generic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
                     </div>
                     
-                
-                
+
+                  
                 
                     <div class="main-footer">
 

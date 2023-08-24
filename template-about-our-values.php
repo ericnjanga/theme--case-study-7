@@ -17,41 +17,35 @@
     </div>
 </header>
 
-<main class="main-content-wrapper" role="main">
-
-    <header>
+<main class="main-content-wrapper" role="main"> 
+    <header class="container"> 
         <h2>
             <?php echo getField('optional_subtitle'); ?>
         </h2>
-    </header>  
+    </header> 
     
 
-
-    <section class="section-highlight">
-        <div class="container">
-            <div>
-                <div>
-                    <h3 class="section-subtitle"><?php echo getField('value_1_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_1_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_1_image', '', 'medium');
-                    ?>
-                </div>
-                <div>
-                    <h3 class="section-subtitle"><?php echo getField('value_2_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_2_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_2_image', '', 'medium');
-                    ?>
-                </div>
-                <div>
-                    <h3 class="section-subtitle"><?php echo getField('value_3_title'); ?></h3>
-                    <p class="section-content"><?php echo getField('value_3_paragraph'); ?></p>
-                    <?php
-                        echo getFieldImage('value_3_image', '', 'medium');
-                    ?>
-                </div>
-            </div>
+    <section class="section-highlight container">   
+        <div>
+            <h3 class="section-subtitle"><?php echo getField('value_1_title'); ?></h3>
+            <p class="section-content"><?php echo getField('value_1_paragraph'); ?></p>
+            <?php
+                echo getFieldImage('value_1_image', '', 'medium');
+            ?>
+        </div>
+        <div>
+            <h3 class="section-subtitle"><?php echo getField('value_2_title'); ?></h3>
+            <p class="section-content"><?php echo getField('value_2_paragraph'); ?></p>
+            <?php
+                echo getFieldImage('value_2_image', '', 'medium');
+            ?>
+        </div>
+        <div>
+            <h3 class="section-subtitle"><?php echo getField('value_3_title'); ?></h3>
+            <p class="section-content"><?php echo getField('value_3_paragraph'); ?></p>
+            <?php
+                echo getFieldImage('value_3_image', '', 'medium');
+            ?>
         </div>
     </section>
 
