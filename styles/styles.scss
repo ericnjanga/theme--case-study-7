@@ -8,16 +8,15 @@
 }
 
 @layer layouts {
-    @import 'layouts/base/countainer-queries';
-    @import 'layouts/base/section-spacer';
-    @import 'base/theme-switch';
-    @import 'layouts/post';
+    @import 'layouts/countainer-queries';
+    @import 'layouts/section-spacer';
+    @import 'layouts/grid-systems';
+    @import 'layouts/sidebar-global-setup';
 
-    @layer grids {
-        @import 'layouts/grids/galleries';
-        // @import 'layouts/grids/hero-main-sidebar';
-    }
-    @layer pages {
+    // @import 'layouts/post';
+    // @import 'base/theme-switch';
+
+    // @layer pages {
         // @import 'layouts/pages/home';
         // @import 'layouts/pages/home.awards';
         // @import 'layouts/pages/home.testimonials';
@@ -26,7 +25,7 @@
         // @import 'layouts/pages/about.awards';
         // @import 'layouts/pages/testimonials';
         // @import 'layouts/pages/contact';
-    }
+    // }
 }
 
 @layer components {
@@ -41,6 +40,7 @@
 
 @layer global-components {
     @import 'global-components/footer';
+    @import 'global-components/sidebar';
 }
 
 @layer aesthetics {
@@ -63,7 +63,6 @@
         // @import 'aesthetics/components/buttons';
         // @import 'aesthetics/components/event';
         // @import 'aesthetics/components/boxes';
-        // @import 'aesthetics/components/sidebar';
         // @import 'aesthetics/components/h-underlined';
         // @import 'aesthetics/components/blockquote';
         // @import 'aesthetics/components/post-navigation';
