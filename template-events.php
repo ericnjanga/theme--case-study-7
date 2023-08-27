@@ -5,7 +5,12 @@
     get_header();
 ?>
 
-<header class="hero">
+<?php
+    // HERO -----
+    // Fetching hero's background image.
+    $hero_background_img = getHeroBgImage();
+?>
+<header class="hero" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="container">
         <div class="text-wrapper">
             <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>

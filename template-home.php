@@ -5,8 +5,11 @@
     get_header();
 ?>
 
-
-    <header class="hero large" role="region">
+    <?php
+        // Fetching hero's background image.
+        $hero_background_img = getHeroBgImage();
+    ?>
+    <header class="hero large" role="region" style="<?php echo $hero_background_img; ?>;">
         <div class="container">
             <div class="text-wrapper">
                 <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
@@ -22,7 +25,7 @@
         <div>
             <!-- <img id="test-css" class="img-fluid" src="http://stilettosandhammers.local/wp-content/uploads/2023/08/hero-img.png" alt=""> -->
             <?php
-                displayHeroImages('wadedfef');
+                getHeroBgImage('wadedfef');
             ?>
         </div>
     </header>

@@ -14,6 +14,10 @@
         height: var(--site-hero-small-height);
         background: var(--site-clr-hero-background);
         margin-bottom: var(--site-hero-bottom-spacer);
+
+        // ...
+        background-size: cover;
+        background-position-y: 41%;
         
         .container {
             display: flex;
@@ -27,15 +31,6 @@
     .hero-title {
         position: relative;
         margin: 0;
-
-        // &::after {
-        //     display: block;
-        //     content: '';
-        //     height: 1px;
-        //     margin: 20px auto 0 auto;
-        //     width: var(--site-headings-underlined-line-width);
-        //     background-color: var(--site-clr-primary-neutral-600);
-        // }
     }
     .hero-intro {
         margin-top: 20px;

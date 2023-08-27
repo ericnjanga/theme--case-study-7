@@ -534,28 +534,47 @@
 
 
 <?php
-    function displayHeroImages($cssClass) {
-        global $post;
+    function getFeaturedImage() {
+        // Get the current post ID
+        $post_id = get_the_ID();
 
-        // Get the light theme image URL
-        $image1 = get_field('image_1', $post->ID);
-        $image2 = get_field('image_2', $post->ID);
-        $image3 = get_field('image_3', $post->ID);
-        // $text_image1 = get_field('image_text_theme', $post->ID); 
-        // Display the hero images
-        if ($image1) {
-            ?>
-            <section class="banner">
-                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image1["url"]; ?>);"></div>
-                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image2["url"]; ?>);"></div>
-                <div class="img1 <?php echo $cssClass; ?>" style="background-image: url(<?php echo $image3["url"]; ?>);"></div>
-            </section>
-            <?php
+        // Get the featured image URL
+        $featured_image_url = get_the_post_thumbnail_url($post_id, 'full');
+
+        // Display the featured image
+        if ($featured_image_url) {
+            echo '<img src="' . $featured_image_url . '" alt="Featured Image">';
         } else {
-            ?>
-            <p>No hero images found.</p>
-            <?php
+            echo 'No featured image available';
         }
+    }
+?>
+
+
+
+
+<?php
+    /**
+     * Fetching an image by name and returning it as a CSS background image rule
+     */
+    function getHeroBgImage() {
+        $image_name = 'Hero flag image';
+        $background_img = '';
+
+        // Search for an image by title
+        $attachment = get_page_by_title($image_name, OBJECT, 'attachment');
+
+        // If the attachment is found
+        if ($attachment instanceof WP_Post) {
+            $image_url = wp_get_attachment_url($attachment->ID);
+            $image_alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
+
+            if ($image_url) {
+                $background_img = "background-image:url($image_url)";
+            }
+        }
+
+        return $background_img;
     }
 ?>
 

@@ -5,8 +5,13 @@
      */
     get_header();
 ?>
-
-<header class="hero">
+    
+<?php
+    // HERO -----
+    // Fetching hero's background image.
+        $hero_background_img = getHeroBgImage();
+    ?>
+    <header class="hero" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="text-wrapper">
         <span class="fs-7">Category page</span>
         <h1 class="hero-title"><?php single_term_title(); ?></h1>

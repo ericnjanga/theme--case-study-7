@@ -1,6 +1,10 @@
 <?php get_header(); ?>
 
-    <header class="hero">
+    <?php
+        // Fetching hero's background image.
+        $hero_background_img = getHeroBgImage();
+    ?>
+    <header class="hero" role="region" style="<?php echo $hero_background_img; ?>;">
         <div class="text-wrapper">
             <span class="fs-7">Archives</span>
             <h1 class="hero-title" itemprop="name"><?php the_archive_title(); ?></h1>
