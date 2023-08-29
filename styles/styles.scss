@@ -36,11 +36,12 @@
     @import 'components/brand-feature';
     @import 'components/vlog-item';
     @import 'components/employee';
+    @import 'components/breadcrumb';
 }
 
 @layer global-components {
     @import 'global-components/hero';
-    @import 'global-components/components/header';
+    @import 'global-components/header';
     @import 'global-components/footer';
     @import 'global-components/sidebar';
 }

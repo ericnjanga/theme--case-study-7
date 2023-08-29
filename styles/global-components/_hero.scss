@@ -104,14 +104,3 @@
 
 
 
-
-
-
-@layer hero {
-    .hero a {
-        color: var(--site-clr-link-700);
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
