@@ -570,7 +570,7 @@
             $image_alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
 
             if ($image_url) {
-                $background_img = "background-image:url($image_url)";
+                $background_img = "background-image: url($image_url)";
             }
         }
 
@@ -768,6 +768,7 @@
 
 
 
+
 <?php
     function displayTestimonial(
         $gridClass  = '', 
@@ -782,7 +783,6 @@
             $count = -1;
         }
         // Default values enforcement
-
 
         // Get the quote image from the gallery
         $attachment_title = 'icon-quote';
@@ -799,7 +799,6 @@
             $quote_img = '<img class="testimonial__icon" src="' . $image_url . '" alt="Icon Quote">';
         }
 
-
         $args = array(
             'post_type' => 'testimonial',
             'posts_per_page' => $count,
@@ -809,14 +808,18 @@
         $query = new WP_Query($args);
     
         if ($query->have_posts()) {
+            $themeClasses = array('theme1', 'theme2', 'theme3');
+            $themeIndex = 0;
             ?>
             <ul class="<?php echo $gridClass; ?> list-unstyled">
                 <?php
                     while ($query->have_posts()) {
                         $query->the_post();
+                        $currentThemeClass = $themeClasses[$themeIndex];
+                        $themeIndex = ($themeIndex + 1) % count($themeClasses);
                         ?>
                             <li>
-                                <article class="testimonial">
+                                <article class="testimonial <?php echo $currentThemeClass; ?>">
                                     <?php echo $quote_img; ?>
                                    
                                     <div class="testimonial__body">
@@ -843,6 +846,7 @@
         wp_reset_postdata();
     }
 ?>
+
 
 
 

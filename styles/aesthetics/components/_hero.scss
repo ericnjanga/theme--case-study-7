@@ -1,10 +1,19 @@
 :root {
     // (Mobile first) ...
-    --site-hero-padding: 30px;
     --site-hero-img-spacer: 30px;
-    --site-hero-txt-wrapper-max-width: 80%;
     --site-hero-footer-mgr: 20px; // footer margin
     --site-hero-bottom-spacer: 30px; // bottom margin
+
+    --site-hero-large-height: 400px;
+    --site-hero-small-height: 235px;
+    --site-hero-txt-wrapper-padd: 20px;
+    --site-hero-txt-wrapper-brd-radius: 20px 20px 0px 0px;
+    --site-hero-bg-img-pos-y: 41%;
+
+    --site-clr-hero-txt-wrapper-bg: #442C52;
+    --site-clr-hero-txt-wrapper-h1: #fff;
+    --site-clr-hero-txt-wrapper-txt: #E1C7F0;
+    --site-clr-hero-txt-wrapper-width: 100%;
 }
 
 // Mobile first settings ...
@@ -12,28 +21,35 @@
     .hero {
         display: flex;
         height: var(--site-hero-small-height);
-        background: var(--site-clr-hero-background);
+        background: var(--site-clr-hero-txt-wrapper-bg);
         margin-bottom: var(--site-hero-bottom-spacer);
 
         // ...
         background-size: cover;
-        background-position-y: 41%;
+        background-position-y: var(--site-hero-bg-img-pos-y);
         
         .container {
+            position: relative;
             display: flex;
+            align-items: flex-start; // Flex items to grow only up to their natural content size without stretching to fill the available space
+            flex-direction: column-reverse; // Push item down
         }
 
         .text-wrapper {
-            background: var(--site-clr-body-background);
-            max-width: 733px;
+            max-width: var(--site-clr-hero-txt-wrapper-width);
+            background: var(--site-clr-hero-txt-wrapper-bg);
+            padding: var(--site-hero-txt-wrapper-padd);
+            border-radius: var(--site-hero-txt-wrapper-brd-radius);
         }
     }
     .hero-title {
         position: relative;
         margin: 0;
+        color: var(--site-clr-hero-txt-wrapper-h1);
     }
     .hero-intro {
         margin-top: 20px;
+        color: var(--site-clr-hero-txt-wrapper-txt);
     }
     .hero-footer {
         margin-top: var(--site-hero-footer-mgr);
@@ -45,37 +61,40 @@
     .hero {
         // @container (min-width: 1141px) {
         @media (min-width: 1400px) {
-            --site-hero-padding: 90px;
-            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-large-height: 700px;
             --site-hero-footer-mgr: 40px; // footer top margin
             --site-hero-bottom-spacer: 80px;
+            --site-clr-hero-txt-wrapper-width: 633px;
         }
     
         // @container (min-width: 961px) and (max-width: 1140px) {
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            --site-hero-padding: 60px;
-            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-large-height: 600px;
             --site-hero-footer-mgr: 30px; // footer top margin
             --site-hero-bottom-spacer: 60px;
+            --site-clr-hero-txt-wrapper-width: 550px;
+            --site-hero-txt-wrapper-padd: 40px;
         }
     
         // @container (min-width: 721px) and (max-width: 960px) {
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-hero-padding: 50px;
-            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-large-height: 500px;
             --site-hero-footer-mgr: 30px; // footer top margin
             --site-hero-bottom-spacer: 60px;
+            --site-clr-hero-txt-wrapper-width: 450px;
+            --site-hero-txt-wrapper-padd: 30px;
         }
     
         // @container (min-width: 541px) and (max-width: 720px) {
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            --site-hero-padding: 40px;
-            --site-hero-txt-wrapper-max-width: 50ch; // text wrapper max width
+            --site-hero-large-height: 500px;
             --site-hero-footer-mgr: 20px; // footer top margin
             --site-hero-bottom-spacer: 40px;
-            
+            --site-clr-hero-txt-wrapper-width: 450px;
         }
-        // @container (max-width: 540px) {} 
+        @media (max-width: (768px - 1)) {
+            --site-clr-hero-txt-wrapper-width: 450px;
+        }
     }
 
     .hero.large {

@@ -9,24 +9,49 @@
         // Fetching hero's background image.
         $hero_background_img = getHeroBgImage();
     ?>
-    <header class="hero large" role="region" style="<?php echo $hero_background_img; ?>;">
+
+    <style>
+        .parallax-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .parallax-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+    </style>
+
+
+
+
+    <!--
+    
+
+        data-0="background-position-y: 50%;"
+        data-top="background-position-y: 35%;"
+
+    -->
+
+
+    <header class="hero large parallax-container">
+        <div class="parallax-layer" style="<?php echo $hero_background_img; ?>;"></div>
         <div class="container">
             <div class="text-wrapper">
-                <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+                <h1 class="hero-title"><?php echo getField('hero_title'); ?></h1>
                 <?php edit_post_link(); ?>
-                <p class="hero-intro"><?php echo getField('optional_description'); ?></p>
+                <p class="hero-intro"><?php echo getField('hero_subtitle'); ?></p>
                 <footer class="hero-footer">
-                    <!-- <a href="#section-services" class="btn btn-secondary btn-icon btn-arrow-down">About us</a> -->
                     <a href="#section-services" class="btn btn-primary btn-icon btn-arrow-down">CTA Discover</a>
                 </footer>
             </div>
-        </div>
-
-        <div>
-            <!-- <img id="test-css" class="img-fluid" src="http://stilettosandhammers.local/wp-content/uploads/2023/08/hero-img.png" alt=""> -->
-            <?php
-                getHeroBgImage('wadedfef');
-            ?>
         </div>
     </header>
 

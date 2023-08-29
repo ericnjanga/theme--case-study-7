@@ -289,9 +289,28 @@ function generic_enqueue_comment_reply_script() {
 
 
 
+/**
+ * Parallax plugin inclusion
+ * ----
+ * NOTE: I'VE NOTICED SOME ISSUES WITH THIS PLUGIN (Scrolling issues, background image scrolling issues)
+ */
+// function enqueue_parallax_script() {
+//     // Enqueue jQuery
+//     wp_enqueue_script('jquery');
+
+//     // Enqueue skrollr.min.js (depends on jquery)
+//     wp_enqueue_script('skrollrjs', 'https://cdn.jsdelivr.net/npm/skrollr@0.6.26/dist/skrollr.min.js', array('jquery'), null, true);
+
+//     // Enqueue site-parallax-scroll.js (depends on skrollr.min.js)
+//     wp_enqueue_script('site-parallax-scroll', get_template_directory_uri() . '/js/site-parallax-scroll.js', array('skrollrjs'), '1.0', true);
+// }
+// add_action('wp_enqueue_scripts', 'enqueue_parallax_script');
+
+
+
+
 function enqueue_custom_script() {
     wp_enqueue_script('jquery');
-
 
     // Employees
     wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
