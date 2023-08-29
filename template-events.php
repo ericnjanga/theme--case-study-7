@@ -23,7 +23,7 @@
 </header>
 
 <main class="main-content-wrapper container" role="main">
-    <div class="grid-11222 grid">
+    <div class="grid-11122 grid">
         <?php
             displayEvents();
         ?>

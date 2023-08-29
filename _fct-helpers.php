@@ -164,6 +164,9 @@
             $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
             $event_start_time = get_post_meta(get_the_ID(), '_EventStartDateUTC', true);
 
+            // Get the event cost
+            $event_cost = get_post_meta(get_the_ID(), '_EventCost', true);
+
             // Get the event venue
             $event_venue = get_post_meta(get_the_ID(), '_EventVenueID', true);
             // ...
@@ -184,29 +187,58 @@
                 ?>
 
                 <a href="<?php the_permalink(); ?>">
-                    <div class="event__image" style="background-image:url(<?php echo $image_url; ?>);">
+                    <div class="event__image" style="background-image:url(<?php echo $image_url; ?>);"></div>
+                    <div class="event__body">    
+                        <div class="event__status"><?php echo $event_status; ?></div> 
+                        <h3 class="event__title"><?php the_title() ?></h3>   
 
-                    </div>
-                    <div class="event__content">    
+                        <div class="event__description">
+                            <?php
+                                $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
+                                $content = str_replace('<p>', '<p class="fs-7">', $content);
+                                echo $content;
+                            ?>
+                        </div>
+
                         <?php
                             if (!empty($event_venue)) {
                                 $venue_name = get_the_title($event_venue);
-                                echo 'Venue: ' . $venue_name;
+                                ?>
+                                    <span class="event__loc">
+                                        <svg class="event__loc__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>
+                                        <span class="event__loc__text"><?php echo $venue_name; ?></span>
+                                    </span>
+                                <?php
                             }
                         ?>
 
+                        <ul class="event__time">
+                            <li>
+                                <span class="event__time__label">Event Date</span>
+                                <span class="event__time__text"><?php echo date_i18n('d M, Y', strtotime($event_start_date)); ?></span>
+                            </li>
+                            <li>
+                                <span class="event__time__label">Event Time</span>
+                                <span class="event__time__text"><?php echo $event_start_time_formated2; ?></span>
+                            </li>
+                        </ul>
 
-                        <div class="event__status"><?php echo $event_status; ?></div>     
-                        
-                        <h3 class="event__title"><?php the_title() ?></h3>
 
-                        <p><strong>Event Date:</strong> <?php echo date_i18n('d M, Y', strtotime($event_start_date)); ?></p>
-                        <p><strong>Event Time:</strong> <?php echo $event_start_time_formated2; ?></p>
-
-                        <?php
-                            $content = apply_filters('the_content', get_the_content());
-                            $content = str_replace('<p>', '<p class="fs-7">', $content);
-                        ?>
+                        <footer class="event__cta__wrapper">
+                            <span class="btn btn-secondary">
+                                <span>
+                                    <?php
+                                        if (!empty($event_cost)) {
+                                            echo $event_cost;
+                                        } else {
+                                            echo 'Free';
+                                        }
+                                    ?>
+                                </span>
+                            </span>
+                        </footer>
                     </div>
                 </a>
 
@@ -214,6 +246,9 @@
         <?php
     }
 ?>
+
+
+
 
 
 

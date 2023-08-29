@@ -37,6 +37,7 @@
     @import 'components/vlog-item';
     @import 'components/employee';
     @import 'components/breadcrumb';
+    @import 'components/buttons';
 }
 
 @layer global-components {
@@ -61,7 +62,6 @@
     @layer components {
         // @import 'aesthetics/components/link-icon';
         // @import 'aesthetics/components/banner';
-        // @import 'aesthetics/components/buttons';
         // @import 'aesthetics/components/event';
         // @import 'aesthetics/components/boxes';
         // @import 'aesthetics/components/h-underlined';
