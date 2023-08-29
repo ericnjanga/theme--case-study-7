@@ -39,6 +39,8 @@
 }
 
 @layer global-components {
+    @import 'global-components/hero';
+    @import 'global-components/components/header';
     @import 'global-components/footer';
     @import 'global-components/sidebar';
 }
@@ -56,9 +58,7 @@
         // @import 'aesthetics/framework-overrides/bs-utilities';
     }
     @layer components {
-        @import 'aesthetics/components/header';
-        @import 'aesthetics/components/link-icon';
-        @import 'aesthetics/components/hero';
+        // @import 'aesthetics/components/link-icon';
         // @import 'aesthetics/components/banner';
         // @import 'aesthetics/components/buttons';
         // @import 'aesthetics/components/event';
