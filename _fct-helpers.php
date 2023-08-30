@@ -206,7 +206,7 @@
                         <?php if (!empty($event_categories)) : ?>
                             <div class="event__categories">
                                 <?php foreach ($event_categories as $category) : ?>
-                                    <span class="event__categories__item  badge rounded-pill text-bg-info">
+                                    <span class="event__categories__item site-badge badge-info">
                                         <?php echo esc_html($category->name); ?>
                                     </span>
                                 <?php endforeach; ?>
@@ -666,38 +666,64 @@
 
 <?php
     function displayPost() {
+        // Fetching video thumbnails
+        $vimeo_video_url = getField('video_url');
+        $youtube_video_url = getField('youtube_video_url');
+
+        $cssClass = ''; 
+        if (empty($vimeo_video_url) && empty($youtube_video_url)) {
+            $cssClass = 'vlog-item--text'; 
+        } else {
+            $cssClass = 'vlog-item--video'; 
+        }
+
         ?>
-            <article class="vlog-item">
+            <article class="vlog-item <?php echo $cssClass; ?>">
                 <?php $categories = get_the_category(); ?>
 
                 <a href="<?php the_permalink(); ?>">
                     <?php
-                        $vimeo_video_url = getField('video_url');
-                        $youtube_video_url = getField('youtube_video_url');
 
 
                         if (!empty($vimeo_video_url)) {
-                            getVimeoThumbnail($vimeo_video_url, 'entry-img');
+                            getVimeoThumbnail($vimeo_video_url, 'vlog-item__img');
                         } 
                         else if (!empty($youtube_video_url)) {
-                            getYoutubeThumbnail($youtube_video_url, 'entry-img');
+                            ?>
+                            <span class="vlog-item__youtube-img-wrapper">
+                                <?php
+                                    getYoutubeThumbnail($youtube_video_url, 'vlog-item__img');
+                                ?>
+                            </span>
+                            <?php
                         }
                     ?>
 
-                    <h3>
+                    <h3 class="vlog-item__title">
                         <?php the_title(); ?>
                     </h3>
-                    <footer>
+                    <footer class="vlog-item__footer">
                         <?php if ( ! empty( $categories ) ) : ?>
-                            <p class="pre-title">
-                                <!-- <a class="km-link-secondary" href="<?php // echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>"> -->
-                                <!-- </a> -->
-                                <span><?php echo esc_html( $categories[0]->name ); ?></span>
-                                <span>|</span>
-                                <span class="post-date"><?php echo get_the_date(); ?></span>
-                            </p>
+                            <!-- <a class="km-link-secondary" href="<?php // echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>"> -->
+                            <!-- </a> -->
+                            <span class="vlog-item__categories__item site-badge badge-info">
+                                <?php echo esc_html( $categories[0]->name ); ?>
+                            </span>
+                            <span class="vlog-item__spacer"></span>
+                            <span class="vlog-item__date"><?php echo get_the_date(); ?></span>
                         <?php endif; ?>
                     </footer>
+
+
+                    <?php if ($cssClass == 'vlog-item--text') { ?>
+                        <div class="vlog-item__description">
+                            <?php
+                                $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
+                                $content = str_replace('<p>', '<p>', $content);
+                                echo $content;
+                            ?>
+                        </div>
+                    <?php } ?>
                 </a>
             </article>
         <?php
