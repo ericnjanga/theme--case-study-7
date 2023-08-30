@@ -5,6 +5,21 @@
     --site-btn-icon-padding: 15px;
 }
 
+
+@layer badges {
+    .badge-primary {
+        padding-bottom: 4.2px;
+        padding-left: 7.8px;
+        padding-right: 7.8px;
+        padding-top: 4.2px;
+
+        background-color: #E0D9FF;
+        border: 1px solid #7F5299;
+        color: #281A30;
+        border-radius: 10px;
+    };
+}
+
 @layer buttons {
     .btn {
         border-color: transparent;

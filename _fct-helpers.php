@@ -167,6 +167,9 @@
             // Get the event cost
             $event_cost = get_post_meta(get_the_ID(), '_EventCost', true);
 
+            // Get the event categories
+            $event_categories = get_the_terms(get_the_ID(), Tribe__Events__Main::TAXONOMY);
+
             // Get the event venue
             $event_venue = get_post_meta(get_the_ID(), '_EventVenueID', true);
             // ...
@@ -195,10 +198,20 @@
                         <div class="event__description">
                             <?php
                                 $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
-                                $content = str_replace('<p>', '<p class="fs-7">', $content);
+                                $content = str_replace('<p>', '<p>', $content);
                                 echo $content;
                             ?>
                         </div>
+
+                        <?php if (!empty($event_categories)) : ?>
+                            <div class="event__categories">
+                                <?php foreach ($event_categories as $category) : ?>
+                                    <span class="event__categories__item  badge rounded-pill text-bg-info">
+                                        <?php echo esc_html($category->name); ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
 
                         <?php
                             if (!empty($event_venue)) {
