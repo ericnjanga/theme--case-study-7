@@ -30,7 +30,7 @@
     </header> 
     
 
-    <section class="section-highlight container">   
+    <section class="grid grid-11233 section-highlight container section-spacer">   
         <div>
             <h3 class="section-subtitle"><?php echo getField('value_1_title'); ?></h3>
             <p class="section-content"><?php echo getField('value_1_paragraph'); ?></p>
@@ -56,11 +56,20 @@
 
 
 
+    <?php
+        // HERO -----
+        // Fetching hero's background image.
+        $parallax_img = getBackgroundImage('Our Values');
+    ?>
+    <section class="parallax-section section-spacer" style="<?php echo $parallax_img; ?>;">
+        <div class="container bx-container">
+            <blockquote>
+                <p>
+                    <?php echo getField('slogan1'); ?>
+                </p>
+            </blockquote>
 
-    <section class="parallax-section">
-        <blockquote>
-            ...
-        </blockquote>
+        </div>
     </section>
 
 

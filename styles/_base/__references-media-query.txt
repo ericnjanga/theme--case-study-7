@@ -42,10 +42,10 @@
 */
 .browser-query {
     @media (min-width: 1400px) {
-        border: 10px solid green;
+        border: 10px solid purple;
     }
     @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-        /* // ... */
+        border: 10px solid violet;
     }
     @media (min-width: 992px) and (max-width: (1200px - 1)) {
         border: 10px solid lime;
@@ -55,5 +55,8 @@
     }
     @media (min-width: 576px) and (max-width: (768px - 1)) {
         border: 10px solid turquoise;
+    }
+    @media (max-width: (576px - 1px)) {
+        border: 10px solid chocolate;
     }
 }

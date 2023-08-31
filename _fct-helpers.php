@@ -603,10 +603,22 @@
 
 <?php
     /**
-     * Fetching an image by name and returning it as a CSS background image rule
+     * ...
      */
     function getHeroBgImage() {
-        $image_name = 'Hero flag image';
+        return getBackgroundImage('Hero flag image');
+    }
+?>
+
+
+
+
+<?php
+    /**
+     * Fetching an image by name and returning it as a CSS background image rule
+     */
+    function getBackgroundImage($imgName) {
+        $image_name = $imgName;
         $background_img = '';
 
         // Search for an image by title
@@ -709,7 +721,7 @@
                             }
                         ?>
 
-                        
+
 
                         <h3 class="vlog-item__title">
                             <?php the_title(); ?>

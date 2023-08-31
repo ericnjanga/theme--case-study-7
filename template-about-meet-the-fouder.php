@@ -1,6 +1,6 @@
 <?php
     /*
-    Template Name: About > Meet The Team
+    Template Name: About > Meet The Founder
     */ 
     get_header();
 ?>
@@ -60,7 +60,7 @@
     </section>
 
     <section>
-        <h2>Our team</h2>
+        <h2>Recognition</h2>
         <div class="grid grid-22444">
             <?php
                 displayEmployee();
