@@ -606,7 +606,7 @@
      * ...
      */
     function getHeroBgImage() {
-        return getBackgroundImage('Hero flag image');
+        return getBackgroundImage_byName('Hero flag image');
     }
 ?>
 
@@ -617,7 +617,7 @@
     /**
      * Fetching an image by name and returning it as a CSS background image rule
      */
-    function getBackgroundImage($imgName) {
+    function getBackgroundImage_byName($imgName) {
         $image_name = $imgName;
         $background_img = '';
 
@@ -635,6 +635,34 @@
         }
 
         return $background_img;
+    }
+?>
+
+
+
+
+<?php
+    /**
+     * ..
+     */
+    function getImage_byName($imgName, $cssClass) {
+        $image_name = $imgName;
+        $image = '';
+
+        // Search for an image by name
+        $attachment = get_page_by_title($image_name, OBJECT, 'attachment');
+
+        if ($attachment) {
+            $attachment_id = $attachment->ID;
+
+            // Get the image URL
+            $image_url = wp_get_attachment_url($attachment_id);
+
+            // Display the image
+            $image = '<img class="' .$cssClass. '" src="' . $image_url . '" alt="Icon Quote">';
+        }
+
+        return $image;
     }
 ?>
 
@@ -886,17 +914,7 @@
         // Get the quote image from the gallery
         $attachment_title = 'icon-quote';
         $attachment = get_page_by_title($attachment_title, OBJECT, 'attachment');
-        $quote_img = '';
-
-        if ($attachment) {
-            $attachment_id = $attachment->ID;
-
-            // Get the image URL
-            $image_url = wp_get_attachment_url($attachment_id);
-
-            // Display the image
-            $quote_img = '<img class="testimonial__icon" src="' . $image_url . '" alt="Icon Quote">';
-        }
+        $quote_img = getImage_byName('icon-quote', 'testimonial__icon');
 
         $args = array(
             'post_type' => 'testimonial',

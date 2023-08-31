@@ -59,7 +59,7 @@
     <?php
         // HERO -----
         // Fetching hero's background image.
-        $parallax_img = getBackgroundImage('Our Values');
+        $parallax_img = getBackgroundImage_byName('Our Values');
     ?>
     <section class="parallax-section section-spacer" style="<?php echo $parallax_img; ?>;">
         <div class="container bx-container">
