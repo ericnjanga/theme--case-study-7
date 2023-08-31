@@ -10,12 +10,19 @@
                             alt="<?php echo esc_html( get_bloginfo( 'name' ) ) ?>" 
                             class="logo"
                         >
+                        <div class="footer__cta">
+                            <span class="sup">Newsletter</span>
+                            <h3 class="footer__title">Keep up with us by <a href="@">signing up!</a></h3>
+                        </div>
                     </div>
+
+
+                    <hr>
 
 
                     <div class="block2">
                         <div class="pages" role="contentinfo">
-                            <h3>Pages</h3>
+                            <h3 class="footer__title">Pages</h3>
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'footer-menu',
@@ -26,44 +33,33 @@
                         </div>
 
                         <div class="social-media" role="contentinfo">
-                            <h3>Social Media</h3>
+                            <h3 class="footer__title">Social Media</h3>
                             <?php dynamic_sidebar('sidebar-social-media'); ?>
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3>Events</h3>
+                            <h3 class="footer__title">Events</h3>
                             <?php latestPostTitles('', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3>Vlog</h3>
+                            <h3 class="footer__title">Vlog</h3>
                             <?php latestPostTitles('', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3>Membership</h3>
+                            <h3 class="footer__title">Membership</h3>
                         </div>
                     </div>
+
+                    
+                    <hr>
 
 
                     <div class="block3 text-center" role="contentinfo">
                         <a href="/terms-and-conditions/">Terms and Conditions</a> | <a href="/privacy-policy/">Privacy Policy</a> | <span>&copy; <?php echo esc_html( date_i18n( __( 'Y', 'generic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
                     </div>
                     
-
-                  
-                
-                    <div class="main-footer">
-
-                        <!-- <hr class="sep-1">
-
-                        <div class="appointment" role="contentinfo">
-                            <h3>Appointment Scheduling</h3>
-                            <?php //dynamic_sidebar('sidebar-appointments'); ?>
-                        </div>
-
-                        <hr class="sep-2"> -->
-                    </div>
                 </div>
             </footer>
         </div><!-- site-global-wrapper -->
