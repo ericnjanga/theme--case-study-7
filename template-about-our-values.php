@@ -24,7 +24,7 @@
 
 <main class="main-content-wrapper" role="main"> 
     <header class="container"> 
-        <h2>
+        <h2 class="title-spacer">
             <?php echo getField('optional_subtitle'); ?>
         </h2>
     </header> 
@@ -77,7 +77,7 @@
 
 
     <section class="section-spacer container">
-        <h2 class="h-underlined">Don’t take our word for it...</h2>
+        <h2 class="h-underlined text-center title-spacer">Don’t take our word for it...</h2>
         <div>
             <?php displayTestimonial('grid grid-11233 testimonial-list', 3, true); ?>
         </div>

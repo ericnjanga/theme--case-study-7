@@ -1,29 +1,40 @@
 :root {
-    --site-spacer-margin-bottom: 30px;
+    --site-section-bottom-spacer: 30px;
+    --site-title-bottom-spacer: 30px;
 }
 
 
 
 @layer section-spacer {
     .section-spacer {
-        margin-bottom: var(--site-spacer-margin-bottom);
+        margin-bottom: var(--site-section-bottom-spacer);
+    }
+    .title-spacer {
+        margin-bottom: var(--site-title-bottom-spacer);
+
+        @media (min-width: 1400px) {
+            --site-title-bottom-spacer: 40px;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-title-bottom-spacer: 40px;
+        }
     }
 
     .section-spacer {
         @container (min-width: 1141px) {
-            --site-spacer-margin-bottom: 120px; 
+            --site-section-bottom-spacer: 120px; 
         }
     
         @container (min-width: 961px) and (max-width: 1140px) {
-            --site-spacer-margin-bottom: 60px; 
+            --site-section-bottom-spacer: 60px; 
         }
     
         @container (min-width: 721px) and (max-width: 960px) {
-            --site-spacer-margin-bottom: 50px; 
+            --site-section-bottom-spacer: 50px; 
         }
     
         @container (min-width: 541px) and (max-width: 720px) {
-            --site-spacer-margin-bottom: 40px; 
+            --site-section-bottom-spacer: 40px; 
         }
     }
 }

@@ -1,5 +1,5 @@
 :root {
-    --site-spacer-margin-bottom: 30px;
+    --site-section-bottom-spacer: 30px;
 }
 :root {
     --site-h-underlined--uh: 1px;  // Underline height
@@ -10,7 +10,7 @@
 @layer post {
     .post {
         position: relative;
-        margin-bottom: var(--site-spacer-margin-bottom);
+        margin-bottom: var(--site-section-bottom-spacer);
     }
 
     // Underlining styling
@@ -47,19 +47,19 @@
     // Spacing
     .post {
         @container (min-width: 1141px) {
-            --site-spacer-margin-bottom: 120px; 
+            --site-section-bottom-spacer: 120px; 
         }
     
         @container (min-width: 961px) and (max-width: 1140px) {
-            --site-spacer-margin-bottom: 60px; 
+            --site-section-bottom-spacer: 60px; 
         }
     
         @container (min-width: 721px) and (max-width: 960px) {
-            --site-spacer-margin-bottom: 50px; 
+            --site-section-bottom-spacer: 50px; 
         }
     
         @container (min-width: 541px) and (max-width: 720px) {
-            --site-spacer-margin-bottom: 40px; 
+            --site-section-bottom-spacer: 40px; 
         }
     }
 }
