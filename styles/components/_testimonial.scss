@@ -8,7 +8,6 @@
     --site-clr-testimonial-background2: #FADEE4;
     --site-clr-testimonial-background3: #F1DEFA;
 
-    --site-clr-testimonial-text1: #281A30;
     --site-clr-testimonial-text2: #4D4354;
 }
 
@@ -59,7 +58,7 @@
 
     .testimonial__body,
     .testimonial__name {
-        color: var(--site-clr-testimonial-text1);
+        color: var(--site-clr-text1);
     }
     .testimonial__title {
         color: var(--site-clr-testimonial-text2);

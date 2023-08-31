@@ -4,8 +4,6 @@
     --site-btn-letter-spacing: 0.2ch;
     --site-btn-icon-padding: 15px;
 
-
-    --site-clr-button-text2: #4D4354;
     --site-clr-button-text3: #E0D9FF;
 }
 
@@ -19,7 +17,7 @@
         padding-right: 7.8px;
         padding-top: 4.2px;
         border-radius: 20px;
-        color: var(--site-clr-button-text2);
+        color: var(--site-clr-text2);
 
         &.badge-info {
             background-color: var(--site-clr-button-text3);
