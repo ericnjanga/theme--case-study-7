@@ -43,6 +43,10 @@
     @import 'global-components/sidebar';
 }
 
+@layer pages {
+    @import 'pages/our-values';
+}
+
 @layer base {
     @import '_base/variables';
     @import '_base/body';

@@ -645,7 +645,7 @@
     /**
      * ..
      */
-    function getImage_byName($imgName, $cssClass) {
+    function getImage_byName($imgName, $cssClass = '') {
         $image_name = $imgName;
         $image = '';
 
