@@ -24,8 +24,10 @@
 
 <main class="main-content-wrapper container" role="main"> 
     <div>
-        <h2><?php echo getField('optional_subtitle'); ?></h2>
+        <h2 class="page-title"><?php echo getField('optional_subtitle'); ?></h2>
+        <div class="page-content">
         <?php the_content(); ?>
+        </div>
     </div>
 
     <?php get_sidebar('sidebar-contact'); ?>
