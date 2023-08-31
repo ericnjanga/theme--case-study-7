@@ -3,10 +3,6 @@
     @import '../node_modules/bootstrap/scss/bootstrap';
 }
 
-@layer base {
-    @import 'base/variables';
-}
-
 @layer layouts {
     @import 'layouts/countainer-queries';
     @import 'layouts/section-spacer';
@@ -47,9 +43,13 @@
     @import 'global-components/sidebar';
 }
 
-@layer aesthetics {
-    @import 'aesthetics/base/body';
-    @import 'aesthetics/base/typography';
+@layer base {
+    @import '_base/variables';
+    @import '_base/body';
+    @import '_base/typography';
+    @import '_base/transitions-and-animations';
+
+
     // @import 'aesthetics/base/headings';
     // @import 'base/decorators';
     // @import 'base/forms';

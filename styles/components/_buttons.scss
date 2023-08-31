@@ -3,21 +3,28 @@
     --site-btn-padding-horizontal: 30px;
     --site-btn-letter-spacing: 0.2ch;
     --site-btn-icon-padding: 15px;
+
+
+    --site-clr-button-text2: #4D4354;
+    --site-clr-button-text3: #E0D9FF;
 }
 
 
 @layer badges {
-    .badge-primary {
+    .site-badge {
+        font-size: 12px;
+        font-weight: 700;
         padding-bottom: 4.2px;
         padding-left: 7.8px;
         padding-right: 7.8px;
         padding-top: 4.2px;
+        border-radius: 20px;
+        color: var(--site-clr-button-text2);
 
-        background-color: #E0D9FF;
-        border: 1px solid #7F5299;
-        color: #281A30;
-        border-radius: 10px;
-    };
+        &.badge-info {
+            background-color: var(--site-clr-button-text3);
+        }
+    }
 }
 
 @layer buttons {

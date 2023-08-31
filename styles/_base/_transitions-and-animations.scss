@@ -1,0 +1,16 @@
+
+
+
+@layer transitions {
+    .btn,
+    .site-badge,
+    .vlog-item a,
+    .event a,
+    .vlog-item__title,
+    .vlog-item__date,
+    .vlog-item__img {
+        // Smooth transition effect ...
+        transition: all 0.3s ease-in-out;
+    }
+}
+

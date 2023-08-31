@@ -27,7 +27,7 @@
 
 <main class="main-content-wrapper section-spacer container" role="main">
     
-    <div class="grid grid-11233 js-loead-moreposts-container">
+    <div class="grid grid-bbbbb js-loead-moreposts-container">
         <?php
             if ( have_posts() ) :
                 $first_post = true; // Flag to track the first post

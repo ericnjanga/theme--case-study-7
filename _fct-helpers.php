@@ -678,54 +678,67 @@
         }
 
         ?>
-            <article class="vlog-item <?php echo $cssClass; ?>">
-                <?php $categories = get_the_category(); ?>
+            <div class="bx-container">
+                <article class="vlog-item <?php echo $cssClass; ?>">
+                    <?php $categories = get_the_category(); ?>
 
-                <a href="<?php the_permalink(); ?>">
-                    <?php
-
-
-                        if (!empty($vimeo_video_url)) {
-                            getVimeoThumbnail($vimeo_video_url, 'vlog-item__img');
-                        } 
-                        else if (!empty($youtube_video_url)) {
-                            ?>
-                            <span class="vlog-item__youtube-img-wrapper">
-                                <?php
-                                    getYoutubeThumbnail($youtube_video_url, 'vlog-item__img');
-                                ?>
-                            </span>
-                            <?php
-                        }
-                    ?>
-
-                    <h3 class="vlog-item__title">
-                        <?php the_title(); ?>
-                    </h3>
-                    <footer class="vlog-item__footer">
-                        <?php if ( ! empty( $categories ) ) : ?>
-                            <!-- <a class="km-link-secondary" href="<?php // echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>"> -->
-                            <!-- </a> -->
-                            <span class="vlog-item__categories__item site-badge badge-info">
-                                <?php echo esc_html( $categories[0]->name ); ?>
-                            </span>
-                            <span class="vlog-item__spacer"></span>
-                            <span class="vlog-item__date"><?php echo get_the_date(); ?></span>
-                        <?php endif; ?>
-                    </footer>
+                    <a href="<?php the_permalink(); ?>">
 
 
                     <?php if ($cssClass == 'vlog-item--text') { ?>
-                        <div class="vlog-item__description">
-                            <?php
-                                $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
-                                $content = str_replace('<p>', '<p>', $content);
-                                echo $content;
-                            ?>
-                        </div>
+                        <svg class="vlog-item__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
+                    <?php } else { ?>
+                        <svg class="vlog-item__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m160-800 80 160h120l-80-160h80l80 160h120l-80-160h80l80 160h120l-80-160h120q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800Zm0 240v320h640v-320H160Zm0 0v320-320Z"/></svg>
                     <?php } ?>
-                </a>
-            </article>
+
+
+
+                        <?php
+                            if (!empty($vimeo_video_url)) {
+                                getVimeoThumbnail($vimeo_video_url, 'vlog-item__img');
+                            } 
+                            else if (!empty($youtube_video_url)) {
+                                // This wrapper will be used to hide the black bands
+                                ?>
+                                <span class="vlog-item__youtube-img-wrapper">
+                                    <?php
+                                        getYoutubeThumbnail($youtube_video_url, 'vlog-item__img');
+                                    ?>
+                                </span>
+                                <?php
+                            }
+                        ?>
+
+                        
+
+                        <h3 class="vlog-item__title">
+                            <?php the_title(); ?>
+                        </h3>
+                        <footer class="vlog-item__footer">
+                            <?php if ( ! empty( $categories ) ) : ?>
+                                <!-- <a class="km-link-secondary" href="<?php // echo esc_url( get_category_link( $categories[0]->term_id ) ); ?>"> -->
+                                <!-- </a> -->
+                                <span class="vlog-item__categories__item site-badge badge-info">
+                                    <?php echo esc_html( $categories[0]->name ); ?>
+                                </span>
+                                <span class="vlog-item__spacer"></span>
+                                <span class="vlog-item__date"><?php echo get_the_date(); ?></span>
+                            <?php endif; ?>
+                        </footer>
+
+
+                        <?php if ($cssClass == 'vlog-item--text') { ?>
+                            <div class="vlog-item__description">
+                                <?php
+                                    $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
+                                    $content = str_replace('<p>', '<p>', $content);
+                                    echo $content;
+                                ?>
+                            </div>
+                        <?php } ?>
+                    </a>
+                </article>
+            </div>
         <?php
     }
 ?>

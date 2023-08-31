@@ -1,0 +1,149 @@
+
+/**
+    * GLOBAL CUSTOM PROPPERTIES (VARIABLES)
+    * ------------
+*/
+
+/**
+ * NOTE: I'm temporary deactivating the dark theme
+ * (There is still a lot of work to do, therefore, it's not ready for production)
+ * June 24, 2023
+ * ------------
+**/
+/* Light theme */
+// @media (prefers-color-scheme: light) {
+    :root { /* Colours */
+
+        --site-clr-secondary-background: #281A30;
+        --site-clr-secondary-text: #fff;
+
+        // Events
+        --site-clr-event-background: #fff;
+
+
+
+        // ...
+        --site-clr-hero-background: #979696;
+
+
+        --site-clr-body-background: #fff;
+        --site-clr-body-background-darken: #e9e9e9;
+        --site-clr-bg-neutral-100: #f6f6f6;
+        --site-clr-txt-neutral-800: #1E1E1E;
+        --site-clr-txt-neutral-200: #27241A;
+        --site-clr-txt-neutral-500: #514B3C;
+        --site-clr-txt-neutral-600: #696969;
+        --site-clr-footer-background: green; // #0F0F0E;
+        --site-clr-primary-100-background: #1A1812;
+        --site-clr-primary-100: #F0EDE1;
+        --site-clr-primary-200: #E0D1A0;
+        --site-clr-primary: #FFCD3A;
+        --site-clr-primary-darken: #d5aa2a;
+        --site-clr-primary-neutral-900: #977003;
+
+        --site-clr-link-700: #513902;
+        --site-clr-link-800: #977003;
+
+        --site-clr-primary-txt: #1E1E1E;
+        --site-clr-primary-neutral-400: #6a685f;
+        --site-clr-primary-neutral-500: #7C796E;
+        --site-clr-primary-neutral-600: #939393;
+        --site-clr-primary-neutral-800: #B8B8B8;
+        --site-clr-complementary-800: #DAE0F2;
+        --site-clr-transparent: rgba(0, 0, 0, 0.1);
+
+        // Footer
+        --site-clr-footer-links: #B4B2AE;
+        --site-clr-footer-headings: #977003;
+
+        // Sections
+        --site-clr-section-highlight: #262626;
+        --site-clr-section-highlight-title: #fff;
+        --site-clr-section-highlight-content: #C8C8C8;
+    }
+
+    :root { /* Hero images */
+        --site-hero-img-light-display: block;
+        --site-hero-img-dark-display: none;
+    }
+
+    :root { /* Navbar */
+        --site-dropdown-sep-color: #977003;
+        --site-header-wrapper-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+        --site-dropdown-toggle-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M11 14.0936L5.5 8.59357L6.48542 7.60815L11 12.1457L15.5146 7.63107L16.5 8.61649L11 14.0936Z' fill='black'/%3E%3C/svg%3E");
+        --site-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+// }
+
+/* Dark theme */
+// @media (prefers-color-scheme: dark) {
+//     :root { // Colours ...
+//         --site-clr-body-background: #1A1812;
+//         --site-clr-body-background-darken: #29261e;
+//         --site-clr-bg-neutral-100: #292828;
+//         --site-clr-txt-neutral-800: #E2E2E2;
+//         --site-clr-txt-neutral-200: #C7C7C7;
+//         --site-clr-txt-neutral-500: #8D8778;
+//         --site-clr-txt-neutral-600: #959595;
+//         --site-clr-footer-background: #1C1B1A;
+//         --site-clr-primary-100-background: #1e1b13;
+//         --site-clr-primary-100: #1C1B1A; // #242321;
+//         --site-clr-primary-200: #2d2510;
+//         --site-clr-primary: #FFCD3A;
+//         --site-clr-primary-darken: #d5aa2a;
+//         --site-clr-primary-neutral-900: #977003;
+//         --site-clr-primary-txt: #1E1E1E;
+//         --site-clr-primary-neutral-400: #6a685f;
+//         --site-clr-primary-neutral-500: #7C796E;
+//         --site-clr-primary-neutral-600: #939393;
+//         --site-clr-primary-neutral-800: #B8B8B8;
+//         --site-clr-complementary-800: #171B26;
+//         --site-clr-transparent: #1F1D17;
+
+//         // Footer
+//         --site-clr-footer-links: #F0EDE1;
+//         --site-clr-footer-headings: #977003;
+//     }
+
+//     :root { // Hero images ...
+//         --site-hero-img-light-display: none;
+//         --site-hero-img-dark-display: block;
+//     }
+
+//     :root { // Navbar ...
+//         --site-dropdown-sep-color: #584410;
+//         --site-header-wrapper-box-shadow: 0px 0px 20px rgba(117, 117, 117, 0.3);
+//         --site-dropdown-toggle-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22' viewBox='0 0 22 22' fill='none'%3E%3Cpath d='M11 14.0938L5.5 8.59382L6.48542 7.6084L11 12.1459L15.5146 7.63132L16.5 8.61673L11 14.0938Z' fill='%23959595'/%3E%3C/svg%3E");
+//         --site-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+//     }
+// }
+
+
+
+
+:root {
+
+    --site-headings-underlined-line-width: 125px;
+    --site-article-sep-width: 50%;
+    --site-article-sep-max-width: 300px;
+
+    /* Font faces */
+    --site-font-family-headings: 'Cormorant Upright', serif;
+    --site-font-family-body: 'Roboto', sans-serif;
+
+    // layout
+    --site-border-radius: 10px;
+}
+
+
+
+
+/**
+ * Layouts
+ * ------------
+*/
+:root {
+    // Events ---
+
+    // Hero ---
+}
