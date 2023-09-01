@@ -44,7 +44,19 @@
             </h2>
         </header> 
 
-        <div>
+        <div class="test-gallery">
+      <a href="https://dummyimage.com/1200x600/000/fff" data-pswp-width="1200" data-pswp-height="600">
+        <img src="https://dummyimage.com/120x60/000/fff" alt="" />
+      </a>
+      <a href="https://dummyimage.com/1200x1200/000/fff" data-pswp-width="1200" data-pswp-height="1200">
+        <img src="https://dummyimage.com/60x60/000/fff" alt="" />
+      </a>
+      <a href="https://dummyimage.com/600x1200/000/fff" data-pswp-width="600" data-pswp-height="1200">
+        <img src="https://dummyimage.com/30x60/000/fff" alt="" />
+      </a>
+    </div>
+
+        <!-- <div id="image-gallery">
             <p><?php echo getFieldImage('image_1', '', 'medium'); ?></p>
             <p><?php echo getFieldImage('image_2', '', 'medium'); ?></p>
             <p><?php echo getFieldImage('image_3', '', 'medium'); ?></p>
@@ -54,7 +66,7 @@
             <p><?php echo getFieldImage('image_7', '', 'medium'); ?></p>
             <p><?php echo getFieldImage('image_8', '', 'medium'); ?></p>
             <p><?php echo getFieldImage('image_9', '', 'medium'); ?></p>
-        </div>
+        </div> -->
     </section>
    
 

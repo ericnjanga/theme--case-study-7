@@ -1,9 +1,8 @@
 
 <?php
-                // Inject helpers (needed all over the application)
-                include '_fct-helpers.php';
-            ?>
-
+    // Inject helpers (needed all over the application)
+    include '_fct-helpers.php';
+?>
 
 
 
@@ -52,8 +51,6 @@ add_action('wp_enqueue_scripts', 'enqueue_bootstrap_js');
 
 function generic_enqueue() {
     wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
-
-
 
     /* Font families */
     // wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Maitree:wght@400;600;700&family=Merriweather:wght@400;700&family=Oswald&display=swap', array(), null );
@@ -324,6 +321,20 @@ function enqueue_custom_script() {
     ));
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_script');
+
+
+
+
+function enqueue_img_gallery_script() {
+    // wp_enqueue_script('jquery');
+
+    wp_enqueue_script('photoswipe', get_template_directory_uri() . '/js/libs/photoswipe.umd.min.js', array(), '1.0', true);
+    wp_enqueue_script('photoswipe-lightbox', get_template_directory_uri() . '/js/libs/photoswipe-lightbox.umd.min.js', array(), '1.0', true);
+    wp_enqueue_style( 'photoswipe-css', 'https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe.min.css', array(), null );
+    wp_enqueue_script('site-image-gallery.js', get_template_directory_uri() . '/js/site-image-gallery.js', array('photoswipe', 'photoswipe-lightbox'), '1.0', true);
+
+}
+add_action('wp_enqueue_scripts', 'enqueue_img_gallery_script');
 
 
 /**
