@@ -9,31 +9,6 @@
     @import '_base/typography';
     @import '_base/transitions-and-animations';
     @import '_base/headings';
-
-    @layer framework-overrides {
-        // @import 'aesthetics/framework-overrides/alerts';
-        // @import 'aesthetics/framework-overrides/bs-components-card';
-        // @import 'aesthetics/framework-overrides/bs-utilities';
-    }
-    @layer components {
-        // @import 'aesthetics/components/link-icon';
-        // @import 'aesthetics/components/banner';
-        // @import 'aesthetics/components/event';
-        // @import 'aesthetics/components/boxes';
-        // @import 'aesthetics/components/h-underlined';
-        // @import 'aesthetics/components/blockquote';
-        // @import 'aesthetics/components/post-navigation';
-        // @import 'aesthetics/components/pagination';
-        // @import 'aesthetics/components/cta-btn-container';
-        // @import 'aesthetics/components/blog-items';
-        // @import 'aesthetics/components/links';
-        // @import 'aesthetics/components/modal';
-    }
-
-    // @layer pages {
-    //     @import 'aesthetics/pages/home';
-    //     @import 'aesthetics/pages/about';
-    // }
 }
 
 @layer layouts {
@@ -41,20 +16,6 @@
     @import 'layouts/section-spacer';
     @import 'layouts/grid-systems';
     @import 'layouts/sidebar-global-setup';
-
-    // @import 'layouts/post';
-    // @import 'base/theme-switch';
-
-    // @layer pages {
-        // @import 'layouts/pages/home';
-        // @import 'layouts/pages/home.awards';
-        // @import 'layouts/pages/home.testimonials';
-        // @import 'layouts/pages/home.latest-posts';
-        // @import 'layouts/pages/about';
-        // @import 'layouts/pages/about.awards';
-        // @import 'layouts/pages/testimonials';
-        // @import 'layouts/pages/contact';
-    // }
 }
 
 @layer components {
@@ -68,6 +29,7 @@
     @import 'components/breadcrumb';
     @import 'components/buttons';
     @import 'components/forms';
+    @import 'components/cta-btn-container';
 }
 
 @layer global-components {
@@ -82,3 +44,44 @@
     @import 'pages/contact';
 }
 
+
+
+// @layer framework-overrides {
+    // @import 'aesthetics/framework-overrides/alerts';
+    // @import 'aesthetics/framework-overrides/bs-components-card';
+    // @import 'aesthetics/framework-overrides/bs-utilities';
+// }
+// @layer components {
+    // @import 'aesthetics/components/link-icon';
+    // @import 'aesthetics/components/banner';
+    // @import 'aesthetics/components/event';
+    // @import 'aesthetics/components/boxes';
+    // @import 'aesthetics/components/h-underlined';
+    // @import 'aesthetics/components/blockquote';
+    // @import 'aesthetics/components/post-navigation';
+    // @import 'aesthetics/components/pagination';
+    // @import 'aesthetics/components/blog-items';
+    // @import 'aesthetics/components/links';
+    // @import 'aesthetics/components/modal';
+// }
+
+// @layer pages {
+//     @import 'aesthetics/pages/home';
+//     @import 'aesthetics/pages/about';
+// }
+
+
+
+// @import 'layouts/post';
+// @import 'base/theme-switch';
+
+// @layer pages {
+    // @import 'layouts/pages/home';
+    // @import 'layouts/pages/home.awards';
+    // @import 'layouts/pages/home.testimonials';
+    // @import 'layouts/pages/home.latest-posts';
+    // @import 'layouts/pages/about';
+    // @import 'layouts/pages/about.awards';
+    // @import 'layouts/pages/testimonials';
+    // @import 'layouts/pages/contact';
+// }

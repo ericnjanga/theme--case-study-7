@@ -3,7 +3,8 @@
     --site-btn-padding-horizontal: 30px;
     --site-btn-letter-spacing: 0.2ch;
     --site-btn-icon-padding: 15px;
-
+    --site-btn-border-radius: 10px;
+    --site-btn-padding: 10px 20px;
     --site-clr-button-text3: #E0D9FF;
 }
 
@@ -27,12 +28,19 @@
 @layer buttons {
     .btn {
         border-color: transparent;
+        padding: var(--site-btn-padding);
+        border-radius: var(--site-btn-border-radius);
     }
 
+    .btn-primary {
+        color: var(--site-clr-event-background);
+        background-color: var(--site-clr-text1);
+    }
 
     .btn-secondary {
-        color: var(--site-clr-secondary-text);
-        background-color: var(--site-clr-secondary-background);
+        color: var(--site-clr-text1);
+        background-color: var(--site-clr-event-background);
+        border: 1px solid var(--site-clr-text1);
     }
     .btn-secondary:hover {
         background-color: var(--site-clr-primary-neutral-400);

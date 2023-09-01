@@ -7,9 +7,12 @@
     --site-contact-form-footer-display: flex;
     --site-contact-form-footer-flex-dir: column;
     --site-contact-form-footer-row-gap: 20px;
-    --site-contact-form-footer-just-content: flex-end;
+    --site-contact-form-footer-just-content: flex-start;
     --site-contact-form-footer-btn-secondary-order: 1;
+    --site-contact-form-footer-btn-width: 100%; //130px;
 }
+
+
 
 @layer cta-btn-container {
     .cta-btn-container {
@@ -21,6 +24,10 @@
 
             br {
                 display: none;
+            }
+
+            .btn {
+                width: var(--site-contact-form-footer-btn-width);
             }
         }
 
@@ -43,5 +50,16 @@
         }
 
         // @container (max-width: 540px) {} 
+    }
+}
+
+@layer cta-btn-container {
+    .cta-btn-container {
+        p {
+            // ...
+            @media (min-width: 768px) {
+                --site-contact-form-footer-btn-width: 150px;
+            }
+        }
     }
 }
