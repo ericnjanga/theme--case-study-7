@@ -41,14 +41,10 @@
 
 
 // Sidebar link color
-@layer sidebar {
-    .sidebar a {
-        color: var(--site-clr-link-700);
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
+// @layer sidebar {
+//     .sidebar a {
+//     }
+// }
 
 
 // List items spacing

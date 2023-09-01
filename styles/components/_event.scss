@@ -18,7 +18,6 @@
     --site-event-description-display: block;
 
     --site-clr-event-bg: #FFD9DE;
-    --site-clr-accent: #AB0727;
 
     --site-clr-event-background-hover: #AB0727;
     --site-clr-accent-hover: #281A30;
@@ -98,11 +97,10 @@
     .event__loc__icon {
         fill: var(--site-clr-accent);
     }
-    .event__description,
-    .event__loc__text,
-    .event__time__label {
-        color: var(--site-clr-text2);
-    }   
+    // .event__description,
+    // .event__loc__text,
+    // .event__time__label {
+    // }   
     .event__time__label {
         font-size: 11px;
     }

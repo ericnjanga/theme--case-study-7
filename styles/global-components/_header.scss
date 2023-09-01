@@ -121,14 +121,13 @@
             }
             .current-menu-item.page_item {
                 a {
-                    color: var(--site-clr-link-800);
+                    color: var(--site-clr-accent);
                     text-decoration: underline;
                 }
             }
 
             .navbar-toggler {
                 border-radius: var(--site-navbar--toggler-bdr-radius);
-                // border-color: var(--site-clr-txt-neutral-800);
             }
             .navbar-toggler-icon{
                 background-image: var(--site-navbar-toggler-icon-bg);

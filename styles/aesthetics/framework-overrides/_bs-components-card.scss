@@ -12,18 +12,12 @@
 @layer cards {
     .card-primary {
         background-color: var(--site-clr-primary-100);
-        .card-body p {
-            color: var(--site-clr-txt-neutral-500);
-        }
     }
     .card-primary .card-header-icon {
         background-color: var(--site-clr-primary-200);
     }
     .card-neutral {
         background-color: var(--site-clr-transparent);
-        .card-body p {
-            color: var(--site-clr-txt-neutral-500);
-        }
     }
     .card-neutral .card-header-icon {
         background-color: var(--site-clr-body-background);

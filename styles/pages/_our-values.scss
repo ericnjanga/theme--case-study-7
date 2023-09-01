@@ -8,15 +8,6 @@
 
 @layer page-our-values {
     .page-template-template-about-our-values {
-        
-        .section-title,
-        .section-subtitle {
-            color: var(--site-clr-text1);
-        }
-        .section-content {
-            color: var(--site-clr-text2);
-        }
-
         .section-values {
             .value-item {
             }
@@ -31,15 +22,9 @@
 
 
 
-
-
-@layer template-simple {
-    .page-template-template-simple-page {
-        .page-title {
-            color: var(--site-clr-text1);
-        }
-        .page-content {
-            color: var(--site-clr-text2);
-        }
-    }
+/**
+ * Page global elements
+ * ------------------------
+*/
+@layer page {
 }

@@ -14,10 +14,8 @@
     --site-vlog-item-footer-item12-display: block;
     --site-vlog-item-description-display: block;
 
-
     --site-vlog-item-gap: 10px;
 
-    --site-clr-accent: #AB0727;
     --site-clr-vlog-item-text3: #FFD9DE;
     --site-clr-vlog-item-background: #fff;
 
@@ -154,7 +152,6 @@
     .vlog-item__description {
         display: var(--site-vlog-item-description-display);
         margin-top: 10px;
-        // color: var(--site-clr-text2);
         p {
             margin-bottom: 0;
         }

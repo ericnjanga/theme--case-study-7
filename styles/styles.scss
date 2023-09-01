@@ -3,6 +3,39 @@
     @import '../node_modules/bootstrap/scss/bootstrap';
 }
 
+@layer base {
+    @import '_base/variables';
+    @import '_base/body';
+    @import '_base/typography';
+    @import '_base/transitions-and-animations';
+    @import '_base/headings';
+
+    @layer framework-overrides {
+        // @import 'aesthetics/framework-overrides/alerts';
+        // @import 'aesthetics/framework-overrides/bs-components-card';
+        // @import 'aesthetics/framework-overrides/bs-utilities';
+    }
+    @layer components {
+        // @import 'aesthetics/components/link-icon';
+        // @import 'aesthetics/components/banner';
+        // @import 'aesthetics/components/event';
+        // @import 'aesthetics/components/boxes';
+        // @import 'aesthetics/components/h-underlined';
+        // @import 'aesthetics/components/blockquote';
+        // @import 'aesthetics/components/post-navigation';
+        // @import 'aesthetics/components/pagination';
+        // @import 'aesthetics/components/cta-btn-container';
+        // @import 'aesthetics/components/blog-items';
+        // @import 'aesthetics/components/links';
+        // @import 'aesthetics/components/modal';
+    }
+
+    // @layer pages {
+    //     @import 'aesthetics/pages/home';
+    //     @import 'aesthetics/pages/about';
+    // }
+}
+
 @layer layouts {
     @import 'layouts/countainer-queries';
     @import 'layouts/section-spacer';
@@ -34,6 +67,7 @@
     @import 'components/employee';
     @import 'components/breadcrumb';
     @import 'components/buttons';
+    @import 'components/forms';
 }
 
 @layer global-components {
@@ -45,42 +79,6 @@
 
 @layer pages {
     @import 'pages/our-values';
-}
-
-@layer base {
-    @import '_base/variables';
-    @import '_base/body';
-    @import '_base/typography';
-    @import '_base/transitions-and-animations';
-
-
-    // @import 'aesthetics/base/headings';
-    // @import 'base/decorators';
-    // @import 'base/forms';
-
-    @layer framework-overrides {
-        // @import 'aesthetics/framework-overrides/alerts';
-        // @import 'aesthetics/framework-overrides/bs-components-card';
-        // @import 'aesthetics/framework-overrides/bs-utilities';
-    }
-    @layer components {
-        // @import 'aesthetics/components/link-icon';
-        // @import 'aesthetics/components/banner';
-        // @import 'aesthetics/components/event';
-        // @import 'aesthetics/components/boxes';
-        // @import 'aesthetics/components/h-underlined';
-        // @import 'aesthetics/components/blockquote';
-        // @import 'aesthetics/components/post-navigation';
-        // @import 'aesthetics/components/pagination';
-        // @import 'aesthetics/components/cta-btn-container';
-        // @import 'aesthetics/components/blog-items';
-        // @import 'aesthetics/components/links';
-        // @import 'aesthetics/components/modal';
-    }
-
-    // @layer pages {
-    //     @import 'aesthetics/pages/home';
-    //     @import 'aesthetics/pages/about';
-    // }
+    @import 'pages/contact';
 }
 

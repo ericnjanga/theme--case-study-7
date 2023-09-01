@@ -52,10 +52,6 @@
             opacity: 1;
         }
 
-        a {
-            color: var(--site-clr-text2);
-        }
-
         .block1 {
 
             display: var(--site-footer-block1-display);
@@ -138,12 +134,15 @@
             }
         }
     }
-    .footer__title {
-        color: var(--site-clr-text1);
-    }
+    // .footer__title {
+    //     color: heading color
+    // }
     .sup {
         text-transform: uppercase;
         font-size: 0.7rem;
+    }
+    .separator {
+        opacity: 0.5;
     }
     .footer__cta {
         line-height: 0.5rem;

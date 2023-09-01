@@ -950,7 +950,7 @@
                                         ?>
                                     </div>
                                     <footer class="testimonial__footer">
-                                        <div class="testimonial__name"><?php the_title() ?></div>
+                                        <div class="testimonial__name section-title"><?php the_title() ?></div>
                                         <p class="testimonial__title"><?php echo getField('title'); ?></p>
                                     </footer>
                                 </article>

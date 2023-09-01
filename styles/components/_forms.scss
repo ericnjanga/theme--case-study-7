@@ -1,7 +1,6 @@
 
 :root {
     --site-input-border-radius: 10px;
-
     --site-clr-input-border: #8690B5;
     --site-clr-input-background: #F5F6FF;
 }
@@ -21,5 +20,10 @@
         border: 1px solid var(--site-clr-input-border);
         // border-bottom: 1px solid #939393!important;
         padding: 13px 20px!important;
+
+        /* Change the placeholder text color for all input elements */
+        &::placeholder {
+            color: #999; /* You can set your desired color value here */
+        }
     }
 }

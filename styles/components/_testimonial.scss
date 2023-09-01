@@ -7,8 +7,6 @@
     --site-clr-testimonial-background1: #E4DEFA;
     --site-clr-testimonial-background2: #FADEE4;
     --site-clr-testimonial-background3: #F1DEFA;
-
-    --site-clr-testimonial-text2: #4D4354;
 }
 
 
@@ -56,11 +54,8 @@
         font-family: var(--site-font-family-headings);
     }
 
-    .testimonial__body,
-    .testimonial__name {
-        color: var(--site-clr-text1);
-    }
-    .testimonial__title {
-        color: var(--site-clr-testimonial-text2);
-    }
+    // .testimonial__title,
+    // .testimonial__body {
+    //     color: body color
+    // }
 }

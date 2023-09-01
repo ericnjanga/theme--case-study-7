@@ -32,19 +32,9 @@
 
 // Blog item link color
 @layer blog-iems {
-    .more-link {
-        color: var(--site-clr-link-800);
-        &:hover {
-            text-decoration: none;
-        }
-    }
-}
-
-
-// Blog footer link color
-@layer blog-iems {
+    .more-link,
     .blog-footer a {
-        color: var(--site-clr-link-800);
+        // color: body color
         &:hover {
             text-decoration: none;
         }

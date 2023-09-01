@@ -1,8 +1,13 @@
 
 body {
     font-family: var(--site-font-family-body);
-    color: var(--site-clr-txt-neutral-500);
     background-color: var(--site-clr-body-background);
+}
+
+a, 
+body, 
+.pre-title {
+    color: var(--site-clr-text2);
 }
 
 ul {

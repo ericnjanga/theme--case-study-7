@@ -22,9 +22,11 @@
     </div>
 </header>
 
+
+
 <main class="main-content-wrapper section-spacer container" role="main">
     <div>
-        <h3>
+        <h3 class="section-title title-spacer">
             <?php echo getField('optional_subtitle'); ?>
         </h3>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
