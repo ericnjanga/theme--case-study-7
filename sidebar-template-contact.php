@@ -1,18 +1,8 @@
 
-<h4 class="content-title">Appointment Scheduling</h4>
-<?php dynamic_sidebar( 'sidebar-appointments' ); ?>
+<section class="sidebar-component sidebar-component-color1">
+    <?php dynamic_sidebar( 'sidebar-additional-contact-info' ); ?>
+</section>
 
-<hr>
-
-<h4 class="content-title">Additional contact</h4>
-<?php dynamic_sidebar( 'sidebar-additional-contact-info' ); ?>
-
-<hr>
-
-<h4 class="content-title">Opening hours</h4>
-<?php dynamic_sidebar( 'sidebar-opening-hours' ); ?>
-
-<hr>
-
-<h4 class="content-title">Social media</h4>
-<?php dynamic_sidebar( 'sidebar-social-media' ); ?>
+<section class="sidebar-component sidebar-component-color2">
+    <?php dynamic_sidebar( 'sidebar-social-media' ); ?>
+</section>

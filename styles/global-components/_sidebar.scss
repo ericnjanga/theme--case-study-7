@@ -1,17 +1,20 @@
 :root {
-    --site-sidebar-content-wrapper-padding: 20px;
+    --site-sidebar-sidebar-component-bottom-margin: 30px;
+    --site-sidebar-sidebar-component-padding: 20px;
+    --site-sidebar-sidebar-component-border-radius: 15px;
+
     --site-sidebar-content-wrapper-font-size: 0.9rem;
     --site-sidebar-content-wrapper-hr-padding: 25px 0;
+
+    --site-clr-sidebar-sidebar-component-1: #FAF2FF;
+    --site-clr-sidebar-sidebar-component-2: #E8EAFF;
 }
 
 @layer sidebar {
     .sidebar {
         overflow: hidden;
-        background-color: var(--site-clr-primary-100);
-
 
         .content-wrapper {
-            padding: var(--site-sidebar-content-wrapper-padding);
             font-size: var(--site-sidebar-content-wrapper-font-size);
             ul {
                 padding-left: 13px;
@@ -26,19 +29,35 @@
             }
 
             @container (min-width: 301px) {
-                --site-sidebar-content-wrapper-padding: 40px;
+                --site-sidebar-sidebar-component-padding: 40px;
                 --site-sidebar-content-wrapper-font-size: 1rem;
                 --site-sidebar-content-wrapper-hr-padding: 40px 0;
             } 
 
             @container (min-width: 251px) and (max-width: 300px) {
-                --site-sidebar-content-wrapper-padding: 30px;
+                --site-sidebar-sidebar-component-padding: 30px;
                 --site-sidebar-content-wrapper-hr-padding: 30px 0;
             } 
         }
     }
 }
 
+
+@layer sidebar {
+    .sidebar {
+        .sidebar-component {
+            padding: var(--site-sidebar-sidebar-component-padding);
+            margin-bottom: var(--site-sidebar-sidebar-component-bottom-margin);
+            border-radius: var(--site-sidebar-sidebar-component-border-radius);
+        }
+        .sidebar-component-color1 {
+            background-color: var(--site-clr-sidebar-sidebar-component-1);
+        }
+        .sidebar-component-color2 {
+            background-color: var(--site-clr-sidebar-sidebar-component-2);
+        }
+    }
+}
 
 // Sidebar link color
 // @layer sidebar {

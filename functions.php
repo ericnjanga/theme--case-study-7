@@ -164,97 +164,51 @@ return $sizes;
 add_action( 'widgets_init', 'generic_widgets_init' );
 
 function generic_widgets_init() {
+    register_sidebar( array(
+        'name'          => 'Additional contact information',
+        'id'            => 'sidebar-additional-contact-info',
+        'description'   => '...',
+        // Add more sidebar options if needed
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">ccc',
+        'after_title' => '</h3>',
+    ) );
 
-register_sidebar( array(
-    'name' => esc_html__( 'General Widget Area', 'generic' ),
-    'id' => 'primary-widget-area',
-    'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</li>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
+    // Social Media
+    register_sidebar( array(
+        'name'          => 'Social Media',
+        'id'            => 'sidebar-social-media',
+        'description'   => 'For social media link',
+        // Add more sidebar options if needed
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 
-register_sidebar( array(
-    'name'          => 'Appointments links',
-    'id'            => 'sidebar-appointments',
-    'description'   => 'For booking appointments',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
+    register_sidebar( array(
+        'name'          => 'Archives',
+        'id'            => 'sidebar-archives',
+        'description'   => 'For blog archives',
+        // Add more sidebar options if needed
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 
-register_sidebar( array(
-    'name'          => 'Opening hours',
-    'id'            => 'sidebar-opening-hours',
-    'description'   => '...',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
-
-register_sidebar( array(
-    'name'          => 'Additional contact information',
-    'id'            => 'sidebar-additional-contact-info',
-    'description'   => '...',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
-
-register_sidebar( array(
-    'name'          => 'CEO image',
-    'id'            => 'sidebar-ceo-image',
-    'description'   => 'For the CEO image',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
-register_sidebar( array(
-    'name'          => 'Archives',
-    'id'            => 'sidebar-archives',
-    'description'   => 'For blog archives',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
-// Quick contact
-register_sidebar( array(
-    'name'          => 'Contact',
-    'id'            => 'sidebar-quick-contact',
-    'description'   => 'For phone, emails, address, ...',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
-// Social Media
-register_sidebar( array(
-    'name'          => 'Social Media',
-    'id'            => 'sidebar-social-media',
-    'description'   => 'For social media link',
-    // Add more sidebar options if needed
-    'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
-    'after_widget' => '</div>',
-    'before_title' => '<h3 class="widget-title">',
-    'after_title' => '</h3>',
-) );
-
+    // Quick contact
+    register_sidebar( array(
+        'name'          => 'Contact',
+        'id'            => 'sidebar-quick-contact',
+        'description'   => 'For phone, emails, address, ...',
+        // Add more sidebar options if needed
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3 class="widget-title">',
+        'after_title' => '</h3>',
+    ) );
 }
 
 
