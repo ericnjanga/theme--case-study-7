@@ -24,7 +24,7 @@
 
 
 
-<main class="main-content-wrapper section-spacer container" role="main">
+<main class="main-content-wrapper container" role="main">
     <div class="sidebar-opposite-content">
         <h3 class="section-title title-spacer">
             <?php echo getField('optional_subtitle'); ?>

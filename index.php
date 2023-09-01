@@ -25,7 +25,7 @@
     </div>
 </header>
 
-<main class="main-content-wrapper section-spacer container" role="main">
+<main class="main-content-wrapper container" role="main">
     <div class="grid grid-bbbbb js-loead-moreposts-container">
         <?php
             if ( have_posts() ) :

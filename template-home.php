@@ -59,14 +59,14 @@
 
 
 <main class="main-content-wrapper" role="main">
-    <div class="section-spacer">
+    <div class="bottom-section-spacer">
         <?php
             displayUpcomingEventSection();
         ?>
     </div>
 
   
-    <section class="section-brand-highlight section-spacer container">
+    <section class="section-brand-highlight bottom-section-spacer container">
         <?php echo getFieldImage('highlight_image', '', 'medium'); ?>
 
         <article>
@@ -174,7 +174,7 @@
     </section>
 
 
-    <section class="section-spacer container">
+    <section class="bottom-section-spacer container">
         <h2 class="h-underlined text-center">Lorem ipsum dolor sit amet consectetur.</h2>
         <div class="grid grid-11233">
             <?php
@@ -184,7 +184,7 @@
     </section>
 
 
-    <section class="section-spacer container">
+    <section class="bottom-section-spacer container">
         <h2 class="h-underlined text-center">Don’t take our word for it...</h2>
         <div>
             <?php displayTestimonial('grid grid-11233 testimonial-list', 3, true); ?>

@@ -3,7 +3,6 @@
     --site-clr-footer-bdr: #CF93AA;
     --site-clr-footer-background: #FFE8F1;
     --site-footer-padding: 25px;
-    --site-footer-bottom-spacer: 30px;
     --site-footer-hr-margin: 25px 0;
 
     --site-footer-logo-position: absolute;
@@ -30,9 +29,6 @@
 
 
 @layer footer {
-    #footer {
-        margin-bottom: var(--site-footer-bottom-spacer);
-    }
     #footer .container {
         position: relative;
         background-color: var(--site-clr-footer-background);
@@ -152,26 +148,6 @@
 }
 
 
-
-// Responsive settings ...
-@layer footer {
-    #footer {
-        @media (min-width: 1400px) {
-            --site-footer-bottom-spacer: 80px;
-        }
-        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            --site-footer-bottom-spacer: 60px;
-        }
-        @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-footer-bottom-spacer: 60px;
-        }
-        @media (min-width: 768px) and (max-width: (992px - 1)) {
-            --site-footer-bottom-spacer: 40px;
-        }
-        @media (min-width: 576px) and (max-width: (768px - 1)) {
-        }
-    }
-}
 
 
 

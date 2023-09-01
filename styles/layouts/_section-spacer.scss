@@ -1,13 +1,16 @@
 :root {
-    --site-section-bottom-spacer: 30px;
+    --site-section-gap: 30px;
     --site-title-bottom-spacer: 30px;
 }
 
 
 
 @layer section-spacer {
-    .section-spacer {
-        margin-bottom: var(--site-section-bottom-spacer);
+    .top-section-spacer {
+        margin-top: var(--site-section-gap);
+    }
+    .bottom-section-spacer {
+        margin-bottom: var(--site-section-gap);
     }
     .title-spacer {
         margin-bottom: var(--site-title-bottom-spacer);
@@ -20,21 +23,19 @@
         }
     }
 
-    .section-spacer {
-        @container (min-width: 1141px) {
-            --site-section-bottom-spacer: 120px; 
+    .top-section-spacer,
+    .bottom-section-spacer {
+        @media (min-width: 1400px) {
+            --site-section-gap: 100px;
         }
-    
-        @container (min-width: 961px) and (max-width: 1140px) {
-            --site-section-bottom-spacer: 60px; 
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-section-gap: 60px;
         }
-    
-        @container (min-width: 721px) and (max-width: 960px) {
-            --site-section-bottom-spacer: 50px; 
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-section-gap: 50px;
         }
-    
-        @container (min-width: 541px) and (max-width: 720px) {
-            --site-section-bottom-spacer: 40px; 
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-footer-bottom-spacer: 40px;
         }
     }
 }

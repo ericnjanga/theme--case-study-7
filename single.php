@@ -28,7 +28,7 @@
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
     
-    <main class="main-content-wrapper section-spacer container" role="main">
+    <main class="main-content-wrapper container" role="main">
         <div class="sidebar-opposite-content">
             <?php get_template_part( 'entry' ); ?>
             <footer class="blog-footer">

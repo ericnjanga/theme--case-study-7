@@ -23,7 +23,6 @@
 </header>
 
 <main class="main-content-wrapper container" role="main">
-
     <header>
         <h2>
             <?php echo getField('optional_subtitle'); ?>

@@ -30,7 +30,7 @@
     </header> 
     
 
-    <section class="section-values grid grid-11233 section-highlight container section-spacer">   
+    <section class="section-values grid grid-11233 section-highlight container bottom-section-spacer">   
         <div class="value-item">
             <?php
                 $icon1 = getImage_byName('icon-authenticity', 'value-icon');
@@ -69,7 +69,7 @@
         // Fetching hero's background image.
         $parallax_img = getBackgroundImage_byName('Our Values');
     ?>
-    <section class="parallax-section section-spacer" style="<?php echo $parallax_img; ?>;">
+    <section class="parallax-section bottom-section-spacer" style="<?php echo $parallax_img; ?>;">
         <div class="container bx-container">
             <blockquote>
                 <p>
@@ -84,7 +84,7 @@
 
 
 
-    <section class="section-spacer container">
+    <section class="container">
         <h2 class="section-title h-underlined text-center title-spacer">Don’t take our word for it...</h2>
         <div>
             <?php displayTestimonial('grid grid-11233 testimonial-list', 3, true); ?>
