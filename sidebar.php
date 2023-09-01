@@ -12,6 +12,7 @@
     && $template_slug !== 'template-about-meet-the-team.php'     // - "Meet the founder" page templates
     && $template_slug !== 'template-events.php'                 // - "Events" listing page templates
     && $template_slug !== 'template-about-our-values.php'
+    && $template_slug !== 'template-about-meet-the-fouder.php'
     && $template_slug !== 'template-about-gallery.php'
     && $template_slug !== 'template-grid-awards.php' ) {        // - Awards page templates
 ?>
