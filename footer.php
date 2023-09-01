@@ -25,15 +25,15 @@
                             <h3 class="footer__title">Pages</h3>
                             <?php
                                 wp_nav_menu(array(
-                                    'theme_location' => 'footer-menu',
-                                    'container' => 'nav',
-                                    'container_class' => 'footer-menu',
+                                    'theme_location' => 'footer-essential-nav',
+                                    'menu_class'     => 'menu-class', // CSS class for the menu ul element
+                                    'container'      => 'nav',        // HTML element to wrap the menu
+                                    'container_class'=> 'menu-container', // CSS class for the container element
                                 ));
                             ?>
                         </div>
 
                         <div class="social-media" role="contentinfo">
-                            <h3 class="footer__title">Social Media</h3>
                             <?php dynamic_sidebar('sidebar-social-media'); ?>
                         </div>
 
@@ -49,6 +49,14 @@
 
                         <div class="articles" role="contentinfo">
                             <h3 class="footer__title">Membership</h3>
+                            <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'footer-membership-nav',
+                                    'menu_class'     => 'menu-class', // CSS class for the menu ul element
+                                    'container'      => 'nav',        // HTML element to wrap the menu
+                                    'container_class'=> 'menu-container', // CSS class for the container element
+                                ));
+                            ?>
                         </div>
                     </div>
 

@@ -24,11 +24,19 @@ if ( !isset( $content_width ) ) { $content_width = 1920; }
 add_action( 'wp_enqueue_scripts', 'generic_enqueue' );
 
 
-// Register a new spot for the footer menu ...
-function register_footer_menu() {
-    register_nav_menu('footer-menu', 'Footer Menu');
+// Footer Menus ...
+// Essential Menu ...
+function register_footer_menu1() {
+    register_nav_menu('footer-essential-nav', 'Footer Essential Menu');
 }
-add_action('after_setup_theme', 'register_footer_menu');
+add_action('after_setup_theme', 'register_footer_menu1');
+
+
+// Footer Menus ...
+function register_footer_menu2() {
+    register_nav_menu('footer-membership-nav', 'Footer Membership Menu');
+}
+add_action('after_setup_theme', 'register_footer_menu2');
 
 
 // Register menu walker ...

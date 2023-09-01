@@ -23,7 +23,7 @@
 </header>
 
 <main class="main-content-wrapper container" role="main"> 
-    <div>
+    <div class="sidebar-opposite-content">
         <h2 class="page-title"><?php echo getField('optional_subtitle'); ?></h2>
         <div class="page-content">
         <?php the_content(); ?>

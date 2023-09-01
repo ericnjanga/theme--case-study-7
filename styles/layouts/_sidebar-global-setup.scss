@@ -55,7 +55,7 @@
     */
     .main-content-wrapper {
         @media (min-width: 1400px) {
-            border: 10px solid purple;
+            // border: 10px solid purple;
             // --site-sidebar-global-layout-gap: 128px;
             --site-sidebar-global-layout-gap: 130px;   // Row columns gap
             --site-global-wrapper-main-content-width: 750px;
@@ -63,7 +63,7 @@
         }
 
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            border: 10px solid violet;
+            // border: 10px solid violet;
             --site-sidebar-global-layout-gap: 100px;   // Row columns gap
             --site-global-wrapper-main-content-width: 670px;
             --site-global-wrapper-sidebar-width: 330px;
@@ -73,7 +73,7 @@
         // Keep sidebar expanded and adjust main content's width
         // ...
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            border: 5px solid lime;
+            // border: 5px solid lime;
             --site-sidebar-global-layout-gap: 80px;   // Row columns gap
             --site-global-wrapper-main-content-width: 550px;
             --site-global-wrapper-sidebar-width: 300px;
@@ -84,7 +84,7 @@
 
         // ...
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            border: 10px solid turquoise;
+            // border: 10px solid turquoise;
             --site-sidebar-global-layout-gap: 50px;
             --site-global-wrapper-sidebar-width: 350px;
             --site-global-wrapper-sidebar-width: 400px;
@@ -92,7 +92,7 @@
 
         // ...
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-            border: 10px solid chocolate;
+            // border: 10px solid chocolate;
             --site-sidebar-global-layout-gap: 40px;
             --site-global-wrapper-sidebar-width: 400px;
         }
@@ -115,7 +115,7 @@
         overflow: visible; 
     }
 
-    border: 5px dashed red;
+    // border: 5px dashed red;
 }
 
 // (uncomment only for testing purposes) ...
