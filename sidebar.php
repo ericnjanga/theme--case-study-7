@@ -16,11 +16,8 @@
     && $template_slug !== 'template-grid-awards.php' ) {        // - Awards page templates
 ?>
 
-    <aside class="sidebar bx-container section-spacer" id="sidebar" role="complementary">
+    <aside class="sidebar bx-container" id="sidebar" role="complementary">
         <div id="primary" class="widget-area">
-            <button id="site-btn-sidebar-toggle" class="btn btn-secondary btn-sm btn-sidebar-trigger icon-btn is-off">
-            <svg xmlns="http://www.w3.org/2000/svg" height="48" viewBox="0 -960 960 960" width="48"><path d="M480-160 160-480l320-320 42 42-248 248h526v60H274l248 248-42 42Z"/></svg>
-            </button>
             <div class="content-wrapper">
                 <?php 
                     // Services page template ...

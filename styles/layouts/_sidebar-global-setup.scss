@@ -5,20 +5,13 @@
 */
 :root {
     // (Mobile fist)
-    // - sidebar widths:
-    --site-sidebar-width-collapsed: 45px;
-    --site-sidebar-width-expanded-small: 250px;
-    --site-sidebar-width-expanded-medium: 300px;
-    --site-sidebar-width-expanded-large: 415px;
-
     --site-global-wrapper-display: grid;
-    --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-collapsed);    // By default: Shrinks sidebar down (the main content expands) ...              
-
-    --site-hero-grid-column: 1 / span 2;                       // The hero occupies all columns (1st row only)
-    --site-sidebar-global-layout-gap: 20px;                       // Rows gap
-
-    --site-global-wrapper-btn-sidebar-trigger-display: block;      // Make trigger button visible
-    --site-global-wrapper-sidebar-content-wrapper-display: none;   // Hide the sidebar content
+    --site-global-wrapper-grid-template: 1fr  auto / 1fr;    
+    --site-global-wrapper-grid-col-gap: 60px;         
+    --site-hero-grid-column: 1 / span 2;                  // The hero occupies all columns (1st row only)
+    --site-sidebar-global-layout-gap: 20px;               // Rows gap
+    --site-global-wrapper-main-content-width: 100%;         
+    --site-global-wrapper-sidebar-width: 100%;         
 }
 
 
@@ -39,33 +32,20 @@
     .main-content-wrapper { 
         // Setup grid
         display: var(--site-global-wrapper-display);
-        grid-template-columns: var(--site-global-wrapper-gtc);
+        grid-template: var(--site-global-wrapper-grid-template);
         grid-column-gap: var(--site-sidebar-global-layout-gap);
-
-        // Set up the sidebar expansion parameters
-        &.sidebar-is-open {
-            // Expands sidebar left (the main content shrinks) ...
-            @media (max-width: (992px - 1)) {
-                --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-small);
-                --site-global-wrapper-sidebar-content-wrapper-display: block;
-            }
-        }
+        grid-row-gap: var(--site-global-wrapper-grid-col-gap);
 
         // Set up the hero's column occupancy
         .hero {
             grid-column: var(--site-hero-grid-column);
         }
-
-        .sidebar {
-            .content-wrapper {
-                display: var(--site-global-wrapper-sidebar-content-wrapper-display);
-            }
-            // Expand sidebar left
-            .btn-sidebar-trigger {
-                display: var(--site-global-wrapper-btn-sidebar-trigger-display)!important; // This has to be inforced (the button implements "display" property for other purposes
-            }
+        .sidebar-opposite-content {
+            width: var(--site-global-wrapper-main-content-width);
         }
-        
+        .sidebar {
+            width: var(--site-global-wrapper-sidebar-width);
+        }
     }
 
 
@@ -75,38 +55,46 @@
     */
     .main-content-wrapper {
         @media (min-width: 1400px) {
-            --site-global-wrapper-btn-sidebar-trigger-display: none;
-            // Expands sidebar left (the main content shrinks) ...
-            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-large);
-            --site-sidebar-global-layout-gap: 128px;
-            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+            border: 10px solid purple;
+            // --site-sidebar-global-layout-gap: 128px;
+            --site-sidebar-global-layout-gap: 130px;   // Row columns gap
+            --site-global-wrapper-main-content-width: 750px;
+            --site-global-wrapper-sidebar-width: 400px;
         }
 
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            --site-global-wrapper-btn-sidebar-trigger-display: none; // Sidebar cannot be collapsed 
-            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-medium); // Sidebar expanded and adjust main content's width
-            --site-sidebar-global-layout-gap: 128px;   // Row columns gap
-            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+            border: 10px solid violet;
+            --site-sidebar-global-layout-gap: 100px;   // Row columns gap
+            --site-global-wrapper-main-content-width: 670px;
+            --site-global-wrapper-sidebar-width: 330px;
         }
 
         // From this breakpoint up, sidebar cannot be collapsed 
         // Keep sidebar expanded and adjust main content's width
-        // Increase gap between row columns 
+        // ...
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-global-wrapper-btn-sidebar-trigger-display: none; // Sidebar cannot be collapsed 
-            --site-global-wrapper-gtc: 1fr var(--site-sidebar-width-expanded-medium); // Sidebar expanded and adjust main content's width
-            --site-sidebar-global-layout-gap: 50px;   // Row columns gap
-            --site-global-wrapper-sidebar-content-wrapper-display: block;  // Show the sidebar content
+            border: 5px solid lime;
+            --site-sidebar-global-layout-gap: 80px;   // Row columns gap
+            --site-global-wrapper-main-content-width: 550px;
+            --site-global-wrapper-sidebar-width: 300px;
+        }
+        @media (min-width: 992px) {
+            --site-global-wrapper-grid-template: 1fr / 1fr 1fr;
         }
 
-        // Increase gap between row columns 
+        // ...
         @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 10px solid turquoise;
             --site-sidebar-global-layout-gap: 50px;
+            --site-global-wrapper-sidebar-width: 350px;
+            --site-global-wrapper-sidebar-width: 400px;
         }
 
-        // Increase gap between row columns 
+        // ...
         @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 10px solid chocolate;
             --site-sidebar-global-layout-gap: 40px;
+            --site-global-wrapper-sidebar-width: 400px;
         }
     }
 
@@ -122,10 +110,12 @@
     **/
     overflow: hidden; 
 
-    // Increase gap between row columns 
+    // ...
     @media (min-width: 576px) {
         overflow: visible; 
     }
+
+    border: 5px dashed red;
 }
 
 // (uncomment only for testing purposes) ...

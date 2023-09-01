@@ -26,7 +26,7 @@
 <!-- <div id="primary" class="content-area"> -->
 
     <main class="main-content-wrapper section-spacer container" role="main">
-        <div>
+        <div class="sidebar-opposite-content">
             <?php while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
                     <header class="entry-header">

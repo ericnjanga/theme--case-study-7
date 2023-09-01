@@ -29,7 +29,7 @@
 
     
     <main class="main-content-wrapper section-spacer container" role="main">
-        <div>
+        <div class="sidebar-opposite-content">
             <?php get_template_part( 'entry' ); ?>
             <footer class="blog-footer">
                 <?php get_template_part( 'nav', 'below-single' ); ?>

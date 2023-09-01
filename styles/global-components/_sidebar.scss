@@ -3,41 +3,22 @@
     --site-sidebar-sidebar-component-padding: 20px;
     --site-sidebar-sidebar-component-border-radius: 15px;
 
-    --site-sidebar-content-wrapper-font-size: 0.9rem;
-    --site-sidebar-content-wrapper-hr-padding: 25px 0;
-
     --site-clr-sidebar-sidebar-component-1: #FAF2FF;
     --site-clr-sidebar-sidebar-component-2: #E8EAFF;
 }
 
 @layer sidebar {
     .sidebar {
-        overflow: hidden;
-
         .content-wrapper {
-            font-size: var(--site-sidebar-content-wrapper-font-size);
             ul {
                 padding-left: 13px;
-            }
-
-            hr {
-                margin: var(--site-sidebar-content-wrapper-hr-padding);
+                line-height: 40px;
+                border: 1px solid orange;
             }
 
             .content-title {
                 margin-bottom: 15px;
             }
-
-            @container (min-width: 301px) {
-                --site-sidebar-sidebar-component-padding: 40px;
-                --site-sidebar-content-wrapper-font-size: 1rem;
-                --site-sidebar-content-wrapper-hr-padding: 40px 0;
-            } 
-
-            @container (min-width: 251px) and (max-width: 300px) {
-                --site-sidebar-sidebar-component-padding: 30px;
-                --site-sidebar-content-wrapper-hr-padding: 30px 0;
-            } 
         }
     }
 }
@@ -49,6 +30,10 @@
             padding: var(--site-sidebar-sidebar-component-padding);
             margin-bottom: var(--site-sidebar-sidebar-component-bottom-margin);
             border-radius: var(--site-sidebar-sidebar-component-border-radius);
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
         }
         .sidebar-component-color1 {
             background-color: var(--site-clr-sidebar-sidebar-component-1);
@@ -59,6 +44,8 @@
     }
 }
 
+
+
 // Sidebar link color
 // @layer sidebar {
 //     .sidebar a {
@@ -68,8 +55,25 @@
 
 // List items spacing
 @layer sidebar {
-    .sidebar ul {
-        line-height: 40px;
+    .sidebar {
+        @media (min-width: 1400px) {
+            border: 5px solid purple;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            border: 5px solid violet;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            border: 5px solid lime;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 5px solid blue;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 5px solid turquoise;
+        }
+        @media (max-width: (576px - 1px)) {
+            border: 5px solid chocolate;
+        }
     }
 }
 
