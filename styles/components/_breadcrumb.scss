@@ -3,21 +3,20 @@
     --site-breadcrumb-top-gap: 15px;
     --site-breadcrumb-gap: 10px;
 
-    --site-clr-breadcrumb-text1: #E7C2FC;
-    --site-clr-breadcrumb-text2: #9A82A8;
-    --site-clr-breadcrumb-text3: #594B61;
+    --site-clr-breadcrumb-text2: #fff;
+    --site-clr-breadcrumb-text1: #FFD9DE;
 }
 
 @layer breadcrumb {
     .breadcrumb {
         margin: var(--site-breadcrumb-top-gap) 0 0 0;
-        color: var(--site-clr-breadcrumb-text2);
+        color: var(--site-clr-breadcrumb-text1);
         a {
-            color: var(--site-clr-breadcrumb-text2);
+            color: var(--site-clr-breadcrumb-text1);
             text-decoration: none;
         }
         .breadcrumb_last {
-            color: var(--site-clr-breadcrumb-text1);
+            color: var(--site-clr-breadcrumb-text2);
         }
         p {
             margin: 0;
