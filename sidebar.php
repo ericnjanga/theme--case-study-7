@@ -29,6 +29,10 @@
                     elseif ($template_slug === 'template-contact.php') { ?>
                         <?php include 'sidebar-template-contact.php'; ?>
                 <?php } 
+                    // Terms and policies page template ...
+                    elseif ($template_slug === 'template-terms-and-policies.php') { ?>
+                        <?php include 'sidebar-template-terms-and-policies.php'; ?>
+                <?php } 
                     // Blog and article pages ...
                     elseif (is_home() || is_single()) { ?>
                         <?php include 'sidebar-template-blog.php'; ?>
