@@ -60,11 +60,11 @@
             a {
                 text-decoration: none;
             }
-            a:hover,
-            .current-menu-item a {
-                color: var(--site-clr-accent);
-                text-decoration: underline;
-            }
+            // a:hover,
+            // .current-menu-item a {
+            //     color: var(--site-clr-accent);
+            //     text-decoration: underline;
+            // }
         }
         .sidebar-component-color1 {
             background-color: var(--site-clr-sidebar-sidebar-component-1);

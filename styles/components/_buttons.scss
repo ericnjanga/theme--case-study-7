@@ -54,9 +54,14 @@
 }
 
 @layer links {
-
-    .current-menu-item a {
+    .breadcrumb a:hover,
+    .sidebar-component a:hover,         // Global hover effect
+    .current-menu-item a {              // active links
         color: var(--site-clr-accent);
         text-decoration: underline;
     }
 }
+
+
+
+
