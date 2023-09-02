@@ -18,6 +18,13 @@
     @import 'layouts/sidebar-global-setup';
 }
 
+@layer global-components {
+    @import 'global-components/hero';
+    @import 'global-components/header';
+    @import 'global-components/footer';
+    @import 'global-components/sidebar';
+}
+
 @layer components {
     @import 'components/testimonial';
     @import 'components/event';
@@ -30,13 +37,7 @@
     @import 'components/buttons';
     @import 'components/forms';
     @import 'components/cta-btn-container';
-}
-
-@layer global-components {
-    @import 'global-components/hero';
-    @import 'global-components/header';
-    @import 'global-components/footer';
-    @import 'global-components/sidebar';
+    @import 'components/icons-elements';
 }
 
 @layer pages {

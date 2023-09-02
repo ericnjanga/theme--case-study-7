@@ -55,6 +55,10 @@
         --site-clr-section-highlight-content: #C8C8C8;
     }
 
+    :root {
+        --site-section-gap: 40px;
+    }
+
     :root { /* Hero images */
         --site-hero-img-light-display: block;
         --site-hero-img-dark-display: none;

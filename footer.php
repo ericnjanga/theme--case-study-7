@@ -2,7 +2,7 @@
                 <?php get_sidebar('sidebar-contact'); ?>
             </div><!-- site-global-container -->
             
-            <footer id="footer" class="top-section-spacer bottom-section-spacer" role="contentinfo">
+            <footer id="footer" class="footer top-section-spacer bottom-section-spacer" role="contentinfo">
                 <div class="container bx-container">
 
                     <div class="block1">

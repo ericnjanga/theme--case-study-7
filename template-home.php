@@ -41,7 +41,7 @@
     -->
 
 
-    <header class="hero large parallax-container">
+    <header class="hero large parallax-container bottom-section-spacer">
         <div class="parallax-layer" style="<?php echo $hero_background_img; ?>;"></div>
         <div class="container">
             <div class="text-wrapper">

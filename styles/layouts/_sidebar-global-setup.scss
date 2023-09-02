@@ -7,7 +7,7 @@
     // (Mobile fist)
     --site-global-wrapper-display: grid;
     --site-global-wrapper-grid-template: 1fr  auto / 1fr;    
-    --site-global-wrapper-grid-col-gap: 60px;         
+    --site-global-wrapper-grid-col-gap: 40px;         
     --site-hero-grid-column: 1 / span 2;                  // The hero occupies all columns (1st row only)
     --site-sidebar-global-layout-gap: 20px;               // Rows gap
     --site-global-wrapper-main-content-width: 100%;         
@@ -21,6 +21,7 @@
 // .blog, 
 .single, 
 .archive, // Including sub pages like category, author, ...
+.page-template-template-terms-and-policies,
 .page-template-template-service,
 .page-template-template-contact,
 .page-template-template-simple-page {

@@ -1,5 +1,4 @@
 :root {
-    --site-section-gap: 30px;
     --site-title-bottom-spacer: 30px;
 }
 
@@ -26,13 +25,13 @@
     .top-section-spacer,
     .bottom-section-spacer {
         @media (min-width: 1400px) {
-            --site-section-gap: 100px;
+            --site-section-gap: 120px;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            --site-section-gap: 60px;
+            --site-section-gap: 80px;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            --site-section-gap: 50px;
+            --site-section-gap: 60px;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
             --site-footer-bottom-spacer: 40px;

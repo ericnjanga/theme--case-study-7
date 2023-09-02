@@ -1,6 +1,6 @@
 <?php
     /*
-    Template Name: Simple Page
+    Template Name: Terms & Policies
     */ 
     get_header();
 ?>

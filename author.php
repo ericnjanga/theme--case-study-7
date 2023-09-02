@@ -11,7 +11,7 @@
     // Fetching hero's background image.
         $hero_background_img = getHeroBgImage();
     ?>
-    <header class="hero" role="region" style="<?php echo $hero_background_img; ?>;">
+    <header class="hero bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="text-wrapper">
         <span class="fs-7">Author page</span>
         <h1 class="hero-title"><?php echo get_the_author(); ?></h1>

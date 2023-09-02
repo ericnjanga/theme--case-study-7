@@ -1,0 +1,24 @@
+
+:root {
+    --site-clr-icon-elements: #7657FC;
+}
+
+@layer icon-elements {
+    .list-chevron-right {
+        list-style: none;
+        li {
+            position: relative;
+            padding-left: 15px;
+            &::after {
+                font-family: "Material Symbols Outlined";
+                content: "\eac9";
+                display: block;
+                color: var(--site-clr-icon-elements);
+                font-size: 1.5rem;
+                position: absolute;
+                top: 0;
+                left: -18px;
+            }
+        }
+    }
+}
