@@ -6,13 +6,12 @@
     --site-vlog-item-title-line-height: 1.65rem;
     --site-vlog-item-border-radius: 15px;
     --site-vlog-item-text-radius: 10px;
-    --site-vlog-item-text-padding: 20px;
-    --site-vlog-item-text-padding: 20px;
+    --site-vlog-item-text-padding: 35px 10px 10px 10px;
     --site-vlog-item-img-width: auto;
     --site-vlog-item-footer-flex-dir: row;
     --site-vlog-item-footer-align-item: center;
     --site-vlog-item-footer-item12-display: block;
-    --site-vlog-item-description-display: block;
+    --site-vlog-item-description-display: none;
 
     --site-vlog-item-gap: 10px;
 
@@ -22,6 +21,7 @@
     --site-clr-vlog-item-icon-text: #7657FC;
     --site-clr-vlog-item-icon-video: #fff;
     --site-vlog-item-icon-top-pos: 8px;
+    --site-vlog-item-icon-right-pos: 20px;
 
     --site-clr-vlog-item-background-hover: #AB0727;
     --site-clr-accent-hover: #281A30;
@@ -49,7 +49,7 @@
         .vlog-item__icon {
             position: absolute;
             top: var(--site-vlog-item-icon-top-pos);
-            right: var(--site-vlog-item-text-padding);
+            right: var(--site-vlog-item-icon-right-pos);
             fill: var(--site-clr-vlog-item-icon-video);
         }
     }
@@ -63,7 +63,7 @@
             background-color: var(--site-clr-vlog-item-text3);
             border-radius: var(--site-vlog-item-text-radius);
             padding: var(--site-vlog-item-text-padding);
-            --site-vlog-item-text-padding: 45px 20px 20px 20px;
+            --site-vlog-item-icon-right-pos: 10px;
 
             &:hover {
                 background-color: var(--site-clr-vlog-item-background-hover);
@@ -82,22 +82,29 @@
 
             @media (min-width: 1400px) {
                 border: 10px solid purple;
+                --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
+                --site-vlog-item-description-display: block;
             }
             @media (min-width: 1200px) and (max-width: (1400px - 1)) {
                 border: 10px solid violet;
+                --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
+                --site-vlog-item-description-display: block;
             }
             @media (min-width: 992px) and (max-width: (1200px - 1)) {
                 border: 10px solid lime;
+                --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
+                --site-vlog-item-description-display: block;
             }
             @media (min-width: 768px) and (max-width: (992px - 1)) {
                 border: 10px solid blue;
+                --site-vlog-item-description-display: block;
             }
             @media (min-width: 576px) and (max-width: (768px - 1)) {
                 border: 10px solid turquoise;
+                --site-vlog-item-description-display: block;
             }
             @media (max-width: (576px - 1px)) {
                 border: 10px solid chocolate;
-                --site-vlog-item-text-padding: 35px 10px 10px 10px;
             }
         }
 
@@ -228,16 +235,20 @@
             --site-vlog-item-title-font-size: 1.2rem;
             --site-vlog-item-title-line-height: 1.0rem; // 1.3rem;
             --site-vlog-item-items-bottom-spacing: 5px;
-            --site-vlog-item-text-padding: 12px;
+            // --site-vlog-item-text-padding: 12px;
             --site-vlog-item-border-radius: 5px;
 
             .vlog-item__title {
                 margin-bottom: 3px!important;
             }
-        } 
+        }  
+        @container (min-width: 181px) and (max-width: 260px) {
+            --site-vlog-item-text-padding: 45px 10px 10px 10px;
+        }
         @container (max-width: 180px) {
-            --site-vlog-item-description-display: none;
             --site-vlog-item-footer-item12-display: none;
+            // --site-vlog-item-text-padding: 30px 10px 10px 10px;
+            // --site-vlog-item-text-padding: 20px;
         }
     }
 }
