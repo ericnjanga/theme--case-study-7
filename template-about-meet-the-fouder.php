@@ -48,7 +48,7 @@
     </section>
 
 
-    <section class="biography grid grid-11122 bottom-section-spacer">
+    <section class="biography grid grid-11122">
         <div id="biography" class="biography__anchor"></div>
         <div>
             <h3><?php echo getField('title_1'); ?></h3>
@@ -73,14 +73,14 @@
     </section>
 
 
-    <section>
+    <!-- <section>
         <h2>Recognition</h2>
         <div class="grid grid-11233">
             <?php
-                displayEmployee();
+                // displayEmployee();
             ?>
         </div>
-    </section>
+    </section> -->
    
 
     <dialog id="employeeModal">
