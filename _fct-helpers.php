@@ -587,7 +587,7 @@
 
 
 <?php
-    function getFeaturedImage() {
+    function getFeaturedImage($cssClass) {
         // Get the current post ID
         $post_id = get_the_ID();
 
@@ -596,7 +596,7 @@
 
         // Display the featured image
         if ($featured_image_url) {
-            echo '<img src="' . $featured_image_url . '" alt="Featured Image">';
+            echo '<img class="'.$cssClass.'" src="' . $featured_image_url . '" alt="Featured Image">';
         } else {
             echo 'No featured image available';
         }

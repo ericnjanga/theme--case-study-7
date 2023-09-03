@@ -97,10 +97,11 @@
     .event__loc__icon {
         fill: var(--site-clr-accent);
     }
-    // .event__description,
-    // .event__loc__text,
-    // .event__time__label {
-    // }   
+    .event__description,
+    .event__loc__text,
+    .event__time__label {
+        color: var(--site-clr-text3);
+    }   
     .event__time__label {
         font-size: 11px;
     }

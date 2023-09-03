@@ -13,7 +13,11 @@
 <header class="hero bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="container">
         <div class="text-wrapper">
-            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+            <h1 class="hero-title">
+
+                <?php the_title() ?>
+
+            </h1>
             <section class="breadcrumb">
                 <?php displayBreadcrumbs(); ?>
             </section>
@@ -24,63 +28,57 @@
 
 <main class="main-content-wrapper container" role="main">
 
-    <section class="content-grid">
-        <article>
-            <div class="post">
-                <p><?php echo getField('introduction'); ?></p>
-            </div>
+    <section class="introduction bottom-section-spacer">
+        <div class="introduction__img-wrapper">
+            <!-- <p><?php //echo getField('introduction'); ?></p> -->
+            <?php getFeaturedImage('img-fluid'); ?>
+        </div>
 
-            <div class="entry-content" itemprop="mainContentOfPage">
+        <div class="introduction__text-wrapper" itemprop="mainContentOfPage">
+            <h2 class="introduction__text-wrapper_title">
+                <?php echo getField('optional_title'); ?>
+            </h2>
+            <div class="introduction__text-wrapper_content">
                 <?php the_content(); ?>
             </div>
-        </article>
+            <div class="introduction__text-wrapper_footer">
+                <a class="btn btn-small btn-tertiary" href="#biography">Keep reading</a>
+            </div>
+        </div>
     </section>
 
-    <section>
-        <h2>Meet the founder</h2>
-        <?php
-            if ( have_posts() ) :
-                while ( have_posts() ) : the_post();
-                    // Get the featured image HTML
-                    $featured_image = get_the_post_thumbnail( get_the_ID(), 'thumbnail' ); // Change 'thumbnail' to your desired image size
-                    // Output the featured image HTML
-                    echo $featured_image;
-                endwhile;
-            endif;
-        ?>
 
-
+    <section class="biography grid grid-11122 bottom-section-spacer">
+        <div id="biography" class="biography__anchor"></div>
         <div>
+            <h3><?php echo getField('title_1'); ?></h3>
             <p><?php echo getField('text_1'); ?></p>
+        </div>
+        <div>
+            <h3><?php echo getField('title_2'); ?></h3>
             <p><?php echo getField('text_2'); ?></p>
+        </div>
+        <div>
+            <h3><?php echo getField('title_3'); ?></h3>
             <p><?php echo getField('text_3'); ?></p>
+        </div>
+        <div>
+            <h3><?php echo getField('title_4'); ?></h3>
             <p><?php echo getField('text_4'); ?></p>
+        </div>
+        <div>
+            <h3><?php echo getField('title_5'); ?></h3>
             <p><?php echo getField('text_5'); ?></p>
         </div>
     </section>
 
+
     <section>
         <h2>Recognition</h2>
-        <div class="grid grid-22444">
+        <div class="grid grid-11233">
             <?php
                 displayEmployee();
             ?>
-        </div>
-    </section>
-
-    <section>
-        <h2>Gallery</h2>
-
-        <div>
-            <p><?php echo getFieldImage('image_1', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_2', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_3', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_4', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_5', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_6', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_7', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_8', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_9', '', 'medium'); ?></p>
         </div>
     </section>
    

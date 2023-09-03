@@ -36,6 +36,10 @@
         border-color: transparent;
         padding: var(--site-btn-padding);
         border-radius: var(--site-btn-border-radius);
+
+        &.btn-small {
+            --site-btn-padding: 4px 15px;
+        }
     }
 
     .btn-primary {
@@ -49,6 +53,15 @@
         border: 1px solid var(--site-clr-text1);
     }
     .btn-secondary:hover {
+        background-color: var(--site-clr-primary-neutral-400);
+    }
+
+    .btn-tertiary {
+        color: var(--site-clr-text1);
+        background-color: transparent;
+        border: 1px solid var(--site-clr-text1);
+    }
+    .btn-tertiary:hover {
         background-color: var(--site-clr-primary-neutral-400);
     }
 }

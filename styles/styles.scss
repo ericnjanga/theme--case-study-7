@@ -43,8 +43,8 @@
 @layer pages {
     @import 'pages/our-values';
     @import 'pages/contact';
+    @import 'pages/meet-the-founder';
 }
-
 
 
 // @layer framework-overrides {
@@ -66,11 +66,6 @@
     // @import 'aesthetics/components/modal';
 // }
 
-// @layer pages {
-//     @import 'aesthetics/pages/home';
-//     @import 'aesthetics/pages/about';
-// }
-
 
 
 // @import 'layouts/post';
@@ -81,7 +76,6 @@
     // @import 'layouts/pages/home.awards';
     // @import 'layouts/pages/home.testimonials';
     // @import 'layouts/pages/home.latest-posts';
-    // @import 'layouts/pages/about';
     // @import 'layouts/pages/about.awards';
     // @import 'layouts/pages/testimonials';
     // @import 'layouts/pages/contact';
