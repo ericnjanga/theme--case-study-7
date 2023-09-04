@@ -6,10 +6,13 @@
                 <div class="container bx-container">
 
                     <div class="block1">
-                        <img src="<?php echo get_template_directory_uri() .'/images/Stilettos & Hammers Logo.png' ?>" 
+                        <?php
+                            include '_header-logo.php';
+                        ?>
+                        <!-- <img src="<?php echo get_template_directory_uri() .'/images/Stilettos & Hammers Logo.png' ?>" 
                             alt="<?php echo esc_html( get_bloginfo( 'name' ) ) ?>" 
                             class="logo"
-                        >
+                        > -->
                         <div class="footer__cta">
                             <span class="sup">Newsletter</span>
                             <h3 class="footer__title">Keep up with us by <a href="@">signing up!</a></h3>

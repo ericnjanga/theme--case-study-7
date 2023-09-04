@@ -6,8 +6,9 @@
     --site-footer-hr-margin: 25px 0;
 
     --site-footer-logo-position: absolute;
-    --site-footer-logo-left: 0;
+    --site-footer-logo-left: 7px;
     --site-footer-logo-top: 0;
+    --site-footer-logo-width: 264px;
 
     --site-footer-border-radius: 15px;
     --site-footer-padding: 40px 30px;
@@ -23,9 +24,7 @@
     --site-footer-block3-display: block;
     --site-footer-block3-gap: 20px;
     --site-footer-block3-justify-content: center;
-
 }
-
 
 
 @layer footer {
@@ -34,11 +33,13 @@
         background-color: var(--site-clr-footer-background);
         border-radius: var(--site-footer-border-radius);
         padding: var(--site-footer-padding);
+        overflow: hidden;
 
         .logo {
             position: var(--site-footer-logo-position);
             left: var(--site-footer-logo-left);
             top: var(--site-footer-logo-top);
+            width: var(--site-footer-logo-width);
         }
 
         hr {
@@ -48,34 +49,30 @@
         }
 
         .block1 {
-
             display: var(--site-footer-block1-display);
             justify-content: var(--site-footer-block1-justify-content);
             padding-top: var(--site-footer-block1-top-padding);
 
-
-            @media (min-width: 1400px) {
-                border: 10px solid purple; 
-            }
-            @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-                border: 10px solid violet; 
-            }
-            @media (min-width: 992px) and (max-width: (1200px - 1)) {
-                border: 10px solid lime; 
-            }
-            @media (min-width: 768px) and (max-width: (992px - 1)) {
-                border: 10px solid blue;  
-            }
-            @media (min-width: 576px) and (max-width: (768px - 1)) {
-                border: 10px solid turquoise;
-            }
-            @media (max-width: (576px - 1px)) {
-                border: 10px solid chocolate;
-            }
-
-
+            // @media (min-width: 1400px) {
+            //     border: 10px solid purple; 
+            // }
+            // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            //     border: 10px solid violet; 
+            // }
+            // @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            //     border: 10px solid lime; 
+            // }
+            // @media (min-width: 768px) and (max-width: (992px - 1)) {
+            //     border: 10px solid blue;  
+            // }
+            // @media (min-width: 576px) and (max-width: (768px - 1)) {
+            //     border: 10px solid turquoise;
+            // }
+            // @media (max-width: (576px - 1px)) {
+            //     border: 10px solid chocolate;
+            // }
             @media (min-width: 768px) {
-                border: 10px solid blue; 
+                // border: 10px solid blue; 
                 --site-footer-block1-display: flex;
                 --site-footer-block1-top-padding: 0;
             }
@@ -97,27 +94,27 @@
 
 
             @media (min-width: 1400px) {
-                border: 10px solid purple;
+                // border: 10px solid purple;
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr 1fr 1fr 1fr;
             }
             @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-                border: 10px solid violet;
+                // border: 10px solid violet;
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr 1fr 1fr;
             }
             @media (min-width: 992px) and (max-width: (1200px - 1)) {
-                border: 10px solid lime;
+                // border: 10px solid lime;
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr 1fr;
             }
             @media (min-width: 768px) and (max-width: (992px - 1)) {
-                border: 10px solid blue;
+                // border: 10px solid blue;
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr;
             }
-            @media (min-width: 576px) and (max-width: (768px - 1)) {
-                border: 10px solid turquoise;
-            }
-            @media (max-width: (576px - 1px)) {
-                border: 10px solid chocolate;
-            }
+            // @media (min-width: 576px) and (max-width: (768px - 1)) {
+            //     border: 10px solid turquoise;
+            // }
+            // @media (max-width: (576px - 1px)) {
+            //     border: 10px solid chocolate;
+            // }
         }
         .block3 {
             display: var(--site-footer-block3-display);

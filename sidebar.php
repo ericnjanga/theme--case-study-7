@@ -7,6 +7,7 @@
 
     // Sidebar is not needed on:
     if (!is_front_page()                                    // - Front page template
+    && !is_home()                                            // - Blog page
     && $template_slug !== 'template-about.php'              // - About page templates
     && $template_slug !== 'template-about-testimonials.php'      // - Testimonials page templates
     && $template_slug !== 'template-about-meet-the-team.php'     // - "Meet the founder" page templates
@@ -16,7 +17,6 @@
     && $template_slug !== 'template-about-gallery.php'
     && $template_slug !== 'template-grid-awards.php' ) {        // - Awards page templates
 ?>
-
     <aside class="sidebar bx-container" id="sidebar" role="complementary">
         <div id="primary" class="widget-area">
             <div class="content-wrapper">
@@ -34,18 +34,16 @@
                         <?php include 'sidebar-template-terms-and-policies.php'; ?>
                 <?php } 
                     // Blog and article pages ...
-                    elseif (is_home() || is_single()) { ?>
+                    elseif (is_single()) { ?>
                         <?php include 'sidebar-template-blog.php'; ?>
                 <?php } 
                     // Any other pages ...
                     else { ?>
                         <?php include 'sidebar-template-blog.php'; ?>
-                        <?php //dynamic_sidebar( 'primary-widget-area' ); ?>
                 <?php } ?>
             </div>
         </div>
     </aside>
-
 <?php
     }
 ?>
