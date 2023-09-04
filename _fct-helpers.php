@@ -557,23 +557,26 @@
     
         if ($query->have_posts()) {
             ?>
-                <ul class="grid grid-34567 list-unstyled">
-                    <?php
-                        while ($query->have_posts()) {
-                            $query->the_post();
-                            $post_ID = get_the_ID();
-                            ?>
-                                <li class="">
-                                    <?php 
-                                        if ( has_post_thumbnail() ) {
-                                            the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 mb-10' ) );
-                                        }
-                                    ?>
-                                </li>
-                            <?php
-                        }
-                    ?>
-                </ul>
+                <div class="partner-logos-carousel">
+                    <ul class="partner-logos-carousel__list list-unstyled">
+                        <?php
+                            while ($query->have_posts()) {
+                                $query->the_post();
+                                $post_ID = get_the_ID();
+                                ?>
+                                    <li class="">
+                                        <?php 
+                                            if ( has_post_thumbnail() ) {
+                                                the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 mb-10' ) );
+                                            }
+                                        ?>
+                                    </li>
+                                <?php
+                            }
+                        ?>
+                    </ul>
+
+                </div>
             <?php
         } else {
             ?>
@@ -797,6 +800,8 @@
             'post_type' => 'brand-feature',
             'posts_per_page' => $count,
             'category_name' => $category_slug,
+            'order'          => 'ASC', // Display posts in ascending order
+            'orderby'        => 'date', // Order by publish date
         );
 
         // Inforce default value adoption on all parameters
@@ -945,7 +950,7 @@
                         $currentThemeClass = $themeClasses[$themeIndex];
                         $themeIndex = ($themeIndex + 1) % count($themeClasses);
                         ?>
-                            <li>
+                            <li class="bx-container">
                                 <article class="testimonial <?php echo $currentThemeClass; ?>">
                                     <?php echo $quote_img; ?>
                                    

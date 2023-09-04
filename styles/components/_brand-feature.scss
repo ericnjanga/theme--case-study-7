@@ -19,6 +19,7 @@
 
             .brand-feature__image {
                 border-radius: var(--site-brand-feature-img-border-radius);
+                background-size: cover;
             }
 
             &:hover {

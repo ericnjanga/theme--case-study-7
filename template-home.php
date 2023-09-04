@@ -212,12 +212,12 @@
     </section>
 
 
-    <section id="section-partners" class="container">
-            <h2 class="section-title title-spacer text-center">As featured in ...</h2>
-            <?php
-                displayClientLogos();
-            ?>
-        </section>
+    <section id="section-partners" class="section-partners container">
+        <h2 class="section-title title-spacer text-center">As featured in ...</h2>
+        <?php
+            displayClientLogos();
+        ?>
+    </section>
 
 </main>
 
