@@ -810,26 +810,31 @@
         $query = new WP_Query( $args );
 
         if ( $query->have_posts() ) {
+            $themeClasses = array('theme1', 'theme2', 'theme3');
+            $themeIndex = 0;
+
             while ( $query->have_posts() ) {
                 $query->the_post(); 
+                $currentThemeClass = $themeClasses[$themeIndex];
+                $themeIndex = ($themeIndex + 1) % count($themeClasses);
                 ?>
-                    <div class="brand-feature">
+                    <div class="brand-feature <?php echo $currentThemeClass; ?>">
                         <a href="#">
-                            <div>
-                                <?php echo getField('status'); ?>
-                            </div>
-                            <h3>
-                                <?php the_title(); ?>
-                            </h3>
-
-                            <p>
-                                <?php
-                                    echo wp_trim_words(get_the_content(), 13);
-                                ?>
-                            </p>
-
-                            <div>
-                                <?php echo getField('cta_text'); ?>
+                            <div class="brand-feature__content">
+                                <span class="brand-feature__status">
+                                    <?php echo getField('status'); ?>
+                                </span>
+                                <h3 class="brand-feature__title">
+                                    <?php the_title(); ?>
+                                </h3>
+                                <p class="brand-feature__text">
+                                    <?php
+                                        echo wp_trim_words(get_the_content(), 13);
+                                    ?>
+                                </p>
+                                <span class="btn btn-transparent brand-feature__cta">
+                                    <span class="brand-feature__cta-text"><?php echo getField('cta_text'); ?></span>
+                                </span>
                             </div>
 
                             <?php 

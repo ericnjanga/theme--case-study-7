@@ -172,30 +172,30 @@
             </div>
         </article>
 
-<footer class="slogan1__cta-block">
-    <?php
-        if (!empty($cta1)) {
-            ?>
-                <a class="btn btn-secondary" href="<?php echo $cta_1_link; ?>">
-                    <?php echo $cta1; ?>
-                </a>
+        <footer class="slogan1__cta-block">
             <?php
-        }
+                if (!empty($cta1)) {
+                    ?>
+                        <a class="btn btn-secondary" href="<?php echo $cta_1_link; ?>">
+                            <?php echo $cta1; ?>
+                        </a>
+                    <?php
+                }
 
-        if (!empty($cta2)) {
+                if (!empty($cta2)) {
+                    ?>
+                        <a class="btn btn-primary" href="<?php echo $cta_2_link; ?>">
+                            <?php echo $cta2; ?>
+                        </a>
+                    <?php
+                }
             ?>
-                <a class="btn btn-primary" href="<?php echo $cta_2_link; ?>">
-                    <?php echo $cta2; ?>
-                </a>
-            <?php
-        }
-    ?>
-</footer>
+        </footer>
     </section>
 
 
     <section class="bottom-section-spacer container">
-        <h2 class="h-underlined text-center">Lorem ipsum dolor sit amet consectetur.</h2>
+        <h2 class="section-title title-spacer text-center">Lorem ipsum dolor sit amet consectetur.</h2>
         <div class="grid grid-11233">
             <?php
                 fetchBrandFeatures();
@@ -205,7 +205,7 @@
 
 
     <section class="bottom-section-spacer container">
-        <h2 class="h-underlined text-center">Don’t take our word for it...</h2>
+        <h2 class="section-title title-spacer text-center">Don’t take our word for it...</h2>
         <div>
             <?php displayTestimonial('grid grid-11233 testimonial-list', 3, true); ?>
         </div>
@@ -213,7 +213,7 @@
 
 
     <section id="section-partners" class="container">
-            <h2 class="section-title text-center">Partners</h2>
+            <h2 class="section-title title-spacer text-center">As featured in ...</h2>
             <?php
                 displayClientLogos();
             ?>
