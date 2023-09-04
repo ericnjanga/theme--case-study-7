@@ -18,9 +18,11 @@
 // Mobile first settings ...
 @layer hero {
     .hero {
+        position: relative;
         display: flex;
         height: var(--site-hero-small-height);
         background: var(--site-clr-hero-txt-wrapper-bg);
+        overflow: hidden;
 
         // ...
         background-size: cover;
@@ -38,6 +40,25 @@
             background: var(--site-clr-hero-txt-wrapper-bg);
             padding: var(--site-hero-txt-wrapper-padd);
             border-radius: var(--site-hero-txt-wrapper-brd-radius);
+            z-index: 2;
+        }
+
+        &::after {
+            height: var(--site-hero-small-height);
+        }
+    }
+    .hero {
+        // HERO OVERLAY: 
+        // ------------------------------
+        &::after {
+            content: '';
+            position: fixed;
+            display: var(--site-body-overlay-on-mobile-nav-opened-display);
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            z-index: 1;
         }
     }
     .hero-title {
@@ -93,6 +114,9 @@
 
     .hero.large {
         height: var(--site-hero-large-height);
+        &::after {
+            height: var(--site-hero-large-height);
+        }
     }
 }
 

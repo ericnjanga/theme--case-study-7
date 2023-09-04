@@ -1,30 +1,70 @@
 :root {
-
-    --site-body-padding-top: 70px;
+    --site-body-padding-top: 48px;
     --site-header-fixed-container-top: 0px;
 
-    --site-header-wrapper-padding-left: 10px;
-    --site-header-wrapper-padding-right: 10px;
+    --site-header-wrapper-padding-left: 0; // 10px;
+    --site-header-wrapper-padding-right: 0; // 10px;
+
+    --site-header-wrapper-container-padding: 0;
+
+    --site-navbar-brand-padding: 0;
+    --site-navbar-padding: 0;
+    --site-navbar-nav-padding: 0;
+    --site-navbar-border-radius: 20px;
+
+    --site-clr-dropdown-item-sep: #fff;
+
+    --site-clr-navbar-nav-bg1: #FADEE4;
+    --site-clr-navbar-nav-bg2: #dbbcc3;
 
     --site-navbar--h1-bot-mar: 0;
-    --site-navbar--logo-max-width: 81px;
-    --site-navbar--toggler-bdr-radius: 0px;
+    --site-navbar--logo-max-width: 120px;
+    --site-navbar--toggler-bdr-radius: 10px;
+    --site-navbar--toggler-margin: 10px;
     --site-navbar-font-size: 1.1rem;
     --site-navbar-letter-spacing: 0.2ch;
 
     --site-navbar-nav-display: block;
     --site-navbar-nav-gap: 20px;
 
-    --site-navbar-padding: 4px 20px;
-
     --site-dropdown-item-padding-x: 30px;
     --site-dropdown-item-padding-y: 15px;
+
+    --site-body-overlay-on-mobile-nav-opened-display: block;
+}
+
+
+/**
+ * Overlay designed to appear when Bootstrap mobile nav appears
+ * -------------------
+*/
+body.nav-opened {
+    &::after {
+        content: '';
+        position: fixed;
+        display: var(--site-body-overlay-on-mobile-nav-opened-display);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+
+        @media (min-width: 992px) {
+            --site-body-overlay-on-mobile-nav-opened-display: none;
+        }
+    }
 }
 
 
 @layer header {
     body {
         padding-top: var(--site-body-padding-top);
+        @media (min-width: 992px) {
+            --site-body-padding-top: 80px;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-body-padding-top: 60px;
+        }
     }
 }
 
@@ -33,14 +73,13 @@
     .container.fixed-top {
         top: var(--site-header-fixed-container-top);
     }
-
+    .main-header .container {
+        padding: var(--site-header-wrapper-container-padding);
+    }
     .main-header-wrapper {
-        background-color: var(--site-clr-body-background);
-        // background-color: var(--site-clr-body-background);
-        // box-shadow: var(--site-header-wrapper-box-shadow);
+        background-color: transparent;
         padding-left: var(--site-header-wrapper-padding-left);
         padding-right: var(--site-header-wrapper-padding-right);
-
 
         @media (min-width: 992px) {
             display: flex;
@@ -48,31 +87,45 @@
             justify-content: center;
             height: var(--site-body-padding-top);
         }
-
-
     }
     .main-header {
+        position: relative;
+
         .logo {
             max-width: var(--site-navbar--logo-max-width);
         }
-
+        .navbar-brand {
+            padding: var(--site-navbar-brand-padding);
+        }
         .navbar-nav {
             margin-left: auto;
             display: var(--site-navbar-nav-display);
             gap: var(--site-navbar-nav-gap);
-            // padding: var(--site-navbar-padding);
-            background-color: green;
+            padding: var(--site-navbar-nav-padding);
+            background-color: var(--site-clr-navbar-nav-bg1);
+            border-bottom-right-radius: var(--site-navbar-border-radius);
+            border-bottom-left-radius: var(--site-navbar-border-radius);
+
+            a {
+                padding-left: 20px;
+            }
         }
 
         .navbar {
             text-transform: uppercase;
             letter-spacing: var(--site-navbar-letter-spacing);
             font-size: var(--site-navbar-font-size); 
+            padding: var(--site-navbar-padding);
+            background-color: transparent;
 
             .dropdown-menu {
                 border-width: 0;
                 border-radius: 0;
-                background-color: var(--site-clr-primary-200);
+                background-color: var(--site-clr-navbar-nav-bg2);
+                @media (min-width: 992px) {
+                    border-bottom-right-radius: var(--site-navbar-border-radius);
+                    border-bottom-left-radius: var(--site-navbar-border-radius);
+                }
             }
 
             // Overriding bootstrap dropdown toggle arrow
@@ -97,6 +150,9 @@
             a.dropdown-item {
                 color: var(--site-clr-txt-neutral-200);
             }
+            a.nav-link.show {
+                color: var(--site-clr-accent);
+            }
             .dropdown-menu {
                 padding: 0;
             }
@@ -111,12 +167,11 @@
                     content: '';
                     width: 100%;
                     height: 1px;
-                    background-color: var(--site-dropdown-sep-color);
+                    background-color: var(--site-clr-dropdown-item-sep);
                 }
-
                 &:active { // When link is pressed
                     color: var(--site-clr-body-background);
-                    background-color: var(--site-dropdown-sep-color);
+                    background-color: var(--site-clr-dropdown-item-sep);
                 }
             }
             .current-menu-item.page_item {
@@ -128,24 +183,58 @@
 
             .navbar-toggler {
                 border-radius: var(--site-navbar--toggler-bdr-radius);
+                border: 1px solid var(--site-clr-text4);
+                margin-right: var(--site-navbar--toggler-margin);
             }
             .navbar-toggler-icon{
                 background-image: var(--site-navbar-toggler-icon-bg);
             }
+
+            // @media (min-width: 1400px) {
+            //     border: 3px solid purple;
+            // }
+            // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            //     border: 3px solid violet;
+            // }
+            // @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            //     border: 3px solid lime;
+            // }
+            @media (min-width: 992px) {
+                --site-navbar--logo-max-width: 188px;
+            }
+            @media (min-width: 768px) and (max-width: (992px - 1)) {
+                // border: 3px solid blue;
+                --site-navbar--logo-max-width: 150px;
+            }
+            // @media (min-width: 576px) and (max-width: (768px - 1)) {
+            //     border: 3px solid turquoise;
+            // }
+            // @media (max-width: (576px - 1px)) {
+            //     border: 3px solid chocolate;
+            // }
+        }
+        .menu-item:last-of-type .dropdown-item::after {
+            display: none;
+        }
+
+        // Giving the illusion of a full width bar
+        .container {
+            z-index: 10;
+            position: relative;
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: var(--site-body-padding-top);
+            background-color: #fff;
         }
     }
 }
 
-
-
-// Responsiveness ...
-@layer header {
-    body {
-        @media (min-width: 992px) {
-            --site-body-padding-top: 80px;
-        }
-    }
-}
 
 @layer header {
     // The more the viewport spreads, Push the fixed wrapper down
@@ -161,34 +250,25 @@
     }
 }
 
-
 @layer header {
     .main-header {
         @media (min-width: 1400px) {
-            --site-navbar--logo-max-width: 160px;
             --site-navbar-nav-display: flex;
             --site-navbar-nav-gap: 60px;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            --site-navbar--logo-max-width: 155px;
             --site-navbar-nav-display: flex;
             --site-navbar-nav-gap: 40px;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
             --site-navbar-nav-display: flex;
-            --site-navbar--logo-max-width: 140px;
         }
 
         @media (min-width: 992px) {
-            .navbar-nav {
-                --site-navbar-padding: 0;
-                --site-navbar--logo-max-width: 120px;
-                background-color: var(--site-clr-body-background);
-            }
+            --site-clr-navbar-nav-bg1: #fff;
         }
-        @media (min-width: 768px) and (max-width: (992px - 1)) {
-            --site-navbar--logo-max-width: 100px;
-        }
+        // @media (min-width: 768px) and (max-width: (992px - 1)) {
+        // }
         // @media (min-width: 576px) and (max-width: (768px - 1)) {}
     }
 }

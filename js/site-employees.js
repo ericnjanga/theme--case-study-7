@@ -47,3 +47,28 @@ jQuery(function($) {
 });
 
 
+
+
+
+
+
+
+
+        // Get the Bootstrap collapse navigation element by its ID
+        const navbarCollapse = document.getElementById('navbarNav');
+
+        // Function to add the "nav-opened" class to the body
+        function addNavOpenedClass() {
+            document.body.classList.add('nav-opened');
+        }
+
+        // Function to remove the "nav-opened" class from the body
+        function removeNavOpenedClass() {
+            document.body.classList.remove('nav-opened');
+        }
+
+        // Event listener to detect when the Bootstrap collapse navigation is shown
+        navbarCollapse.addEventListener('show.bs.collapse', addNavOpenedClass);
+
+        // Event listener to detect when the Bootstrap collapse navigation is hidden
+        navbarCollapse.addEventListener('hide.bs.collapse', removeNavOpenedClass);

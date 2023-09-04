@@ -25,7 +25,11 @@
             height: 100%;
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: center center;
+
+            /* Small screen first */
+            background-position: center -139px;
+            /* background-position: center -375px;   (breakpoint 2)  */
+            /* background-position: center -608px;   (breakpoint 3)  */
         }
     </style>
 
