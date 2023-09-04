@@ -66,11 +66,50 @@
     </div>
 
   
-    <section class="section-brand-highlight bottom-section-spacer container">
-        <?php echo getFieldImage('highlight_image', '', 'medium'); ?>
+    <section class="slogan1 bottom-section-spacer container">
+        <?php
+            // List 1 ...
+            $list_1_title = getField('list_1_title');
+            $list_1_text1 = getField('list_1_text1');
+            $list_1_text2 = getField('list_1_text2');
+            $list_1_text3 = getField('list_1_text3');
+            $list_1_text4 = getField('list_1_text4');
 
-        <article>
-            <h2>
+            // List 2 ...
+            $list_2_title = getField('list_2_title');
+            $list_2_text1 = getField('list_2_text1');
+            $list_2_text2 = getField('list_2_text2');
+            $list_2_text3 = getField('list_2_text3');
+            $list_2_text4 = getField('list_2_text4');
+
+            // CTA 1 ...
+            $cta1 = getField('cta_1');
+            $cta_1_link = getField('cta_1_link');
+
+            // CTA 2 ...
+            $cta2 = getField('cta_2');
+            $cta_2_link = getField('cta_2_link');
+        ?>
+
+        <div class="slogan1__img-frame">
+            <?php
+                $slogan_imp1 = getImage_byName('slogan imp 1', 'slogan-img1 img-fluid');
+                $slogan_imp2 = getImage_byName('slogan imp 2', 'slogan-img2 img-fluid');
+                $slogan_imp3 = getImage_byName('slogan imp 3', 'slogan-img3 img-fluid');
+                $slogan_imp4 = getImage_byName('slogan imp 4', 'slogan-img4 img-fluid');
+            ?>
+
+            <?php
+                // slogan imp 1
+                echo $slogan_imp1;
+                echo $slogan_imp2;
+                echo $slogan_imp3;
+                echo $slogan_imp4;
+            ?>
+        </div>
+
+        <article class="slogan1__content">
+            <h2 class="slogan1__content-title">
                 <?php
                     echo getField('highlight_title');
                 ?>
@@ -81,49 +120,28 @@
                 ?>
             </p>
 
-            <?php
-                // List 1 ...
-                $list_1_title = getField('list_1_title');
-                $list_1_text1 = getField('list_1_text1');
-                $list_1_text2 = getField('list_1_text2');
-                $list_1_text3 = getField('list_1_text3');
-                $list_1_text4 = getField('list_1_text4');
-
-                // List 2 ...
-                $list_2_title = getField('list_2_title');
-                $list_2_text1 = getField('list_2_text1');
-                $list_2_text2 = getField('list_2_text2');
-                $list_2_text3 = getField('list_2_text3');
-                $list_2_text4 = getField('list_2_text4');
-
-                // CTA 1 ...
-                $cta1 = getField('cta_1');
-                $cta_1_link = getField('cta_1_link');
-
-                // CTA 2 ...
-                $cta2 = getField('cta_2');
-                $cta_2_link = getField('cta_2_link');
-            ?>
-            <div class="lists">
+            <div class="slogan1__content-lists">
                 <?php
                     // List 1 ...
                     if (!empty($list_1_title)) {
                         ?>
-                            <ul>
+                            <div>
                                 <h3><?php echo $list_1_title; ?></h3>
-                                <?php if (!empty($list_1_text1)) { ?>
-                                    <li><?php echo $list_1_text1; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_1_text2)) { ?>
-                                    <li><?php echo $list_1_text2; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_1_text3)) { ?>
-                                    <li><?php echo $list_1_text3; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_1_text4)) { ?>
-                                    <li><?php echo $list_1_text4; ?></li>
-                                <?php } ?>
-                            </ul>
+                                <ul class="list-chevron-right">
+                                    <?php if (!empty($list_1_text1)) { ?>
+                                        <li><?php echo $list_1_text1; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_1_text2)) { ?>
+                                        <li><?php echo $list_1_text2; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_1_text3)) { ?>
+                                        <li><?php echo $list_1_text3; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_1_text4)) { ?>
+                                        <li><?php echo $list_1_text4; ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         <?php
                     }
                 ?>
@@ -131,46 +149,48 @@
                     // List 2 ...
                     if (!empty($list_2_title)) {
                         ?>
-                            <ul>
+                            <div>
                                 <h3><?php echo $list_2_title; ?></h3>
-                                <?php if (!empty($list_2_text1)) { ?>
-                                    <li><?php echo $list_2_text1; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_2_text2)) { ?>
-                                    <li><?php echo $list_2_text2; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_2_text3)) { ?>
-                                    <li><?php echo $list_2_text3; ?></li>
-                                <?php } ?>
-                                <?php if (!empty($list_2_text4)) { ?>
-                                    <li><?php echo $list_2_text4; ?></li>
-                                <?php } ?>
-                            </ul>
+                                <ul class="list-chevron-right">
+                                    <?php if (!empty($list_2_text1)) { ?>
+                                        <li><?php echo $list_2_text1; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_2_text2)) { ?>
+                                        <li><?php echo $list_2_text2; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_2_text3)) { ?>
+                                        <li><?php echo $list_2_text3; ?></li>
+                                    <?php } ?>
+                                    <?php if (!empty($list_2_text4)) { ?>
+                                        <li><?php echo $list_2_text4; ?></li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
                         <?php
                     }
                 ?>
             </div>
-
-            <footer class="cta-block">
-                <?php
-                    if (!empty($cta1)) {
-                        ?>
-                            <a class="btn btn-secondary" href="<?php echo $cta_1_link; ?>">
-                                <?php echo $cta1; ?>
-                            </a>
-                        <?php
-                    }
-
-                    if (!empty($cta2)) {
-                        ?>
-                            <a class="btn btn-primary" href="<?php echo $cta_2_link; ?>">
-                                <?php echo $cta2; ?>
-                            </a>
-                        <?php
-                    }
-                ?>
-            </footer>
         </article>
+
+<footer class="slogan1__cta-block">
+    <?php
+        if (!empty($cta1)) {
+            ?>
+                <a class="btn btn-secondary" href="<?php echo $cta_1_link; ?>">
+                    <?php echo $cta1; ?>
+                </a>
+            <?php
+        }
+
+        if (!empty($cta2)) {
+            ?>
+                <a class="btn btn-primary" href="<?php echo $cta_2_link; ?>">
+                    <?php echo $cta2; ?>
+                </a>
+            <?php
+        }
+    ?>
+</footer>
     </section>
 
 

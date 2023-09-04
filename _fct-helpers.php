@@ -15,12 +15,12 @@
 
 
 <?php
-    function getFieldImage($id, $eltClass='', $imageSize='') {
+    function getFieldImage($id, $cssClass='', $imageSize='') {
         $image = get_field($id);
         $output = '';
         if ($image) {
             if ($imageSize=='') {
-                $output = '<img class="'. $eltClass. '" src="' . $image . '" alt="--">';
+                $output = '<img class="'. $cssClass. '" src="' . $image . '" alt="--">';
             } else {
                 // Get the image sizes
                 $image_sizes = $image['sizes'];
@@ -29,7 +29,7 @@
                 $medium_image_url = $image_sizes[$imageSize];
             
                 // Output the medium-sized image URL
-                $output = '<img src="' . esc_url($medium_image_url) . '" alt="' . esc_attr($image['alt']) . '">';
+                $output = '<img src="'. esc_url($medium_image_url) .'"  class="'. $cssClass. '" alt="' . esc_attr($image['alt']) . '">';
             }
         }
 
