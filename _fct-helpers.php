@@ -823,7 +823,7 @@
                 $currentThemeClass = $themeClasses[$themeIndex];
                 $themeIndex = ($themeIndex + 1) % count($themeClasses);
                 ?>
-                    <div class="brand-feature <?php echo $currentThemeClass; ?>">
+                    <div class="brand-feature bx-container <?php echo $currentThemeClass; ?>">
                         <a href="#">
                             <div class="brand-feature__content">
                                 <span class="brand-feature__status">
