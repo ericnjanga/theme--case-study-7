@@ -1,6 +1,6 @@
 :root {
     // Default settings (mobile first) ...
-    --site-clr-footer-bdr: #CF93AA;
+    --site-clr-footer-bdr: #dfa6b1;
     --site-clr-footer-background: #FFE8F1;
     --site-footer-padding: 25px;
     --site-footer-hr-margin: 25px 0;
@@ -90,8 +90,11 @@
 
             a {
                 text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--site-clr-accent);
+                }
             }
-
 
             @media (min-width: 1400px) {
                 // border: 10px solid purple;
@@ -121,14 +124,24 @@
             gap: var(--site-footer-block3-gap);
             justify-content: var(--site-footer-block3-justify-content);
 
+            a {
+                &:hover {
+                    text-decoration: none;
+                    color: var(--site-clr-accent);
+                }
+            }
+
             @media (min-width: 768px) {
                 --site-footer-block3-display: flex;
             }
         }
     }
-    // .footer__title {
-    //     color: heading color
-    // }
+    .footer__title a {
+        color: var(--site-clr-accent);
+        &:hover {
+            text-decoration: none;
+        }
+    }
     .sup {
         text-transform: uppercase;
         font-size: 0.7rem;

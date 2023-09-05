@@ -6,11 +6,11 @@
     --site-hero-large-height: 400px;
     --site-hero-large-background-pos: center -139px;
     --site-hero-small-height: 235px;
-    --site-hero-txt-wrapper-padd: 20px;
+    --site-hero-txt-wrapper-padding: 20px;
     --site-hero-txt-wrapper-brd-radius: 20px 20px 0px 0px;
     --site-hero-bg-img-pos-y: 41%;
 
-    --site-clr-hero-txt-wrapper-bg: #442C52;
+    --site-clr-hero-txt-wrapper-bg: var(--site-clr-text1);
     --site-clr-hero-txt-wrapper-h1: #fff;
     --site-clr-hero-txt-wrapper-txt: #E1C7F0;
     --site-clr-hero-txt-wrapper-width: 100%;
@@ -22,7 +22,7 @@
         position: relative;
         display: flex;
         height: var(--site-hero-small-height);
-        background: var(--site-clr-hero-txt-wrapper-bg);
+        background: var(--site-clr-accent-hover);
         overflow: hidden;
 
         // ...
@@ -37,9 +37,10 @@
         }
 
         .text-wrapper {
+            width: 100%;
             max-width: var(--site-clr-hero-txt-wrapper-width);
             background: var(--site-clr-hero-txt-wrapper-bg);
-            padding: var(--site-hero-txt-wrapper-padd);
+            padding: var(--site-hero-txt-wrapper-padding);
             border-radius: var(--site-hero-txt-wrapper-brd-radius);
             z-index: 2;
         }
@@ -84,6 +85,7 @@
             --site-hero-large-height: 700px;
             --site-hero-footer-mgr: 40px; // footer top margin
             --site-clr-hero-txt-wrapper-width: 633px;
+            --site-hero-txt-wrapper-padding: 50px;
         }
     
         // @container (min-width: 961px) and (max-width: 1140px) {
@@ -91,7 +93,7 @@
             --site-hero-large-height: 600px;
             --site-hero-footer-mgr: 30px; // footer top margin
             --site-clr-hero-txt-wrapper-width: 550px;
-            --site-hero-txt-wrapper-padd: 40px;
+            --site-hero-txt-wrapper-padding: 40px;
         }
     
         // @container (min-width: 721px) and (max-width: 960px) {
@@ -99,7 +101,7 @@
             --site-hero-large-height: 500px;
             --site-hero-footer-mgr: 30px; // footer top margin
             --site-clr-hero-txt-wrapper-width: 450px;
-            --site-hero-txt-wrapper-padd: 30px;
+            --site-hero-txt-wrapper-padding: 30px;
         }
     
         // @container (min-width: 541px) and (max-width: 720px) {
@@ -107,6 +109,7 @@
             --site-hero-large-height: 500px;
             --site-hero-footer-mgr: 20px; // footer top margin
             --site-clr-hero-txt-wrapper-width: 450px;
+            --site-hero-txt-wrapper-padding: 30px;
         }
         @media (max-width: (768px - 1)) {
             --site-clr-hero-txt-wrapper-width: 450px;

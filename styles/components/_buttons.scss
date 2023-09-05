@@ -44,16 +44,19 @@
 
     .btn-primary {
         color: var(--site-clr-event-background);
-        background-color: var(--site-clr-text1);
+        background-color: var(--site-clr-accent);
+        &:hover {
+            background-color: var(--site-clr-accent-hover);
+        }
     }
 
     .btn-secondary {
-        color: var(--site-clr-text1);
-        background-color: var(--site-clr-event-background);
+        color: var(--site-clr-event-background);
+        background-color: var(--site-clr-text1);
         border: 1px solid var(--site-clr-text1);
     }
     .btn-secondary:hover {
-        background-color: var(--site-clr-primary-neutral-400);
+        background-color: var(--site-clr-text5);
     }
 
     .btn-tertiary {

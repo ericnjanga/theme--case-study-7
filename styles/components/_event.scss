@@ -20,7 +20,7 @@
     --site-clr-event-bg: #FFD9DE;
 
     --site-clr-event-background-hover: #AB0727;
-    --site-clr-accent-hover: #281A30;
+    --site-clr-icon-hover: #281A30;
     --site-clr-event-text1-hover: #fff;
     --site-clr-event-text2-hover: #E0CBEF;
 }
@@ -48,7 +48,7 @@
                     color: var(--site-clr-event-text2-hover);
                 }
                 .event__loc__icon {
-                    fill: var(--site-clr-accent-hover);
+                    fill: var(--site-clr-icon-hover);
                 }
             }
         }
