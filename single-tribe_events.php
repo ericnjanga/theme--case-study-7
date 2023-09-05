@@ -14,7 +14,7 @@
 <header class="hero bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="container">
         <div class="text-wrapper">
-            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
+            <h1 class="hero-title"><?php the_title() ?></h1>
             <section class="breadcrumb">
                 <?php displayBreadcrumbs(); ?>
             </section>
@@ -27,12 +27,10 @@
 
     <main class="main-content-wrapper container" role="main">
         <div class="sidebar-opposite-content">
+            <?php displaySingleEvent(); ?>
+
             <?php while (have_posts()) : the_post(); ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <header class="entry-header">
-                        <h1 class="entry-title"><?php the_title(); ?></h1>
-                    </header>
-
                     <div class="entry-content">
                         <?php the_content(); ?>
                     </div>

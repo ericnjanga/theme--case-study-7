@@ -159,6 +159,99 @@
 
 
 
+<?php
+    // Designed to be displayed on the event single page
+    function displaySingleEvent() {
+            // Get the current date in 'Y-m-d' format
+            $current_date = date('Y-m-d');
+
+            // Get the event start date and time
+            $event_start_date = get_post_meta(get_the_ID(), '_EventStartDate', true);
+            $event_start_time = get_post_meta(get_the_ID(), '_EventStartDateUTC', true);
+
+            // Get the event cost
+            $event_cost = get_post_meta(get_the_ID(), '_EventCost', true);
+
+            // Get the event categories
+            $event_categories = get_the_terms(get_the_ID(), Tribe__Events__Main::TAXONOMY);
+
+            // Get the event venue
+            $event_venue = get_post_meta(get_the_ID(), '_EventVenueID', true);
+            // ...
+            $event_start_time_formated1 = $start_datetime = new DateTime($event_start_time);
+            $event_start_time_formated2 = $event_start_time_formated1->format('g:i A');
+
+            // Check if the event is in the past 
+            $event_is_past = strtotime($event_start_date) < strtotime($current_date);
+            $event_status = ($event_is_past) ? 'Past Event' : 'Upcoming Event';
+
+            // ...
+            $event_ticket_url = getField('get_your_tickets');
+        ?>
+            <div class="event <?php echo ($event_is_past) ? 'hasPassed' : ''; ?> bx-container">
+                <?php 
+                    if ( has_post_thumbnail() ) {
+                        $thumbnail_id = get_post_thumbnail_id();
+                        $image_url = wp_get_attachment_image_src($thumbnail_id, 'full')[0]; // Get the URL of the full-size image
+                    }
+                ?>
+                <div class="event__wrapper">
+                    <div class="event__image" style="background-image:url(<?php echo $image_url; ?>);"></div>
+                    <div class="event__body">    
+                        <div class="event__status"><?php echo $event_status; ?></div> 
+                        <h3 class="event__title"><?php the_title() ?></h3>  
+
+                        <?php if (!empty($event_categories)) : ?>
+                            <div class="event__categories">
+                                <?php foreach ($event_categories as $category) : ?>
+                                    <span class="event__categories__item site-badge badge-info">
+                                        <?php echo esc_html($category->name); ?>
+                                    </span>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <?php
+                            if (!empty($event_venue)) {
+                                $venue_name = get_the_title($event_venue);
+                                ?>
+                                    <span class="event__loc">
+                                        <svg class="event__loc__icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                                            <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+                                        </svg>
+                                        <span class="event__loc__text"><?php echo $venue_name; ?></span>
+                                    </span>
+                                <?php
+                            }
+                        ?>
+
+                        <ul class="event__time">
+                            <li>
+                                <span class="event__time__label">Event Date</span>
+                                <span class="event__time__text"><?php echo date_i18n('d M, Y', strtotime($event_start_date)); ?></span>
+                            </li>
+                            <li>
+                                <span class="event__time__label">Event Time</span>
+                                <span class="event__time__text"><?php echo $event_start_time_formated2; ?></span>
+                            </li>
+                        </ul>
+
+                        <?php if(!empty($event_ticket_url)) { ?>
+                            <footer class="event__cta__wrapper__newwindow">
+                                <a href="<?php echo $event_ticket_url; ?>" target="_blank" class="btn btn-primary btn-icon new-window">
+                                    Get your ticket now
+                                </a>
+                            </footer>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        <?php
+    }
+?>
+
+
+
 
 <?php
     function displayEvent() {
@@ -193,8 +286,7 @@
                         $image_url = wp_get_attachment_image_src($thumbnail_id, 'full')[0]; // Get the URL of the full-size image
                     }
                 ?>
-
-                <a href="<?php the_permalink(); ?>">
+                <a class="event__wrapper" href="<?php the_permalink(); ?>">
                     <div class="event__image" style="background-image:url(<?php echo $image_url; ?>);"></div>
                     <div class="event__body">    
                         <div class="event__status"><?php echo $event_status; ?></div> 
@@ -249,7 +341,7 @@
                                 <span>
                                     <?php
                                         if (!empty($event_cost)) {
-                                            echo $event_cost;
+                                            echo "$$event_cost";
                                         } else {
                                             echo 'Free';
                                         }
@@ -259,7 +351,6 @@
                         </footer>
                     </div>
                 </a>
-
             </div>
         <?php
     }
