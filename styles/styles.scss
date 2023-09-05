@@ -39,6 +39,7 @@
     @import 'components/icons-elements';
     @import 'components/slogan1';
     @import 'components/partner-logos-carousel';
+    @import 'components/subscriber-popup';
 }
 
 @layer pages {
@@ -47,6 +48,8 @@
     @import 'pages/meet-the-founder';
     @import 'pages/event-single';
 }
+
+
 
 
 // @layer framework-overrides {

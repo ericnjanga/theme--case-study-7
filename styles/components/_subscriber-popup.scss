@@ -1,0 +1,137 @@
+:root {
+    --site-subscriber-popup-border-radius: 20px;
+    --site-subscriber-popup-img-display: block;
+    --site-subscriber-popup-img-width: 350px;
+    --site-subscriber-popup-img-height: 100%;
+    --site-subscriber-popup-img-pos-x: 0;
+    --site-subscriber-popup-img-pos-y: -75px;
+    --site-subscriber-popup-padding-top: 30px;
+    --site-subscriber-popup-padding-left: calc(var(--site-subscriber-popup-img-width) + var(--site-subscriber-popup-padding));
+    --site-subscriber-popup-padding: 30px;
+    --site-subscriber-popup-content-paragraph-display: block;
+}
+
+/**
+ * Styling for Popup Maker (WordPress plugin)
+ * ------------------
+*/
+@layer subscriber-popup { 
+    .pum-container {
+        position: relative;
+        border-width: 0px!important;
+        padding-top: var(--site-subscriber-popup-padding-top)!important;
+        padding-right: var(--site-subscriber-popup-padding)!important;
+        padding-bottom: var(--site-subscriber-popup-padding)!important;
+        padding-left: var(--site-subscriber-popup-padding-left) !important;
+        border-radius: var(--site-subscriber-popup-border-radius) !important;
+
+        .popmake-title {
+            font-family: var(--site-font-family-headings)!important;
+            color: var(--site-clr-text1)!important;
+        }
+
+        .pum-content {
+            color: var(--site-clr-text2)!important;
+            font-family: var(--site-font-family-body)!important;
+            > p {
+                display: var(--site-subscriber-popup-content-paragraph-display);
+            }
+        }
+
+        input[type="text"],
+        input[type="email"] {
+            background-color: var(--site-clr-input-background);
+            // Prevent these properties to be overriden
+            // (Necessary for instance when I need to carry the same styling on WordPress generated widgets)
+            border-radius: var(--site-input-border-radius)!important;
+            border: 1px solid var(--site-clr-input-border);
+            padding: 13px 20px!important;
+    
+            /* Change the placeholder text color for all input elements */
+            &::placeholder {
+                color: #999; /* You can set your desired color value here */
+            }
+        }
+
+        // Special offers options (yes/no)
+        .pum-form__field.pum-form__field--radio {
+            .pum-form__label {
+                padding-bottom: 10px;
+            }
+        }
+
+        // submit button
+        .pum-form__submit {
+            border-color: transparent;
+            padding: var(--site-btn-padding);
+            border-radius: var(--site-btn-border-radius);
+
+            // btn secondary
+            color: var(--site-clr-event-background);
+            background-color: var(--site-clr-text1);
+            border: 1px solid var(--site-clr-text1);
+        }
+
+
+        // @media (min-width: 1400px) {
+        //     border: 10px solid purple!important;
+        // }
+        // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+        //     border: 10px solid violet!important;
+        // }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            // border: 10px solid lime!important;
+            --site-subscriber-popup-content-paragraph-display: none;
+            --site-subscriber-popup-img-width: 250px;
+            --site-subscriber-popup-padding-left: calc(var(--site-subscriber-popup-img-width) + var(--site-subscriber-popup-padding));
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            // border: 10px solid blue!important;
+            --site-subscriber-popup-content-paragraph-display: none;
+            --site-subscriber-popup-img-width: 300px;
+            --site-subscriber-popup-padding-left: calc(var(--site-subscriber-popup-img-width) + var(--site-subscriber-popup-padding));
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            // border: 10px solid turquoise!important;
+            --site-subscriber-popup-content-paragraph-display: none;
+            --site-subscriber-popup-img-width: 250px;
+            --site-subscriber-popup-padding-left: calc(var(--site-subscriber-popup-img-width) + var(--site-subscriber-popup-padding));
+            --site-subscriber-popup-border-radius: 10px;
+        }
+        @media (min-width: 576px) {
+            --site-subscriber-popup-img-pos-x: -156px;
+            --site-subscriber-popup-img-pos-y: 0;
+        }
+        @media (max-width: (576px - 1px)) {
+            // border: 10px solid chocolate!important;
+            --site-subscriber-popup-content-paragraph-display: none;
+            --site-subscriber-popup-padding-left: 20px;
+            --site-subscriber-popup-padding: 20px;
+            --site-subscriber-popup-img-width: 100%;
+            --site-subscriber-popup-padding-top: 170px!important;
+            --site-subscriber-popup-img-height: 150px;
+            --site-subscriber-popup-border-radius: 10px;
+        }
+    }
+
+    // Side image ----
+    .pum-container::after {
+        content: "";
+        display: var(--site-subscriber-popup-img-display);
+        width: var(--site-subscriber-popup-img-width);
+        height: var(--site-subscriber-popup-img-height);
+        background-image: url(http://stilettosandhammers.local/wp-content/uploads/2023/09/feature-the-vault.png);
+        background-position-x: var(--site-subscriber-popup-img-pos-x);
+        background-position-y: var(--site-subscriber-popup-img-pos-y);
+        background-size: cover;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        border-top-left-radius: var(--site-subscriber-popup-border-radius) !important;
+        border-bottom-left-radius: var(--site-subscriber-popup-border-radius) !important;
+    } 
+
+}
+
+

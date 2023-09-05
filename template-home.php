@@ -157,7 +157,7 @@
 
                 if (!empty($cta2)) {
                     ?>
-                        <a class="btn btn-primary" href="<?php echo $cta_2_link; ?>">
+                        <a class="btn btn-primary triggers-subscriber-popup" href="<?php echo $cta_2_link; ?>">
                             <?php echo $cta2; ?>
                         </a>
                     <?php

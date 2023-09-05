@@ -15,7 +15,7 @@
                         > -->
                         <div class="footer__cta">
                             <span class="sup">Newsletter</span>
-                            <h3 class="footer__title">Keep up with us by <a href="@">signing up!</a></h3>
+                            <h3 class="footer__title">Keep up with us by <a class="triggers-subscriber-popup" href="#">signing up!</a></h3>
                         </div>
                     </div>
 

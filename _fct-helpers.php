@@ -909,13 +909,18 @@
             $themeClasses = array('theme1', 'theme2', 'theme3');
             $themeIndex = 0;
 
-            while ( $query->have_posts() ) {
+            while ( $query->have_posts() ) {     
                 $query->the_post(); 
                 $currentThemeClass = $themeClasses[$themeIndex];
                 $themeIndex = ($themeIndex + 1) % count($themeClasses);
                 ?>
                     <div class="brand-feature bx-container <?php echo $currentThemeClass; ?>">
-                        <a href="<?php echo getField('cta_link'); ?>">
+                        <?php
+                            $cssPopupTrigger = strtolower(trim(getField('status'))) === 'members only' ? 'triggers-subscriber-popup' : '';
+                            echo $feature_status;
+                            // 'triggers-subscriber-popup'
+                        ?>
+                        <a class="<?php echo $cssPopupTrigger ?>" href="<?php echo getField('cta_link'); ?>">
                             <div class="brand-feature__content">
                                 <span class="brand-feature__status">
                                     <?php echo getField('status'); ?>
