@@ -4,56 +4,25 @@
     */ 
     get_header();
 ?>
-
     <?php
         // Fetching hero's background image.
         $hero_background_img = getHeroBgImage();
     ?>
 
-    <style>
-        .parallax-container {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-
-        .parallax-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-repeat: no-repeat;
-
-            /* Small screen first */
-            background-position: center -139px;
-            /* background-position: center -375px;   (breakpoint 2)  */
-            /* background-position: center -608px;   (breakpoint 3)  */
-        }
-    </style>
-
-
-
-
     <!--
-    
-
+        Prallax features
         data-0="background-position-y: 50%;"
         data-top="background-position-y: 35%;"
-
     -->
-
-
-    <header class="hero large parallax-container bottom-section-spacer">
-        <div class="parallax-layer" style="<?php echo $hero_background_img; ?>;"></div>
+    <header class="hero large bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
+        <!-- <div class="parallax-layer" style="<?php echo $hero_background_img; ?>;"></div> -->
         <div class="container">
             <div class="text-wrapper">
                 <h1 class="hero-title"><?php echo getField('hero_title'); ?></h1>
                 <?php edit_post_link(); ?>
                 <p class="hero-intro"><?php echo getField('hero_subtitle'); ?></p>
                 <footer class="hero-footer">
-                    <a href="#section-services" class="btn btn-primary btn-icon btn-arrow-down">CTA Discover</a>
+                    <a href="#section-what-we-do" class="btn btn-primary btn-icon btn-arrow-down">Discover what we do</a>
                 </footer>
             </div>
         </div>
@@ -198,8 +167,9 @@
     </section>
 
 
-    <section class="bottom-section-spacer container">
-        <h2 class="section-title title-spacer text-center">Lorem ipsum dolor sit amet consectetur.</h2>
+    <section class="section-what-we-do bottom-section-spacer container">
+        <span id="section-what-we-do"></span>
+        <h2 class="section-title title-spacer text-center">What we do best</h2>
         <div class="grid grid-11233">
             <?php
                 fetchBrandFeatures();
