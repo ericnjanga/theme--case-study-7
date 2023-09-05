@@ -13,11 +13,7 @@
 <header class="hero bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="container">
         <div class="text-wrapper">
-            <h1 class="hero-title">
-
-                <?php the_title() ?>
-
-            </h1>
+            <h1 class="hero-title"><?php echo getField('optional_title'); ?></h1>
             <section class="breadcrumb">
                 <?php displayBreadcrumbs(); ?>
             </section>
