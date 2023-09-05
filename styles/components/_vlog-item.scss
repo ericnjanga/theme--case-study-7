@@ -1,6 +1,5 @@
 
 :root {
-
     --site-vlog-item-items-bottom-spacing: 10px;
     --site-vlog-item-title-font-size: calc(1.3rem + 0.6vw);
     --site-vlog-item-title-line-height: 1.65rem;
@@ -81,31 +80,31 @@
 
 
             @media (min-width: 1400px) {
-                border: 10px solid purple;
+                // border: 10px solid purple;
                 --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
                 --site-vlog-item-description-display: block;
             }
             @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-                border: 10px solid violet;
+                // border: 10px solid violet;
                 --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
                 --site-vlog-item-description-display: block;
             }
             @media (min-width: 992px) and (max-width: (1200px - 1)) {
-                border: 10px solid lime;
+                // border: 10px solid lime;
                 --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
                 --site-vlog-item-description-display: block;
             }
             @media (min-width: 768px) and (max-width: (992px - 1)) {
-                border: 10px solid blue;
+                // border: 10px solid blue;
                 --site-vlog-item-description-display: block;
             }
             @media (min-width: 576px) and (max-width: (768px - 1)) {
-                border: 10px solid turquoise;
+                // border: 10px solid turquoise;
                 --site-vlog-item-description-display: block;
             }
-            @media (max-width: (576px - 1px)) {
-                border: 10px solid chocolate;
-            }
+            // @media (max-width: (576px - 1px)) {
+            //     border: 10px solid chocolate;
+            // }
         }
 
         .vlog-item__title {
@@ -158,11 +157,6 @@
         top: 10px;
         left: 10px;
 
-        // display: flex;
-        // gap: var(--site-vlog-item-gap);
-        // flex-direction: var(--site-vlog-item-footer-flex-dir);
-        // align-items: var(--site-vlog-item-footer-align-item);
-
         .vlog-item__categories__item,
         .vlog-item__spacer {
             display: var(--site-vlog-item-footer-item12-display);
@@ -181,20 +175,6 @@
             margin-bottom: 0;
         }
     }
-    // .vlog-item__date {
-    //     font-size: 12px;
-    //     color: var(--site-clr-text3);
-    // }
-
-    // .vlog-item__spacer {
-    //     &::after {
-    //         content: '';
-    //         display: block;
-    //         width: 20px;
-    //         background-color: var(--site-clr-text2);
-    //         height: 1px;
-    //     }
-    // }
 }
 
 
@@ -206,17 +186,13 @@
  * and then move the youtube thumbnail up by a certain purcentage to hide the black bands.
  * -------------
 */
-@mixin hideYoutubeThumbBlackBands($suggestedHeight) {
+@mixin hideYoutubeThumbBlackBands($suggestedHeight, $suggTop: 18%) {
     height: $suggestedHeight;
 
     .vlog-item__img {
-        top: -18%;
+        top: -$suggTop;
     }
 }
-
-
-
-
 
 
 
@@ -229,17 +205,20 @@
 @layer vlog-item {
     .vlog-item {
         @container (max-width: 300px) {
-            border: 3px solid turquoise;
             --site-vlog-item-footer-flex-dir: column;
             --site-vlog-item-footer-align-item: flex-start;
             --site-vlog-item-title-font-size: 1.2rem;
-            --site-vlog-item-title-line-height: 1.0rem; // 1.3rem;
+            --site-vlog-item-title-line-height: 1.0rem;
             --site-vlog-item-items-bottom-spacing: 5px;
-            // --site-vlog-item-text-padding: 12px;
-            --site-vlog-item-border-radius: 5px;
+            --site-vlog-item-border-radius: 7px;
 
             .vlog-item__title {
                 margin-bottom: 3px!important;
+            }
+
+            // Reposition youtube thumbnail top position
+            .vlog-item__youtube-img-wrapper .vlog-item__img {
+                top: -17%;
             }
         }  
         @container (min-width: 181px) and (max-width: 260px) {
@@ -247,15 +226,9 @@
         }
         @container (max-width: 180px) {
             --site-vlog-item-footer-item12-display: none;
-            // --site-vlog-item-text-padding: 30px 10px 10px 10px;
-            // --site-vlog-item-text-padding: 20px;
         }
     }
 }
-
-
-
-
 
 
 
@@ -271,54 +244,60 @@
         display: block;
         overflow: hidden;
         position: relative;
-        // border: 5px solid tur;
+        border-radius: var(--site-vlog-item-border-radius);
 
         .vlog-item__img {
             position: absolute;
             margin-bottom: 0!important;
         }
 
-
         @media (min-width: 1400px) {
-            border: 4px solid red;
+            // border: 4px solid red;
             @include hideYoutubeThumbBlackBands(224.24px);
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-
-
+            // border: 4px solid rgb(195, 21, 248);
             @include hideYoutubeThumbBlackBands(194px);
-
-            /* // ... */
-            border: 4px solid rgb(98, 0, 128);
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-
+            // border: 4px solid rgb(255, 174, 0);
             @include hideYoutubeThumbBlackBands(160.5px);
-
-            // Vimeo thumbnail: 160.5px;
-
-            border: 4px solid lime;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-
-            @include hideYoutubeThumbBlackBands(187.31px);
-            border: 4px solid blue;
+            // border: 4px solid blue;
+            @include hideYoutubeThumbBlackBands(187.31px, 16%);
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-
-            @include hideYoutubeThumbBlackBands(133px);
-            border: 4px solid coral;
+            // border: 4px solid coral;
             --site-vlog-item-img-width: 100%;
+            @include hideYoutubeThumbBlackBands(133px);
         }
-        @media (max-width: (576px - 1px)) {
-
-            @include hideYoutubeThumbBlackBands(141px);
-            border: 4px solid rgb(194, 255, 80);
+        @media (min-width: 426px) and (max-width: 570px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(160px);
+        }
+        @media (min-width: 376px) and (max-width: 425px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(108px);
+        }
+        @media (min-width: 321px) and (max-width: 375px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(94px);
+        }
+        @media (max-width: 320px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(79px);
         }
     }
-
 }
 
 
 
 
+
+// .vlog-item__youtube-img-wrapper {
+//     @container  (max-width: 140px) {
+//         @include hideYoutubeThumbBlackBands(132px);
+//         border: 4px solid rgb(194, 255, 80);
+//     }
+// }
