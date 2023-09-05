@@ -4,6 +4,7 @@
     --site-hero-footer-mgr: 20px; // footer margin
 
     --site-hero-large-height: 400px;
+    --site-hero-large-background-pos: center -139px;
     --site-hero-small-height: 235px;
     --site-hero-txt-wrapper-padd: 20px;
     --site-hero-txt-wrapper-brd-radius: 20px 20px 0px 0px;
@@ -117,6 +118,31 @@
         &::after {
             height: var(--site-hero-large-height);
         }
+        background-position: var(--site-hero-large-background-pos);
+
+        @media (min-width: 1400px) {
+            // border: 10px solid purple;
+            --site-hero-large-background-pos: center -680px;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            // border: 10px solid violet;
+            --site-hero-large-background-pos: center -680px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            // border: 10px solid lime;
+            --site-hero-large-background-pos: center -580px;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            // border: 10px solid blue;
+            --site-hero-large-background-pos: center -400px;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            // border: 10px solid turquoise;
+            --site-hero-large-background-pos: center -300px;
+        }
+        // @media (max-width: (576px - 1px)) {
+        //     border: 10px solid chocolate;
+        // }
     }
 }
 
