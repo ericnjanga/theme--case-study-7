@@ -824,7 +824,7 @@
                 $themeIndex = ($themeIndex + 1) % count($themeClasses);
                 ?>
                     <div class="brand-feature bx-container <?php echo $currentThemeClass; ?>">
-                        <a href="#">
+                        <a href="<?php echo getField('cta_link'); ?>">
                             <div class="brand-feature__content">
                                 <span class="brand-feature__status">
                                     <?php echo getField('status'); ?>
