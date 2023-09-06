@@ -90,7 +90,3 @@
         </div>
             
         <div id="site-global-container" class="site-global-container bx-container">
-            <?php
-                // Inject helpers (needed all over the application)
-                // include '_fct-helpers.php';
-            ?>

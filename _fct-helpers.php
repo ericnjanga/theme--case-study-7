@@ -1,4 +1,3 @@
-
 <?php
     /**
      * Generate breadcrumbs on the page.
@@ -9,12 +8,9 @@
             yoast_breadcrumb( '<p id="breadcrumbs">','</p>' );
         }
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getFieldImage($id, $cssClass='', $imageSize='') {
         $image = get_field($id);
         $output = '';
@@ -35,12 +31,9 @@
 
         return $output;
     }
-?>
 
 
-
-
-<?php
+    // ...
     function isUrlFrom($url, $host) {
         $url_parts = parse_url($url);
         $val = false;
@@ -53,8 +46,7 @@
     }
 
 
-
-
+    // ...
     function getYoutubeUrlID($youtube_url) {
         // Parse the URL
         $url_parts = parse_url($youtube_url);
@@ -70,9 +62,7 @@
     }
 
 
-
-
-    // youtube_url ...
+    // Youtube_url ...
     function getYoutubeThumbnail($youtubeVideo_url, $cssClass) {
 
         if (isUrlFrom($youtubeVideo_url, 'youtube.com') || isUrlFrom($youtubeVideo_url, 'youtu.be')) {
@@ -104,8 +94,6 @@
         }
         
     }
-
-
 
 
     // ...
@@ -155,11 +143,8 @@
             echo '<div>Failed to load the image</div>';
         }
     }
-?>
 
 
-
-<?php
     // Designed to be displayed on the event single page
     function displaySingleEvent() {
             // Get the current date in 'Y-m-d' format
@@ -248,12 +233,9 @@
             </div>
         <?php
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayEvent() {
             // Get the current date in 'Y-m-d' format
             $current_date = date('Y-m-d');
@@ -354,15 +336,8 @@
             </div>
         <?php
     }
-?>
 
 
-
-
-
-
-
-<?php
     // Display the entire section if there is an upcoming event, otherwise, don't show the section at all
     function displayUpcomingEventSection() {
         $args = array(
@@ -392,12 +367,9 @@
             wp_reset_postdata();
         }    
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayEvents($count = -1) {
 
         // Calculate the date from 12 months ago from the current date
@@ -438,12 +410,9 @@
     
         wp_reset_postdata();
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayMailChimpSubscriptionForm() {
         ?>
             <div id="mc_embed_shell">
@@ -488,12 +457,9 @@
 
         <?php
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getPagePermalink($title = '') {
         $page_title = $title; // Replace with the actual page title you want to retrieve the permalink for
 
@@ -506,21 +472,15 @@
 
         return $permalink;
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getSubCategoryLink($subCat, $category) {
         return esc_url(get_category_link(get_term_by('slug', $subCat, $category)->term_id));
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getAppointmentModal() {
         ?>
             <div class="modal fade" id="appointmentModal" tabindex="-1" aria-labelledby="appointmentModalLabel" aria-hidden="true">
@@ -546,36 +506,22 @@
             </div>
         <?php
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getField($name) {
         global $post;
-
-        // Get the light theme image URL
-        // $field = get_field($name, $post->ID);
-        // $value = $field ? $field : 'No '.$name.' found.';
-
         return get_field($name, $post->ID);
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getFieldByID($name, $id) {
         return get_post_meta($id, $name, true);
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayEmployee($count = -1) {
         $args = array(
             'post_type' => 'employee',
@@ -632,12 +578,9 @@
     
         wp_reset_postdata();
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayClientLogos($count = -1) {
         $args = array(
             'post_type' => 'client-logo',
@@ -675,12 +618,9 @@
             <?php
         }
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getFeaturedImage($cssClass) {
         // Get the current post ID
         $post_id = get_the_ID();
@@ -695,24 +635,14 @@
             echo 'No featured image available';
         }
     }
-?>
 
 
-
-
-<?php
-    /**
-     * ...
-     */
+    // ...
     function getHeroBgImage() {
         return getBackgroundImage_byName('Hero flag image');
     }
-?>
 
 
-
-
-<?php
     /**
      * Fetching an image by name and returning it as a CSS background image rule
      */
@@ -735,15 +665,9 @@
 
         return $background_img;
     }
-?>
 
 
-
-
-<?php
-    /**
-     * ..
-     */
+    // ...
     function getImage_byName($imgName, $cssClass = '') {
         $image_name = $imgName;
         $image = '';
@@ -763,12 +687,9 @@
 
         return $image;
     }
-?>
 
 
-
-
-<?php
+    // ...
     function latestPostTitles($listClass = '', $category_slug = '', $count = 5) {
         $args = array(
             'post_type' => 'post',
@@ -796,14 +717,9 @@
             echo 'No posts found.';
         endif;
     }
-?>
 
 
-
-
-
-
-<?php
+    // ...
     function displayPost() {
         // Fetching video thumbnails
         $vimeo_video_url = getField('video_url');
@@ -880,12 +796,9 @@
             </div>
         <?php
     }
-?>
 
 
-
-
-<?php
+    // ...
     function fetchBrandFeatures($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
         $args = array(
             'post_type' => 'brand-feature',
@@ -955,12 +868,9 @@
             echo 'No posts found.';
         }
     }
-?>
 
 
-
-
-<?php
+    // ...
     function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
         $args = array(
             'post_type' => 'post',
@@ -1001,17 +911,10 @@
             echo 'No posts found.';
         }
     }
-?>
 
 
-
-
-
-<?php
-    function displayTestimonial(
-        $gridClass  = '', 
-        $count = -1
-    ) {
+    // ...
+    function displayTestimonial($gridClass  = '', $count = -1) {
         // Inforce default value adoption on all parameters
         // (this doesn't seem to work during the function's declaration)
         if ($gridClass === null) {
@@ -1073,13 +976,9 @@
     
         wp_reset_postdata();
     }
-?>
 
 
-
-
-
-<?php
+    // ...
     function displayChildrenPageTitle($listClass = '', $parent = '') {
         global $post;
 
@@ -1120,12 +1019,9 @@
             <?php 
         }
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getCurrentPageSlug() {
         global $post;
         $page_slug = '';
@@ -1136,12 +1032,9 @@
 
         return $page_slug;
     }
-?>
 
 
-
-
-<?php
+    // ...
     function getCurrentPageTitle() {
         global $post;
         $page_title = '';
@@ -1152,12 +1045,9 @@
 
         return $page_title;
     }
-?>
 
 
-
-
-<?php
+    // ...
     function displayPostCategoryTitles() {
         $categories = get_categories(); // Retrieve all post categories
 
@@ -1179,4 +1069,4 @@
             <?php
         }
     }
-?>
+// No PHP closing tag ...
