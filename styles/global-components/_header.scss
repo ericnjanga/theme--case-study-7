@@ -109,6 +109,24 @@ body.nav-opened {
             a {
                 padding-left: 20px;
             }
+
+            // Active menu item
+            > .current-menu-item.page_item {
+                a {
+                    color: var(--site-clr-accent);
+                    text-decoration: underline;    
+                    font-weight: bold;
+                }
+            }
+
+            // Hover (on menu item)
+            > .menu-item:hover {
+                a {
+                    color: var(--site-clr-accent);
+                    // text-decoration: underline;    
+                    // font-weight: bold;
+                }
+            }
         }
 
         .navbar {
@@ -174,12 +192,7 @@ body.nav-opened {
                     background-color: var(--site-clr-dropdown-item-sep);
                 }
             }
-            .current-menu-item.page_item {
-                a {
-                    color: var(--site-clr-accent);
-                    text-decoration: underline;
-                }
-            }
+
 
             .navbar-toggler {
                 border-radius: var(--site-navbar--toggler-bdr-radius);
