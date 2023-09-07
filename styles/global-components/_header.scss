@@ -15,7 +15,8 @@
     --site-clr-dropdown-item-sep: #fff;
 
     --site-clr-navbar-nav-bg1: #FADEE4;
-    --site-clr-navbar-nav-bg2: #ffbac9;
+    --site-clr-navbar-nav-bg2: #E4DEFA;
+    --site-clr-navbar-nav-bg3: #CDC5E8;
 
     --site-navbar--h1-bot-mar: 0;
     --site-navbar--logo-max-width: 120px;
@@ -144,6 +145,9 @@ body.nav-opened {
                     border-bottom-right-radius: var(--site-navbar-border-radius);
                     border-bottom-left-radius: var(--site-navbar-border-radius);
                 }
+            }
+            .dropdown-menu.show {
+                overflow: hidden;
             }
 
             // Overriding bootstrap dropdown toggle arrow
