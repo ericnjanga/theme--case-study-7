@@ -204,3 +204,15 @@
     }
     .entry-footer__links {}
 }
+
+
+
+@layer search-form {
+    .search-form {
+        display: flex;
+        gap: 10px;
+        label {
+            flex: 1;
+        }
+    }
+}
