@@ -11,120 +11,158 @@
     --site-hero-grid-column: 1 / span 2;                  // The hero occupies all columns (1st row only)
     --site-sidebar-global-layout-gap: 20px;               // Rows gap
     --site-global-wrapper-main-content-width: 100%;         
-    --site-global-wrapper-sidebar-width: 100%;         
+    --site-global-wrapper-sidebar-width: 100%;        
+    
+    --site-additional-article-gap: 20px;
+}
+
+
+@layer sidebar-global-setup {
+    // Apply only the grid on the following pages:
+    .search,
+    // .blog, 
+    .single, 
+    .archive, // Including sub pages like category, author, ...
+    .page-template-template-terms-and-policies,
+    .page-template-template-service,
+    .page-template-template-contact,
+    .page-template-template-simple-page {
+
+        /**
+        * Parameters setup (mobile first)
+        * ------------
+        */
+        .main-content-wrapper { 
+            // Setup grid
+            display: var(--site-global-wrapper-display);
+            grid-template: var(--site-global-wrapper-grid-template);
+            grid-column-gap: var(--site-sidebar-global-layout-gap);
+            grid-row-gap: var(--site-global-wrapper-grid-col-gap);
+
+            // Set up the hero's column occupancy
+            .hero {
+                grid-column: var(--site-hero-grid-column);
+            }
+            .sidebar-opposite-content {
+                width: var(--site-global-wrapper-main-content-width);
+            }
+            .sidebar {
+                width: var(--site-global-wrapper-sidebar-width);
+            }
+        }
+
+
+        /**
+        * Responsiveness
+        * ------------
+        */
+        .main-content-wrapper {
+            @media (min-width: 1400px) {
+                // border: 10px solid purple;
+                // --site-sidebar-global-layout-gap: 128px;
+                --site-sidebar-global-layout-gap: 130px;   // Row columns gap
+                --site-global-wrapper-main-content-width: 750px;
+                --site-global-wrapper-sidebar-width: 400px;
+            }
+
+            @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+                // border: 10px solid violet;
+                --site-sidebar-global-layout-gap: 100px;   // Row columns gap
+                --site-global-wrapper-main-content-width: 670px;
+                --site-global-wrapper-sidebar-width: 330px;
+            }
+
+            // From this breakpoint up, sidebar cannot be collapsed 
+            // Keep sidebar expanded and adjust main content's width
+            // ...
+            @media (min-width: 992px) and (max-width: (1200px - 1)) {
+                // border: 5px solid lime;
+                --site-sidebar-global-layout-gap: 80px;   // Row columns gap
+                --site-global-wrapper-main-content-width: 550px;
+                --site-global-wrapper-sidebar-width: 300px;
+            }
+            @media (min-width: 992px) {
+                --site-global-wrapper-grid-template: 1fr / 1fr 1fr;
+            }
+
+            // ...
+            @media (min-width: 768px) and (max-width: (992px - 1)) {
+                // border: 10px solid turquoise;
+                --site-sidebar-global-layout-gap: 50px;
+                --site-global-wrapper-sidebar-width: 350px;
+                --site-global-wrapper-sidebar-width: 400px;
+            }
+
+            // ...
+            @media (min-width: 576px) and (max-width: (768px - 1)) {
+                // border: 10px solid chocolate;
+                --site-sidebar-global-layout-gap: 40px;
+                --site-global-wrapper-sidebar-width: 400px;
+            }
+        }
+
+    } // Select pages
 }
 
 
 
-// Apply only the grid on the following pages:
-.search,
-// .blog, 
-.single, 
-.archive, // Including sub pages like category, author, ...
-.page-template-template-terms-and-policies,
-.page-template-template-service,
-.page-template-template-contact,
-.page-template-template-simple-page {
-
-    /**
-     * Parameters setup (mobile first)
-     * ------------
-    */
-    .main-content-wrapper { 
-        // Setup grid
-        display: var(--site-global-wrapper-display);
-        grid-template: var(--site-global-wrapper-grid-template);
-        grid-column-gap: var(--site-sidebar-global-layout-gap);
-        grid-row-gap: var(--site-global-wrapper-grid-col-gap);
-
-        // Set up the hero's column occupancy
-        .hero {
-            grid-column: var(--site-hero-grid-column);
-        }
-        .sidebar-opposite-content {
-            width: var(--site-global-wrapper-main-content-width);
-        }
-        .sidebar {
-            width: var(--site-global-wrapper-sidebar-width);
-        }
-    }
-
-
-    /**
-     * Responsiveness
-     * ------------
-    */
+@layer sidebar-global-setup {
     .main-content-wrapper {
-        @media (min-width: 1400px) {
-            // border: 10px solid purple;
-            // --site-sidebar-global-layout-gap: 128px;
-            --site-sidebar-global-layout-gap: 130px;   // Row columns gap
-            --site-global-wrapper-main-content-width: 750px;
-            --site-global-wrapper-sidebar-width: 400px;
-        }
-
-        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            // border: 10px solid violet;
-            --site-sidebar-global-layout-gap: 100px;   // Row columns gap
-            --site-global-wrapper-main-content-width: 670px;
-            --site-global-wrapper-sidebar-width: 330px;
-        }
-
-        // From this breakpoint up, sidebar cannot be collapsed 
-        // Keep sidebar expanded and adjust main content's width
-        // ...
-        @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            // border: 5px solid lime;
-            --site-sidebar-global-layout-gap: 80px;   // Row columns gap
-            --site-global-wrapper-main-content-width: 550px;
-            --site-global-wrapper-sidebar-width: 300px;
-        }
-        @media (min-width: 992px) {
-            --site-global-wrapper-grid-template: 1fr / 1fr 1fr;
-        }
+        /**
+        * Prevent children elements from overflowing when compressed by the expanding sidebar
+        * (usefull only on very small viewports, no larger than 576px);
+        **/
+        overflow: hidden; 
 
         // ...
-        @media (min-width: 768px) and (max-width: (992px - 1)) {
-            // border: 10px solid turquoise;
-            --site-sidebar-global-layout-gap: 50px;
-            --site-global-wrapper-sidebar-width: 350px;
-            --site-global-wrapper-sidebar-width: 400px;
+        @media (min-width: 576px) {
+            overflow: visible; 
         }
 
-        // ...
-        @media (min-width: 576px) and (max-width: (768px - 1)) {
-            // border: 10px solid chocolate;
-            --site-sidebar-global-layout-gap: 40px;
-            --site-global-wrapper-sidebar-width: 400px;
-        }
+        // border: 5px dashed red;
     }
-
-} // Select pages
-
-
-
-
-.main-content-wrapper {
-    /**
-     * Prevent children elements from overflowing when compressed by the expanding sidebar
-     * (usefull only on very small viewports, no larger than 576px);
-    **/
-    overflow: hidden; 
-
-    // ...
-    @media (min-width: 576px) {
-        overflow: visible; 
-    }
-
-    // border: 5px dashed red;
 }
 
-// (uncomment only for testing purposes) ...
-// .sidebar {
-// }
-// .content-wrapper {
-// }
 
+@layer sidebar-global-setup {
+    .additional-articles {
+        display: flex;
+        gap: var(--site-additional-article-gap);
 
+        > div {
+            flex: 1;
+        }
 
+        .additional-articles__label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            opacity: 0.7;
 
+            &::before,
+            &::after {
+                font-family: "Material Symbols Outlined";
+                display: block;
+                color: var(--site-clr-text2);
+                font-size: 1.3rem;
+            }
+
+            &.next {
+                justify-content: flex-start;
+                &::before {
+                    content: "\f1e6";
+                }
+            }
+            &.prev {
+                justify-content: flex-end;
+                &::after {
+                    content: "\f1df";
+                }
+            }
+
+            @media (min-width: 768px) {
+                --site-additional-article-gap: 40px;
+            }
+        }
+    }
+}

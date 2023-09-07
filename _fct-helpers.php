@@ -752,24 +752,33 @@
 
 
     // ...
-    function displayPost() {
-        // Fetching video thumbnails
-        $vimeo_video_url = getField('video_url');
-        $youtube_video_url = getField('youtube_video_url');
+    function displayPost($postID = -1) {
+            // the post ...
+            $the_post;
+            if ($postID > -1) {
+                $the_post = get_post($postID);
+            } else {
+                global $post;
+                $the_post = $post;
+            }
 
-        $cssClass = ''; 
-        if (empty($vimeo_video_url) && empty($youtube_video_url)) {
-            $cssClass = 'vlog-item--text'; 
-        } else {
-            $cssClass = 'vlog-item--video'; 
-        }
-
+            // custom field ...
+            $vimeo_video_url = get_post_meta( $the_post->ID, 'video_url', true );
+            $youtube_video_url = get_post_meta( $the_post->ID, 'youtube_video_url', true );
+        
+            // ...
+            $cssClass = ''; 
+            if (empty($vimeo_video_url) && empty($youtube_video_url)) {
+                $cssClass = 'vlog-item--text'; 
+            } else {
+                $cssClass = 'vlog-item--video'; 
+            }
         ?>
             <div class="bx-container">
                 <article class="vlog-item <?php echo $cssClass; ?>">
-                    <?php $categories = get_the_category(); ?>
+                    <?php $categories = get_the_category($postID); ?>
 
-                    <a href="<?php the_permalink(); ?>">
+                    <a href="<?php echo get_permalink($postID); ?>">
 
 
                     <?php if ($cssClass == 'vlog-item--text') { ?>
@@ -799,7 +808,7 @@
 
 
                         <h3 class="vlog-item__title">
-                            <?php the_title(); ?>
+                            <?php echo get_the_title($postID); ?>
                         </h3>
                         <footer class="vlog-item__footer">
                             <?php if ( ! empty( $categories ) ) : ?>
@@ -817,7 +826,7 @@
                         <?php if ($cssClass == 'vlog-item--text') { ?>
                             <div class="vlog-item__description">
                                 <?php
-                                    $content = apply_filters('the_content', wp_trim_words(get_the_content(), 25));
+                                    $content = apply_filters('the_content', wp_trim_words($the_post->post_content, 25));
                                     $content = str_replace('<p>', '<p>', $content);
                                     echo $content;
                                 ?>
@@ -900,7 +909,7 @@
     }
 
 
-    // ...
+    /*
     function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
         $args = array(
             'post_type' => 'post',
@@ -927,7 +936,7 @@
                             ?>
                                 <li>
                                     <?php
-                                        displayPost($content_text_size);
+                                        displayPost();
                                     ?>
                                 </li>
                             <?php 
@@ -941,6 +950,7 @@
             echo 'No posts found.';
         }
     }
+    */
 
 
     // ...

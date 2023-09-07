@@ -1,10 +1,25 @@
+:root {
+    --site-h1-font-size: 2rem;
+    --site-h1-line-height: 2rem;
 
+    --site-h2-font-size: 1.2rem;
+    --site-h2-line-height: 1.2rem;
+
+    --site-h3-font-size: 1.2rem;
+    --site-h3-line-height: 1.2rem;
+
+    --site-h4-font-size: 1.2rem;
+}
 /**
  * Global Headings styles
  * ---------
 */
 
 @layer headings {
+    h1, h2 {
+        font-weight: bold;
+    }
+
     h1, h2, h3, h4, h5, h6,
     .page-title,
     .section-title,
@@ -16,5 +31,110 @@
         margin: 0;
         text-transform: uppercase;
         font-size: 1rem;
+    }
+}
+
+
+@layer headings {
+    h1 {
+        font-size: var(--site-h1-font-size);
+        line-height: var(--site-h1-line-height);
+
+        @media (min-width: 1400px) {
+            border: 3px solid purple;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            border: 3px solid violet;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            border: 3px solid lime;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 3px solid blue;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 3px solid turquoise;
+        }
+        @media (max-width: (576px - 1px)) {
+            border: 3px solid chocolate;
+        }
+    }
+
+
+    h2 {
+        line-height: var(--site-h2-line-height);
+        line-height: var(--site-h2-line-height);
+
+        @media (min-width: 1400px) {
+            border: 3px dashed purple;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            border: 3px dashed violet;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            border: 3px dashed lime;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 3px dashed blue;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 3px dashed turquoise;
+        }
+        @media (max-width: (576px - 1px)) {
+            border: 3px dashed chocolate;
+        }
+    }
+
+
+    h3 {
+        line-height: var(--site-h3-line-height);
+        line-height: var(--site-h3-line-height);
+
+        @media (min-width: 1400px) {
+            border: 3px dotted purple;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            border: 3px dotted violet;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            border: 3px dotted lime;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 3px dotted blue;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 3px dotted turquoise;
+        }
+        @media (max-width: (576px - 1px)) {
+            border: 3px dotted chocolate;
+        }
+    }
+
+
+    h4 {
+
+
+
+
+
+
+        @media (min-width: 1400px) {
+            border: 3px solid purple;
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            border: 3px solid violet;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            border: 3px solid lime;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            border: 3px solid blue;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            border: 3px solid turquoise;
+        }
+        @media (max-width: (576px - 1px)) {
+            border: 3px solid chocolate;
+        }
     }
 }
