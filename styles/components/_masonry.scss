@@ -1,0 +1,18 @@
+
+@layer masonry {
+    .masonry {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 16px; /* Adjust the gap between items as needed */
+
+        .item {
+            position: relative;
+
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+        }
+    }
+}

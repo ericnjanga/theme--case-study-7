@@ -16,6 +16,13 @@
     add_action( 'wp_enqueue_scripts', 'generic_enqueue' );
 
 
+    function gallery_image_size() {
+        // Define your custom image size
+        add_image_size('gallery-thumb', 400, 550, true); // Change 'gallery-thumb', 400, and 300 to your preferred values
+    }
+    add_action('after_setup_theme', 'gallery_image_size');
+
+
     // Footer Menus ...
     // Essential Menu ...
     function register_footer_menu1() {

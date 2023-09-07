@@ -23,57 +23,70 @@
 </header>
 
 <main class="main-content-wrapper container" role="main">
+    <header> 
+        <h2 class="section-title title-spacer">
+            <?php echo getField('optional_subtitle'); ?>
+        </h2>
+    </header> 
 
-    <section class="content-grid">
-        <article>
-            <div class="post">
-                <p><?php echo getField('introduction'); ?></p>
-            </div>
 
-            <div class="entry-content" itemprop="mainContentOfPage">
-                <?php the_content(); ?>
-            </div>
-        </article>
-    </section>
+    <?php 
+        /**
+         * Extracts image data such as URLs, dimensions, and alt text from a list of 
+         * image names using Advanced Custom Fields, storing them in an array of image objects.
+         * ------------------------------
+         */
+        $arr_images = ['image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'image_8', 'image_9'];
+        $arr_img = []; // Initialize the array to store image objects
 
-   
-    <section>
-        <header class="container"> 
-            <h2>
-                <?php echo getField('optional_subtitle'); ?>
-            </h2>
-        </header> 
+        foreach ($arr_images as $image) {
+            // ...
+            $img = get_field($image);
+            if ($img) {
+                // Get the image sizes
+                $image_sizes = $img['sizes'];
+        
+                // Get the width and height of the large-sized image
+                $large_width = $image_sizes['large-width'];
+                $large_height = $image_sizes['large-height'];
 
-        <div class="test-gallery">
-      <a href="https://dummyimage.com/1200x600/000/fff" data-pswp-width="1200" data-pswp-height="600">
-        <img src="https://dummyimage.com/120x60/000/fff" alt="" />
-      </a>
-      <a href="https://dummyimage.com/1200x1200/000/fff" data-pswp-width="1200" data-pswp-height="1200">
-        <img src="https://dummyimage.com/60x60/000/fff" alt="" />
-      </a>
-      <a href="https://dummyimage.com/600x1200/000/fff" data-pswp-width="600" data-pswp-height="1200">
-        <img src="https://dummyimage.com/30x60/000/fff" alt="" />
-      </a>
+                // Create an image object
+                $image_obj = [
+                    'xxl_url' => $image_sizes['large'],
+                    'small_url' => $image_sizes['gallery-thumb'],
+                    'alt_text' => $img['alt'],
+                    'large_width' => $large_width,
+                    'large_height' => $large_height,
+                    // Add more properties as needed
+                ];
+
+                // Push the image object into $arr_img
+                $arr_img[] = $image_obj;
+            }
+        }
+
+    ?>
+
+
+    <div class="js-photo-gallery masonry">
+        <?php
+            /**
+             * Generates HTML anchor elements with responsive images linked to their original 
+             * versions while storing their dimensions for use in a lightbox gallery.
+             * ------------------------------
+             */
+            foreach ($arr_img as $img) {
+            ?>
+                <a class="item" href="<?php echo $img['xxl_url']; ?>" 
+                    data-pswp-width="<?php echo $img['large_width']; ?>" 
+                    data-pswp-height="<?php echo $img['large_height']; ?>">
+                    <img src="<?php echo $img['small_url']; ?>" class="img-fluid" alt="" />
+                </a>
+            <?php
+            }
+        ?>
     </div>
-
-        <!-- <div id="image-gallery">
-            <p><?php echo getFieldImage('image_1', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_2', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_3', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_4', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_5', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_6', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_7', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_8', '', 'medium'); ?></p>
-            <p><?php echo getFieldImage('image_9', '', 'medium'); ?></p>
-        </div> -->
-    </section>
-   
-
-
 </main>
-
-
 
 
 <?php get_footer(); ?>
