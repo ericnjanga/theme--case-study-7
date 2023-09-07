@@ -25,6 +25,13 @@
             background-color: var(--site-clr-button-text3);
         }
     }
+    a.site-badge {
+        &:hover {
+            background-color: var(--site-clr-accent)!important;
+            color: var(--site-clr-vlog-item-text1-hover)!important;
+            text-decoration: none;
+        }
+    }
 }
 
 @layer buttons {
