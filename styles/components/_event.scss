@@ -180,6 +180,7 @@
             }
             // Increase banner ratio based on the container
             @container (min-width: 1000px) {
+                --site-event-image-width: 500px;
             }
         }
     }
