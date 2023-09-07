@@ -33,17 +33,9 @@
                 while ( have_posts() ) : the_post();
                     if ( $first_post ) {
                         displayPost(get_the_ID());
-                        // echo '<div class="first-post" style="border:5px solid blue;">';
-
-                            // get_template_part( 'entry' );
-                        // echo '</div>'; // Close the div for the first post
                     } else {
                         displayPost(get_the_ID());
-                        // get_template_part( 'entry' );
                     }
-
-                    // No need for comments
-                    // comments_template();
 
                     if ( $first_post ) {
                         $first_post = false; // Set the flag to false after the first post
@@ -51,8 +43,6 @@
                 endwhile;
             endif;
         ?>
-
-        <?php //get_template_part( 'nav', 'below' ); ?>
     </div>
 
 
