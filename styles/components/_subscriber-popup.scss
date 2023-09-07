@@ -120,14 +120,14 @@
         display: var(--site-subscriber-popup-img-display);
         width: var(--site-subscriber-popup-img-width);
         height: var(--site-subscriber-popup-img-height);
-        background-image: url(http://stilettosandhammers.local/wp-content/uploads/2023/09/feature-the-vault.png);
+        background-image: url(https://staging5.stilettosandhammers.com/wp-content/uploads/2023/09/two-ladies-talking.png);
         background-position-x: var(--site-subscriber-popup-img-pos-x);
         background-position-y: var(--site-subscriber-popup-img-pos-y);
         background-size: cover;
         position: absolute;
         top: 0;
         left: 0;
-
+        
         border-top-left-radius: var(--site-subscriber-popup-border-radius) !important;
         border-bottom-left-radius: var(--site-subscriber-popup-border-radius) !important;
     } 

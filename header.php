@@ -60,9 +60,9 @@
                                         include '_header-logo.php';
                                     ?>
                                 </div>
-                                <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
+                                <!-- <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
                                     <?php bloginfo( 'description' ); ?>
-                                </div>
+                                </div> -->
                             </div>
 
                             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

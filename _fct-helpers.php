@@ -463,7 +463,7 @@
     function getPagePermalink($title = '') {
         $page_title = $title; // Replace with the actual page title you want to retrieve the permalink for
 
-        $page = get_page_by_title($page_title); // Get the page object by title
+        $page = get_page_by_path($page_title); // Get the page object by title
         $permalink = '';
 
         if ($page) {
@@ -647,42 +647,74 @@
      * Fetching an image by name and returning it as a CSS background image rule
      */
     function getBackgroundImage_byName($imgName) {
-        $image_name = $imgName;
+        // Initialize the background image variable
         $background_img = '';
-
-        // Search for an image by title
-        $attachment = get_page_by_title($image_name, OBJECT, 'attachment');
-
-        // If the attachment is found
-        if ($attachment instanceof WP_Post) {
-            $image_url = wp_get_attachment_url($attachment->ID);
-            $image_alt = get_post_meta($attachment->ID, '_wp_attachment_image_alt', true);
-
+    
+        // Define the query arguments
+        $args = array(
+            'post_type' => 'attachment',
+            'post_status' => 'inherit',
+            'posts_per_page' => 1,
+            'title' => $imgName,
+        );
+    
+        // Create a new WP_Query instance
+        $query = new WP_Query($args);
+    
+        // Check if there are any matching attachments
+        if ($query->have_posts()) {
+            $query->the_post();
+            
+            // Get the attachment ID
+            $attachment_id = get_the_ID();
+            
+            // Get the image URL
+            $image_url = wp_get_attachment_url($attachment_id);
+            
             if ($image_url) {
                 $background_img = "background-image: url($image_url)";
             }
+            
+            // Reset the post data
+            wp_reset_postdata();
         }
-
+    
         return $background_img;
     }
+    
 
 
     // ...
     function getImage_byName($imgName, $cssClass = '') {
-        $image_name = $imgName;
         $image = '';
-
-        // Search for an image by name
-        $attachment = get_page_by_title($image_name, OBJECT, 'attachment');
-
-        if ($attachment) {
-            $attachment_id = $attachment->ID;
-
+    
+        // Define the query arguments
+        $args = array(
+            'post_type' => 'attachment',
+            'post_status' => 'inherit',
+            'posts_per_page' => 1,
+            'title' => $imgName,
+        );
+    
+        // Create a new WP_Query instance
+        $query = new WP_Query($args);
+    
+        // Check if there are any matching attachments
+        if ($query->have_posts()) {
+            $query->the_post();
+            
+            // Get the attachment ID
+            $attachment_id = get_the_ID();
+            
             // Get the image URL
             $image_url = wp_get_attachment_url($attachment_id);
-
-            // Display the image
-            $image = '<img class="' .$cssClass. '" src="' . $image_url . '" alt="Icon Quote">';
+            
+            if ($image_url) {
+                $image = '<img class="' .$cssClass. '" src="' . $image_url . '" alt="Icon Quote">';
+            }
+            
+            // Reset the post data
+            wp_reset_postdata();
         }
 
         return $image;
@@ -830,8 +862,6 @@
                     <div class="brand-feature bx-container <?php echo $currentThemeClass; ?>">
                         <?php
                             $cssPopupTrigger = strtolower(trim(getField('status'))) === 'members only' ? 'triggers-subscriber-popup' : '';
-                            echo $feature_status;
-                            // 'triggers-subscriber-popup'
                         ?>
                         <a class="<?php echo $cssPopupTrigger ?>" href="<?php echo getField('cta_link'); ?>">
                             <div class="brand-feature__content">
@@ -927,7 +957,7 @@
 
         // Get the quote image from the gallery
         $attachment_title = 'icon-quote';
-        $attachment = get_page_by_title($attachment_title, OBJECT, 'attachment');
+        $attachment = get_page_by_path($attachment_title, OBJECT, 'attachment');
         $quote_img = getImage_byName('icon-quote', 'testimonial__icon');
 
         $args = array(

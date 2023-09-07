@@ -65,20 +65,20 @@
         ?>
 
         <div class="slogan1__img-frame">
-            <?php
-                $slogan_imp1 = getImage_byName('slogan imp 1', 'slogan-img1 img-fluid');
-                $slogan_imp2 = getImage_byName('slogan imp 2', 'slogan-img2 img-fluid');
-                $slogan_imp3 = getImage_byName('slogan imp 3', 'slogan-img3 img-fluid');
-                $slogan_imp4 = getImage_byName('slogan imp 4', 'slogan-img4 img-fluid');
-            ?>
-
-            <?php
-                // slogan imp 1
-                echo $slogan_imp1;
-                echo $slogan_imp2;
-                echo $slogan_imp3;
-                echo $slogan_imp4;
-            ?>
+            <div class="slogan1__img-frame-wrapper">
+                <?php
+                    $slogan_imp1 = getImage_byName('slogan imp 1', 'slogan-img1 img-fluid');
+                    $slogan_imp2 = getImage_byName('slogan imp 2', 'slogan-img2 img-fluid');
+                    $slogan_imp3 = getImage_byName('slogan imp 3', 'slogan-img3 img-fluid');
+                    $slogan_imp4 = getImage_byName('slogan imp 4', 'slogan-img4 img-fluid');
+                
+                    // slogan imp 1
+                    echo $slogan_imp1;
+                    echo $slogan_imp2;
+                    echo $slogan_imp3;
+                    echo $slogan_imp4;
+                ?>
+            </div>
         </div>
 
         <article class="slogan1__content">
