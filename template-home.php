@@ -99,7 +99,7 @@
                     if (!empty($list_1_title)) {
                         ?>
                             <div>
-                                <h3><?php echo $list_1_title; ?></h3>
+                                <h4><?php echo $list_1_title; ?></h4>
                                 <ul class="list-chevron-right">
                                     <?php if (!empty($list_1_text1)) { ?>
                                         <li><?php echo $list_1_text1; ?></li>
@@ -123,7 +123,7 @@
                     if (!empty($list_2_title)) {
                         ?>
                             <div>
-                                <h3><?php echo $list_2_title; ?></h3>
+                                <h4><?php echo $list_2_title; ?></h4>
                                 <ul class="list-chevron-right">
                                     <?php if (!empty($list_2_text1)) { ?>
                                         <li><?php echo $list_2_text1; ?></li>

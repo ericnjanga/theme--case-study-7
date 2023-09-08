@@ -1,6 +1,6 @@
 
 <section class="sidebar-component sidebar-component-color2">
-    <h3 class="footer__title">Read about our policies</h3>
+    <h4 class="footer__title">Read about our policies</h4>
     <?php
         wp_nav_menu(array(
             'theme_location' => 'footer-membership-nav',

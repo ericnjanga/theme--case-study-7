@@ -909,50 +909,6 @@
     }
 
 
-    /*
-    function latestPosts($gridClass  = '', $category_slug = '', $count = 5, $addMore = false, $content_text_size = 20) {
-        $args = array(
-            'post_type' => 'post',
-            'posts_per_page' => $count,
-            'category_name' => $category_slug,
-        );
-
-        // Inforce default value adoption on all parameters
-        // (this doesn't seem to work during the function's declaration)
-        if ($gridClass === null) {
-            $gridClass = '';
-        } 
-
-        $imageSize = 'medium';
-
-        $query = new WP_Query( $args );
-
-        if ( $query->have_posts() ) {
-            ?>
-                <ul class="<?php echo $gridClass; ?> list-unstyled">
-                    <?php
-                        while ( $query->have_posts() ) {
-                            $query->the_post(); 
-                            ?>
-                                <li>
-                                    <?php
-                                        displayPost();
-                                    ?>
-                                </li>
-                            <?php 
-                        }
-                       
-                    ?>
-                </ul>
-            <?php
-            wp_reset_postdata();
-        } else {
-            echo 'No posts found.';
-        }
-    }
-    */
-
-
     // ...
     function displayTestimonial($gridClass  = '', $count = -1) {
         // Inforce default value adoption on all parameters
@@ -999,7 +955,7 @@
                                         ?>
                                     </div>
                                     <footer class="testimonial__footer">
-                                        <div class="testimonial__name section-title"><?php the_title() ?></div>
+                                        <div class="testimonial__name section-title h4"><?php the_title() ?></div>
                                         <p class="testimonial__title"><?php echo getField('title'); ?></p>
                                     </footer>
                                 </article>

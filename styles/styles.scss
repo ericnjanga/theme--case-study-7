@@ -51,6 +51,11 @@
 }
 
 
+@layer sections {
+    @import 'sections/testimonials';
+}
+
+
 
 
 // @layer framework-overrides {
@@ -80,9 +85,7 @@
 // @layer pages {
     // @import 'layouts/pages/home';
     // @import 'layouts/pages/home.awards';
-    // @import 'layouts/pages/home.testimonials';
     // @import 'layouts/pages/home.latest-posts';
     // @import 'layouts/pages/about.awards';
-    // @import 'layouts/pages/testimonials';
     // @import 'layouts/pages/contact';
 // }
