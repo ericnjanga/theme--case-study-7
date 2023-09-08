@@ -19,7 +19,7 @@
         // border-width: 0 0 1px 0!important;
         border: 1px solid var(--site-clr-input-border);
         // border-bottom: 1px solid #939393!important;
-        padding: 13px 20px!important;
+        padding: var(--site-form-control-padding)!important;
 
         /* Change the placeholder text color for all input elements */
         &::placeholder {

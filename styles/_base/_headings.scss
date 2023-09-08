@@ -47,23 +47,23 @@
 
         @media (min-width: 1400px) {
             --site-h1-font-size: 3.6rem;
-            --site-h1-line-height: 3.6rem;
+            --site-h1-line-height: 3.1rem;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
             --site-h1-font-size: 3.2rem;
-            --site-h1-line-height: 3.2rem;
+            --site-h1-line-height: 3.0rem;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
             --site-h1-font-size: 2.8rem;
-            --site-h1-line-height: 2.8rem;
+            --site-h1-line-height: 2.9rem;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
             --site-h1-font-size: 2.6rem;
-            --site-h1-line-height: 2.6rem;
+            --site-h1-line-height: 2.5rem;
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
             --site-h1-font-size: 2.6rem;
-            --site-h1-line-height: 2.6rem;
+            --site-h1-line-height: 2.5rem;
         }
         // @media (max-width: (576px - 1px)) {}
     }
