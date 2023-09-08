@@ -6,9 +6,12 @@
     $activePostCat = getCurrentPageSlug();
 
     // Sidebar is not needed on:
-    if (!is_front_page()                                    // - Front page template
-    && !is_home()                                            // - Blog page
-    && $template_slug !== 'template-about.php'              // - About page templates
+    if (!is_front_page()           // Front page template
+    && !is_home()                  // Blog page
+    && !is_search()                // Search page
+    && !is_category()                // ...
+    && !is_404()                // ...
+    && $template_slug !== 'template-about.php'              // - About page templates               
     && $template_slug !== 'template-about-testimonials.php'      // - Testimonials page templates
     && $template_slug !== 'template-about-meet-the-team.php'     // - "Meet the founder" page templates
     && $template_slug !== 'template-events.php'                 // - "Events" listing page templates

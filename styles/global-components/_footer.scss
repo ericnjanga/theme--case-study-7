@@ -1,6 +1,7 @@
 :root {
     // Default settings (mobile first) ...
     --site-clr-footer-bdr: #dfa6b1;
+    --site-clr-footer-chevron: #c1808e;
     --site-clr-footer-background: #FFE8F1;
     --site-footer-padding: 25px;
     --site-footer-hr-margin: 25px 0;
@@ -42,6 +43,14 @@
             margin: var(--site-footer-hr-margin);
             color: var(--site-clr-footer-bdr);
             opacity: 1;
+        }
+
+        .list-chevron-right li {
+            padding-left: 10px!important;
+            &::after {
+                top: -5px!important;
+                color: var(--site-clr-footer-chevron)!important;
+            }
         }
 
         .block1 {

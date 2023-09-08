@@ -3,12 +3,18 @@
     --site-sidebar-component-padding: 30px;
     --site-sidebar-component-border-radius: 15px;
     --site-sidebar-title-margin-bottom: 10px;
+
     --site-clr-sidebar-component-1: #FAF2FF;
     --site-clr-sidebar-component-2: #E8EAFF;
 }
 
 @layer sidebar {
     .sidebar {
+        .sidebar__title,
+        .wp-block-heading {
+            color: var(--site-clr-text2);
+        }
+
         .content-wrapper {
             ul {
                 line-height: 40px;
@@ -43,6 +49,9 @@
                 text-decoration: none;
             }
         }
+        .sidebar-component__title {
+
+        }
         .sidebar-component-color1 {
             background-color: var(--site-clr-sidebar-component-1);
         }
@@ -54,10 +63,8 @@
 
 
 @layer sidebar {
-    .sidebar__title {
+    .sidebar__title,
+    .wp-block-heading {
         margin-bottom: var(--site-sidebar-title-margin-bottom);
-        @media (min-width: 992px) {
-            --site-sidebar-title-margin-bottom: 20px;
-        }
     }
 }

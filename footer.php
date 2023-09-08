@@ -29,7 +29,7 @@
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'footer-essential-nav',
-                                    'menu_class'     => 'menu-class', // CSS class for the menu ul element
+                                    'menu_class'     => 'list-chevron-right', // CSS class for the menu ul element
                                     'container'      => 'nav',        // HTML element to wrap the menu
                                     'container_class'=> 'menu-container', // CSS class for the container element
                                 ));
@@ -42,12 +42,12 @@
 
                         <div class="articles" role="contentinfo">
                             <h4 class="footer__title">Events</h4>
-                            <?php latestPostTitles('', '', 3); ?> 
+                            <?php latestPostTitles('list-chevron-right', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
                             <h4 class="footer__title">Vlog</h4>
-                            <?php latestPostTitles('', '', 3); ?> 
+                            <?php latestPostTitles('list-chevron-right', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
@@ -55,7 +55,7 @@
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'footer-membership-nav',
-                                    'menu_class'     => 'menu-class', // CSS class for the menu ul element
+                                    'menu_class'     => 'list-chevron-right', // CSS class for the menu ul element
                                     'container'      => 'nav',        // HTML element to wrap the menu
                                     'container_class'=> 'menu-container', // CSS class for the container element
                                 ));

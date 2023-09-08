@@ -20,10 +20,10 @@
 
 @layer sidebar-global-setup {
     // Apply only the grid on the following pages:
-    .search,
+    // .search,
     // .blog, 
     .single, 
-    .archive, // Including sub pages like category, author, ...
+    // .archive, // Including sub pages like category, author, ...
     .page-template-template-terms-and-policies,
     .page-template-template-service,
     .page-template-template-contact,
@@ -207,12 +207,38 @@
 /**
  * Search form
  * -----------------------------
-*/layer search-form {
+*/
+@layer search-form {
     .search-form {
+
         display: flex;
         gap: 10px;
         label {
             flex: 1;
         }
+
+
+
+        // @media (min-width: 1400px) {
+        //     border: 10px solid purple;
+        // }
+        // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+        //     border: 10px solid violet;
+        // }
+        // @media (min-width: 992px) and (max-width: (1200px - 1)) {
+        //     border: 10px solid lime;
+        // }
+        // @media (min-width: 768px) and (max-width: (992px - 1)) {
+        //     border: 10px solid blue;
+        // }
+        // @media (min-width: 576px) and (max-width: (768px - 1)) {
+        //     border: 10px solid turquoise;
+        // }
+        // @media (max-width: (576px - 1px)) {
+        //     border: 10px solid chocolate;
+        // }
+
+
+
     }
 }

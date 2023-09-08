@@ -7,7 +7,7 @@ $args = array(
 $pagination = paginate_links( $args );
 
 if ( $pagination ) {
-    echo '<nav class="pagination heading-ff fs-6">';
+    echo '<nav class="pagination">';
     echo $pagination;
     echo '</nav>';
 }

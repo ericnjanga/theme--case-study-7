@@ -8,14 +8,22 @@
 
             <div class="entry-meta">
                 <ul class="list-inline mb-0">
-                    <li class="list-inline-item entry-category heading-ff">
-                        <?php
-                            include '_category-link.php';
-                        ?>
-                    </li>
-                    <li class="list-inline-item meta-sep">
-                        |
-                    </li>
+                    <?php
+                        $categories = get_the_category();
+
+                        if (!empty($categories)) {
+                            ?>
+                                <li class="list-inline-item entry-category">
+                                    <?php
+                                        include '_category-link.php';
+                                    ?>
+                                </li>
+                                <li class="list-inline-item meta-sep">
+                                    |
+                                </li>
+                            <?php
+                        }
+                    ?>
                     <li class="list-inline-item fs-8">
                         <time class="entry-date" datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" title="<?php echo esc_attr( get_the_date() ); ?>" <?php if ( is_single() ) { echo 'itemprop="datePublished" pubdate'; } ?>><?php the_time( get_option( 'date_format' ) ); ?></time>
                     </li>
