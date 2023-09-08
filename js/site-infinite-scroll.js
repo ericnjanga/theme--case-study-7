@@ -1,14 +1,8 @@
-
-
-
-
-
-
-
-
-
-// alert('-----///////');
-
+/**
+ * This code enables users to load additional posts as they scroll down the page, providing a 
+ * dynamic and continuous browsing experience. It uses AJAX to fetch and append more content 
+ * without requiring a full page reload.
+ */
 jQuery(function($){
     var page = 3; // Initial page number
     var loading = false;
@@ -17,12 +11,6 @@ jQuery(function($){
     var $noMorePostsMessage = $('<p class="no-more-posts">No more posts to display.</p>').hide();
 
     function loadMorePosts() {
-
-
-        console.log('------> loadMorePosts ');
-
-
-
 
         if (loading) {
             return;
@@ -44,20 +32,7 @@ jQuery(function($){
                     $content.append($newPosts);
                     $newPosts.fadeIn(); // Apply fade-in effect
                     page++;
-
-
-                    console.log('------> response = ', response.trim() == '');
-
-
-                    console.log('---+++++' );
-
-                    page++;
-
                 } else {
-                    console.log('------> ???????? ' );
-
-
-
                     $loadMoreMessage.text('No more posts to display.');
 
                     console.log($loadMoreMessage.length);
