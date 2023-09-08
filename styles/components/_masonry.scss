@@ -1,3 +1,6 @@
+:root {
+    --site-photo-gallery-img-border-radius: 10px;
+}
 
 @layer masonry {
     .masonry {
@@ -13,6 +16,15 @@
                 height: auto;
                 display: block;
             }
+        }
+    }
+}
+
+
+@layer photo-gallery {
+    .js-photo-gallery {
+        img {
+            border-radius: var(--site-photo-gallery-img-border-radius);
         }
     }
 }
