@@ -32,7 +32,7 @@
 
         <div class="introduction__text-wrapper" itemprop="mainContentOfPage">
             <h2 class="introduction__text-wrapper_title">
-                <?php echo getField('optional_title'); ?>
+                <?php echo getField('optional_subtitle'); ?>
             </h2>
             <div class="introduction__text-wrapper_content">
                 <?php the_content(); ?>
