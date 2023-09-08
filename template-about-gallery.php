@@ -36,7 +36,8 @@
          * image names using Advanced Custom Fields, storing them in an array of image objects.
          * ------------------------------
          */
-        $arr_images = ['image_1', 'image_2', 'image_3', 'image_4', 'image_5', 'image_6', 'image_7', 'image_8', 'image_9'];
+        $arr_images = ['image_1', 'image_2', 'image_3', 'image_4', 'image_5', 
+        'image_6', 'image_7', 'image_8', 'image_9', 'image_10', 'image_11', 'image_12'];
         $arr_img = []; // Initialize the array to store image objects
 
         foreach ($arr_images as $image) {
