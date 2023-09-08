@@ -1,22 +1,25 @@
 :root {
-    --site-h1-font-size: 2rem;
-    --site-h1-line-height: 2rem;
+    --site-h1-font-size: 2.4rem;
+    --site-h1-line-height: 2.4rem;
 
-    --site-h2-font-size: 1.2rem;
-    --site-h2-line-height: 1.2rem;
+    --site-h2-font-size: 2.0rem;
+    --site-h2-line-height: 2.0rem;
 
-    --site-h3-font-size: 1.2rem;
-    --site-h3-line-height: 1.2rem;
+    --site-h3-font-size: 1.7rem;
+    --site-h3-line-height: 1.7rem;
 
-    --site-h4-font-size: 1.2rem;
+    --site-h4-font-size: 1.4rem;
+    --site-h4-line-height: 1.4rem;
 }
+
+
 /**
  * Global Headings styles
  * ---------
 */
-
 @layer headings {
-    h1, h2 {
+    h1, h2, h3, h4,
+    .h1, .h2, .h3, .h4 {
         font-weight: bold;
     }
 
@@ -24,6 +27,8 @@
     .page-title,
     .section-title,
     .section-subtitle {
+        position: relative;
+        z-index: 1;
         color: var(--site-clr-text1);
     }
 
@@ -36,105 +41,114 @@
 
 
 @layer headings {
-    h1 {
+    h1, .h1 {
         font-size: var(--site-h1-font-size);
         line-height: var(--site-h1-line-height);
 
         @media (min-width: 1400px) {
-            border: 3px solid purple;
+            --site-h1-font-size: 3.6rem;
+            --site-h1-line-height: 3.6rem;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            border: 3px solid violet;
+            --site-h1-font-size: 3.2rem;
+            --site-h1-line-height: 3.2rem;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            border: 3px solid lime;
+            --site-h1-font-size: 2.8rem;
+            --site-h1-line-height: 2.8rem;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            border: 3px solid blue;
+            --site-h1-font-size: 2.6rem;
+            --site-h1-line-height: 2.6rem;
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-            border: 3px solid turquoise;
+            --site-h1-font-size: 2.6rem;
+            --site-h1-line-height: 2.6rem;
         }
-        @media (max-width: (576px - 1px)) {
-            border: 3px solid chocolate;
-        }
+        // @media (max-width: (576px - 1px)) {}
     }
 
 
-    h2 {
+    h2, .h2 {
+        font-size: var(--site-h2-font-size);
         line-height: var(--site-h2-line-height);
-        line-height: var(--site-h2-line-height);
 
         @media (min-width: 1400px) {
-            border: 3px dashed purple;
+            --site-h2-font-size: 2.9rem;
+            --site-h2-line-height: 2.7rem;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            border: 3px dashed violet;
+            --site-h2-font-size: 2.6rem;
+            --site-h2-line-height: 2.5rem;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            border: 3px dashed lime;
+            --site-h2-font-size: 2.4rem;
+            --site-h2-line-height: 2.3rem;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            border: 3px dashed blue;
+            --site-h2-font-size: 2.2rem;
+            --site-h2-line-height: 2.1rem;
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-            border: 3px dashed turquoise;
+            --site-h2-font-size: 2.2rem;
+            --site-h2-line-height: 2.1rem;
         }
-        @media (max-width: (576px - 1px)) {
-            border: 3px dashed chocolate;
-        }
+        // @media (max-width: (576px - 1px)) {}
     }
 
 
-    h3 {
-        line-height: var(--site-h3-line-height);
+    h3, .h3 {
+        font-size: var(--site-h3-font-size);
         line-height: var(--site-h3-line-height);
 
         @media (min-width: 1400px) {
-            border: 3px dotted purple;
+            --site-h3-font-size: 2.4rem;
+            --site-h3-line-height: 2.1rem;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            border: 3px dotted violet;
+            --site-h3-font-size: 2.1rem;
+            --site-h3-line-height: 1.8rem;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            border: 3px dotted lime;
+            --site-h3-font-size: 1.9rem;
+            --site-h3-line-height: 1.7rem;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            border: 3px dotted blue;
+            --site-h3-font-size: 1.9rem;
+            --site-h3-line-height: 1.7rem;
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-            border: 3px dotted turquoise;
+            --site-h3-font-size: 1.9rem;
+            --site-h3-line-height: 1.7rem;
         }
-        @media (max-width: (576px - 1px)) {
-            border: 3px dotted chocolate;
-        }
+        // @media (max-width: (576px - 1px)) {}
     }
 
 
-    h4 {
-
-
-
-
-
+    h4, .h4 {
+        font-size: var(--site-h4-font-size);
+        line-height: var(--site-h4-line-height);
 
         @media (min-width: 1400px) {
-            border: 3px solid purple;
+            --site-h4-font-size: 1.8rem;
+            --site-h4-line-height: 1.5rem;
         }
         @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-            border: 3px solid violet;
+            --site-h4-font-size: 1.7rem;
+            --site-h4-line-height: 1.4rem;
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            border: 3px solid lime;
+            --site-h4-font-size: 1.6rem;
+            --site-h4-line-height: 1.4rem;
         }
         @media (min-width: 768px) and (max-width: (992px - 1)) {
-            border: 3px solid blue;
+            --site-h4-font-size: 1.6rem;
+            --site-h4-line-height: 1.4rem;
         }
         @media (min-width: 576px) and (max-width: (768px - 1)) {
-            border: 3px solid turquoise;
+            --site-h4-font-size: 1.6rem;
+            --site-h4-line-height: 1.6rem;
         }
-        @media (max-width: (576px - 1px)) {
-            border: 3px solid chocolate;
-        }
+        // @media (max-width: (576px - 1px)) {}
     }
 }

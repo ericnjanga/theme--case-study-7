@@ -16,7 +16,6 @@
 
 
 
-
 @layer testimonial {
     .testimonial {
         &.theme1 {
@@ -42,8 +41,6 @@
             margin-bottom: 0;
         }
 
-
-
         @container (min-width: 400px) {
             --site-testimonial-gap: 30px;
             --site-testimonial-padding: 50px 25px 30px 25px;
@@ -59,13 +56,6 @@
         margin-left: calc(-1 * var(--site-testimonial-icon-width) / 2);
         border-radius: var(--site-testimonial-icon-box-radius);
     }
-    .testimonial__name {
-        font-size: 24px;
-        font-weight: 700;
-        font-family: var(--site-font-family-headings);
-    }
-
-    // .testimonial__title,
     .testimonial__body {
         color: var(--site-clr-text3);
     }

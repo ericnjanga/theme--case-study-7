@@ -15,7 +15,7 @@
                         > -->
                         <div class="footer__cta">
                             <span class="sup">Newsletter</span>
-                            <h3 class="footer__title">Keep up with us by <a class="triggers-subscriber-popup" href="#">signing up!</a></h3>
+                            <h4 class="footer__title">Keep up with us by <a class="triggers-subscriber-popup" href="#">signing up!</a></h4>
                         </div>
                     </div>
 
@@ -25,7 +25,7 @@
 
                     <div class="block2">
                         <div class="pages" role="contentinfo">
-                            <h3 class="footer__title">Pages</h3>
+                            <h4 class="footer__title">Pages</h4>
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'footer-essential-nav',
@@ -41,17 +41,17 @@
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3 class="footer__title">Events</h3>
+                            <h4 class="footer__title">Events</h4>
                             <?php latestPostTitles('', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3 class="footer__title">Vlog</h3>
+                            <h4 class="footer__title">Vlog</h4>
                             <?php latestPostTitles('', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
-                            <h3 class="footer__title">Membership</h3>
+                            <h4 class="footer__title">Membership</h4>
                             <?php
                                 wp_nav_menu(array(
                                     'theme_location' => 'footer-membership-nav',
