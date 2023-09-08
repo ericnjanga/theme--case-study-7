@@ -1,25 +1,18 @@
 
 :root {
-    --site-event-height: 100%; // 300px;
+    --site-event-height: 100%;
     --site-event-padding: 5px;
     --site-event-gap: 20px;
-    
-    --site-event-image-width: 100%; // 100px;
-    --site-event-image-height: 150px; // 100px;
+    --site-event-image-width: 100%;
+    --site-event-image-height: 150px;
     --site-event-image-border-radius: 10px;
-
-    --site-event-event-title-line-height: 25px;
-    --site-event-event-title-font-size: 1.7rem;
-
     --site-event-border-radius: 15px;
     --site-event-time-gap: 30px;
     --site-event-flex-direction: column;
     --site-event-description-display: block;
-
     --site-event-event-cta-wrapper-margin: 10px 0 0 0;
 
     --site-clr-event-bg: #FFD9DE;
-
     --site-clr-event-background-hover: #AB0727;
     --site-clr-icon-hover: #281A30;
     --site-clr-event-text1-hover: #fff;
@@ -135,10 +128,7 @@
     .event__time__label {
         line-height: 16px;
     }
-    .event__title {
-        line-height: var(--site-event-event-title-line-height);
-        font-size: var(--site-event-event-title-font-size);
-    }
+    
     .event__categories,
     .event__description,
     .event__loc,
@@ -163,7 +153,6 @@
             // ..
             @container (min-width: 500px) {
                 --site-event-gap: 30px;
-                --site-event-event-title-font-size: 2rem;
             }
             // ..
             @container (min-width: 600px) {
@@ -175,8 +164,6 @@
             // Increase banner ratio based on the container
             @container (min-width: 700px) {
                 --site-event-image-width: 300px;
-                --site-event-event-title-line-height: 2.2rem;
-                --site-event-event-title-font-size: 2.5rem;
             }
             // Increase banner ratio based on the container
             @container (min-width: 1000px) {
