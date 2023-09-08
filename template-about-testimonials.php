@@ -24,12 +24,12 @@
 
 <main class="main-content-wrapper container" role="main">
     <header>
-        <h2>
+        <h2 class="section-title title-spacer">
             <?php echo getField('optional_subtitle'); ?>
         </h2>
     </header>  
 
-    <?php displayTestimonial('grid grid-11233 pt-5 pb-5'); ?>
+    <?php displayTestimonial('grid grid-11233 testimonial-list list-unstyled'); ?>
 </main>
 
 <?php get_footer(); ?>

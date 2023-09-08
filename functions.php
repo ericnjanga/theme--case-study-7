@@ -317,10 +317,7 @@
         if ($query->have_posts()) {
             while ($query->have_posts()) {
                 $query->the_post();
-                // xxx();
-                displayPost();
-                // Display your post content here
-                // For example: the_title(); the_excerpt();
+                displayPost( get_the_ID() );
             }
         }
         wp_reset_postdata();
