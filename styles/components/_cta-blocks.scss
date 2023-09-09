@@ -1,0 +1,173 @@
+:root {
+    --site-clr-cta-floating-b-bg: #E4DEFA;
+    --site-cta-floating-b-border-radius: 15px;
+    --site-cta-loating-b-content-wrapper-padding: 20px;
+    --site-cta-loating-b-content-wrapper-flex-direction: column;
+
+    --site-cta-loating-b-text-wrapper-margin: 0;
+    --site-cta-loating-b-text-width: 500px;
+
+    --site-cta-loating-b-message-gap: 0;
+    --site-cta-loating-b-message-flex-direction: column;
+    --site-cta-loating-b-message-text-align: center;
+
+    --site-clr-cta-big-b-bg: #281A30;
+    --site-clr-cta-big-b-text: #e1c7f0;
+    --site-cta-big-b-border-radius: 15px;
+    --site-cta-big-b-content-wrapper-height: 303px;
+    --site-cta-big-b-content-wrapper-padding: 30px 20px;
+    --site-cta-loating-b-text-wrapper-gap: 20px;
+    --site-cta-big-b-image-display: none;
+    --site-cta-big-b-image-width: 250px;
+    --site-cta-big-b-image-height: 376px;
+    --site-cta-big-b-image-right-pos: 40px;
+
+}
+
+
+
+@layer cta-blocks {
+    /**
+     * CTA Big Block
+    */
+    .section-cta-big-block {
+        position: relative;
+        &::after {
+            display: var(--site-cta-big-b-image-display);
+            content: '';
+            background: url(https://stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
+            background: url(https://staging5.stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
+            width: var(--site-cta-big-b-image-width);
+            height: var(--site-cta-big-b-image-height);
+            position: absolute;
+            bottom: 0;
+            right: var(--site-cta-big-b-image-right-pos);
+            background-size: contain;
+        }
+        .section-cta-big__content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: var(--site-cta-big-b-content-wrapper-padding);
+
+            min-height: var(--site-cta-big-b-content-wrapper-height);
+            background-color: var(--site-clr-cta-big-b-bg);
+            border-radius: var(--site-cta-big-b-border-radius);
+        }
+        .section-cta-big__text-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: var(--site-cta-loating-b-text-wrapper-gap);
+            margin: var(--site-cta-loating-b-text-wrapper-margin);
+            max-width: var(--site-cta-loating-b-text-width);
+
+            .section-cta-big-block__title, p {
+                margin:0;
+            }
+        }
+        .section-cta-big-block__title {
+            color: var(--site-clr-secondary-text);
+        }
+        .section-cta-big-block__text,
+        .section-cta-big-block__list {
+            color: var(--site-clr-cta-big-b-text);
+        }
+        
+
+        @media (min-width: 1400px) {
+            --site-cta-loating-b-text-width: 400px; //...
+            --site-cta-loating-b-text-wrapper-margin: 0 0 0 160px; // ...
+
+            --site-cta-big-b-image-width: 387px; //...
+            --site-cta-big-b-image-height: 580.5px; //...
+
+            --site-cta-big-b-image-right-pos: 190px;
+            --site-cta-big-b-content-wrapper-height: 443px;
+        }
+
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            --site-cta-loating-b-text-width: 400px; //...
+            --site-cta-loating-b-text-wrapper-margin: 0 0 0 100px; // ...
+
+            --site-cta-big-b-image-width: 352px; //...
+            --site-cta-big-b-image-height: 528px; //...
+
+            --site-cta-big-b-image-right-pos: 130px;
+            --site-cta-big-b-content-wrapper-height: 443px;
+        }
+
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-cta-loating-b-text-width: 350px;
+            --site-cta-loating-b-text-wrapper-margin: 0 0 0 50px;
+
+            --site-cta-big-b-image-width: 320px;
+            --site-cta-big-b-image-height: 480px;
+
+            --site-cta-big-b-image-right-pos: 80px;
+
+            --site-cta-big-b-content-wrapper-height: 380px;
+        }
+
+        @media (min-width: 992px) {
+            --site-cta-big-b-border-radius: 30px;
+            --site-cta-big-b-image-display: block;
+            --site-cta-big-b-content-wrapper-padding: 40px;
+        }
+
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-cta-big-b-image-display: block;
+            --site-cta-big-b-content-wrapper-padding: 40px;
+            --site-cta-loating-b-text-width: 350px;
+        }
+
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            --site-cta-big-b-content-wrapper-padding: 40px;
+        }
+    }
+
+
+    /**
+     * Floating CTA Block
+    */
+    .section-cta-floating-block {
+        position: fixed;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        bottom: 10px;
+
+        .section-cta-floating-block__content-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: var(--site-cta-loating-b-content-wrapper-flex-direction);
+            gap: 20px;
+            padding: var(--site-cta-loating-b-content-wrapper-padding);
+            min-height: 70px;
+            background-color: var(--site-clr-cta-floating-b-bg);
+            border-radius: var(--site-cta-floating-b-border-radius);
+        }
+        .section-cta-floating-block__message {
+            display: flex;
+            gap: var(--site-cta-loating-b-message-gap);
+            flex-direction: var(--site-cta-loating-b-message-flex-direction);
+            text-align: var(--site-cta-loating-b-message-text-align);
+            align-items: center;
+        }
+
+        // ...
+        @media (min-width: 992px) {
+            --site-cta-loating-b-content-wrapper-flex-direction: row;
+            --site-cta-loating-b-message-text-align: left;
+        }
+        @media (min-width: 768px) { 
+            --site-cta-loating-b-message-gap: 10px;
+            --site-cta-loating-b-message-flex-direction: row;
+        }
+    }
+
+
+
+
+
+}

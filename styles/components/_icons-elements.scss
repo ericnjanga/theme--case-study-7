@@ -5,6 +5,7 @@
 
 @layer icon-elements {
     .list-chevron-right,
+    .list-material-icons,
     .list-social-media {
         list-style: none;
         padding: 0;
@@ -22,6 +23,7 @@
         }
     }
 
+    .list-material-icons,
     .list-chevron-right {
         li {
             &::before {
@@ -34,6 +36,12 @@
                 top: 0px;
                 height: 16px;
                 width: 16px;
+            }
+
+            &.star {
+                &::before {
+                    content: "\e743";
+                }
             }
         }
     }

@@ -2,7 +2,7 @@
                 <?php get_sidebar('sidebar-contact'); ?>
             </div><!-- site-global-container -->
             
-            <footer id="footer" class="footer top-section-spacer bottom-section-spacer" role="contentinfo">
+            <footer id="footer" class="footer top-section-spacer" role="contentinfo">
                 <div class="container bx-container">
 
                     <div class="block1">
@@ -83,6 +83,24 @@
             // Place modals here for global access
             // getAppointmentModal();
         ?>
+
+
+
+        
+
+
+        <section class="section-cta-floating-block">
+            <div class="section-cta-floating-block__content-wrapper container">
+                <div class="section-cta-floating-block__message">
+                    <b>Upcoming event: </b>
+                    <a href="#">Lorem ipsum dolor la odio officiis repellendus!</a>
+                </div>
+                <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Reserve your spot</button>
+            </div>
+        </section>
+
+
+
 
         <?php wp_footer(); ?>
     </body>

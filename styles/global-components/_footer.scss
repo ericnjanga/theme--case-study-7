@@ -21,10 +21,30 @@
     --site-footer-block3-display: block;
     --site-footer-block3-gap: 20px;
     --site-footer-block3-justify-content: center;
+
+    // Bottom margin is calculated to make room for
+    // the "Floating CTA Block" (_cta-blocks.scss)
+    --site-footer-margin-bottom: 240px;
 }
 
 
 @layer footer {
+    .footer {
+        margin-bottom: var(--site-footer-margin-bottom);
+        
+        @media (min-width: 1200px) {
+            --site-footer-margin-bottom: 120px;
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            --site-footer-margin-bottom: 130px;
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            --site-footer-margin-bottom: 170px;
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            --site-footer-margin-bottom: 200px;
+        }
+    }
     .footer .container {
         position: relative;
         background-color: var(--site-clr-footer-background);
