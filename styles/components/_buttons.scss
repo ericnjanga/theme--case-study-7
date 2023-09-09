@@ -68,7 +68,20 @@
         border: 1px solid var(--site-clr-text1);
     }
     .btn-tertiary:hover {
-        background-color: var(--site-clr-primary-neutral-400);
+        background-color: var(--site-clr-accent);
+        color: var(--site-clr-secondary-text);
+    }
+
+    // .btn.btn-icon.btn-square,
+    .btn-small.btn-icon.btn-square {
+        width: 34px;
+        height: 34px;
+        padding-right: 30px!important;
+
+        &:hover {
+            background-color: var(--site-clr-accent);
+            color: var(--site-clr-secondary-text);
+        }
     }
 }
 

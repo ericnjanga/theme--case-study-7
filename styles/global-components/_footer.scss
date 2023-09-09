@@ -17,7 +17,7 @@
     --site-footer-block2-grid-template: 1fr / 1fr;
     --site-footer-block2-grid-row-gap: 30px;
     --site-footer-block2-grid-column-gap: 20px;
-    --site-footer-title-margin-bottom: 0px;
+    --site-footer-title-margin-bottom: 10px;
     --site-footer-block3-display: block;
     --site-footer-block3-gap: 20px;
     --site-footer-block3-justify-content: center;
@@ -45,11 +45,26 @@
             opacity: 1;
         }
 
-        .list-chevron-right li {
-            padding-left: 10px!important;
-            &::after {
-                top: -5px!important;
-                color: var(--site-clr-footer-chevron)!important;
+        .list-chevron-right li::before,
+        .list-social-media li::before {
+            color: var(--site-clr-footer-chevron)!important;
+        }
+
+        .list-chevron-right {
+            li {
+                // padding-left: 10px!important;
+                &::after {
+                    top: -5px!important;
+                }
+            }
+        }
+        .list-line-height1 {
+            li {
+                margin-bottom: 10px;
+                line-height: 1.2rem;
+                &::after {
+                    top: 0px!important;
+                }
             }
         }
 
@@ -68,9 +83,8 @@
             grid-row-gap: var(--site-footer-block2-grid-row-gap);
             grid-column-gap: var(--site-footer-block2-grid-column-gap);
 
-            ul {
-                list-style: none;
-                padding: 0 0 0 0;
+            .footer__title, h4, .wp-block-heading {
+                margin-bottom: var(--site-footer-title-margin-bottom);
             }
 
             a {
@@ -91,7 +105,7 @@
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr 1fr;
             }
             @media (min-width: 992px) {
-                --site-footer-title-margin-bottom: 10px;
+                --site-footer-title-margin-bottom: 20px;
             }
             @media (min-width: 768px) and (max-width: (992px - 1)) {
                 --site-footer-block2-grid-template: 1fr / 1fr 1fr;
@@ -113,9 +127,6 @@
                 --site-footer-block3-display: flex;
             }
         }
-    }
-    .footer__title, h4 {
-        margin-bottom: var(--site-footer-title-margin-bottom);
     }
     .footer__title a {
         color: var(--site-clr-accent);

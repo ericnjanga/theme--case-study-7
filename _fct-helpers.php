@@ -722,13 +722,27 @@
 
 
     // ...
-    function latestPostTitles($listClass = '', $category_slug = '', $count = 5) {
+    function latestPostTitles($listClass = '', $post_type = 'post', $category_slug = '', $count = 5) {
         $args = array(
-            'post_type' => 'post',
+            'post_type' => $post_type,
             'posts_per_page' => $count,
             'category_name' => $category_slug,
         );
 
+        // The way we'll name the post type to users ...
+        $post_label = '';
+        $post_icon = '';
+        switch($post_type) {
+            case 'tribe_events': 
+                $post_label = 'events';
+                $post_icon = 'event';
+                break;
+            default:
+                $post_label = 'posts';
+                $post_icon = 'post';
+        }
+
+        // Fetch posts ...
         $query = new WP_Query( $args );
 
         if ( $query->have_posts() ) :
@@ -738,7 +752,9 @@
                         while ( $query->have_posts() ) {
                             $query->the_post(); 
                     ?>
-                        <li><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></li>
+                        <li class="<?php echo $post_icon; ?>">
+                            <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                        </li>
                     <?php 
                         }
                     ?>
@@ -746,7 +762,7 @@
             <?php
             wp_reset_postdata();
         else :
-            echo 'No posts found.';
+            echo "No $post_label found.";
         endif;
     }
 

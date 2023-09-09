@@ -9,6 +9,9 @@
     @import '_base/typography';
     @import '_base/transitions-and-animations';
     @import '_base/headings';
+    @import '_base/bootstrap-overrides/alerts';
+    @import '_base/bootstrap-overrides/bs-utilities';
+    // @import '_base/bootstrap-overrides/bs-components-card';
 }
 
 @layer layouts {
@@ -16,13 +19,6 @@
     @import 'layouts/section-spacer';
     @import 'layouts/grid-systems';
     @import 'layouts/sidebar-global-setup';
-}
-
-@layer global-components {
-    @import 'global-components/hero';
-    @import 'global-components/header';
-    @import 'global-components/footer';
-    @import 'global-components/sidebar';
 }
 
 @layer components {
@@ -41,6 +37,24 @@
     @import 'components/partner-logos-carousel';
     @import 'components/subscriber-popup';
     @import 'components/masonry';
+    // @import 'components/link-icon';
+    // @import 'components/banner';
+    // @import 'components/event';
+    // @import 'components/boxes';
+    // @import 'components/h-underlined';
+    // @import 'components/blockquote';
+    // @import 'components/post-navigation';
+    // @import 'components/pagination';
+    // @import 'components/blog-items';
+    // @import 'components/links';
+    // @import 'components/modal';
+}
+
+@layer global-components {
+    @import 'global-components/hero';
+    @import 'global-components/header';
+    @import 'global-components/sidebar';
+    @import 'global-components/footer';
 }
 
 @layer pages {
@@ -51,42 +65,6 @@
     @import 'pages/multi-pages';
 }
 
-
 @layer sections {
     @import 'sections/testimonials';
 }
-
-
-
-
-// @layer framework-overrides {
-    // @import 'aesthetics/framework-overrides/alerts';
-    // @import 'aesthetics/framework-overrides/bs-components-card';
-    // @import 'aesthetics/framework-overrides/bs-utilities';
-// }
-// @layer components {
-    // @import 'aesthetics/components/link-icon';
-    // @import 'aesthetics/components/banner';
-    // @import 'aesthetics/components/event';
-    // @import 'aesthetics/components/boxes';
-    // @import 'aesthetics/components/h-underlined';
-    // @import 'aesthetics/components/blockquote';
-    // @import 'aesthetics/components/post-navigation';
-    // @import 'aesthetics/components/pagination';
-    // @import 'aesthetics/components/blog-items';
-    // @import 'aesthetics/components/links';
-    // @import 'aesthetics/components/modal';
-// }
-
-
-
-// @import 'layouts/post';
-// @import 'base/theme-switch';
-
-// @layer pages {
-    // @import 'layouts/pages/home';
-    // @import 'layouts/pages/home.awards';
-    // @import 'layouts/pages/home.latest-posts';
-    // @import 'layouts/pages/about.awards';
-    // @import 'layouts/pages/contact';
-// }

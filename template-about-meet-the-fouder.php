@@ -39,6 +39,8 @@
             </div>
             <div class="introduction__text-wrapper_footer">
                 <a class="btn btn-small btn-tertiary" href="#biography">Keep reading</a>
+
+                <?php dynamic_sidebar('founder-sidebar-social-media'); ?>
             </div>
         </div>
     </section>

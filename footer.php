@@ -42,12 +42,12 @@
 
                         <div class="articles" role="contentinfo">
                             <h4 class="footer__title">Events</h4>
-                            <?php latestPostTitles('list-chevron-right', '', 3); ?> 
+                            <?php latestPostTitles('list-social-media list-line-height1', 'tribe_events', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
                             <h4 class="footer__title">Vlog</h4>
-                            <?php latestPostTitles('list-chevron-right', '', 3); ?> 
+                            <?php latestPostTitles('list-social-media list-line-height1', 'post', '', 3); ?> 
                         </div>
 
                         <div class="articles" role="contentinfo">
