@@ -14,7 +14,7 @@
 <header class="hero bottom-section-spacer" role="region" style="<?php echo $hero_background_img; ?>;">
     <div class="container">
         <div class="text-wrapper">
-            <span class="fs-7">Article page..</span>
+            <!-- <span class="fs-7">Article page..</span> -->
             <h1 class="hero-title"><?php the_title(); ?></h1>
             <div class="hero-intro">
                 <?php get_template_part( 'entry', 'meta' ); ?>

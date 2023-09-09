@@ -796,14 +796,11 @@
 
                     <a href="<?php echo get_permalink($postID); ?>">
 
-
                     <?php if ($cssClass == 'vlog-item--text') { ?>
                         <svg class="vlog-item__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M400-400h160v-80H400v80Zm0-120h320v-80H400v80Zm0-120h320v-80H400v80Zm-80 400q-33 0-56.5-23.5T240-320v-480q0-33 23.5-56.5T320-880h480q33 0 56.5 23.5T880-800v480q0 33-23.5 56.5T800-240H320Zm0-80h480v-480H320v480ZM160-80q-33 0-56.5-23.5T80-160v-560h80v560h560v80H160Zm160-720v480-480Z"/></svg>
                     <?php } else { ?>
                         <svg class="vlog-item__icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m160-800 80 160h120l-80-160h80l80 160h120l-80-160h80l80 160h120l-80-160h120q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800Zm0 240v320h640v-320H160Zm0 0v320-320Z"/></svg>
                     <?php } ?>
-
-
 
                         <?php
                             if (!empty($vimeo_video_url)) {
@@ -821,8 +818,6 @@
                             }
                         ?>
 
-
-
                         <h3 class="vlog-item__title">
                             <?php echo get_the_title($postID); ?>
                         </h3>
@@ -837,7 +832,6 @@
                                 <span class="vlog-item__date"><?php echo get_the_date(); ?></span>
                             <?php endif; ?>
                         </footer>
-
 
                         <?php if ($cssClass == 'vlog-item--text') { ?>
                             <div class="vlog-item__description">
@@ -1081,4 +1075,61 @@
             <?php
         }
     }
+
+
+
+
+
+
+
+    // Return the closed event
+    // ******************************
+    // ******************************
+    function displayEventFloatingCta() {
+        $args = array(
+            'post_type' => 'tribe_events',
+            'posts_per_page' => 1,
+            'orderby' => 'date',  // Order by date in descending order (latest event first)
+            'order' => 'DESC',    // Sort in descending order
+        );
+
+        // Fetch posts ...
+        $query = new WP_Query( $args );
+
+        if ( $query->have_posts() ) :
+            ?>
+            <section class="section-cta-floating-block" style="display: none;">
+                <div class="section-cta-floating-block__content-wrapper container">
+
+                    <button class="section-cta-floating-block__btnclose btn btn-icon btn-square btn-small btn-transparent">
+                        <span class="material-symbols-outlined">
+                            close
+                        </span>
+                    </button>
+
+                    <?php while ( $query->have_posts() ) { ?>
+                        <?php 
+                            $query->the_post(); 
+                            $event_ticket_url = get_post_meta( get_the_ID(), 'get_your_tickets', true );
+                        ?>
+                        <div class="section-cta-floating-block__message">
+                            <b>Upcoming event: </b>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_title(); ?>
+                            </a>
+                        </div>
+                        <a href="<?php echo $event_ticket_url; ?>" target="_blank" class="btn btn-primary btn-icon new-window">
+                            Reserve your spot
+                        </a>
+                    <?php } ?>
+                </div>
+            </section> 
+            <?php
+            wp_reset_postdata();
+        endif;
+    }
+
+
+
+
 // No PHP closing tag ...

@@ -88,8 +88,10 @@
 
         
 
-
-        <section class="section-cta-floating-block">
+        <?php
+            displayEventFloatingCta();
+        ?>
+        <!-- <section class="section-cta-floating-block">
             <div class="section-cta-floating-block__content-wrapper container">
                 <div class="section-cta-floating-block__message">
                     <b>Upcoming event: </b>
@@ -97,7 +99,7 @@
                 </div>
                 <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Reserve your spot</button>
             </div>
-        </section>
+        </section> -->
 
 
 

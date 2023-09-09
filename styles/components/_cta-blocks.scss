@@ -137,6 +137,7 @@
         bottom: 10px;
 
         .section-cta-floating-block__content-wrapper {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -146,6 +147,15 @@
             min-height: 70px;
             background-color: var(--site-clr-cta-floating-b-bg);
             border-radius: var(--site-cta-floating-b-border-radius);
+
+            .section-cta-floating-block__btnclose {
+                position: absolute;
+                top: 5px;
+                right: 0;
+                span {
+                    font-weight: bold!important;
+                }
+            }
         }
         .section-cta-floating-block__message {
             display: flex;
@@ -153,6 +163,14 @@
             flex-direction: var(--site-cta-loating-b-message-flex-direction);
             text-align: var(--site-cta-loating-b-message-text-align);
             align-items: center;
+
+            a {
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                    color: var(--site-clr-accent);
+                }
+            }
         }
 
         // ...

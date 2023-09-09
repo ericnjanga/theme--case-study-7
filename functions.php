@@ -292,6 +292,8 @@
     function enqueue_custom_script() {
         wp_enqueue_script('jquery');
 
+        wp_enqueue_script('jquery.cookie', 'https://cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js', array('jquery'), '1.0', true);
+
         // Employees
         wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
 

@@ -23,23 +23,21 @@
     </div>
 </header>
 
-<!-- <div id="primary" class="content-area"> -->
 
-    <main class="main-content-wrapper container" role="main">
-        <div class="sidebar-opposite-content">
-            <?php displaySingleEvent(); ?>
+<main class="main-content-wrapper container" role="main">
+    <div class="sidebar-opposite-content">
+        <?php displaySingleEvent(); ?>
 
-            <?php while (have_posts()) : the_post(); ?>
-                <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                    <div class="entry-content">
-                        <?php the_content(); ?>
-                    </div>
-                </article>
-            <?php endwhile; ?>
-        </div>
+        <?php while (have_posts()) : the_post(); ?>
+            <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <div class="entry-content">
+                    <?php the_content(); ?>
+                </div>
+            </article>
+        <?php endwhile; ?>
+    </div>
 
-        <?php get_sidebar('sidebar-contact'); ?>
-    </main>
-<!-- </div> -->
+    <?php get_sidebar('sidebar-contact'); ?>
+</main>
 
 <?php get_footer(); ?>

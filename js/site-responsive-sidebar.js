@@ -8,7 +8,6 @@ jQuery(document).ready(function ($) {
     let $container = $('.site-global-container');
 
     $btn.on('click', function () {
-        console.log('....');
         $container.toggleClass(flagOpen);
         if ($container.hasClass(flagOpen)) {
             $btn.removeClass('is-off').addClass('is-on');
