@@ -63,6 +63,13 @@
         // wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Maitree:wght@400;600;700&family=Merriweather:wght@400;700&family=Oswald&display=swap', array(), null );
         
         wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0', array(), null );
+        wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css', array(), null );
+
+
+        
+        
+
+
         wp_enqueue_style( 'header-font', 'https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&display=swapp', array(), null );
         wp_enqueue_style( 'body-font', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap', array(), null );
         wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css', array(), null );
@@ -173,6 +180,19 @@
     add_action( 'widgets_init', 'generic_widgets_init' );
 
     function generic_widgets_init() {
+
+        // Social Media
+        register_sidebar( array(
+            'name'          => 'Founder Social Media',
+            'id'            => 'founder-sidebar-social-media',
+            'description'   => 'Social media links to be displayed on "meet the founder page"',
+            // Add more sidebar options if needed
+            'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+            'after_widget' => '</div>',
+            'before_title' => '<h3 class="widget-title">',
+            'after_title' => '</h3>',
+        ) );
+
         register_sidebar( array(
             'name'          => 'Additional contact information',
             'id'            => 'sidebar-additional-contact-info',
