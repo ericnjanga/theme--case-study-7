@@ -1,7 +1,7 @@
 <?php
     /**
      * Generate breadcrumbs on the page.
-     * Toast Plugin needs to be installed for this to work.
+     * Yoast Plugin needs to be installed for this to work.
      */
     function displayBreadcrumbs() {
         if ( function_exists('yoast_breadcrumb') ) {
@@ -598,10 +598,10 @@
                                 $query->the_post();
                                 $post_ID = get_the_ID();
                                 ?>
-                                    <li class="">
+                                    <li class="partner-logos-carousel__item">
                                         <?php 
                                             if ( has_post_thumbnail() ) {
-                                                the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0 mb-10' ) );
+                                                the_post_thumbnail( 'full', array( 'itemprop' => 'image', 'class' => 'img-thumbnail rounded-0' ) );
                                             }
                                         ?>
                                     </li>

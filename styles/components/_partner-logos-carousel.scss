@@ -1,57 +1,32 @@
 :root {
-    --site-partners-gap: 20px;
-    --site-partners-width: 550px;
-    --site-partners-padding: 15px;
-    --site-partners-carousel-width: 1070px;
+    --site-partners-gap: 10px;
+    --site-partners-partner-item-width: 25%;
 }
 
 
 
 @layer partner-logos-carousel {
     .section-partners {
-
         @media (min-width: 1400px) {
-            // border: 10px solid purple;
             --site-partners-gap: 60px;
         }
-        // @media (min-width: 1200px) and (max-width: (1400px - 1)) {
-        //     border: 10px solid violet;
-        // }
-        @media (min-width: 1200px) {
-            --site-partners-carousel-width: 1070px;
-            max-width: var(--site-partners-carousel-width);
-        }
-        // @media (min-width: 992px) and (max-width: (1200px - 1)) {
-        //     border: 10px solid lime;
-        // }
-        @media (min-width: 768px) and (max-width: (992px - 1)) {
-            // border: 10px solid blue;
-            --site-partners-width: auto;
-        }
-        @media (min-width: 768px) {
-            // border: 10px solid blue;
-            --site-partners-width: auto;
-            --site-partners-padding: 0;
-        }
-        @media (min-width: 576px) and (max-width: (768px - 1)) {
-            // border: 10px solid turquoise;
-            --site-partners-width: 650px;
-        }
-        // @media (max-width: (576px - 1px)) {
-        //     border: 10px solid chocolate;
-        // }
     }
     .partner-logos-carousel {
-        overflow-x: scroll;
-        padding-bottom: var(--site-partners-padding);
+        @media (min-width: 992px) {
+            --site-partners-partner-item-width: 15%;
+        }
     }
     .partner-logos-carousel__list {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         gap: var(--site-partners-gap);
-        width: var(--site-partners-width);
 
         .img-thumbnail {
             border-width: 0px!important;
         }
+    }
+    .partner-logos-carousel__item {
+        width: var(--site-partners-partner-item-width);
     }
 }
