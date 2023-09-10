@@ -23,10 +23,8 @@
 </header>
 
 <main class="main-content-wrapper container" role="main">
-
     <section class="introduction bottom-section-spacer">
         <div class="introduction__img-wrapper">
-            <!-- <p><?php //echo getField('introduction'); ?></p> -->
             <?php getFeaturedImage('img-fluid'); ?>
         </div>
 
@@ -89,8 +87,6 @@
             <p>This is the dialog content.</p>
         </div>
     </dialog>
-
-
 </main>
 
 
