@@ -1,6 +1,6 @@
 
 :root {
-    --site-breadcrumb-margin: 10px 0 0 0;
+    --site-breadcrumb-margin: 10px 0;
     --site-breadcrumb-gap: 10px;
 
     --site-clr-breadcrumb-text2: #fff;
@@ -11,8 +11,6 @@
     .breadcrumb {
         margin: var(--site-breadcrumb-margin);
         color: var(--site-clr-breadcrumb-text1);
-        overflow-x: scroll;
-        height: 40px;
         a {
             color: var(--site-clr-text5);
             text-decoration: none;
@@ -25,12 +23,10 @@
             > span {
                 display: flex;
                 gap: var(--site-breadcrumb-gap);
-                width: 700px;
             }
         }
         @media (min-width: 992px) and (max-width: (1200px - 1)) {
-            // border: 10px solid lime;
-            --site-breadcrumb-margin: 15px 0 0 0;
+            --site-breadcrumb-margin: 15px 0;
         }
     }
 }
