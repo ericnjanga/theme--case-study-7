@@ -35,8 +35,9 @@
         &::after {
             display: var(--site-cta-big-b-image-display);
             content: '';
-            background: url(https://stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
-            background: url(https://staging5.stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
+            // background: url(https://stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
+            // background: url(https://staging5.stilettosandhammers.com/wp-content/uploads/2023/09/lena-guirguis-portrait-1.png);
+            background-image: url('~img/lena-guirguis-portrait-1.png');
             width: var(--site-cta-big-b-image-width);
             height: var(--site-cta-big-b-image-height);
             position: absolute;

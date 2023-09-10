@@ -1080,8 +1080,6 @@
 
 
 
-
-
     // Return the closed event
     // ******************************
     // ******************************
@@ -1122,6 +1120,54 @@
                             Reserve your spot
                         </a>
                     <?php } ?>
+                </div>
+            </section> 
+            <?php
+            wp_reset_postdata();
+        endif;
+    }
+
+
+
+
+
+    // Return the closed event
+    // ******************************
+    // ******************************
+    function displayCtaBigBlock() {
+        $args = array(
+            'post_type' => 'cta-big-block',
+            'posts_per_page' => 1,
+            'orderby' => 'date',  // Order by date in descending order (latest event first)
+            'order' => 'DESC',    // Sort in descending order
+        );
+
+        // Fetch posts ...
+        $query = new WP_Query( $args );
+
+        if ( $query->have_posts() ) :
+            ?>
+            <section class="section-cta-big-block container">
+                <div class="section-cta-big__content-wrapper">
+                    <div class="section-cta-big__text-wrapper">
+                        <?php while ( $query->have_posts() ) { ?>
+                            <?php 
+                                $query->the_post();
+                            ?>
+                            <h2 class="section-cta-big-block__title"><?php the_title(); ?></h2>
+                            <div class="section-cta-big-block__text">
+                                <?php the_content(); ?>
+                            </div>
+                            <ul class="section-cta-big-block__list list-material-icons">
+                                <li class="star"><?php echo getField('item_1'); ?></li>
+                                <li class="star"><?php echo getField('item_2'); ?></li>
+                                <li class="star"><?php echo getField('item_3'); ?></li>
+                            </ul>
+                            <footer class="section-cta-big-block__footer">
+                                <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Reserve your spot</button>
+                            </footer>
+                        <?php } ?>
+                    </div>
                 </div>
             </section> 
             <?php

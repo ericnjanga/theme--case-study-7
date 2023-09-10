@@ -194,24 +194,9 @@
     </section>
 
 
-    <section class="section-cta-big-block container">
-        <div class="section-cta-big__content-wrapper">
-            <div class="section-cta-big__text-wrapper">
-                <h2 class="section-cta-big-block__title">Welcome to your tribe</h2>
-                <p class="section-cta-big-block__text">
-                Join our community of ambitious women building lasting wealth through strategic real estate investing.
-                </p>
-                <ul class="section-cta-big-block__list list-material-icons">
-                    <li class="star">Access to our trusted partners</li>
-                    <li class="star">Access to our trusted partners</li>
-                    <li class="star">Access to our trusted partners</li>
-                </ul>
-                <footer class="section-cta-big-block__footer">
-                    <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Reserve your spot</button>
-                </footer>
-            </div>
-        </div>
-    </section>
+    <?php
+        displayCtaBigBlock();
+    ?>
 
 </main>
 
