@@ -76,3 +76,25 @@
         // }
     }
 }
+
+
+// Hide the dates
+@layer author {
+    body.author,
+    body.search {
+        .post, .tribe_events {
+            .meta-sep, .entry-date {
+                display: none;
+            }
+        }
+    }
+}
+@layer single {
+    body.single {
+        .entry-meta {
+            .author.vcard a {
+                color: #fff;
+            }
+        }
+    }
+}
