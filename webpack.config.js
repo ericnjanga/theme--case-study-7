@@ -3,7 +3,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports = {
-  // mode: 'development', // Set mode to ...
   mode: 'production', // Set mode to 'production' for optimization
   entry: './styles/styles.scss',
   output: {
@@ -27,13 +26,12 @@ module.exports = {
       filename: 'stilettos-hammers-styles.min.css',
     }),
   ],
-  // optimization: {
-  //   minimize: true,
-  //   minimizer: [
-  //     new CssMinimizerPlugin({
-  //       sourceMap: true, // Add source maps for the minified CSS
-  //     }),
-  //   ],
-  // },
   devtool: 'source-map', // Add source maps for your JavaScript
+
+
+
+  performance: {
+    maxAssetSize: 500 * 1024, // Set the asset size limit to 500 KiB
+    maxEntrypointSize: 500 * 1024, // Set the entry point size limit to 500 KiB
+  },
 };

@@ -74,7 +74,7 @@
         wp_enqueue_style( 'body-font', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap', array(), null );
         wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css', array(), null );
         
-        wp_enqueue_style( 'stilettos-hammers-styles', get_template_directory_uri() . '/styles-dist/stilettos-hammers-styles.min.css', array(), '2.0' );
+        wp_enqueue_style( 'stilettos-hammers-styles', get_template_directory_uri() . '/styles-dist/stilettos-hammers-styles.min.css', array(), '2.4' );
 
 
         wp_enqueue_style( 'generic-icons', get_template_directory_uri() . '/icons/icons.css' );

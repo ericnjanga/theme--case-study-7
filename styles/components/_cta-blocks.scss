@@ -73,6 +73,12 @@
         .section-cta-big-block__list {
             color: var(--site-clr-cta-big-b-text);
         }
+
+        .section-cta-big-block__footer {
+            .btn {
+                min-width: 240px;
+            }
+        }
         
 
         @media (min-width: 1400px) {

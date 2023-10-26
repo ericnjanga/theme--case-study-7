@@ -125,9 +125,13 @@
     }
 
 
-    h4, .h4 {
-        font-size: var(--site-h4-font-size);
-        line-height: var(--site-h4-line-height);
+    h4, .h4, 
+    // Setting event page heading as h3
+    // (Event page markup is plug-in controlled)
+    .tecset-share-title,
+    .epta-sidebar-box .tribe-events-single-section-title {
+        font-size: var(--site-h4-font-size)!important;
+        line-height: var(--site-h4-line-height)!important;
 
         @media (min-width: 1400px) {
             --site-h4-font-size: 1.8rem;

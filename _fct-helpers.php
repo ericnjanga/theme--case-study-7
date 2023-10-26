@@ -224,7 +224,7 @@
                         <?php if(!empty($event_ticket_url)) { ?>
                             <footer class="event__cta__wrapper__newwindow">
                                 <a href="<?php echo $event_ticket_url; ?>" target="_blank" class="btn btn-primary btn-icon new-window">
-                                    Get your ticket now
+                                    Join Now
                                 </a>
                             </footer>
                         <?php } ?>
@@ -1164,7 +1164,7 @@
                                 <li class="star"><?php echo getField('item_3'); ?></li>
                             </ul>
                             <footer class="section-cta-big-block__footer">
-                                <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Reserve your spot</button>
+                                <button class="btn btn-primary triggers-subscriber-popup pum-trigger">Join Now</button>
                             </footer>
                         <?php } ?>
                     </div>

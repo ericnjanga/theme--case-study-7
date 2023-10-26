@@ -53,13 +53,26 @@
         }
     }
 
+
+
+    // Setting event page heading as h3
+    // (Event page markup is plug-in controlled)
+    .epta-sidebar-box .epta-addto-calendar a,
     .btn-secondary {
         color: var(--site-clr-event-background);
         background-color: var(--site-clr-text1);
         border: 1px solid var(--site-clr-text1);
+
+        &:hover {
+            background-color: var(--site-clr-text5);
+        }
     }
-    .btn-secondary:hover {
-        background-color: var(--site-clr-text5);
+
+    .epta-sidebar-box .epta-addto-calendar a {
+        border-radius: var(--site-btn-border-radius)!important;
+        &:hover {
+            background-color: var(--site-clr-text5)!important;
+        }
     }
 
     .btn-tertiary {

@@ -97,4 +97,11 @@
             }
         }
     }
+
+    // Hide the sidebar on events single page
+    body.single-tribe_events {
+        .sidebar {
+            display: none;
+        }
+    }
 }
