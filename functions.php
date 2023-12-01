@@ -255,38 +255,8 @@
         }
     }
 
-
-    // function enqueue_custom_script() {
-    //     // Register jQuery as a dependency
-    //     wp_enqueue_script('jquery');
-
-    //     // Enqueue custom script
-    //     wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
-
-    //     // wp_enqueue_script('site-form-email-subscription.js', get_template_directory_uri() . '/js/site-form-email-subscription.js', array('jquery'), '1.0', true);
-    // }
-    // add_action('wp_enqueue_scripts', 'enqueue_custom_script');
-
-
-
-    /**
-     * Parallax plugin inclusion
-     * ----
-     * NOTE: I'VE NOTICED SOME ISSUES WITH THIS PLUGIN (Scrolling issues, background image scrolling issues)
-     */
-    // function enqueue_parallax_script() {
-    //     // Enqueue jQuery
-    //     wp_enqueue_script('jquery');
-
-    //     // Enqueue skrollr.min.js (depends on jquery)
-    //     wp_enqueue_script('skrollrjs', 'https://cdn.jsdelivr.net/npm/skrollr@0.6.26/dist/skrollr.min.js', array('jquery'), null, true);
-
-    //     // Enqueue site-parallax-scroll.js (depends on skrollr.min.js)
-    //     wp_enqueue_script('site-parallax-scroll', get_template_directory_uri() . '/js/site-parallax-scroll.js', array('skrollrjs'), '1.0', true);
-    // }
-    // add_action('wp_enqueue_scripts', 'enqueue_parallax_script');
-
-
+ 
+ 
 
 
     function enqueue_custom_script() {
@@ -294,16 +264,14 @@
 
         wp_enqueue_script('jquery.cookie', 'https://cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js', array('jquery'), '1.0', true);
 
-        // Employees
-        wp_enqueue_script('site-employees.js', get_template_directory_uri() . '/js/site-employees.js', array('jquery'), '1.0', true);
-
+        
         // Infinite scroll
-        wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
+        // wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
 
         // Localize the ajaxurl variable
-        wp_localize_script('site-infinite-scroll.js', 'my_ajax_obj', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-        ));
+        // wp_localize_script('site-infinite-scroll.js', 'my_ajax_obj', array(
+        //     'ajax_url' => admin_url('admin-ajax.php'),
+        // ));
     }
     add_action('wp_enqueue_scripts', 'enqueue_custom_script');
 
@@ -316,8 +284,6 @@
         wp_enqueue_script('photoswipe', get_template_directory_uri() . '/js/libs/photoswipe.umd.min.js', array(), '1.0', true);
         wp_enqueue_script('photoswipe-lightbox', get_template_directory_uri() . '/js/libs/photoswipe-lightbox.umd.min.js', array(), '1.0', true);
         wp_enqueue_style( 'photoswipe-css', 'https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe.min.css', array(), null );
-        wp_enqueue_script('site-image-gallery.js', get_template_directory_uri() . '/js/site-image-gallery.js', array('photoswipe', 'photoswipe-lightbox'), '1.0', true);
-
     }
     add_action('wp_enqueue_scripts', 'enqueue_img_gallery_script');
 

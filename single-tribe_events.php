@@ -26,7 +26,6 @@
 
 <main class="main-content-wrapper container" role="main">
     <div class="sidebar-opposite-content">
-        <?php displaySingleEvent(); ?>
 
         <?php while (have_posts()) : the_post(); ?>
             <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>

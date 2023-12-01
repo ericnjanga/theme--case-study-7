@@ -9,6 +9,9 @@
     --site-event-single-sidebar-dl-display: block;
     --site-event-single-sidebar-dl-icon-size: 26px;
     --site-event-single-sidebar-dl-padding: 10px;
+    --site-event-single-sidebar-padding: 25px;
+    --site-event-single-sidebar-countdown-number-fs: 1em;
+    --site-event-single-sidebar-countdown-under-fs: 0.45em;
     --site-event-single-sidebar-hare-area-mg-bottom: 25px;
     --site-event-single-esb-intro-mg-bot: 10px;
     --site-event-single-esb-mg-bot: 20px;
@@ -34,7 +37,6 @@
         .bx-container .epta-sidebar-area {
             @container (min-width: 350px) {
                 --site-event-single-sidebar-dl-display: grid;
-                // --site-event-single-esb-intro-mg-bot: 25px;
                 --site-event-single-esb-mg-bot: 45px;
                 --site-event-single-sidebar-title-margin: 0 0 10px 0;
                 --site-event-single-sidebar-hare-area-mg-bottom: 45px;
@@ -43,14 +45,21 @@
         }
 
         .epta-countdown-timer {
-            // border: 5px solid purple;
-
             .epta-countdown-cell {
                 border-radius: 7px!important;
             }
+
+			.epta-countdown-number {
+                font-size: var(--site-event-single-sidebar-countdown-number-fs)!important;
+            }
+			.epta-countdown-under {
+                font-size: var(--site-event-single-sidebar-countdown-under-fs)!important;
+            }
         }
 
-
+        .epta-sidebar-area{
+            padding: var(--site-event-single-sidebar-padding)!important;
+        }
 
         .epta-sidebar-area,
         .tribe-events-event-image {
@@ -75,6 +84,14 @@
             height: 100%;
             background-color: var(--site-clr-sidebar-component-2);
 
+
+            @media (min-width: 768px) and (max-width: (992px - 1)) {
+                --site-event-single-sidebar-padding: 10px;
+                --site-event-single-sidebar-countdown-number-fs: 0.7em;
+                --site-event-single-sidebar-countdown-under-fs: 0.30em;
+            }
+
+
             .btn-cta {
                 width: 100%!important;
             }
@@ -87,7 +104,6 @@
             .tecset-share-title {
                 color: var(--site-clr-text1)!important;
             }
-
 
             .tribe-events-single-section-title {
                 margin: var(--site-event-single-sidebar-title-margin)!important;

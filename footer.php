@@ -77,13 +77,7 @@
                     
                 </div>
             </footer>
-        </div><!-- site-global-wrapper -->
-
-        <?php
-            // Place modals here for global access
-            // getAppointmentModal();
-            displayEventFloatingCta();
-        ?>
+        </div><!-- site-global-wrapper --> 
 
         <?php wp_footer(); ?>
     </body>

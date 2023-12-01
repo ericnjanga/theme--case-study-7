@@ -1,3 +1,26 @@
+<div id="tribe-countdown-4104">							<div class="epta-countdown-timer">
+								<div class="epta-countdown-cell">
+									<div class="epta-countdown-number">15</div>
+									<div class="epta-countdown-under">days</div>
+								</div>
+								<div class="epta-countdown-cell">
+									<div class="epta-countdown-number">16</div>
+									<div class="epta-countdown-under">hours</div>
+								</div>
+								<div class="epta-countdown-cell">
+									<div class="epta-countdown-number">28</div>
+									<div class="epta-countdown-under">min</div>
+								</div>
+								<div class="epta-countdown-cell">
+									<div class="epta-countdown-number tecset-countdown-last">34</div>
+									<div class="epta-countdown-under">sec</div>
+								</div>
+							</div>
+							</div>
+
+
+
+
 
 <?php
     // Inject helpers (injected on the header)
