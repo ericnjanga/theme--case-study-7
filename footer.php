@@ -1,79 +1,26 @@
-
-                <?php get_sidebar('sidebar-contact'); ?>
+                <?php // get_sidebar('sidebar-contact'); ?>
             </div><!-- site-global-container -->
             
             <footer id="footer" class="footer top-section-spacer" role="contentinfo">
                 <div class="container bx-container">
 
-                    <div class="block1">
-                        <?php
-                            include '_header-logo.php';
-                        ?>
-                        <!-- <img src="<?php echo get_template_directory_uri() .'/images/Stilettos & Hammers Logo.png' ?>" 
-                            alt="<?php echo esc_html( get_bloginfo( 'name' ) ) ?>" 
-                            class="logo"
-                        > -->
-                        <div class="footer__cta">
-                            <span class="sup">Newsletter</span>
-                            <h4 class="footer__title">Keep up with us by <a class="triggers-subscriber-popup" href="#">signing up!</a></h4>
-                        </div>
-                    </div>
+                    <h1>
+						<?php echo get_field('heading','option'); ?>
+					</h1>
+					 <p>
+						<?php echo get_field('sub_heading','option'); ?>
+					</p>
+						 <p>
+						<?php echo get_field('location','option'); ?>
+					</p>
+						 <p>
+					<a href="<?php echo get_field('linkd','option'); ?>" target="_blank">Linkedin Profile</a> | 
+						<a href="<?php echo get_field('book_a_meeting','option'); ?>" target="_blank">Book a Meeting</a> 
+					</p>
 
+                  
+					
 
-                    <hr>
-
-
-                    <div class="block2">
-                        <div class="pages" role="contentinfo">
-                            <h4 class="footer__title">Pages</h4>
-                            <?php
-                                wp_nav_menu(array(
-                                    'theme_location' => 'footer-essential-nav',
-                                    'menu_class'     => 'list-chevron-right', // CSS class for the menu ul element
-                                    'container'      => 'nav',        // HTML element to wrap the menu
-                                    'container_class'=> 'menu-container', // CSS class for the container element
-                                ));
-                            ?>
-                        </div>
-
-                        <div class="social-media" role="contentinfo">
-                            <?php dynamic_sidebar('sidebar-social-media'); ?>
-                        </div>
-
-                        <div class="articles" role="contentinfo">
-                            <h4 class="footer__title">Events</h4>
-                            <?php latestPostTitles('list-social-media list-line-height1', 'tribe_events', '', 3); ?> 
-                        </div>
-
-                        <div class="articles" role="contentinfo">
-                            <h4 class="footer__title">Vlog</h4>
-                            <?php latestPostTitles('list-social-media list-line-height1', 'post', '', 3); ?> 
-                        </div>
-
-                        <div class="articles" role="contentinfo">
-                            <h4 class="footer__title">Membership</h4>
-                            <?php
-                                wp_nav_menu(array(
-                                    'theme_location' => 'footer-membership-nav',
-                                    'menu_class'     => 'list-chevron-right', // CSS class for the menu ul element
-                                    'container'      => 'nav',        // HTML element to wrap the menu
-                                    'container_class'=> 'menu-container', // CSS class for the container element
-                                ));
-                            ?>
-                        </div>
-                    </div>
-
-                    
-                    <hr>
-
-
-                    <div class="block3 text-center" role="contentinfo">
-                        <a href="/terms-and-conditions/">Terms and Conditions</a>
-                        <span class="separator">|</span>
-                        <a href="/privacy-policy/">Privacy Policy</a>
-                        <span class="separator">|</span>
-                        <span>&copy; <?php echo esc_html( date_i18n( __( 'Y', 'generic' ) ) ); ?> <?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
-                    </div>
                     
                 </div>
             </footer>

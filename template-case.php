@@ -1,18 +1,16 @@
 <?php
-    /**
-     * Blog page 
-     * --------
-     */
+    /*
+    Template Name: Case Study Template
+    */ 
     get_header();
 ?>
+
 <div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
     <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
-</div> 
-
-
+</div>
     
    
 <section>
@@ -22,8 +20,8 @@
 
       
           <div class="row g-0">
-<h1><?php echo get_field('blog_main_page_heading', 'option'); ?></h1>
-<p><?php echo get_field('blog_main_page_content', 'option'); ?></p>
+<h1><?php echo get_field('heading'); ?></h1>
+<p><?php echo get_field('content'); ?></p>
   </div>
 </div>
 </div>
@@ -39,7 +37,7 @@
 
 
     query_posts(array( 
-        'post_type' => 'post',
+        'post_type' => 'case-study',
         'posts_per_page' => 10,
         'paged' => $paged,
     ) );  
@@ -49,13 +47,10 @@
       <div class="card mb-3" style="max-width: 100%;">
           <div class="row g-0">
     <div class="col-md-4">
-    <?php if(get_field('thumbnail_image')) {?>
     <a href="<?php echo get_permalink(); ?>">  <img src="<?php echo get_field('thumbnail_image'); ?>" class="img-fluid rounded-start" alt="<?php echo get_the_title(); ?>"></a>
-    <?php } ?>
     </div>
     <div class="col-md-8">
       <div class="card-body">
-      <?php echo  get_the_date( 'M dS,  Y') ?>
         <h4 class="card-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?></a></h4>
    
       </div>
@@ -73,6 +68,7 @@
 </div>
 </section>
 
+    
+    
+<?php get_footer(); ?>
 
-<?php
-    get_footer();
