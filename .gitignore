@@ -3,7 +3,6 @@
 # Compiled output
 
 /_markup-and-styles
-/styles-dist
 /tmp
 /out-tsc
 /bazel-out
