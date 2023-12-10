@@ -27,6 +27,21 @@
             </footer>
         </div><!-- site-global-wrapper --> 
 
+
+
+
+
+
+
+
+    
+		<!-- Add the back-to-top button with arrow symbol -->
+		<button class="btn-back-to-top " onclick="scrollToTop()">
+			<div class="arrow-container"> <i class="bi bi-arrow-up"></i></div> 
+		</button>
+
+
+
         <?php wp_footer(); ?>
     </body>
 </html>

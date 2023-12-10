@@ -252,8 +252,8 @@
         wp_enqueue_script('jquery.cookie', 'https://cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js', array('jquery'), '1.0', true);
 
         
-        // Infinite scroll
-        // wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
+        // Scroll to top functionality
+        wp_enqueue_script('site-scroll-to-top.js', get_template_directory_uri() . '/js/site-scroll-to-top.js', array('jquery'), '1.0', true);
 
         // Localize the ajaxurl variable
         // wp_localize_script('site-infinite-scroll.js', 'my_ajax_obj', array(
