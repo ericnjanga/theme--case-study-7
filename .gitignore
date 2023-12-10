@@ -2,6 +2,8 @@
 
 # Compiled output
 
+.DS_Store
+
 /_markup-and-styles
 /tmp
 /out-tsc
