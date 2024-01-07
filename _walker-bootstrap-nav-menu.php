@@ -14,8 +14,9 @@
             $li_attributes = '';
             $class_names = $value = '';
 
-            $classes = empty($item->classes) ? array() : (array) $item->classes;
+            $classes =  array(); //empty($item->classes) ? array() : (array) $item->classes;
             $classes[] = 'nav-item';
+            $classes[] = 'menu-item'; 
             $classes[] = 'dropdown';
             $classes[] = ($item->current || $item->current_item_ancestor) ? 'active' : '';
             $classes[] = 'menu-item-' . $item->ID;
@@ -33,13 +34,23 @@
             $attributes .= !empty($item->xfn) ? ' rel="' . esc_attr($item->xfn) . '"' : '';
             $attributes .= !empty($item->url) ? ' href="' . esc_attr($item->url) . '"' : '';
 
+
+
+            $classesa = empty($item->classes) ? array() : (array) $item->classes;         
+
+            $class_namesa = join(' ', apply_filters('nav_menu_css_class', array_filter($classesa), $item, $args));
             // Only print the navigation if we have some arguments
             // if (is_object($args) && property_exists($args, 'walker')) {
                 if ($args->walker->has_children) {
                     $attributes .= ' class="nav-link dropdown-toggle"';
                     $attributes .= ' id="navbarDropdown" data-bs-toggle="dropdown"';
-                } else {
-                    $attributes .= ' class="nav-link"';
+                }
+                elseif( str_contains($class_namesa, 'icon-linkedIn'))
+                {
+                    $attributes .= ' class=" '.$class_namesa.'"';
+                }
+                else {
+                    $attributes .= ' class="nav-link link-hover3 "';
                 }
 
                 // ...

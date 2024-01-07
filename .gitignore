@@ -2,9 +2,8 @@
 
 # Compiled output
 
-.DS_Store
 
-/_markup-and-styles
+/styles-dist
 /tmp
 /out-tsc
 /bazel-out

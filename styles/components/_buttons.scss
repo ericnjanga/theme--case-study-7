@@ -1,0 +1,19 @@
+:root {
+}
+
+
+@layer buttons {
+    .btn-primary {
+        background-color: var(--enjanga-clr-gray-1);
+        border-color: var(--enjanga-clr-gray-1);
+
+        &:hover {
+            background-color: var(--enjanga-clr-accent);
+        }
+    }
+    .btn-secondary {
+        &:hover {
+            background-color: var(--enjanga-clr-accent);
+        }
+    }
+}

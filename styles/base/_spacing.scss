@@ -1,0 +1,84 @@
+:root {
+    --enjanga-section-gap: 75px;
+}
+
+
+
+.gap-top-margin,
+.gap-top-padding,
+.gap-top-margin-2th,
+.gap-top-margin-4th,
+.gap-top-margin-5th,
+.gap-top-padding-2th,
+
+.gap-bottom-margin,
+.gap-bottom-padding,
+.gap-bottom-padding-2th,
+.gap-bottom-margin-2th,
+.gap-bottom-margin-4th,
+.gap-bottom-margin-5th,
+.gap-bottom-margin-10th {
+    @media (min-width: 1400px) { 
+        --enjanga-section-gap: 200px;
+    }
+    @media (min-width: 1200px) and (max-width: (1400px - 1)) { 
+        --enjanga-section-gap: 150px;
+    }
+    @media (min-width: 992px) and (max-width: (1200px - 1)) { 
+        --enjanga-section-gap: 100px;
+    }
+    @media (min-width: 768px) and (max-width: (992px - 1)) { 
+        --enjanga-section-gap: 100px;
+    }
+}
+
+
+.gap-top-margin {
+    margin-top: var(--enjanga-section-gap);
+}
+.gap-top-margin-2th {
+    margin-top: calc(var(--enjanga-section-gap) / 2);
+}
+.gap-top-margin-4th {
+    margin-top: calc(var(--enjanga-section-gap) / 4);
+
+    // Cancel the gap spacing on media queries of positions ...
+    &.gap-cancel-pos1234 { // 1,2,3,4
+        @media (max-width: (1200px - 1)) {
+            margin-top: 0;
+        }
+    }
+}
+.gap-top-margin-5th {
+    margin-top: calc(var(--enjanga-section-gap) / 5);
+}
+.gap-top-padding {
+    padding-top: var(--enjanga-section-gap);
+}
+.gap-top-padding-2th {
+    padding-top: calc(var(--enjanga-section-gap) / 2);
+}
+
+
+.gap-bottom-margin {
+    margin-bottom: var(--enjanga-section-gap);
+}
+.gap-bottom-margin-2th {
+    margin-bottom: calc(var(--enjanga-section-gap) / 2);
+}
+.gap-bottom-margin-4th {
+    margin-bottom: calc(var(--enjanga-section-gap) / 4);
+}
+.gap-bottom-margin-5th {
+    margin-bottom: calc(var(--enjanga-section-gap) / 5);
+}
+.gap-bottom-margin-10th {
+    margin-bottom: calc(var(--enjanga-section-gap) / 10);
+}
+
+.gap-bottom-padding {
+    padding-bottom: var(--enjanga-section-gap);
+}
+.gap-bottom-padding-2th {
+    padding-bottom: calc(var(--enjanga-section-gap) / 2);
+}

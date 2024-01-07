@@ -1,0 +1,15 @@
+
+
+
+.list-group-item {
+    &.active {
+        background-color: var(--enjanga-clr-accent);
+        border-color: var(--enjanga-clr-accent);
+    }
+    &:hover:not(.active) {
+        background-color: var(--enjanga-clr-accent-fade);
+    }
+}
+
+
+

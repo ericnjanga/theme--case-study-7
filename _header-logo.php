@@ -9,12 +9,12 @@
     }
 
     // Anchor that wraps the logo ...
-    echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url"><span class="screen-reader-text" itemprop="name">' . esc_html( get_bloginfo( 'name' ) ) . '</span><span id="logo-container" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject"><img src="';
+    echo '<a href="' . esc_url( home_url( '/' ) ) . '" title="' . esc_attr( get_bloginfo( 'name' ) ) . '" rel="home" itemprop="url" class="navbar-brand d-flex mr-auto"><img src="';
         if ( has_custom_logo() ) {
         echo esc_url( $logo[0] );
         } else {
         echo esc_url( $logo );
         }
-        echo '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" id="logo" class="logo ' . esc_attr( $nologo ) . '" itemprop="url" /></span>';
+        echo '" alt="' . esc_attr( get_bloginfo( 'name' ) ) . '" id="logo" class="tenverto-logo logo ' . esc_attr( $nologo ) . '" itemprop="url" />';
     echo '</a>';
 ?>

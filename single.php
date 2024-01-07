@@ -6,31 +6,40 @@
     get_header();
 ?>
 
-<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-    <?php if(function_exists('bcn_display'))
+  <header class="hero gap-top-margin gap-bottom-margin">
+    <div class="container">
+
+      <nav aria-label="breadcrumb" class="breadcrumb section-max-w1 mx-auto">
+        
+        <ol class="breadcrumb__list m-0 mx-auto">
+            <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
-</div> 
-    
-    <section>
-    <div class="container">
-  <div class="row">
+    </ol>
+      </nav>
 
+
+      <h1 class="gap-bottom-margin-4th"><?php echo get_the_title(); ?></h1>
 
       
-          <div class="row g-0">
-<h1><?php  the_title(); ?></h1>
+      
+     
+    </div>
+  </header> 
+    <section>
 
-<?php if(get_field('thumbnail_image')){ ?>
-    
- <img src="<?php echo get_field('thumbnail_image'); ?>" class="img-fluid rounded-start" alt="<?php echo get_the_title(); ?>">
-<?php } ?>
+  <div class="container">
+
+    <section>
+      <div class="row align-items-md-stretch">
+        <div class="col-md-8 offset-md-2">
+        
 <?php the_post(); the_content(); ?>  </div>
 </div>
 </div>
 </section>
-
+</div>
 
 <?php get_footer(); ?>
 

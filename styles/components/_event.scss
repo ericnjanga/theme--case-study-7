@@ -1,0 +1,174 @@
+
+:root {
+    --site-event-height: 100%;
+    --site-event-padding: 5px;
+    --site-event-gap: 20px;
+    --site-event-image-width: 100%;
+    --site-event-image-height: 150px;
+    --site-event-image-border-radius: 10px;
+    --site-event-border-radius: 15px;
+    --site-event-time-gap: 30px;
+    --site-event-flex-direction: column;
+    --site-event-description-display: block;
+    --site-event-event-cta-wrapper-margin: 10px 0 0 0;
+
+    --site-clr-event-bg: #FFD9DE;
+    --site-clr-event-background-hover: #AB0727;
+    --site-clr-icon-hover: #281A30;
+    --site-clr-event-text1-hover: #fff;
+    --site-clr-event-text2-hover: #E0CBEF;
+}
+
+@layer event {
+    .event {
+        .event__wrapper {
+            display: flex;
+            flex-direction: var(--site-event-flex-direction);
+            padding: var(--site-event-padding);
+            height: var(--site-event-height);
+            border-radius: var(--site-event-border-radius);
+            background-color: var(--site-clr-event-bg);
+            text-decoration: none;
+        }
+        a.event__wrapper {
+            &:hover {
+                background-color: var(--site-clr-event-background-hover);
+                .event__title,
+                .event__time__text {
+                    color: var(--site-clr-event-text1-hover);
+                }
+                .event__description,
+                .event__loc__text,
+                .event__time__label {
+                    color: var(--site-clr-event-text2-hover);
+                }
+                .event__loc__icon {
+                    fill: var(--site-clr-icon-hover);
+                }
+            }
+        }
+        &.hasPassed {
+            filter: grayscale(0.7);
+            &:hover {
+                filter: grayscale(0);
+            }
+        }
+    }
+
+    .event__title,
+    .event__time__text {
+        color: var(--site-clr-text1);
+    }
+    .event__status {
+        color: var(--site-clr-accent);
+        text-transform: uppercase;
+        font-size: 0.8rem;
+    }
+    .event__image {
+        width: var(--site-event-image-width);
+        height: var(--site-event-image-height);
+        background-size: cover;
+        border-radius: var(--site-event-image-border-radius);
+    }
+    .event__body {
+        flex: 1;
+        padding: var(--site-event-gap);
+    }
+    .event__time {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: var(--site-event-time-gap);
+        span {
+            display: block;
+        }
+    }
+    .event__loc {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    .event__loc__icon {
+        fill: var(--site-clr-accent);
+    }
+    .event__description,
+    .event__loc__text,
+    .event__time__label {
+        color: var(--site-clr-text3);
+    }   
+    .event__time__label {
+        font-size: 11px;
+    }
+
+    .event__description {
+        display: var(--site-event-description-display);
+    }
+
+
+    .event__cta__wrapper {
+        flex-direction: row-reverse;
+    }
+    .event__cta__wrapper__newwindow {
+        flex-direction: row;
+        --site-event-event-cta-wrapper-margin: 20px 0 0 0;
+    }
+
+    .event__cta__wrapper,
+    .event__cta__wrapper__newwindow {
+        display: flex;
+        margin: var(--site-event-event-cta-wrapper-margin);
+
+        .btn {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    .event__status,
+    .event__time__label {
+        line-height: 16px;
+    }
+    
+    .event__categories,
+    .event__description,
+    .event__loc,
+    .event__title,
+    .event__time {
+        margin-bottom: 15px!important;
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+/**
+ * Sizes
+*/
+
+@layer event {
+    .event {
+        .event__wrapper {
+            // ..
+            @container (min-width: 500px) {
+                --site-event-gap: 30px;
+            }
+            // ..
+            @container (min-width: 600px) {
+                --site-event-flex-direction: row;
+                --site-event-image-width: 217px;
+                --site-event-image-height: auto;
+                --site-event-gap: 40px;
+            }
+            // Increase banner ratio based on the container
+            @container (min-width: 700px) {
+                --site-event-image-width: 300px;
+            }
+            // Increase banner ratio based on the container
+            @container (min-width: 1000px) {
+                --site-event-image-width: 500px;
+            }
+        }
+    }
+}

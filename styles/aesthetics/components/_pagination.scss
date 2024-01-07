@@ -1,0 +1,24 @@
+:root {
+    --site-pagination-display: grid;
+    --site-pagination-gap: 20px;
+    --site-pagination-gtc: repeat(15, auto);
+}
+
+@layer pagination {
+    .pagination {
+        display: var(--site-pagination-display);
+        gap: var(--site-pagination-gap);
+        grid-template-columns: var(--site-pagination-gtc);
+    }
+}
+
+
+// Pagination link color
+// @layer pagination {
+//     .pagination a {
+//         color: body color
+//         &:hover {
+//             text-decoration: none;
+//         }
+//     }
+// }

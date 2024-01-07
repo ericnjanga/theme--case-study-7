@@ -1,0 +1,214 @@
+:root {
+    --enjanga-h1-font-size: 45px;
+    --enjanga-h1-line-height: 54px;
+
+    --enjanga-h2-font-size: 36px;
+    --enjanga-h2-line-height: 40px;
+
+    --enjanga-h3-font-size: 28px;
+    --enjanga-h3-line-height: 32px;
+
+    --enjanga-txt-large-font-size: 20px;
+    --enjanga-txt-large-line-height: 26px;
+
+    --enjanga-grid-2col-max-template: auto;
+    --enjanga-grid-2col-max-gap: 30px;
+}
+
+ 
+
+/**
+ * INITIALIZATION
+ * ---------------------------------------------
+*/
+// Font type
+* {
+    // Typography
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
+    // Smoorh transition
+    transition: all 0.5s ease;
+}
+
+
+
+/**
+*
+* CONTAINER QUERIES
+* --------------------------------------------------
+*/
+@layer utilities {
+    .bx-container {
+        container-type: inline-size;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-weight: 700;
+}
+
+
+h1 {
+    font-size: var(--enjanga-h1-font-size);
+    line-height: var(--enjanga-h1-line-height);
+}
+
+h2 {
+    font-size: var(--enjanga-h2-font-size);
+    line-height: var(--enjanga-h2-line-height);
+}
+
+h3 {
+    font-size: var(--enjanga-h3-font-size);
+    line-height: var(--enjanga-h3-line-height);
+}
+
+.txt-small {
+    font-size: var(--enjanga-font-size-xs);
+    line-height: var(--enjanga-line-height-xs);
+}
+
+.txt-large {
+    font-size: var(--enjanga-txt-large-font-size);
+    line-height: var(--enjanga-txt-large-line-height);
+}
+
+
+/**
+ * Color
+ * ---------------------------------------------
+*/
+body {
+    background-color: var(--enjanga-clr-body-bg);
+
+    @media (min-width: 1400px) {
+        // border: 10px solid purple;
+        --enjanga-h1-font-size: 94px;
+        --enjanga-h1-line-height: 90px;
+
+        --enjanga-h2-font-size: 64px;
+        --enjanga-h2-line-height: 62.5px;
+
+        --enjanga-h3-font-size: 48px;
+        --enjanga-h3-line-height: 52px;
+
+        --enjanga-txt-large-font-size: 24px;
+        --enjanga-txt-large-line-height: 35px;
+    }
+    @media (min-width: 1200px) and (max-width: (1400px - 1)) { // position 6 ...
+        // border: 10px solid violet;
+        --enjanga-h1-font-size: 84.5px;
+        --enjanga-h1-line-height: 83px;
+
+        --enjanga-h2-font-size: 58px;
+        --enjanga-h2-line-height: 58.5px;
+
+        --enjanga-h3-font-size: 42px;
+        --enjanga-h3-line-height: 46px;
+
+        --enjanga-txt-large-font-size: 20px;
+        --enjanga-txt-large-line-height: 30px;
+    }
+    @media (min-width: 992px) and (max-width: (1200px - 1)) {
+        // border: 10px solid lime;
+        --enjanga-h1-font-size: 75px;
+        --enjanga-h1-line-height: 76px;
+
+        --enjanga-h2-font-size: 52px;
+        --enjanga-h2-line-height: 54.5px;
+
+        --enjanga-h3-font-size: 38px;
+        --enjanga-h3-line-height: 42px;
+
+        // --enjanga-txt-large-font-size: root
+        // --enjanga-txt-large-line-height: root
+    }
+    @media (min-width: 768px) and (max-width: (992px - 1)) {
+        // border: 10px solid blue;
+        --enjanga-h1-font-size: 65.5px;
+        --enjanga-h1-line-height: 69px;
+
+        --enjanga-h2-font-size: 46px;
+        --enjanga-h2-line-height: 50.5px;
+
+        --enjanga-h3-font-size: 32px;
+        --enjanga-h3-line-height: 36px;
+
+        // --enjanga-txt-large-font-size: root
+        // --enjanga-txt-large-line-height: root
+    }
+    @media (min-width: 576px) and (max-width: (768px - 1)) {
+        border: 10px solid turquoise;
+        --enjanga-h1-font-size: 56px;
+        --enjanga-h1-line-height: 62px;
+
+        --enjanga-h2-font-size: 40px;
+        --enjanga-h2-line-height: 43.5px;
+
+        // --enjanga-h3-font-size: root
+        // --enjanga-h3-line-height: root
+
+        // --enjanga-txt-large-font-size: root
+        // --enjanga-txt-large-line-height: root
+    }
+    
+    // --enjanga-h1-font-size: root
+    // --enjanga-h1-line-height: root
+
+    // --enjanga-h2-font-size: root
+    // --enjanga-h2-line-height: root
+
+    // --enjanga-h3-font-size: root
+    // --enjanga-h3-line-height: root
+
+    // --enjanga-txt-large-font-size: root
+    // --enjanga-txt-large-line-height: root
+}
+
+
+/**
+ * DOM utilities
+ * ---------------------------------------------
+*/
+.list-v-align {
+    padding-left: 15px;
+}
+.pos-relative {
+    position: relative;
+}
+.page-anchor-dir {
+    position:absolute; 
+    top: 0;
+    display: block;
+    height: 10px;
+    width: 100%;
+}
+.list-no-style {
+    li {
+        list-style: none;
+    }
+}
+.list-inline {
+    display: flex;
+    gap: 30px;
+
+    &.gap-10 {
+        gap: 10px;
+    }
+}
+.grid-2col-max {
+    display: grid;
+    grid-template: var(--enjanga-grid-2col-max-template);
+    gap: var(--enjanga-grid-2col-max-gap);
+
+    @media (min-width: 1200px) { // position 6 ...
+        --enjanga-grid-2col-max-gap: 50px;
+    }
+    @media (min-width: 768px) { // position 4 ...
+        --enjanga-grid-2col-max-template: auto auto / auto auto;
+    }
+}

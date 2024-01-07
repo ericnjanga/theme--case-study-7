@@ -1,0 +1,89 @@
+:root {
+}
+
+
+@layer links {
+    /** 
+     * Classes applied directly to <a /> tags 
+     * --------------
+    */
+    // Link underlined by default, underline removed on hover
+    a.link-underlined {
+        text-decoration: underline;
+        &:hover {
+            text-decoration: none;
+        }
+    }
+
+    // ...
+    a.link-not-underlined {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    // Link with color1 by default, and color2 on hover
+    a.link-color-hover1 {
+        color: var(--enjanga-clr-gray-2);
+        &:hover {
+            color: var(--enjanga-clr-accent);
+        }
+    }
+
+    // Link with color3 by default, and color4 on hover
+    a.link-color-hover2 {
+        color: var(--enjanga-clr-accent);
+        &:hover {
+            color: var(--enjanga-clr-gray-2);
+        }
+    }
+    
+
+
+
+    /** 
+     * Classes applied directly to of <a /> tags' parent container 
+     * --------------
+    */
+    @layer link-container {
+        // Link underlined by default, underline removed on hover
+        .link-underlined {
+            a {
+                text-decoration: underline;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
+            .btn-secondary {
+                text-decoration: none;
+            }
+        }
+    
+        // Link with color1 by default, and color2 on hover
+        .link-color-hover1 {
+            a {
+                color: var(--enjanga-clr-gray-2);
+                &:hover {
+                    color: var(--enjanga-clr-accent);
+                }
+            }
+            .btn-secondary {
+                color: #fff;
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    
+        // Link with color3 by default, and color4 on hover
+        .link-color-hover2 {
+            a {
+                color: var(--enjanga-clr-accent);
+                &:hover {
+                    color: var(--enjanga-clr-gray-2);
+                }
+            }
+        }
+    }
+}

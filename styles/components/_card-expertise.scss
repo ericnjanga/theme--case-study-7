@@ -1,0 +1,72 @@
+:root {
+    --enjanga-card-expertise-direction: column-reverse;
+    --enjanga-card-expertise-text-padding: 30px;
+    --enjanga-card-expertise-text-padding-bottom: 0px;
+    --enjanga-card-expertise-line-height: 25px;
+    
+    --enjanga--clr-card-expertise-bg: var(--enjanga-clr-body-bg1);
+    --enjanga--clr-card-expertise-title: var(--enjanga-clr-gray-1);
+    --enjanga--clr-card-expertise-p: var(--enjanga-clr-gray-2);
+    --enjanga--clr-card-expertise-footer-cta: var(--enjanga-clr-accent);
+}
+
+@layer card-expertise {
+    .card-expertise {
+        background-color: var(--enjanga--clr-card-expertise-bg);
+
+
+        &:hover {
+            --enjanga--clr-card-expertise-bg: var(--enjanga-clr-accent);
+            --enjanga--clr-card-expertise-title: var(--enjanga-clr-body-bg1);
+            --enjanga--clr-card-expertise-p: var(--enjanga-clr-body-bg1);
+            --enjanga--clr-card-expertise-footer-cta: var(--enjanga-clr-body-bg1);
+        }
+
+
+        > a {
+            display: block;
+            text-decoration: none;
+
+            p {
+                margin: 0;
+            }
+        }
+
+
+
+
+
+        // Increase card padding based on parent container size
+        @container (min-width: 400px) {
+            --enjanga-card-expertise-text-padding: 45px;
+        }
+
+        @container (min-width: 500px) {
+            --enjanga-card-expertise-text-padding: 70px;
+        }
+
+        .card-expertise__body {
+            padding: var(--enjanga-card-expertise-text-padding);
+            padding-bottom: var(--enjanga-card-expertise-text-padding-bottom);
+            line-height: var(--enjanga-card-expertise-line-height);
+
+            p {
+                color: var( --enjanga--clr-card-expertise-p);
+            }
+
+            .card-title {
+                color: var( --enjanga--clr-card-expertise-title);
+            }
+        }
+
+        .card-expertise__footer {
+            padding-left: var(--enjanga-card-expertise-text-padding);
+            padding-bottom: var(--enjanga-card-expertise-text-padding);
+            color: var(--enjanga--clr-card-expertise-footer-cta);
+            border: none;
+            background-color: inherit;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+}

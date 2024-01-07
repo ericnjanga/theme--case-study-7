@@ -1,0 +1,15 @@
+
+body {
+    font-family: var(--site-font-family-body);
+    background-color: var(--site-clr-body-background);
+}
+
+a, 
+body, 
+.pre-title {
+    color: var(--site-clr-text2);
+}
+
+ul {
+    margin-bottom: 0;
+}

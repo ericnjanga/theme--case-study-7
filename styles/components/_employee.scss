@@ -1,0 +1,32 @@
+
+
+@layer employee {
+    .employee {
+        position: relative;
+        background: #fff;
+        padding: 5px;
+    }
+    .employee__bio {
+        display: none;
+    }
+    .employee__cta-modal {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+}
+
+
+
+#employeeModal {
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+}
+
+
+body.modal-open {
+    overflow: hidden;
+}

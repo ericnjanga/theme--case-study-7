@@ -1,0 +1,302 @@
+
+:root {
+    --site-vlog-item-items-bottom-spacing: 10px;
+    --site-vlog-item-title-font-size: calc(1.3rem + 0.6vw);
+    --site-vlog-item-title-line-height: 1.65rem;
+    --site-vlog-item-border-radius: 15px;
+    --site-vlog-item-text-radius: 10px;
+    --site-vlog-item-text-padding: 35px 10px 10px 10px;
+    --site-vlog-item-img-width: auto;
+    --site-vlog-item-footer-flex-dir: row;
+    --site-vlog-item-footer-align-item: center;
+    --site-vlog-item-footer-item12-display: block;
+    --site-vlog-item-description-display: none;
+
+    --site-vlog-item-gap: 10px;
+
+    --site-clr-vlog-item-text3: #FFD9DE;
+    --site-clr-vlog-item-background: #fff;
+
+    --site-clr-vlog-item-icon-text: #7657FC;
+    --site-clr-vlog-item-icon-video: #fff;
+    --site-vlog-item-icon-top-pos: 8px;
+    --site-vlog-item-icon-right-pos: 20px;
+
+    --site-clr-vlog-item-background-hover: #AB0727;
+    --site-clr-vlog-item-text1-hover: #fff;
+    --site-clr-vlog-item-text2-hover: #E0CBEF;
+}
+
+@layer vlog-item {
+    .vlog-item {
+        a {
+            position: relative;
+            display: block;
+            text-decoration: none;
+            background-color: var(--site-clr-vlog-item-background);
+        }
+
+        .vlog-item__img {
+            border-radius: var(--site-vlog-item-border-radius);
+        }
+        .vlog-item__title {
+            color: var(--site-clr-text1);
+            font-size: var(--site-vlog-item-title-font-size);
+            line-height: var(--site-vlog-item-title-line-height);
+        }
+        .vlog-item__icon {
+            position: absolute;
+            top: var(--site-vlog-item-icon-top-pos);
+            right: var(--site-vlog-item-icon-right-pos);
+            fill: var(--site-clr-vlog-item-icon-video);
+        }
+    }
+
+    .vlog-item__icon {
+        display: inline-block;
+    }
+
+    .vlog-item--text {
+        a {
+            background-color: var(--site-clr-vlog-item-text3);
+            border-radius: var(--site-vlog-item-text-radius);
+            padding: var(--site-vlog-item-text-padding);
+            --site-vlog-item-icon-right-pos: 10px;
+
+            &:hover {
+                background-color: var(--site-clr-vlog-item-background-hover);
+                .vlog-item__title {
+                    color: var(--site-clr-vlog-item-text1-hover);
+                }
+                .vlog-item__date,
+                .vlog-item__description {
+                    color: var(--site-clr-vlog-item-text2-hover);
+                }
+                .vlog-item__spacer::after {
+                    background-color: var(--site-clr-vlog-item-text2-hover);
+                }
+            }
+
+
+            @media (min-width: 1400px) {
+                // border: 10px solid purple;
+                --site-vlog-item-text-padding: 45px 20px 30px 20px!important;
+                --site-vlog-item-description-display: block;
+            }
+            @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+                // border: 10px solid violet;
+                --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
+                --site-vlog-item-description-display: block;
+            }
+            @media (min-width: 992px) and (max-width: (1200px - 1)) {
+                // border: 10px solid lime;
+                --site-vlog-item-text-padding: 45px 10px 10px 10px!important;
+                --site-vlog-item-description-display: block;
+            }
+            @media (min-width: 768px) and (max-width: (992px - 1)) {
+                // border: 10px solid blue;
+                --site-vlog-item-description-display: block;
+            }
+            @media (min-width: 576px) and (max-width: (768px - 1)) {
+                // border: 10px solid turquoise;
+                --site-vlog-item-description-display: block;
+            }
+            // @media (max-width: (576px - 1px)) {
+            //     border: 10px solid chocolate;
+            // }
+        }
+
+        .vlog-item__title {
+            margin-top: var(--site-vlog-item-items-bottom-spacing);
+        }
+
+        .vlog-item__icon {
+            fill: var(--site-clr-vlog-item-icon-text);
+        }
+    }
+
+    .vlog-item--video {
+        a {
+            &:hover {
+                .vlog-item__date,
+                .vlog-item__title {
+                    color: var(--site-clr-accent);
+                }
+                .vlog-item__img {
+                    filter: grayscale(0.7);
+                    opacity: 0.5;
+                }
+                .site-badge {
+                    background-color: var(--site-clr-accent)!important;
+                    color: var(--site-clr-vlog-item-text1-hover)!important;
+                }
+                .vlog-item__spacer::after {
+                    background-color: var(--site-clr-accent);
+                }
+            }
+
+
+            
+        }
+    }
+
+
+    .vlog-item__title,
+    .vlog-item__youtube-img-wrapper,
+    .vlog-item__img {
+        margin-bottom: var(--site-vlog-item-items-bottom-spacing);
+    }
+
+    .vlog-item__youtube-img-wrapper,
+    .vlog-item__img {
+        width: var(--site-vlog-item-img-width);
+    }
+    .vlog-item__footer {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+
+        .vlog-item__categories__item,
+        .vlog-item__spacer {
+            display: var(--site-vlog-item-footer-item12-display);
+        }
+
+        .vlog-item__date,
+        .vlog-item__spacer {
+            display: none;
+        }
+    }
+    .vlog-item__description {
+        display: var(--site-vlog-item-description-display);
+        margin-top: 10px;
+        color: var(--site-clr-text3);
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+
+
+/**
+ * Objective: Hide the 2 black bands (top and bottom) that all YouTube thumbnail videos have
+ * The process: use a $suggestedHeight to define the height of the thumbnail wrapper, 
+ * and then move the youtube thumbnail up by a certain purcentage to hide the black bands.
+ * -------------
+*/
+@mixin hideYoutubeThumbBlackBands($suggestedHeight, $suggTop: 18%) {
+    height: $suggestedHeight;
+
+    .vlog-item__img {
+        top: -$suggTop;
+    }
+}
+
+
+
+
+/**
+ *
+ *
+ * -------------
+*/
+@layer vlog-item {
+    .vlog-item {
+        @container (max-width: 300px) {
+            --site-vlog-item-footer-flex-dir: column;
+            --site-vlog-item-footer-align-item: flex-start;
+            --site-vlog-item-title-font-size: 1.2rem;
+            --site-vlog-item-title-line-height: 1.0rem;
+            --site-vlog-item-items-bottom-spacing: 5px;
+            --site-vlog-item-border-radius: 7px;
+
+            .vlog-item__title {
+                margin-bottom: 3px!important;
+            }
+
+            // Reposition youtube thumbnail top position
+            .vlog-item__youtube-img-wrapper .vlog-item__img {
+                top: -17%;
+            }
+        }  
+        @container (min-width: 181px) and (max-width: 260px) {
+            --site-vlog-item-text-padding: 45px 10px 10px 10px;
+        }
+        @container (max-width: 180px) {
+            --site-vlog-item-footer-item12-display: none;
+        }
+    }
+}
+
+
+
+
+/**
+ *
+ *
+ * -------------
+*/
+@layer vlog-item {
+
+    .vlog-item__youtube-img-wrapper {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        border-radius: var(--site-vlog-item-border-radius);
+
+        .vlog-item__img {
+            position: absolute;
+            margin-bottom: 0!important;
+        }
+
+        @media (min-width: 1400px) {
+            // border: 4px solid red;
+            @include hideYoutubeThumbBlackBands(224.24px);
+        }
+        @media (min-width: 1200px) and (max-width: (1400px - 1)) {
+            // border: 4px solid rgb(195, 21, 248);
+            @include hideYoutubeThumbBlackBands(194px);
+        }
+        @media (min-width: 992px) and (max-width: (1200px - 1)) {
+            // border: 4px solid rgb(255, 174, 0);
+            @include hideYoutubeThumbBlackBands(160.5px);
+        }
+        @media (min-width: 768px) and (max-width: (992px - 1)) {
+            // border: 4px solid blue;
+            @include hideYoutubeThumbBlackBands(187.31px, 16%);
+        }
+        @media (min-width: 576px) and (max-width: (768px - 1)) {
+            // border: 4px solid coral;
+            --site-vlog-item-img-width: 100%;
+            @include hideYoutubeThumbBlackBands(133px);
+        }
+        @media (min-width: 426px) and (max-width: 570px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(160px);
+        }
+        @media (min-width: 376px) and (max-width: 425px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(108px);
+        }
+        @media (min-width: 321px) and (max-width: 375px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(94px);
+        }
+        @media (max-width: 320px) {
+            // border: 4px solid rgb(139, 141, 0);
+            @include hideYoutubeThumbBlackBands(79px);
+        }
+    }
+}
+
+
+
+
+
+// .vlog-item__youtube-img-wrapper {
+//     @container  (max-width: 140px) {
+//         @include hideYoutubeThumbBlackBands(132px);
+//         border: 4px solid rgb(194, 255, 80);
+//     }
+// }

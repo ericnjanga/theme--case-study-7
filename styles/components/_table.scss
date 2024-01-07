@@ -1,0 +1,29 @@
+:root {
+    --enjanga-table1-cell-padding: 10px;
+}
+
+@layer table {
+    .table-style1 {
+
+        @media (min-width: 576px) {
+            // border: 10px solid turquoise;
+            --enjanga-table1-cell-padding: 15px 10px;
+        }
+
+        thead, tbody {
+            tr {
+                border-bottom: 1px solid var(--enjanga-clr-gray-4);
+            }
+        }
+        thead th {
+            color: var(--enjanga-clr-accent);
+            padding: var(--enjanga-table1-cell-padding);
+        }
+        tbody {
+            th, td {
+                padding: var(--enjanga-table1-cell-padding);
+                border-bottom-width: 0;
+            }
+        }
+    }
+}

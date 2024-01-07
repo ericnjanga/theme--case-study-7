@@ -1,0 +1,20 @@
+
+
+@layer home {
+    .page-template-template-home {
+        .section-highlight {
+            background: var(--site-clr-section-highlight);
+
+            .section-content {
+                color: var(--site-clr-section-highlight-content);
+            }
+        }
+    }
+
+
+    #test-css {
+        object-fit: cover;
+        width: 400px;
+        height: 600px;
+    }
+}

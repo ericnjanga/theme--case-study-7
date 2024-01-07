@@ -1,0 +1,29 @@
+:root {
+    --enjanga-modal-padding-header: 16px;
+    --enjanga-modal-padding-body: 16px;
+}
+
+
+@layer modal {
+    .modal {
+        @media (min-width: 768px) {
+            --enjanga-modal-padding: 30px;
+
+            --enjanga-modal-padding-header: 30px 30px 16px 30px;
+            --enjanga-modal-padding-body: 16px 30px 30px 30px;
+        }
+
+        .modal-subtitle {
+            font-size: var(--enjanga-font-size-xs);
+        }
+
+        .modal-header {
+            align-items: flex-start;
+            padding: var(--enjanga-modal-padding-header);
+        }
+    
+        .modal-body {
+            padding: var(--enjanga-modal-padding-body);
+        }
+    }
+}

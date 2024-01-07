@@ -50,7 +50,7 @@
 
 
     function enqueue_bootstrap_js() {
-        wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array(), '5.3.0', true);
+       // wp_enqueue_script('bootstrap-js', 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js', array(), '5.3.0', true);
     }
     add_action('wp_enqueue_scripts', 'enqueue_bootstrap_js');
 
@@ -59,20 +59,34 @@
     function generic_enqueue() {
         wp_enqueue_style( 'generic-style', get_stylesheet_uri() );
 
-        wp_enqueue_style( 'font-face-1', 'https://fonts.googleapis.com', array(), null );
-        wp_enqueue_style( 'font-face-2', 'https://fonts.gstatic.com', array(), null );
-        wp_enqueue_style( 'font-face-3', 'https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap', array(), null );
-        wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css', array(), null );
-        wp_enqueue_style( 'bootstrap-css', get_template_directory_uri() . '/_markup-and-styles/styles/framework/bootstrap.min.css', array(), null );
+        /* Font families 
+        // wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&family=Maitree:wght@400;600;700&family=Merriweather:wght@400;700&family=Oswald&display=swap', array(), null );
         
-        wp_enqueue_style( 'eric-njanga-2024-styles', get_template_directory_uri() . '/_markup-and-styles/dist/styles.css', array(), '1.1.0' );
+        wp_enqueue_style( 'material-icons', 'https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,200,0,0', array(), null );
+        wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.min.css', array(), null );
 
 
+        
+        
+
+
+        wp_enqueue_style( 'header-font', 'https://fonts.googleapis.com/css2?family=Cormorant+Upright:wght@500;600;700&display=swapp', array(), null );
+        wp_enqueue_style( 'body-font', 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500&display=swap', array(), null );
+        wp_enqueue_style( 'bootstrap-icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css', array(), null );
+          wp_enqueue_style( 'bootstrap-css', 'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css', array(), null );
+        
+        wp_enqueue_style( 'stilettos-hammers-styles', get_template_directory_uri() . '/styles-dist/stilettos-hammers-styles.min.css', array(), '2.4' );
+
+
+        wp_enqueue_style( 'generic-icons', get_template_directory_uri() . '/icons/icons.css' );
         wp_enqueue_script( 'jquery' );
+        wp_register_script( 'generic-videos', get_template_directory_uri() . '/js/videos.js' );
+        wp_enqueue_script( 'generic-videos' );
+        wp_add_inline_script( 'generic-videos', 'jQuery(document).ready(function($){$("#wrapper").vids();});' );*/
     }
     add_action( 'wp_footer', 'generic_footer' );
     function generic_footer() {
-    ?>
+ /*   ?>
     <script>
     jQuery(document).ready(function($) {
     $(".before").on("focus", function() {
@@ -101,7 +115,7 @@
     });
     });
     </script>
-    <?php
+    <?php */
     }
     add_filter( 'document_title_separator', 'generic_document_title_separator' );
     function generic_document_title_separator( $sep ) {
@@ -252,8 +266,8 @@
         wp_enqueue_script('jquery.cookie', 'https://cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js', array('jquery'), '1.0', true);
 
         
-        // Scroll to top functionality
-        wp_enqueue_script('site-scroll-to-top.js', get_template_directory_uri() . '/js/site-scroll-to-top.js', array('jquery'), '1.0', true);
+        // Infinite scroll
+        // wp_enqueue_script('site-infinite-scroll.js', get_template_directory_uri() . '/js/site-infinite-scroll.js', array('jquery'), '1.0', true);
 
         // Localize the ajaxurl variable
         // wp_localize_script('site-infinite-scroll.js', 'my_ajax_obj', array(
@@ -268,9 +282,9 @@
     function enqueue_img_gallery_script() {
         // wp_enqueue_script('jquery');
 
-        wp_enqueue_script('photoswipe', get_template_directory_uri() . '/js/libs/photoswipe.umd.min.js', array(), '1.0', true);
+     /*   wp_enqueue_script('photoswipe', get_template_directory_uri() . '/js/libs/photoswipe.umd.min.js', array(), '1.0', true);
         wp_enqueue_script('photoswipe-lightbox', get_template_directory_uri() . '/js/libs/photoswipe-lightbox.umd.min.js', array(), '1.0', true);
-        wp_enqueue_style( 'photoswipe-css', 'https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe.min.css', array(), null );
+        wp_enqueue_style( 'photoswipe-css', 'https://cdn.jsdelivr.net/npm/photoswipe@5.3.8/dist/photoswipe.min.css', array(), null ); */
     }
     add_action('wp_enqueue_scripts', 'enqueue_img_gallery_script');
 

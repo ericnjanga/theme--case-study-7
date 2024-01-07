@@ -1,0 +1,20 @@
+:root {
+    --enjanga-banner-image-width: 100%;
+    --enjanga-banner-image-height: 320px;
+}
+
+@layer banner-image {
+    .banner-image {
+        object-fit: cover;
+        width: var(--enjanga-banner-image-width);
+        height: var(--enjanga-banner-image-height);
+
+        @media (min-width: 1200px) {
+            --enjanga-banner-image-height: 565px;
+        }
+        @media (min-width: 768px) and (max-width: (1200px - 1)) {
+            --enjanga-banner-image-height: 460px;
+        }
+
+    }
+}

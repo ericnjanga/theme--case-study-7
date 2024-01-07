@@ -5,34 +5,37 @@
      */
     get_header();
 ?>
-<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-    <?php if(function_exists('bcn_display'))
+ 
+
+  <header class="hero gap-top-margin gap-bottom-margin">
+    <div class="container">
+
+      <nav aria-label="breadcrumb" class="breadcrumb section-max-w1 mx-auto">
+        
+        <ol class="breadcrumb__list m-0 mx-auto">
+            <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
-</div> 
+    </ol>
+      </nav>
 
 
-    
-   
-<section>
-    <div class="container">
-  <div class="row">
+      <h1 class="gap-bottom-margin-4th"><?php echo get_field('blog_main_page_heading', 'option'); ?></h1>
+
+      <p class="txt-large section-max-w2 section-h-centering gap-bottom-margin">
+       <?php echo get_field('blog_main_page_content', 'option'); ?>
+      </p>
+
+     
+    </div>
+  </header> 
 
 
-      
-          <div class="row g-0">
-<h1><?php echo get_field('blog_main_page_heading', 'option'); ?></h1>
-<p><?php echo get_field('blog_main_page_content', 'option'); ?></p>
-  </div>
-</div>
-</div>
-</section>
+  <div class="container">
 
 
-<section>
-    <div class="container">
-  <div class="row">
+    <div class="grid-2col-max">
 
 <?php 
         $paged = get_query_var('paged') ? get_query_var('paged') : 1;
@@ -45,23 +48,20 @@
     ) );  
 ?>
 <?php while (have_posts()) : the_post(); ?>
-      
-      <div class="card mb-3" style="max-width: 100%;">
-          <div class="row g-0">
-    <div class="col-md-4">
-    <?php if(get_field('thumbnail_image')) {?>
-    <a href="<?php echo get_permalink(); ?>">  <img src="<?php echo get_field('thumbnail_image'); ?>" class="img-fluid rounded-start" alt="<?php echo get_the_title(); ?>"></a>
-    <?php } ?>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-      <?php echo  get_the_date( 'M dS,  Y') ?>
-        <h4 class="card-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?></a></h4>
-   
-      </div>
-    </div>
-  </div>
-</div>
+ 
+ <article class="card card-article bx-container">
+        <a href="<?php echo get_permalink(); ?>">
+          <img
+            src="<?php echo get_field('thumbnail_image'); ?>" 
+            class="card-article-img img-fluid" alt="<?php echo get_the_title(); ?>" />
+          <div class="card-body">
+            <p class="card-text"> <?php echo  get_the_date( 'M d,  Y') ?></p>
+            <h3 class="card-title m-0">
+             <?php echo get_the_title(); ?>
+            </h3>
+          </div>
+        </a>
+      </article>
       
 <?php endwhile; 
     
@@ -71,7 +71,7 @@
 
 </div>
 </div>
-</section>
+ 
 
 
 <?php

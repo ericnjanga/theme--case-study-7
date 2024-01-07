@@ -1,4 +1,4 @@
-# eric-njanga-2024
+# stilettos-hammers
 Custom WordPress template, built for the Stilettos &
 Hammers corporation
 
@@ -7,11 +7,11 @@ Hammers corporation
 # Project setup instructions
 - Setup a local wordpress project on your machine
 - Fetch this repo under your new project's theme folder
-- Under this theme folder's root (/generic--eric-njanga-2024):
+- Under this theme folder's root (/generic--stilettos-and-hammers):
 -- Install node packages (npm install)
 -- Run SASS Precompiler (npm run compile-scss)
 
-You are now ready to edit stylesheets under /generic--eric-njanga-2024/styles
+You are now ready to edit stylesheets under /generic--stilettos-and-hammers/styles
 
 
 

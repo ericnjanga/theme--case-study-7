@@ -1,0 +1,61 @@
+:root {
+    --enjanga-card-article-text-padding: 30px;
+    --enjanga-clr-card-article-card-bg: var(--enjanga-clr-body-bg1);
+    --enjanga-clr-card-article-title: var(--enjanga-clr-gray-1);
+    --enjanga-card-title-font-size: 28px;
+    --enjanga-card-title-line-height: 32px;
+}
+
+
+@layer article {
+    .card-article {
+        border: 0;
+
+        &:hover {
+            background-color: var(--enjanga-clr-accent);
+            --enjanga-clr-card-article-card-bg: var(--enjanga-clr-accent);
+            --enjanga-clr-card-article-title: var(--enjanga-clr-dark-section-h);
+        }
+
+        a {
+            height: 100%;
+            text-decoration: none;
+            background-color: var(--enjanga-clr-card-article-card-bg);
+
+            .card-body {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: var(--enjanga-card-article-text-padding);
+                background-color: var(--enjanga-clr-card-article-card-bg);
+
+                // ...
+                @container (min-width: 430px) {
+                    --enjanga-card-article-text-padding: 50px;
+                    // --enjanga-card-title-font-size: 34px;
+                    // --enjanga-card-title-line-height: 38px;
+                }
+                @container (min-width: 500px) {
+                    --enjanga-card-article-text-padding: 70px;
+                    // --enjanga-card-title-font-size: 38px;
+                    // --enjanga-card-title-line-height: 42px;
+                }
+            }
+
+            .card-article-img {
+                display: none; // <-- We'll hide the cover image for now
+                object-fit: cover;
+            }
+
+            .card-text {
+                color: var(--enjanga-clr-gray-2);
+            }
+
+            .card-title {
+                color: var(--enjanga-clr-card-article-title);
+                // font-size: var(--enjanga-card-title-font-size);
+                // line-height: var(--enjanga-card-title-line-height);
+            }
+        }
+    }
+}

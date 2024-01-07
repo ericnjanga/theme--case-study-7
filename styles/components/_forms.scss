@@ -1,0 +1,29 @@
+
+:root {
+    --site-input-border-radius: 10px;
+    --site-clr-input-border: #8690B5;
+    --site-clr-input-background: #F5F6FF;
+}
+
+
+@layer form {
+    .form-label {
+        width: 100%;
+    }
+    .form-control,
+    .form-select {
+        background-color: var(--site-clr-input-background);
+        // Prevent these properties to be overriden
+        // (Necessary for instance when I need to carry the same styling on WordPress generated widgets)
+        border-radius: var(--site-input-border-radius)!important;
+        // border-width: 0 0 1px 0!important;
+        border: 1px solid var(--site-clr-input-border);
+        // border-bottom: 1px solid #939393!important;
+        padding: var(--site-form-control-padding)!important;
+
+        /* Change the placeholder text color for all input elements */
+        &::placeholder {
+            color: #999; /* You can set your desired color value here */
+        }
+    }
+}

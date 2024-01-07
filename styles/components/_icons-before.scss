@@ -1,0 +1,23 @@
+.icon-before {
+    &.icon-linkedIn::before {
+        content: "\F472";
+    }
+    &.icon-pin::before {
+        content: "\F3E7";
+    }
+    &.icon-link::before {
+        content: "\F471";
+    }
+    &.icon-text::before {
+        content: "\F3B9";
+    }
+    &.icon-suitcase::before {
+        content: "\F8FF";
+    }
+    &.icon-rocket-takeoff::before {
+        content: "\F845";
+    }
+    &.icon-box-arrow-up-right::before {
+        content: "\F1C5";
+    }
+}

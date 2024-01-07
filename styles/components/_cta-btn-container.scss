@@ -1,0 +1,65 @@
+/**
+ * Bottom page CTA button styling:
+ * Used on the: Contact page, Service page templates
+*/
+
+:root {
+    --site-contact-form-footer-display: flex;
+    --site-contact-form-footer-flex-dir: column;
+    --site-contact-form-footer-row-gap: 20px;
+    --site-contact-form-footer-just-content: flex-start;
+    --site-contact-form-footer-btn-secondary-order: 1;
+    --site-contact-form-footer-btn-width: 100%; //130px;
+}
+
+
+
+@layer cta-btn-container {
+    .cta-btn-container {
+        p {
+            margin: 0;
+            display: var(--site-contact-form-footer-display);
+            flex-direction: var(--site-contact-form-footer-flex-dir);
+            gap: var(--site-contact-form-footer-row-gap);
+
+            br {
+                display: none;
+            }
+
+            .btn {
+                width: var(--site-contact-form-footer-btn-width);
+            }
+        }
+
+        &.flex-end {
+            p {
+                justify-content: var(--site-contact-form-footer-just-content);
+            }
+        }
+
+        &.invert {
+            .btn-secondary {
+                order: var(--site-contact-form-footer-btn-secondary-order);
+            }
+        }
+        
+
+        @container (min-width: 541px) {
+            --site-contact-form-footer-flex-dir: row;
+            --site-contact-form-footer-btn-secondary-order: -1;
+        }
+
+        // @container (max-width: 540px) {} 
+    }
+}
+
+@layer cta-btn-container {
+    .cta-btn-container {
+        p {
+            // ...
+            @media (min-width: 768px) {
+                --site-contact-form-footer-btn-width: 150px;
+            }
+        }
+    }
+}

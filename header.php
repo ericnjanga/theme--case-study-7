@@ -35,6 +35,34 @@
     "description": "<?php bloginfo( 'description' ); ?>"
     }
     </script>
+    
+      <!-- Standard head styles -->
+    <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/styles/framework/bootstrap.min.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@600;700&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+
+  <link rel="stylesheet" href="<?php echo get_bloginfo('template_url'); ?>/dist/styles.css" />
+  <!-- Standard head styles -->
+
+  <!-- Google Analytics Events Script -->
+  <script async src="<?php echo get_bloginfo('template_url'); ?>/js/google-analytics-events.js"></script>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TGXTXXR9G2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-TGXTXXR9G2');
+  </script>
+  
+  
     <?php wp_head(); ?>
 
 
@@ -70,47 +98,33 @@
     <!-- End Meta Pixel Code -->
 </head>
 <body <?php body_class(); ?>>
-    <?php wp_body_open(); ?>
-    <div id="site-global-wrapper" class="site-global-wrapper hfeed">
-        <div class="fixed-top">
-            <div class="main-header-wrapper">
-                <header class="main-header" id="header" role="banner">
-                    <div class="container">
-                        <nav class="navbar navbar-expand-lg">
 
-                            <div class="navbar-brand" id="branding">
-                                <div id="site-title" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                                    <?php
-                                        include '_header-logo.php';
-                                    ?>
-                                </div>
-                                <!-- <div id="site-description"<?php if ( !is_single() ) { echo ' itemprop="description"'; } ?>>
-                                    <?php bloginfo( 'description' ); ?>
-                                </div> -->
-                            </div>
-
-                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                                <span class="navbar-toggler-icon"></span>
-                            </button>
-
-                            <div class="collapse navbar-collapse" id="navbarNav">
-                                <?php
+<?php if(!is_page_template('template-designSystem.php')){ ?>
+    
+<nav class="tenverto-navbar navbar navbar-light navbar-expand-md bg-faded justify-content-center fixed-top">
+    <div class="container">
+      <?php
+          include '_header-logo.php';
+      ?>
+     
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tenverto-nav-collapse">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navbar-collapse collapse w-100" id="tenverto-nav-collapse">
+      
+       <?php
                                     wp_nav_menu(array(
                                         'theme_location' => 'bootstrap-menu',
-                                        'menu_class' => 'navbar-nav',
+                                        'menu_class' => 'nav navbar-nav ml-auto w-100 justify-content-end',
                                         'container' => false,
                                         'depth' => 2,
                                         'walker' => new Bootstrap_Walker_Nav_Menu(),
                                     ));
                                 ?>
-                            </div>
-                                
-                        </nav>
-                    </div>
-                </header>
-            </div>
+         
+      </div>
 
-        </div>
-            
-        <div id="site-global-container" class="site-global-container bx-container">
+    </div>
+  </nav>
+    
+<?php } ?>

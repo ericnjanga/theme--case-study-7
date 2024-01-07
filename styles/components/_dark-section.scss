@@ -1,0 +1,61 @@
+:root {}
+
+
+
+@layer dark-section {
+    .dark-section {
+        background-color: var(--enjanga-clr-dark-section-bg);
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: var(--enjanga-clr-dark-section-h);
+        }
+
+        p,
+        th,
+        td,
+        ul li,
+        ol li {
+            color: var(--enjanga-clr-dark-section-txt);
+        }
+
+        .table-style1 {
+            thead th {
+                color: var(--enjanga-clr-dark-section-accent);
+            }
+        }
+
+
+        @layer buttons-and-links {
+
+            // Link with color1 by default, and color2 on hover
+            a.link-color-hover1 {
+                color: var(--enjanga-clr-dark-section-accent);
+
+                &:hover {
+                    color: var(--enjanga-clr-body-bg);
+                }
+            }
+
+
+            @layer link-container {
+
+                // Link with color3 by default, and color4 on hover
+                .link-color-hover2 {
+                    a {
+                        color: var(--enjanga-clr-dark-section-accent);
+
+                        &:hover {
+                            color: var(--enjanga-clr-body-bg);
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+}

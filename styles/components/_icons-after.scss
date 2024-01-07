@@ -1,0 +1,24 @@
+.icon-after {
+    &.icon-linkedIn::after {
+        content: "\F472";
+    }
+    &.icon-pin::after {
+        content: "\F3E7";
+    }
+    &.icon-link::after {
+        content: "\F471";
+    }
+    &.icon-text::after {
+        content: "\F3B9";
+    }
+    &.icon-suitcase::after {
+        content: "\F8FF";
+    }
+    &.icon-rocket-takeoff::after {
+        content: "\F845";
+    }
+    &.icon-box-arrow-up-right::after {
+        content: "\F1C5";
+    }
+}
+

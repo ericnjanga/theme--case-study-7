@@ -5,32 +5,33 @@
     get_header();
 ?>
 
-<div class="breadcrumbs" typeof="BreadcrumbList" vocab="https://schema.org/">
-    <?php if(function_exists('bcn_display'))
+  <header class="hero gap-top-margin gap-bottom-margin">
+    <div class="container">
+
+      <nav aria-label="breadcrumb" class="breadcrumb section-max-w1 mx-auto">
+        
+        <ol class="breadcrumb__list m-0 mx-auto">
+            <?php if(function_exists('bcn_display'))
     {
         bcn_display();
     }?>
-</div>
-    
-   
-<section>
-    <div class="container">
-  <div class="row">
+    </ol>
+      </nav>
 
 
-      
-          <div class="row g-0">
-<h1><?php echo get_field('heading'); ?></h1>
-<p><?php echo get_field('content'); ?></p>
-  </div>
-</div>
-</div>
-</section>
+      <h1 class="gap-bottom-margin-4th"><?php echo get_field('heading'); ?></h1>
+
+      <p class="txt-large section-max-w2 section-h-centering gap-bottom-margin">
+       <?php echo get_field('content'); ?>
+      </p>
+
+     
+    </div>
+  </header> 
 
 
-<section>
-    <div class="container">
-  <div class="row">
+  <div class="container">
+
 
 <?php 
         $paged = get_query_var('paged') ? get_query_var('paged') : 1;
@@ -44,20 +45,41 @@
 ?>
 <?php while (have_posts()) : the_post(); ?>
       
-      <div class="card mb-3" style="max-width: 100%;">
-          <div class="row g-0">
-    <div class="col-md-4">
-    <a href="<?php echo get_permalink(); ?>">  <img src="<?php echo get_field('thumbnail_image'); ?>" class="img-fluid rounded-start" alt="<?php echo get_the_title(); ?>"></a>
-    </div>
-    <div class="col-md-8">
-      <div class="card-body">
-        <h4 class="card-title"><a href="<?php echo get_permalink(); ?>"> <?php echo get_the_title(); ?></a></h4>
-   
-      </div>
-    </div>
-  </div>
-</div>
+
       
+      
+   <?php     $post_id = $post->ID;  
+$taxonomy = 'ctype'; 
+
+$terms = wp_get_post_terms($post_id, $taxonomy);
+$cat = '';
+if (!empty($terms) && !is_wp_error($terms)) {
+    $term_names = array();
+    foreach ($terms as $term) {
+        $term_names[] = $term->name;
+    }
+    
+    $comma_separated_terms = implode(', ', $term_names);
+    $cat =  $comma_separated_terms;
+} 
+
+
+?>
+    
+    
+    <div class="case-study gap-bottom-margin-4th">
+     <a href="<?php echo get_permalink(); ?>">
+          <img class="card-img-top case-study__img"
+            src="<?php echo get_field('thumbnail_image'); ?>"
+            alt="<?php echo get_the_title(); ?>" />
+    <div class="case-study__body">
+            <p class="case-study__category"><?php echo $cat; ?></p>
+            <h3 class="case-study__title">
+             <?php echo get_the_title(); ?>
+            </h3>
+          </div>
+        </a>
+      </div>
 <?php endwhile; 
     
     wp_pagenavi();
@@ -65,8 +87,7 @@
 
 
 </div>
-</div>
-</section>
+ 
 
     
     
