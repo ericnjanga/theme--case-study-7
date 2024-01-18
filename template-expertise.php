@@ -67,13 +67,22 @@
     
     // Generate the class of each section
     $sectionClass = '';
-    if ($i === 1) { // 1st section
-      $sectionClass = 'pos-relative gap-bottom-padding';
-    } else if ($i % 2 != 0) { // odd section
-      $sectionClass = 'pos-relative gap-top-padding gap-bottom-padding';
+
+    if ($i % 2 != 0) { // odd section
+      if ($i == 1) { // 1st section
+        $sectionClass = 'pos-relative gap-bottom-padding';
+      } else {
+        $sectionClass = 'pos-relative gap-top-padding gap-bottom-padding';
+      }
     } else { // even section
       $sectionClass = 'pos-relative gap-top-padding gap-bottom-padding dark-section';
     }
+
+
+
+
+
+
 ?>
 
 
