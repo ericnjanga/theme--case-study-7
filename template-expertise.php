@@ -87,12 +87,12 @@
         <footer>
           <ul class="list-inline">
             <li>
-              <a class="btn btn-secondary link-icon icon-after icon-suitcase" href="<?php echo get_sub_field('button_1')['url']; ?>" 
+              <a class="btn btn-secondary has-icon icon-after icon-suitcase" href="<?php echo get_sub_field('button_1')['url']; ?>" 
               onclick="trackButtonClick('Related Case Studies', '<?php echo  get_sub_field('main_heading'); ?>')"><?php echo get_sub_field('button_1')['title']; ?>
                 </a>
             </li>
             <li>
-              <a class="btn btn-secondary link-icon icon-after icon-text" href="<?php echo get_sub_field('button_2')['url']; ?>" 
+              <a class="btn btn-secondary has-icon icon-after icon-text" href="<?php echo get_sub_field('button_2')['url']; ?>" 
               onclick="trackButtonClick('Related articles', '<?php echo  get_sub_field('main_heading'); ?>')"><?php echo get_sub_field('button_2')['title']; ?></a>
             </li>
           </ul>

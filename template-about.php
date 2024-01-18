@@ -40,7 +40,7 @@
 
 
         <footer class="gap-top-margin-5th">
-          <a class="btn btn-secondary link-icon icon-after icon-suitcase" href="<?php echo get_field('link')['url']; ?>">
+          <a class="btn btn-secondary has-icon icon-after icon-suitcase" href="<?php echo get_field('link')['url']; ?>">
             See My Latest Work
           </a>
         </footer>

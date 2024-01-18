@@ -188,7 +188,7 @@ if( have_rows('grid') ):
               </p>
             </div>
                         <footer class="card-footer">
-              <button type="button" class="btn btn-primary text-icon icon-after icon-box-arrow-up-right"
+              <button type="button" class="btn btn-primary has-icon icon-after icon-box-arrow-up-right"
                 data-bs-toggle="modal" data-bs-target="#modal-testimonial-'.$post->ID.'" 
                 onclick="trackButtonClick(\'Testimonial\', \'by .. '.get_the_title().'\')">
                 See more

@@ -18,11 +18,11 @@
         <div class="col-lg-12">
           <ul class="footer-header-list list-inline justify-content-center list-no-style m-0 p-0">
             <li>
-              <span class="text-icon icon-before icon-pin">	<?php echo get_field('location','option'); ?></span>
+              <span class="has-icon icon-before icon-pin">	<?php echo get_field('location','option'); ?></span>
             </li>
             <li>
               <a target="_blank" href="<?php echo get_field('linkd','option'); ?>"
-                class="link-icon icon-before icon-linkedIn">Reach out</a>
+                class="has-icon icon-before icon-linkedIn">Reach out</a>
             </li>
           </ul>
         </div>
@@ -53,7 +53,7 @@
                 while( have_rows('On this website','option') ) : the_row();
             ?>
               <li>
-                <a class="link-icon icon-before icon-link" href="<?php echo get_sub_field('linl'); ?>">
+                <a class="has-icon icon-before icon-link" href="<?php echo get_sub_field('linl'); ?>">
                   <?php echo get_sub_field('title'); ?>
                 </a>
               </li>      
@@ -69,7 +69,7 @@
                 while( have_rows('Online Presence','option') ) : the_row();
             ?>
               <li>
-                <a class="link-icon icon-before<?php echo get_sub_field('additional_class'); ?>" target="_blank"
+                <a class="has-icon icon-before<?php echo get_sub_field('additional_class'); ?>" target="_blank"
                 href="<?php echo get_sub_field('linl'); ?>/">
                   <?php echo get_sub_field('title'); ?>
                 </a>
