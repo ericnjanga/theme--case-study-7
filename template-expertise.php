@@ -61,13 +61,23 @@
 
 
 
-<?php if( have_rows('grid') ):  $i = 1;?>
+<?php if( have_rows('grid') ):  $i = 1;
 
-    <?php while( have_rows('grid') ): the_row(); 
+  while( have_rows('grid') ): the_row(); 
+    
+    // Generate the class of each section
+    $sectionClass = '';
+    if ($i == 0) { // 1st section
+      $sectionClass = 'pos-relative gap-bottom-padding';
+    } else if ($i % 2 != 0) { // odd section
+      $sectionClass = 'pos-relative gap-top-padding gap-bottom-padding';
+    } else { // even section
+      $sectionClass = 'pos-relative gap-top-padding gap-bottom-padding dark-section';
+    }
 ?>
 
 
-<section class="<?php if($i % 2 != 0) { echo 'pos-relative gap-top-padding gap-bottom-padding';} else {echo 'pos-relative gap-top-padding gap-bottom-padding dark-section'; } ?>">
+<section class="<?php echo $sectionClass; ?>">
     <span id="expertise<?php echo $i?>" class="page-anchor-dir"></span>
 
     <div class="container">
