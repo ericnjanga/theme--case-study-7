@@ -107,7 +107,7 @@
           include '_header-logo.php';
       ?>
      
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#tenverto-nav-collapse">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#tenverto-nav-collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-collapse collapse w-100" id="tenverto-nav-collapse">

@@ -20,8 +20,8 @@
         <img class="tenverto-logo" src="<?php echo esc_url( $logo[0] ); ?>" alt="Tenverto by Eric Njanga">
       </a>
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#tenverto-designSys-nav-collapse">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#tenverto-designSys-nav-collapse">
         <span class="navbar-toggler-icon"></span>
       </button>
 
