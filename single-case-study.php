@@ -19,10 +19,7 @@
 
       <h1 class="gap-bottom-margin-4th"><?php echo get_the_title(); ?></h1>
       <p class="txt-large section-max-w2 section-h-centering gap-bottom-margin">
-        <!--
-          Note: Shabnam
-          - Field 1: Introduction (textarea)
-        -->
+     <?php echo get_field('introduction'); ?>
       </p>
     </div>
   </header>
@@ -41,13 +38,13 @@
             - Replace "... Case Study title ..." by the case study title (php)
           -->
           <a href="#the-problem" class="list-group-item list-group-item-action"
-            onclick="trackButtonClick('... Case Study title ...', 'The Problem')">The Problem</a>
+            onclick="trackButtonClick('<?php echo get_the_title(); ?>', 'The Problem')">The Problem</a>
           <a href="#image-gallery" class="list-group-item list-group-item-action"
-            onclick="trackButtonClick('... Case Study title ...', 'Image Gallery')">Image Gallery</a>
+            onclick="trackButtonClick('<?php echo get_the_title(); ?>', 'Image Gallery')">Image Gallery</a>
           <a href="#technical-process" class="list-group-item list-group-item-action"
-            onclick="trackButtonClick('... Case Study title ...', 'Technical Proces')">Technical Process</a>
+            onclick="trackButtonClick('<?php echo get_the_title(); ?>', 'Technical Proces')">Technical Process</a>
           <a href="#conclusion-and-takeaway" class="list-group-item list-group-item-action"
-            onclick="trackButtonClick('... Case Study title ...', 'Takeaway')">Conclusion &amp;
+            onclick="trackButtonClick('<?php echo get_the_title(); ?>', 'Takeaway')">Conclusion &amp;
             Takeaway</a>
         </div>
       </div>
@@ -64,10 +61,7 @@
       <span id="the-problem" class="page-anchor-dir half-up"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
-          <!--
-            Note: Shabnam
-            - Field 2: Problem (rich text field)
-          -->
+        <?php echo get_field('problem'); ?>
         </div>
       </div>
     </section>
@@ -79,10 +73,7 @@
       <span id="image-gallery" class="page-anchor-dir half-up"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
-          <!--
-            Note: Shabnam
-            - Field 3: Image Gallery (rich text field)
-          -->
+          <?php echo get_field('image_gallery'); ?>
         </div>
       </div>
     </section>
@@ -94,10 +85,7 @@
       <span id="technical-process" class="page-anchor-dir half-up"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
-          <!--
-            Note: Shabnam
-            - Field 4: Technical Process (rich text field)
-          -->
+          <?php echo get_field('technical_process'); ?>
         </div>
       </div>
     </section>
@@ -109,10 +97,7 @@
       <span id="conclusion-and-takeaway" class="page-anchor-dir half-up"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
-          <!--
-            Note: Shabnam
-            - Field 5: Conclusion & Takeaway (rich text field)
-          -->
+          <?php echo get_field('conclusion_&_takeaway'); ?>
         </div>
       </div>
     </section>
