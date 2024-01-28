@@ -1,7 +1,7 @@
 {
-  "name": "theme--stilettos-and-hammers",
+  "name": "theme--case-study-7",
   "version": "1.0.0",
-  "description": "Custom WordPress template, built for the Stilettos & Hammers corporation",
+  "description": "Custom WordPress template, built for tenverto.com",
   "main": "webpack.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ericnjanga/generic--stilettos-and-hammers.git"
+    "url": "git+https://github.com/ericnjanga/theme--case-study-7.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ericnjanga/generic--stilettos-and-hammers/issues"
+    "url": "https://github.com/ericnjanga/theme--case-study-7/issues"
   },
-  "homepage": "https://github.com/ericnjanga/generic--stilettos-and-hammers#readme",
+  "homepage": "https://github.com/ericnjanga/theme--case-study-7#readme",
   "devDependencies": {
     "css-loader": "^6.5.1",
     "mini-css-extract-plugin": "^2.7.6",
