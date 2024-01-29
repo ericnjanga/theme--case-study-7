@@ -19,7 +19,7 @@
 
       <h1 class="gap-bottom-margin-4th"><?php echo get_the_title(); ?></h1>
       <p class="txt-large section-max-w2 section-h-centering gap-bottom-margin">
-     <?php echo get_field('introduction'); ?>
+        <?php echo strip_tags(get_field('introduction')); ?>
       </p>
     </div>
   </header>
