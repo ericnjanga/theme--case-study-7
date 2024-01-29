@@ -70,7 +70,7 @@
 
     <!-- Image Gallery -->
     <section class="pos-relative gap-top-padding gap-bottom-padding dark-section">
-      <span id="image-gallery" class="page-anchor-dir half-up"></span>
+      <span id="image-gallery" class="page-anchor-dir"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
           <?php echo get_field('image_gallery'); ?>
@@ -82,7 +82,7 @@
 
     <!-- Technical Process -->
     <section class="pos-relative gap-top-padding gap-bottom-padding">
-      <span id="technical-process" class="page-anchor-dir half-up"></span>
+      <span id="technical-process" class="page-anchor-dir"></span>
       <div class="container">
         <div class="col-lg-8 offset-lg-4">
           <?php echo get_field('technical_process'); ?>
