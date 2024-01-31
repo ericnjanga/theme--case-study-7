@@ -5,65 +5,60 @@
     get_header();
 ?>
 
- <?php
-		  
-		   $custom_logo_id = get_theme_mod( 'custom_logo' );
-          $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
-		 
-		  ?>
+<?php
+  $custom_logo_id = get_theme_mod( 'custom_logo' );
+  $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+?>
 
+<nav class="navbar fixed-top navbar-expand-lg bg-primary">
+  <div class="container">
 
-  <nav class="navbar fixed-top navbar-expand-lg bg-primary">
-    <div class="container">
+    <a href="/" class="navbar-brand d-flex mr-auto">
+      <img class="tenverto-logo" src="/images/Logo.png" alt="Tenverto by Eric Njanga">
+    </a>
 
-      <a href="<?php echo get_bloginfo('url'); ?>" class="navbar-brand d-flex mr-auto">
-        <img class="tenverto-logo" src="<?php echo esc_url( $logo[0] ); ?>" alt="Tenverto by Eric Njanga">
-      </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#tenverto-designSys-nav-collapse">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#tenverto-designSys-nav-collapse">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-
-      <div class="collapse navbar-collapse" id="tenverto-designSys-nav-collapse">
-        <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-          <li class="nav-item">
-            <a class="nav-link has-icon icon-before icon-linkedIn" href="<?php echo get_bloginfo('url'); ?>">Back to main site</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section-typography">Typography</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section-buttons">Buttons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section-links">Links</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section-icons">Icons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#section-spacing">Spacing</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Components
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#section-components-testimonial">Testimonial</a></li>
-              <li><a class="dropdown-item" href="#section-components-casestudy">Case Study</a></li>
-              <li><a class="dropdown-item" href="#section-components-expertise">Expertise</a></li>
-              <li><a class="dropdown-item" href="#section-components-article">Article</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+    <div class="collapse navbar-collapse" id="tenverto-designSys-nav-collapse">
+      <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
+        <li class="nav-item">
+          <a class="nav-link has-icon icon-before icon-linkedIn" href="/">Back to main site</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section-typography">Typography</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section-buttons">Buttons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section-links">Links</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section-icons">Icons</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#section-spacing">Spacing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Components
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#section-dark-section">Dark Section</a></li>
+            <li><a class="dropdown-item" href="#section-components-testimonial">Testimonial</a></li>
+            <li><a class="dropdown-item" href="#section-image-poster">Image Poster</a></li>
+            <li><a class="dropdown-item" href="#section-components-casestudy">Case Study</a></li>
+            <li><a class="dropdown-item" href="#section-components-expertise">Expertise</a></li>
+            <li><a class="dropdown-item" href="#section-components-article">Article</a></li>
+          </ul>
+        </li>
+      </ul>
     </div>
-  </nav>
-
-
-
+  </div>
+</nav>
 
 
 <header class="hero gap-top-margin gap-bottom-margin">
@@ -72,7 +67,6 @@
     <p class="txt-large section-max-w2 section-h-centering gap-bottom-margin">The design system provides cohesive visual and functional elements, ensuring consistency across pages. It includes guidelines for typography, colors, layouts, and components to enhance user experience and brand identity.</p>
   </div>
 </header>
-
 
 
 <section class="container">
@@ -221,7 +215,7 @@
         </h2>
 
 
-        <div class="card p-4">
+        <div class="card p-4 text-bg-secondary">
 
           <div class="row">
             <div class="col">
@@ -307,6 +301,99 @@
                 <a target="_blank" href="#" class="btn btn-secondary btn-lg has-icon icon-after icon-linkedIn">Lorem
                   Ipsum</a>
               </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="row mb-5">
+    <div class="col">
+      <div class="pos-relative">
+        <span id="section-dark-section" class="page-anchor-dir"></span>
+        <h2 class="text-center mb-3 section-max-w2 section-h-centering">
+          Dark Section
+        </h2>
+
+
+        <div class="card p-4 dark-section">
+
+          <div class="row mb-3">
+            <div class="col">
+              <h4>Buttons</h4>
+
+              <div class="mb-2">
+                <p class="m-0">Primary</p>
+                <a target="_blank" href="#" class="btn btn-primary">Lorem Ipsum</a>
+              </div>
+
+              <div class="mb-2">
+                <p class="m-0">Secondary</p>
+                <a target="_blank" href="#" class="btn btn-secondary">Lorem Ipsum</a>
+              </div>
+            </div>
+
+            <div class="col-4">
+              <h4>Links</h4>
+
+                
+
+              <!-- -->
+              <!-- -->
+
+
+              <!-- <div class="row mb-3"> -->
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0">
+                    <span class="badge bg-secondary">link-underlined</span>
+                  </p>
+                  <a href="#" class="link-underlined">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0"><span class="badge bg-secondary">link-not-underlined</span></p>
+                  <a href="#" class="link-not-underlined">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0">
+                    <span class="badge bg-secondary">link-color-hover1</span></p>
+                  <a href="#" class="link-color-hover1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0"><span class="badge bg-secondary">link-color-hover2</span></p>
+                  <a href="#" class="link-color-hover2">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0"><span class="badge bg-secondary">With icon (before)</span></p>
+                  <a href="#" class="has-icon icon-before icon-linkedIn">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+                <div class="gap-bottom-margin-5th">
+                  <p class="m-0"><span class="badge bg-secondary">With icon (after)</span></p>
+                  <a href="#" class="has-icon icon-after icon-linkedIn">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a>
+                </div>
+              <!-- </div> -->
+              <!-- -->
+              <!-- -->
+            </div>
+
+
+            <div class="col-6">
+              <h4>Text</h4>
+
+              <div class="mb-2">
+                <h1>lorem ipsum</h1>
+                <h2>lorem ipsum</h2>
+                <h3>lorem ipsum</h3>
+                <h4>lorem ipsum</h4>
+                <h5>lorem ipsum</h5>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Libero accusantium distinctio minima! Soluta necessitatibus consequatur expedita suscipit animi voluptates quam, voluptatum ratione blanditiis possimus, earum repellendus quidem perspiciatis accusantium accusamus.</p>
+              </div>
+
             </div>
           </div>
 
@@ -426,6 +513,7 @@
               </span>
             </div>
           </div>
+
           <div class="row mb-3">
             <div class="col">
               <p class="m-0 txt-small">icon-suitcase</p>
@@ -446,10 +534,28 @@
               </span>
             </div>
             <div class="col">
-              <p class="m-0 txt-small">...</p>
-              <!-- <span target="_blank" href="#" class="has-icon icon-after icon-rocket-takeoff">
-                  <span class="visually-hidden">Rocket icon</span>
-                </span> -->
+              <p class="m-0 txt-small">icon-arrow-down</p>
+              <span target="_blank" href="#" class="has-icon icon-after icon-arrow-down">
+                <span class="visually-hidden">Box arrow right icon</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="row mb-3">
+            <div class="col">
+              <p class="m-0 txt-small">icon-arrow-up</p>
+              <span target="_blank" href="#" class="has-icon icon-after icon-arrow-up">
+                <span class="visually-hidden">Box arrow right icon</span>
+              </span>
+            </div>
+            <div class="col">
+              ...
+            </div>
+            <div class="col">
+              ...
+            </div>
+            <div class="col">
+              ...
             </div>
           </div>
 
@@ -583,6 +689,43 @@
   <div class="row mb-5">
     <div class="col">
       <div class="pos-relative">
+        <span id="section-image-poster" class="page-anchor-dir"></span>
+        <h2 class="text-center mb-3 section-max-w2 section-h-centering">
+          Image poster
+        </h2>
+
+        <div class="card p-4 gap-bottom-margin-4th">
+          <div class="row">
+            <div class="col-4 offset-4">
+              <p>An anchor tag with the class <span class="badge bg-secondary">poster</span> will have it's child image with a nice fading effect on hover.</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4 offset-4">
+
+              <a class="poster" href="#">
+                <img class="img-fluid"
+                  src="https://media.istockphoto.com/id/1126614847/photo/portrait-of-businessman-smiling-over-gray-background.jpg?s=612x612&w=0&k=20&c=Xxh81QLknMjHPpqgqY8j8vS46kWHhWm7yUYgHZ_AReU="
+                  class="img-fluid" alt="image 8" />
+              </a>
+            </div>
+          </div>
+
+
+          
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="row mb-5">
+    <div class="col">
+      <div class="pos-relative">
         <span id="section-components-casestudy" class="page-anchor-dir"></span>
         <h2 class="text-center mb-3 section-max-w2 section-h-centering">
           Case Study
@@ -662,66 +805,56 @@
 </section>
 
 
+<footer class="footer gap-top-margin gap-bottom-margin link-color-hover2 link-underlined">
+  <div class="container footer-container d-flex flex-column">
+    <header class="footer-header row">
+      <div class="col-lg-6 offset-lg-3 text-center">
+        <a href="/" class="navbar-brand">
+          <img class="tenverto-logo" src="/images/Logo.png" alt="Tenverto by Eric Njanga">
+        </a>
+        <p class="m-0">Design System, version 1.0. Return to <a href="/">main site</a>.</p>
+      </div>
+    </header>
 
-  <footer class="footer gap-top-margin gap-bottom-margin link-color-hover2 link-underlined">
-    <div class="container footer-container d-flex flex-column">
-      <header class="footer-header row">
-        <div class="col-lg-6 offset-lg-3 text-center">
-          <a href="<?php echo get_bloginfo('url'); ?>" class="navbar-brand">
-		 
-			  <img class="tenverto-logo" src="<?php echo esc_url( $logo[0] ); ?>" alt="Tenverto by Eric Njanga">
-          </a>
-          <p class="m-0">Design System, version 1.0. Return to <a href="<?php echo get_bloginfo('url'); ?>">main site</a>.</p>
+  </div>
+</footer>
+
+
+<!-- Add the back-to-top button with arrow symbol -->
+<button class="btn-back-to-top" style="display: block;">
+  <div class="arrow-container"><i class="bi bi-arrow-up"></i></div>
+</button>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal-testimonial-1" tabindex="-1" role="dialog"
+  aria-labelledby="modal-testimonial-1Label" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <div>
+          <h5 class="modal-title">First, last name</h5>
+          <p class="modal-subtitle m-0">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, quibu ntium incidu eos.
+          </p>
         </div>
-      </header>
-
-    </div>
-  </footer>
-
-
-
-
-
-
-  <!-- Add the back-to-top button with arrow symbol -->
-  <button class="btn-back-to-top" style="display: block;">
-    <div class="arrow-container"><i class="bi bi-arrow-up"></i></div>
-  </button>
-
-
-
-
-
-
-  <!-- Modal -->
-  <div class="modal fade" id="modal-testimonial-1" tabindex="-1" role="dialog"
-    aria-labelledby="modal-testimonial-1Label" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-
-        <div class="modal-header">
-          <div>
-            <h5 class="modal-title">First, last name</h5>
-            <p class="modal-subtitle m-0">
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nostrum, quibu ntium incidu eos.
-            </p>
-          </div>
-          <button type="button" class="btn-close btn-bs-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur minus quisquam non sed dicta, deserunt
-            officiis. In asperiores dignissimos aperiam, sit aspernatur numquam quam illo alias sed deserunt distinctio
-            dolorum?</p>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore laborum quasi ipsa sed modi non temporibus
-            quos tempore earum laboriosam adipisci repudiandae eligendi aut saepe, incidunt quia doloribus qui
-            doloremque?</p>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto enim eos quibusdam molestiae aperiam
-            natus neque asperiores! Deleniti esse, explicabo ipsa dolores rem accusamus. Illo ex quas dolores error
-            quibusdam!</p>
-        </div>
+        <button type="button" class="btn-close btn-bs-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Pariatur minus quisquam non sed dicta, deserunt
+          officiis. In asperiores dignissimos aperiam, sit aspernatur numquam quam illo alias sed deserunt distinctio
+          dolorum?</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolore laborum quasi ipsa sed modi non temporibus
+          quos tempore earum laboriosam adipisci repudiandae eligendi aut saepe, incidunt quia doloribus qui
+          doloremque?</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto enim eos quibusdam molestiae aperiam
+          natus neque asperiores! Deleniti esse, explicabo ipsa dolores rem accusamus. Illo ex quas dolores error
+          quibusdam!</p>
       </div>
     </div>
   </div>
+</div>
 
 
 <?php 
