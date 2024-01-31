@@ -136,11 +136,15 @@ if( have_rows('grid') ):
             </h2>
             <p class="gap-bottom-margin-5th"><?php echo get_field('contentlink3'); ?>
             </p>
-
           </div>
-          <img
-            src="<?php echo get_field('image3'); ?>"
-            class="banner-image" alt="<?php echo get_field('heading3'); ?>" />
+
+          <a class="poster" 
+            href="<?php echo esc_url( get_permalink( get_page_by_title( 'About' ) ) ); ?>" 
+            onclick="trackButtonClick('Home Page > Dark Section', 'Eric Image')">
+            <img
+              src="<?php echo get_field('image3'); ?>"
+              class="banner-image" alt="<?php echo get_field('heading3'); ?>" />
+          </a>
         </div>
       </div>
     </div>

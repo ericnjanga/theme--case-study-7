@@ -38,19 +38,22 @@
         <h2 class="gap-bottom-margin-5th"><?php echo get_field('heading2'); ?></h2>
        <?php echo get_field('content'); ?>
 
-
-        <footer class="gap-top-margin-5th">
-          <a class="btn btn-secondary has-icon icon-after icon-suitcase" href="<?php echo get_field('link')['url']; ?>">
-            See My Latest Work
-          </a>
-        </footer>
+      <footer class="gap-top-margin-5th">
+        <a 
+          class="btn btn-secondary has-icon icon-after icon-arrow-down" 
+          onclick="trackButtonClick('About Page', 'Button Education')" 
+          href="#education">
+          Education
+        </a>
+      </footer>
 
       </div>
     </div>
   </section>
  
     
-    <section class="gap-top-padding gap-bottom-padding dark-section">
+  <section class="pos-relative gap-top-padding gap-bottom-padding dark-section">
+    <span id="education" class="page-anchor-dir"></span>
     <div class="container">
       <div class="row gap-bottom-margin-4th">
         <div class="col-md-12 col-lg-8 col-xl-8">
@@ -64,38 +67,41 @@
       <div class="row gap-bottom-margin">
         <div class="link-color-hover2 link-underlined col-md-12">
         
-        <?php if( have_rows('list') ): ?>
-   <table class="table table-style1">
-            <thead>
- <tr>
- <th scope="col">Degree</th>
-                <th scope="col">Qty</th>
-                <th class="display-tabCell-hidden-12" scope="col">Type</th>
-                <th scope="col">Institution</th>
+          <?php if( have_rows('list') ): ?>
+            <table class="table table-style1">
+              <thead>
+                <tr>
+                  <th scope="col">Degree</th>
+                  <th scope="col">Qty</th>
+                  <th class="display-tabCell-hidden-12" scope="col">Type</th>
+                  <th scope="col">Institution</th>
+                </tr>
+              </thead>
+              <tbody class="table-group-divider">
+                <?php while( have_rows('list') ): the_row(); 
+                  echo ' 
+                  <tr>
+                    <td scope="col">'.get_sub_field('degree').'</td>
+                    <td scope="col">'.get_sub_field('qty').'</td>
+                    <td  class="display-tabCell-hidden-12" scope="col">'.get_sub_field('type_of_degree').'</td>
+                    <td scope="col">'.get_sub_field('institution').'</td>
+                  </tr>';
+                  endwhile; 
+                ?>
+              </tbody>
+            </table>
 
- </tr>
- </thead>
-  <tbody class="table-group-divider">
-    <?php while( have_rows('list') ): the_row(); 
-       echo ' 
-       <tr>
- <td scope="col">'.get_sub_field('degree').'</td>
- <td scope="col">'.get_sub_field('qty').'</td>
-  <td  class="display-tabCell-hidden-12" scope="col">'.get_sub_field('type_of_degree').'</td>
-
- <td scope="col">'.get_sub_field('institution').'</td>
-
-
- </tr>';
-       
-       endwhile; ?>
-   </tbody>
-          </table>
-<?php endif; ?>
+            <footer class="gap-top-margin-5th">
+              <a 
+                class="btn btn-secondary has-icon icon-after icon-linkedIn" 
+                target="_blank" 
+                onclick="trackButtonClick('About Page', 'Button Request Resume')" 
+                href="https://www.linkedin.com/in/ericnjanga/">
+                Request Resume
+              </a>
+            </footer>
+          <?php endif; ?>
  
-           
-            
-
         </div>
       </div>
 

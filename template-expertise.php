@@ -103,7 +103,7 @@
         </div>
 
 
-        <footer>
+        <!-- <footer> .icon-before.icon-link::before
           <ul class="list-inline">
             <li>
               <a class="btn btn-secondary has-icon icon-after icon-suitcase" href="<?php echo get_sub_field('button_1')['url']; ?>" 
@@ -115,9 +115,8 @@
               onclick="trackButtonClick('Related articles', '<?php echo  get_sub_field('main_heading'); ?>')"><?php echo get_sub_field('button_2')['title']; ?></a>
             </li>
           </ul>
-          
-          
-        </footer>
+        </footer> -->
+
       </div>
     </div>
   </section>
