@@ -363,3 +363,19 @@
 
     // Inject helpers (needed all over the application)
     include '_fct-helpers.php';
+
+
+
+//Shortcode for Company Intro 
+// Usage [Tenverto-company-intro]
+
+function Tenverto_company_intro_shortcode() {
+    // Replace this text with your company introduction
+    $intro_text = get_field('company_intro','option');
+
+    // You can customize the HTML structure here
+    $output = '<section class="tenverto-company-intro">' . $intro_text . '</section>';
+
+    return $output;
+}
+add_shortcode('Tenverto-company-intro', 'Tenverto_company_intro_shortcode');
